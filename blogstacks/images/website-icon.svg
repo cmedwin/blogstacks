@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="230mm"
+   height="196mm"
+   viewBox="0 0 230 196"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="/Users/charliemedwin/Documents/BS/logo-blue-small.png"
+   inkscape:export-xdpi="16.328571"
+   inkscape:export-ydpi="16.328571"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="website-icon.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient4565"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#14567d;stop-opacity:1;"
+         offset="0"
+         id="stop4563" />
+    </linearGradient>
+    <filter
+       inkscape:label="Aluminium Emboss"
+       inkscape:menu-tooltip="Satiny aluminium effect with embossing"
+       inkscape:menu="Non-realistic 3D Shaders"
+       height="1.5"
+       y="-0.25"
+       width="1.5"
+       x="-0.25"
+       style="color-interpolation-filters:sRGB"
+       id="filter3721">
+      <feGaussianBlur
+         stdDeviation="5"
+         result="result8"
+         in="SourceGraphic"
+         id="feGaussianBlur3701" />
+      <feComposite
+         in2="result8"
+         operator="xor"
+         result="result18"
+         id="feComposite3703" />
+      <feComposite
+         k3="0.5"
+         k1="1"
+         operator="arithmetic"
+         result="result16"
+         in2="result18"
+         id="feComposite3705"
+         k2="0"
+         k4="0" />
+      <feComposite
+         in2="result8"
+         result="result6"
+         operator="xor"
+         in="result16"
+         id="feComposite3707" />
+      <feOffset
+         result="result17"
+         in="result6"
+         id="feOffset3709" />
+      <feDisplacementMap
+         in2="result16"
+         in="result17"
+         xChannelSelector="A"
+         yChannelSelector="A"
+         scale="100"
+         result="result4"
+         id="feDisplacementMap3711" />
+      <feComposite
+         in2="result4"
+         result="result2"
+         operator="arithmetic"
+         in="result4"
+         k3="1"
+         id="feComposite3713"
+         k1="0"
+         k2="0"
+         k4="0" />
+      <feComposite
+         in2="result2"
+         result="fbSourceGraphic"
+         in="result6"
+         operator="in"
+         id="feComposite3715" />
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="xor"
+         result="result14"
+         id="feComposite3717" />
+      <feComposite
+         result="result15"
+         in2="result2"
+         operator="in"
+         in="result14"
+         id="feComposite3719" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.42618539"
+     inkscape:cx="183.43046"
+     inkscape:cy="327.97994"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="778"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="true"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4569"
+       originx="0"
+       originy="-2.33786e-06" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-101)">
+    <rect
+       y="264.70111"
+       x="7.7011151"
+       height="24.597771"
+       width="104.59777"
+       id="rect5702"
+       style="opacity:1;fill:#030000;fill-opacity:1;stroke:#000000;stroke-width:15.40223026;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeQuality"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15.40223026;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeQuality"
+       id="rect5708"
+       width="104.59777"
+       height="24.597771"
+       x="27.701115"
+       y="212.70111"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       y="160.70111"
+       x="57.701115"
+       height="24.597771"
+       width="104.59777"
+       id="rect5712"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15.40223026;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeQuality"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#030303;stroke-width:15.40223026;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeQuality"
+       id="rect5714"
+       width="104.59777"
+       height="24.597771"
+       x="117.70112"
+       y="108.70111"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
