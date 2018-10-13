@@ -136,7 +136,7 @@ body {
 
   .titleg {
     background: #ffffff;
-    vertical-align: top;
+    vertical-align: top; 
   }
 
   td {
@@ -147,4 +147,16 @@ body {
   #desc {
     margin: 0px;  
     padding: 5px 5px;
+    vertical-align: top;
   }
+
+  #acc {
+    margin: 0px;  
+    padding: 5px 5px;
+    font-size: 7px;
+  }
+
+  a:link {color: inherit; text-decoration: inherit}
+  a:visited {color: inherit; text-decoration: inherit}
+  a:hover {color: orange; text-decoration: underline}
+  a:active {color: inherit; text-decoration: inherit}
