@@ -1,11 +1,150 @@
 
-.navigation {
+body {
+    background: #EEE;
+    margin: 0;
+    padding: 0;
+  }
+
+.header {
     box-sizing: border-box;
     background-color: #323232;
     overflow: auto;
-    padding: 18px 50px;
+    padding: 10px 1px 6px;
     position: relative;
     top: 0;
     width: 100%;
     z-index: 999;
+    text-align: center;
+  }
+
+  .navigation {
+    box-sizing: border-box;
+    background-color: #323232;
+    color: #EEE;
+    overflow: auto;
+    padding: 2px 5px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    border-top: 1px solid #777777;
+    font-family: 'DIN Alternate', sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  li:hover {
+    color:orange;
+  }
+
+  .stackHeader {
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #14567d;
+    color: #FFF;
+    overflow: auto;
+    padding: 10px 1px 10px;
+    position: absolute;
+    top: 100px;
+    width: 80%;
+    max-width: 560px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    text-align: center;
+    font-family: 'DIN Alternate', sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .blogger {
+    left: 50%;
+    top: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 39%;
+    max-width: 273px;
+    margin-right: -50%;
+    transform: translate(-103%, -50%);
+    color: #FFF;
+    font-family: 'DIN Alternate', sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .blog {
+    left: 50%;
+    top: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 39%;
+    max-width: 273px;
+    margin-right: -50%;
+    transform: translate(3%, -50%);
+    color: #323232;
+    font-family: 'DIN Alternate', sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .image1r {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/suarez_yerba_mate_large.jpg?v=1522328462");
+    background-size: cover;
+}
+  .image2r {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171013-WTW_07211_large.jpg?v=1535365207");
+    background-size: cover;
+}
+
+   .image1g {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171008-WTW_06457_large.jpg?v=1535365157");
+    background-size: cover;
+}
+
+  .image2g {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/ATCO_8.9_large.jpg?v=1538565711");
+    background-size: cover;
+}
+
+  .titler {
+    background: #14567d;
+    vertical-align: top;
+  }
+
+  .titleg {
+    background: #ffffff;
+    vertical-align: top;
+  }
+
+  td {
+    height: 70px;
+    padding: 0px;
+  }
+
+  #desc {
+    margin: 0px;  
+    padding: 5px 5px;
   }
