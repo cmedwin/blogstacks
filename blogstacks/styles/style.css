@@ -1,7 +1,11 @@
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    width: auto\9; /* ie8 */
-}
+.navigation {
+    box-sizing: border-box;
+    background-color: #323232;
+    overflow: auto;
+    padding: 18px 50px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
