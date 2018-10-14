@@ -87,10 +87,10 @@ body {
     top: 80px;
     overflow-y: scroll;
     position: absolute;
-    width: 39%;
+    width: 48%;
     max-width: 273px;
     margin-right: -50%;
-    transform: translate(-103%, 0%);
+    transform: translate(-102%, 0%);
     color: #FFF;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 10px;
@@ -104,11 +104,11 @@ body {
     top: 80px;
     overflow-y: scroll;
     position: absolute;
-    width: 39%;
+    width: 48%;
     max-width: 273px;
     margin-right: -50%;
     vertical-align: top;
-    transform: translate(3%,0%);
+    transform: translate(2%,0%);
     color: #323232;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 10px;
@@ -116,6 +116,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
   }
+
 
   .image1r {
     width: 85px;
@@ -160,10 +161,12 @@ body {
 
   .titler {
     background: #14567d;
+    min-width: 80px;
   }
 
   .titleg {
     background: #ffffff;
+    min-width: 80px;
   }
 
   td {
@@ -175,15 +178,42 @@ body {
   #desc {
     margin: 0px;  
     padding: 5px 5px;
+    max-height: 70px;
+    min-height: 70px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
   }
 
   #acc {
     margin: 0px;  
     padding: 5px 5px;
     font-size: 7px;
+    height: 10px;
+    color: orange;
   }
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
   a:hover {color: orange; text-decoration: underline}
   a:active {color: inherit; text-decoration: inherit}
+
+  .stats ul{
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    overflow: auto;
+    font-size: 10px;
+  }
+
+  .stats li {
+    float:left;
+    display: block;
+    padding: 2px 5px;
+    font-family: 'DIN Alternate', sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
