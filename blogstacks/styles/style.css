@@ -9,37 +9,54 @@ body {
     box-sizing: border-box;
     background-color: #323232;
     overflow: auto;
-    padding: 10px 1px 6px;
+    padding: 8px 1px 4px;
     position: relative;
     top: 0;
     width: 100%;
     z-index: 999;
     text-align: center;
+    margin: 0;
   }
 
-  .navigation {
-    box-sizing: border-box;
-    background-color: #323232;
+  .navigation ul{
     color: #EEE;
+    padding: 0;
+    margin: 0;
+    background-color: #323232;
     overflow: auto;
-    padding: 2px 5px;
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 999;
     border-top: 1px solid #777777;
-    font-family: 'DIN Alternate', sans-serif;
     font-size: 10px;
+  }
+
+  .navigation li {
+    float:left;
+    display: block;
+    padding: 2px 5px;
+    border-right: 1px solid #777777;
+    font-family: 'DIN Alternate', sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase;
   }
 
-  li:hover {
-    color:orange;
+  li:last-child {
+    border-right: none;
+}
+
+  .navigation li:hover {
+    background-color: orange;
+    border-bottom: 1px solid orange;
   }
 
-  .stackHeader {
+  .active {
+    border-bottom: 1px solid orange;
+}
+
+  .settings {
+    color: #323232;
+}
+
+  /*.stackHeader {
     box-sizing: border-box;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -61,26 +78,19 @@ body {
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase;
-  }
+  }*/
 
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    display: inline-block;
-  }
+  
 
   .blogger {
     left: 50%;
-    top: 200px;
+    top: 80px;
     overflow-y: scroll;
     position: absolute;
     width: 39%;
     max-width: 273px;
     margin-right: -50%;
-    transform: translate(-103%, -50%);
+    transform: translate(-103%, 0%);
     color: #FFF;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 10px;
@@ -88,16 +98,17 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  
+
   .blog {
     left: 50%;
-    top: 200px;
+    top: 80px;
     overflow-y: scroll;
     position: absolute;
     width: 39%;
     max-width: 273px;
     margin-right: -50%;
-    transform: translate(3%, -50%);
+    vertical-align: top;
+    transform: translate(3%,0%);
     color: #323232;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 10px;
@@ -108,18 +119,18 @@ body {
 
   .image1r {
     width: 85px;
-    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/suarez_yerba_mate_large.jpg?v=1522328462");
-    background-size: cover;
+    background: url("https://scontent.flhr4-2.fna.fbcdn.net/v/t1.0-9/27858096_337250043430016_4527363611506847069_n.jpg?_nc_cat=110&oh=2153b275fcce46810fc5c9e6c885cd48&oe=5C5B69CA");
+    background-size: contain;
 }
   .image2r {
     width: 85px;
-    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171013-WTW_07211_large.jpg?v=1535365207");
-    background-size: cover;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/t/4/assets/logo-small.svg?14457229167469512304");
+    background-size: contain;
 }
 
    .image1g {
     width: 85px;
-    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171008-WTW_06457_large.jpg?v=1535365157");
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171013-WTW_07211_large.jpg?v=1535365207");
     background-size: cover;
 }
 
@@ -129,25 +140,41 @@ body {
     background-size: cover;
 }
 
+  .image3g {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/20171008-WTW_06457_large.jpg?v=1535365157");
+    background-size: cover;
+}
+
+  .image4g {
+    width: 85px;
+    background: url("https://static1.squarespace.com/static/5a75c1c8be42d6cd6a794749/t/5b9a7a520ebbe8e940a1d005/1536850517136/WhatsApp+Image+2018-04-25+at+09.37.46.jpeg?format=1500w");
+    background-size: cover;
+}
+
+  .image5g {
+    width: 85px;
+    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/messi_yerba_mate_large.jpg?v=1522328410");
+    background-size: cover;
+}
+
   .titler {
     background: #14567d;
-    vertical-align: top;
   }
 
   .titleg {
     background: #ffffff;
-    vertical-align: top; 
   }
 
   td {
     height: 70px;
     padding: 0px;
+    vertical-align: top; 
   }
 
   #desc {
     margin: 0px;  
     padding: 5px 5px;
-    vertical-align: top;
   }
 
   #acc {
