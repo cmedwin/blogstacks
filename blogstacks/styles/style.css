@@ -9,7 +9,7 @@ body {
     box-sizing: border-box;
     background-color: #323232;
     overflow: auto;
-    padding: 8px 1px 4px;
+    padding: 10px 1px 6px;
     position: relative;
     top: 0;
     width: 100%;
@@ -31,7 +31,7 @@ body {
   .navigation li {
     float:left;
     display: block;
-    padding: 2px 0px;
+    padding: 4px 0px;
     font-family: 'DIN Alternate', sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
@@ -40,7 +40,7 @@ body {
 
   .navigation p {
     margin: 0;
-    padding: 2px 5px;
+    padding: 0px 4px 0px 5px;
     border-right: 1px solid #777777;
   }
 
@@ -122,12 +122,6 @@ body {
     text-transform: uppercase;
   }
 
-  .eye {
-    background-image: url(/images/apple-touch-icon.png);
-    background-size: contain;
-  }
-
-
   .image1r {
     width: 85px;
     background: url("https://scontent.flhr4-2.fna.fbcdn.net/v/t1.0-9/27858096_337250043430016_4527363611506847069_n.jpg?_nc_cat=110&oh=2153b275fcce46810fc5c9e6c885cd48&oe=5C5B69CA");
@@ -192,7 +186,7 @@ body {
     min-height: 70px;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
   }
 
@@ -211,7 +205,7 @@ body {
 
   .stats ul{
     color: inherit;
-    padding: 0;
+    padding: 0px 5px;
     margin: 0;
     background-color: inherit;
     overflow: auto;
@@ -221,9 +215,9 @@ body {
   .stats li {
     float:left;
     display: block;
-    padding: 2px 5px;
     font-family: 'DIN Alternate', sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
+    padding: 1px 1px;
     text-transform: uppercase;
   }
