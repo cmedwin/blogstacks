@@ -31,12 +31,17 @@ body {
   .navigation li {
     float:left;
     display: block;
-    padding: 2px 5px;
-    border-right: 1px solid #777777;
+    padding: 2px 0px;
     font-family: 'DIN Alternate', sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase;
+  }
+
+  .navigation p {
+    margin: 0;
+    padding: 2px 5px;
+    border-right: 1px solid #777777;
   }
 
   li:last-child {
@@ -49,7 +54,7 @@ body {
   }
 
   .active {
-    border-bottom: 1px solid orange;
+    border-bottom: 3px solid orange;
 }
 
   .settings {
@@ -115,6 +120,11 @@ body {
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase;
+  }
+
+  .eye {
+    background-image: url(/images/apple-touch-icon.png);
+    background-size: contain;
   }
 
 
