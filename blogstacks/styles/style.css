@@ -15,7 +15,7 @@ body {
     overflow: auto;
     padding: 10px 1px 6px;
     position: relative;
-    top: -10px;
+    top: 0;
     width: 100%;
     text-align: center;
     margin: 0;
@@ -236,7 +236,7 @@ body {
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
-  a:hover {color: orange; text-decoration: underline}
+  p:hover {color: orange; text-decoration: underline}
   a:active {color: inherit; text-decoration: inherit}
 
   .stats ul{
