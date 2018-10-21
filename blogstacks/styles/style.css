@@ -11,7 +11,7 @@ body {
 
 .header ul{
     box-sizing: border-box;
-    background-color: #323232;
+    background-color: #0c3c58;
     overflow: auto;
     padding: 10px 1px 6px;
     position: relative;
@@ -20,6 +20,8 @@ body {
     text-align: center;
     margin: 0;
   }
+
+
 
 /* Page content */
 .content {
@@ -41,21 +43,20 @@ body {
   div.navigation {
     overflow: auto;
     white-space: nowrap;
-    background-color: #323232;
-    border-top: 1px solid #777777;
-    padding-left: 4px 8px;
-    vertical-align: middle;
+    background-color: #0c3c58;
+    border-top: 1px solid #cccccc;
+    padding: 0px 8px;
     font-size: 0px;
   }
 
   div.navigation a {
-    color: #EEE;
+    color: #bbbbbb;
     /*float:left;*/
     display: inline-block;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 14px;
     font-weight: 100;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     text-align: center;
   }
@@ -63,21 +64,27 @@ body {
   div.navigation p {
     padding: 0px 10px 0px 10px;
     margin: 6px 0px;
-    border-right: 1px solid #777777;
-    border-left: 1px solid #777777;
+    border-right: 1px solid #bbbbbb;
   }
 
-  div.navigation p:last-child {
-    border-right: none;
-}
-
   div.navigation a:hover {
-    border-bottom: 4px solid orange;
+    text-decoration: underline;
+    text-decoration-color: #0c3c58;
   }
 
   .active {
     border-bottom: 4px solid orange;
-}
+  }
+
+  .active p {
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    height: 0px;
+    background: transparent;  /* optional: just make scrollbar invisible */
+  }
 
   /*.stackHeader {
     box-sizing: border-box;
@@ -191,12 +198,6 @@ body {
     min-width: 80px;
   }
 
-  td {
-    height: 70px;
-    padding: 0px;
-    vertical-align: top; 
-  }
-
   #desc {
     margin: 0px;  
     padding: 5px 5px;
@@ -212,6 +213,24 @@ body {
     padding: 5px 5px;
     font-size: 7px;
     height: 10px;
+    color: orange;
+  }
+
+  #desc_r {
+    margin: 0px;  
+    padding: 5px 5px;
+    height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+  }
+
+  #acc_r {
+    margin: 0px;  
+    padding: 5px 5px;
+    font-size: 7px;
+    height: 60px;
     color: orange;
   }
 
@@ -238,3 +257,4 @@ body {
     padding: 1px 1px;
     text-transform: uppercase;
   }
+
