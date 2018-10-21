@@ -6,6 +6,10 @@ body {
   }
 
 .header {
+    z-index: 500;
+}
+
+.header ul{
     box-sizing: border-box;
     background-color: #323232;
     overflow: auto;
@@ -13,25 +17,42 @@ body {
     position: relative;
     top: 0;
     width: 100%;
-    z-index: 999;
     text-align: center;
     margin: 0;
   }
 
+/* Page content */
+.content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+
   .navigation ul{
     color: #EEE;
-    padding: 0;
+    padding: 0px 8px;
     margin: 0;
     background-color: #323232;
     overflow: auto;
     border-top: 1px solid #777777;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .navigation li {
     float:left;
     display: block;
-    padding: 4px 0px;
+    padding: 6px 0px;
     font-family: 'DIN Alternate', sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
@@ -40,7 +61,7 @@ body {
 
   .navigation p {
     margin: 0;
-    padding: 0px 4px 0px 5px;
+    padding: 0px 9px 0px 10px;
     border-right: 1px solid #777777;
   }
 
@@ -50,11 +71,11 @@ body {
 
   .navigation li:hover {
     background-color: orange;
-    border-bottom: 1px solid orange;
+    border-bottom: 4px solid orange;
   }
 
   .active {
-    border-bottom: 3px solid orange;
+    border-bottom: 4px solid orange;
 }
 
   .settings {
@@ -89,7 +110,7 @@ body {
 
   .blogger {
     left: 50%;
-    top: 80px;
+    top: 100px;
     overflow-y: scroll;
     position: absolute;
     width: 48%;
@@ -106,7 +127,7 @@ body {
 
   .blog {
     left: 50%;
-    top: 80px;
+    top: 100px;
     overflow-y: scroll;
     position: absolute;
     width: 48%;
