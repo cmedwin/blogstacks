@@ -13,7 +13,7 @@ body {
     box-sizing: border-box;
     background-color: #0c3c58;
     overflow: auto;
-    padding: 10px 1px 6px;
+    padding: 17px 1px 10px;
     position: relative;
     top: 0;
     width: 100%;
@@ -37,7 +37,7 @@ body {
   
   /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
   .sticky + .content {
-    padding-top: 102px;
+    padding-top: 88px;
   }
 
   div.navigation {
@@ -114,7 +114,7 @@ body {
 
   .blogger {
     left: 50%;
-    top: 100px;
+    top: 110px;
     overflow-y: scroll;
     position: absolute;
     width: 48%;
@@ -131,7 +131,7 @@ body {
 
   .blog {
     left: 50%;
-    top: 100px;
+    top: 110px;
     overflow-y: scroll;
     position: absolute;
     width: 48%;
@@ -236,7 +236,7 @@ body {
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
-  p:hover {color: orange; text-decoration: underline}
+  a:hover {color: orange; text-decoration: underline}
   a:active {color: inherit; text-decoration: inherit}
 
   .stats ul{

@@ -16,10 +16,10 @@
               // if you want all links, use if('href' in curnode) instead.
               if(
                 'href' in curnode && // is a link
-                (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
-                (	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
-                  chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
-              ) {
+					      (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+				      	(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+				    		chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+	          	) {
                 e.preventDefault();
                 location.href = curnode.href;
               }
@@ -32,7 +32,7 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="mask-icon" href="images/website-icon.svg" color="black">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   </head>
