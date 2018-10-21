@@ -38,48 +38,45 @@ body {
     padding-top: 102px;
   }
 
-
-  .navigation ul{
-    color: #EEE;
-    padding: 0px 8px;
-    margin: 0;
-    background-color: #323232;
+  div.navigation {
     overflow: auto;
+    white-space: nowrap;
+    background-color: #323232;
     border-top: 1px solid #777777;
-    font-size: 14px;
+    padding-left: 4px 8px;
+    vertical-align: middle;
+    font-size: 0px;
   }
 
-  .navigation li {
-    float:left;
-    display: block;
-    padding: 6px 0px;
+  div.navigation a {
+    color: #EEE;
+    /*float:left;*/
+    display: inline-block;
     font-family: 'DIN Alternate', sans-serif;
+    font-size: 14px;
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-align: center;
   }
 
-  .navigation p {
-    margin: 0;
-    padding: 0px 9px 0px 10px;
+  div.navigation p {
+    padding: 0px 10px 0px 10px;
+    margin: 6px 0px;
     border-right: 1px solid #777777;
+    border-left: 1px solid #777777;
   }
 
-  li:last-child {
+  div.navigation p:last-child {
     border-right: none;
 }
 
-  .navigation li:hover {
-    background-color: orange;
+  div.navigation a:hover {
     border-bottom: 4px solid orange;
   }
 
   .active {
     border-bottom: 4px solid orange;
-}
-
-  .settings {
-    color: #323232;
 }
 
   /*.stackHeader {
@@ -203,8 +200,7 @@ body {
   #desc {
     margin: 0px;  
     padding: 5px 5px;
-    max-height: 70px;
-    min-height: 70px;
+    height: 70px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 6;
