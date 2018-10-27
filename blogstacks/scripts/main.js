@@ -39,7 +39,7 @@ var searchTable = function searchTable(table, input) {
       // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
       // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
       // The original code uses getElementsByTagName, which return a LIVE nodeList, watch out for this difference.
-      rows = Array.prototype.slice.call(table.querySelectorAll('tr'));
+      rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
     rows.forEach(function(row) {
       // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
       // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
