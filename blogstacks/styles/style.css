@@ -113,9 +113,10 @@ body {
     padding: 10px 0px 10px 0px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
     position: absolute;
-    z-index: 500;
+    z-index: -100;
     border-width: 4px 5px;
     border-color: #EEE;
+    text-align: center;
   }
 
   .gone {

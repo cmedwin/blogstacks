@@ -34,7 +34,7 @@ for (var i = 0; i < btns.length; i++) {
 
 var searchTable = function searchTable(table, input) {
     // Since we bound the input, we can use input.value to get the current words typed into the input.
-    var filter = input.value,
+    var filter = input.value.toUpperCase(),
       // A table has both a thead and a tbody.
       // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
       // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
@@ -43,7 +43,7 @@ var searchTable = function searchTable(table, input) {
     rows.forEach(function(row) {
       // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
       // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
-      var hide = (row.innerHTML.indexOf(filter) === -1);
+      var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
       // The alternative is actually checking each cell, but this makes the script take longer:
       // var hide = !Array.prototype.slice.call( row.querySelectorAll('td') ).some(function( cell ) {
       //     return (cell.innerHTML.indexOf( filter ) !== -1);
