@@ -48,6 +48,7 @@ body {
 
   div.navigation {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     background-color: #0c3c58;
     border-top: 1px solid #cccccc;
@@ -166,6 +167,8 @@ body {
     overflow-y: scroll;
     height: 100%;
     display: inline-block;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
 
 
@@ -186,6 +189,7 @@ body {
     overflow-y: scroll;
     height: 100%;
     display: inline-block;
+    -webkit-overflow-scrolling: touch;
   }
 
   .spacer {
