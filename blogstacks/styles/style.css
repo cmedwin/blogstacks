@@ -47,13 +47,14 @@ body {
   }
 
   div.navigation {
-    overflow: auto;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     background-color: #0c3c58;
     border-top: 1px solid #cccccc;
     padding: 0px 8px;
     font-size: 0px;
+    overflow-y: hidden;
   }
 
   div.navigation a {
@@ -100,11 +101,11 @@ body {
   #myInput {
     left: 50%;
     transform: translate(-50%, 0%);
-    top: 100px;
+    top: 98px;
     background-image: url('../images/search.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
+    background-position: 98px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 96%; /* Full-width */
+    width: 96.75%; /* Full-width */
     max-width: 714px;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 14px;
@@ -115,7 +116,7 @@ body {
     border: 1px solid #ddd; /* Add a grey border */
     position: absolute;
     z-index: -100;
-    border-width: 4px 5px;
+    border-width: 6px 4px;
     border-color: #EEE;
     text-align: center;
   }
@@ -190,6 +191,7 @@ body {
     height: 100%;
     display: inline-block;
     -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
 
   .spacer {
@@ -240,7 +242,7 @@ body {
 }
 
   .titler {
-    background: #14567d;
+    background: #62879b;
     width: 100%;
   }
 
@@ -273,7 +275,7 @@ body {
   }
 
   #desc_r {
-    width: 85%;
+    width: 100%;
     margin: 0px;  
     padding: 2px 5px 6px;
     height: 22px;
@@ -286,7 +288,7 @@ body {
   }
 
   #acc_r {
-    width: 85%;
+    width: 100%;
     margin: 0px;  
     padding: 0px 5px;
     font-size: 7px;
