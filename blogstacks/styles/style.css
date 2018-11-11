@@ -19,7 +19,7 @@ body {
     box-sizing: border-box;
     background-color: #0c3c58;
     overflow: auto;
-    padding: 24px 1px 4px;
+    padding: 24px 1px 52px;
     position: relative;
     top: 0;
     width: 100%;
@@ -47,46 +47,44 @@ body {
   }
 
   div.navigation {
+    left: 50%;
+    transform: translate(-50%, 0%);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     background-color: #0c3c58;
-    border-top: 1px solid #cccccc;
-    padding: 0px 8px;
+    /*border-top: 1px solid #cccccc;*/
+    padding: 0px 8px 0px 8px;
     font-size: 0px;
     overflow-y: hidden;
+    position: absolute;
+    top: 84px;
   }
 
-  div.navigation a {
+  div.navigation button{
     color: #bbbbbb;
+    outline: none;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    padding: 2px 15px 2px 15px;
+    margin: 4px 0px 0px 0px;
+    background-color: inherit;
     /*float:left;*/
     display: inline-block;
-    font-family: 'DIN Alternate', sans-serif;
-    font-size: 14px;
+    font-family: DIN Alternate, sans-serif;
+    font-size: 12px;
     font-weight: 100;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-align: center;
   }
 
-  div.navigation p {
-    padding: 0px 10px 0px 10px;
-    margin: 6px 0px;
-    border-right: 1px solid #bbbbbb;
-  }
-
-  div.navigation a:hover {
-    text-decoration: underline;
-    text-decoration-color: #0c3c58;
-  }
-
-  .active {
-    border-bottom: 4px solid orange;
-  }
-
-  .active p {
-    color: #ffffff;
-  }
+#navActive {
+  border-bottom: 4px solid orange;
+  color: #ffffff
+}
 
   ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
@@ -99,9 +97,11 @@ body {
   }
 
   #myInput {
+    border-radius: 3px;
     left: 50%;
     transform: translate(-50%, 0%);
-    top: 98px;
+    top: 58px;
+    outline: none;
     background-image: url('../images/search.png'); /* Add a search icon to input */
     background-position: 98px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -112,17 +112,20 @@ body {
     font-weight: 100;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 10px 0px 10px 0px; /* Add some padding */
+    padding: 3px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
     position: absolute;
-    z-index: -100;
-    border-width: 6px 4px;
-    border-color: #EEE;
-    text-align: center;
+    z-index: 100;
+    text-align: left;
   }
 
   .gone {
     display: none;
+  }
+  
+  #butFilter {
+    position: absolute;
+    top: 10px;
   }
 
   /*.stackHeader {
@@ -195,7 +198,7 @@ body {
   }
 
   .spacer {
-      height: 145px;
+      height: 118px;
   }
 
   .image1r {
@@ -242,7 +245,7 @@ body {
 }
 
   .titler {
-    background: #62879b;
+    background: #607c8d;
     width: 100%;
   }
 
