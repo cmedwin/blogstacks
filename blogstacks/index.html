@@ -39,24 +39,29 @@
   </head>
   <body>
       
+    <div class="mobileHeader"></div>
+
     <div class="header" id="myHeader">
       <ul>
-          <li><img src="images/bs-logo-white.png" height="30px;" /></li>
+          <li><img src="images/bs-logo-white.png" class="logo"/></li>
       </ul>
     
-      <input type="text" id="butFilter">
-
+      
+      <div class="searchhead">
       <div class="search">
-          <input type="text" id="myInput" placeholder="Search...">
+          <button onclick="butFilter()" id="butFilter">ALLSTACKS</button><input type="text" id="myInput" placeholder="Search..." aria-autocomplete="none">
+          <button type="submit"><i class="fa fa-search"></i></button>
         </div>
+      </div>
 
+      <div class="hide" id="navhead">
       <div class="navigation" id="navigation">
           <button type="submit" class="btn" id="navActive" value="">ALLSTACKS</button>
           <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
           <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
           <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
       </div>
-
+      </div>
       
     
       <!--<ul class="stackHeader">

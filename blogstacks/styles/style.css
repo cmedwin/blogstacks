@@ -9,56 +9,110 @@ body {
     overscroll-behavior-y: contain;
   }
 
+  @media screen and (max-width: 480px) { 
+    .mobileHeader {
+      height: 20pt;
+      position: relative;
+    }
+    }
+
 .header {
     z-index: 500;
     position: fixed;
-    width: 100%;
-}
-
-.header ul{
-    box-sizing: border-box;
-    background-color: #0c3c58;
-    overflow: auto;
-    padding: 24px 1px 52px;
-    position: relative;
     top: 0;
     width: 100%;
-    text-align: center;
-    margin: 0;
+    height: 56px;
+    background-color: #0c3c58;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    height: 107px;
   }
 
+}
+
+img.logo {
+  height: 33px;
+  padding: 10px 0px 13px 0px;
+}
+
+@media screen and (max-width: 480px) {
+  img.logo {
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+  .header ul{
+      margin: auto;
+      max-width: 710px;
+      width: 96%; /* Full-width */
+      list-style-type: none;
+      box-sizing: border-box;
+      padding: 2px 0px 0px;
+      position: relative;
+      top: 0;
+      text-align: left;
+      
+    }
+
+    @media screen and (max-width: 480px) { 
+      .header ul{
+          list-style-type: none;
+          box-sizing: border-box;
+          padding: 24px 0px 0px;
+          position: relative;
+          top: 0;
+          text-align: center;
+          margin: 0;
+        }
+      }
 
 
-/* Page content */
+/* Page content 
 .content {
     padding: 16px;
-  }
+  }*/
   
-  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  /* The sticky class is added to the header with JS when it reaches its scroll position 
   .sticky {
     position: fixed;
     top: 0;
     width: 100%
   }
-  
-  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  */
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) 
   .sticky + .content {
     padding-top: 88px;
+  }*/
+
+  #navhead {
+    top: -7px;
+    position: relative;
+    background-color:#082a3e;
+  }
+
+  @media screen and (max-width: 480px) {
+    #navhead {
+      top: 12px;
+    }
   }
 
   div.navigation {
-    left: 50%;
-    transform: translate(-50%, 0%);
-    overflow-x: auto;
+    /*left: 50%;
+    transform: translate(-50%, 0%);*/
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
-    background-color: #0c3c58;
+    background-color: #082a3e;
     /*border-top: 1px solid #cccccc;*/
     padding: 0px 8px 0px 8px;
     font-size: 0px;
-    overflow-y: hidden;
-    position: absolute;
-    top: 84px;
+    position: relative;
+    margin: auto;
+    max-width: 713px;
+    width: 100%; /* Full-width */
+    vertical-align: middle;
   }
 
   div.navigation button{
@@ -68,7 +122,7 @@ body {
     border-left: none;
     border-top: none;
     border-bottom: none;
-    padding: 2px 15px 2px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 4px 0px 0px 0px;
     background-color: inherit;
     /*float:left;*/
@@ -92,41 +146,151 @@ body {
     background: transparent;  /* optional: just make scrollbar invisible */
   }
 
+  .searchhead {
+    margin: auto;
+    max-width: 713px;
+    padding: 0px 8px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .searchhead {
+      padding: 0px 0px;
+    }
+  }
+
   .search {
-    left:50%;
+    position: relative;
+    top: -52px;
+    max-width: 500px;
+    width: 70%; /* Full-width */
+    height: 35px;
+    float: right;
+  }
+
+  @media screen and (max-width: 480px) { 
+  .search {
+    position: relative;
+    top: 6px;
+    margin: auto;
+    max-width: 500px;
+    width: 97%; /* Full-width */
+    height: 35px;
+    float: none; 
+  }}
+
+  #butFilter {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    position: static;
+    width:40%;
+    max-width: 180px;
+    background: #f3f3f3;
+    vertical-align: middle;
+    font-family: 'DIN Alternate', sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    text-transform: uppercase;
+    height: 100%;
+    border: 0px;
+    border-right: 1px solid #cdcdcd;
+    outline: 0;
+    padding: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and (max-width: 480px) {
+    #butFilter {
+      max-width: 250px;
+    }
+  }
+
+  #butFilter::after {
+    content: '\00A0\00A0\25b6\00fe0e';
+    color:  #cdcdcd;
+  }
+  
+  #butFilter::before {
+    content: '\25c0\00fe0e\00A0\00A0';
+    color:  #cdcdcd;
   }
 
   #myInput {
-    border-radius: 3px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top: 58px;
-    outline: none;
-    background-image: url('../images/search.png'); /* Add a search icon to input */
-    background-position: 98px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 96.75%; /* Full-width */
-    max-width: 714px;
+    border-radius: 0px;
+    outline: 0;
+    width: calc(60% - 60px); /* Full-width */
+    max-width: 258px;
     font-family: 'DIN Alternate', sans-serif;
     font-size: 14px;
     font-weight: 100;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 3px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    position: absolute;
+    margin: 0px;
+    position: static;
     z-index: 100;
     text-align: left;
+    padding-left: 10px;
+    padding-right: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 0px;
+    height: 100%;
+    -webkit-appearance: none;
+    box-shadow: none;
+    vertical-align: middle;
+  }
+
+  #myInput::placeholder{
+    color: #c0c0c0;
+    opacity: 1;
+  }
+
+  #search:focus {
+    border: 1px solid orange;
+  }
+
+  .search button {
+    right: 0px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    width: 45px;
+    height: 100%;
+    background:orange;
+    border: 1px solid orange;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    z-index: 200;
+    padding: none;
+    outline: none;
+  }
+
+  .show {
+    transition: opacity 0.3s linear;
+    opacity: 1; 
+    height: auto;
+  }
+
+  .hide {
+    opacity: 1; 
+    height: auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    .hide {
+      transition: opacity 0.3s linear;
+      opacity: 0; 
+      height: 0;
+    }
   }
 
   .gone {
     display: none;
   }
   
-  #butFilter {
-    position: absolute;
-    top: 10px;
-  }
+  
 
   /*.stackHeader {
     box-sizing: border-box;
@@ -198,7 +362,13 @@ body {
   }
 
   .spacer {
-      height: 118px;
+      height: 100px;
+  }
+  
+  @media screen and (max-width: 480px) {
+  .spacer {
+    height: calc(110px - 20pt);
+}
   }
 
   .image1r {
@@ -309,11 +479,13 @@ body {
 
   .stats ul{
     color: inherit;
-    padding: 6px 5px 2px;
+    padding: 0px 5px 3px;
     margin: 0;
     background-color: inherit;
     overflow: auto;
     font-size: 10px;
+    opacity: 0;
+    height: 0px;
   }
 
   .stats li {
@@ -324,5 +496,6 @@ body {
     letter-spacing: 0px;
     padding: 0px 1px;
     text-transform: uppercase;
+    opacity: 0;
   }
 

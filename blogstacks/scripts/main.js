@@ -1,7 +1,7 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
     document.getElementById("navActive").setAttribute('id','navActive');
-    document.getElementById("butFilter").value = document.getElementById("navActive").innerHTML;
+    document.getElementById("butFilter").innerHTML = document.getElementById("navActive").innerHTML;
       var input = document.querySelector('#navActive'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
@@ -22,7 +22,8 @@ window.onload = function() {
           document.getElementById("myInput").value = "";
           document.getElementById("navActive").setAttribute('id','nav');
           this.setAttribute('id','navActive')
-          document.getElementById("butFilter").value = this.innerHTML ;
+          document.getElementById("butFilter").innerHTML = this.innerHTML ;
+          document.getElementById("navhead").setAttribute('class','hide');
           var input = document.querySelector('#navActive'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
@@ -64,4 +65,7 @@ window.onload = function() {
       bindSearch('#blog', '#myInput');
       bindSearch('#blogger', '#myInput');
       
-    
+// 3. Show NavBar when hit butfilter button
+      function butFilter() {
+        document.getElementById("navhead").setAttribute('class','show');
+      }
