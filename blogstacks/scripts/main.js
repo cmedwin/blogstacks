@@ -67,5 +67,12 @@ window.onload = function() {
       
 // 3. Show NavBar when hit butfilter button
       function butFilter() {
-        document.getElementById("navhead").setAttribute('class','show');
+        if (document.getElementById("navhead").getAttribute('class') === 'hide') document.getElementById("navhead").setAttribute('class','show');
+        else document.getElementById("navhead").setAttribute('class','hide');
       }
+
+// 4. 
+      if (window.navigator.standalone) {
+        document.getElementById(blog).style.top = "114px";
+        document.getElementById(blogger).style.top = "114px";
+        }
