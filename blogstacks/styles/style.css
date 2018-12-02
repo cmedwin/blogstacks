@@ -267,19 +267,21 @@ img.logo {
                     padding: 0px 0px 0px;
                   }
 
+
                   #mainList li {
-                    padding-top: 10px;
+                    padding-top: 14px;
                     padding-bottom: 10px;
                     padding-left: 4px;
                     border-bottom: solid 1px #555555;
                     margin-left: 12%;
                     margin-right: 12%;
                     text-align: left;
+                    height: 22px;
                   }
 
                   #ig {
                     height: 16px;
-                    padding-top: 4px;
+                    padding: 0px;
                   }
 
 
@@ -291,6 +293,7 @@ img.logo {
     top: -7px;
     position: relative;
     background-color:#082a3e;
+    height:42px;
   }
 
   @media screen and (max-width: 480px) {
@@ -305,7 +308,7 @@ img.logo {
     transform: translate(-50%, 0%);*/
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
-    background-color: #082a3e;
+    background-color: transparent;
     /*border-top: 1px solid #cccccc;*/
     padding: 0px 8px 0px 8px;
     font-size: 0px;
@@ -403,6 +406,7 @@ img.logo {
     padding: 0px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: auto;
   }
 
   @media screen and (max-width: 480px) {

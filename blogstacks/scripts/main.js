@@ -70,6 +70,8 @@ window.onload = function() {
       
 // 3. Show NavBar when hit butfilter button
       function butFilter() {
+        if( $(window).width() < 481)
+        {
         var navhead = document.getElementById("navhead");
         
         if ($(navhead).attr('class') === 'closed-nocss') {
@@ -82,6 +84,7 @@ window.onload = function() {
         }
         //if (document.getElementById("navhead").getAttribute('class') === 'gone') document.getElementById("navhead").setAttribute('class','show');
         //else document.getElementById("navhead").setAttribute('class','gone');
+        }
       }
 
 // 4. Main menu animation - mobile
@@ -93,7 +96,7 @@ window.onload = function() {
 
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
               $(navhead).slideUp(250); 
-              $(navhead).attr('class','closed'); 
+              $(navhead).attr('class','closed-nocss'); 
               $(search).fadeOut(200);
               $(mainList).fadeIn(500);
               //$(search).animate({opacity: 0}, 200);
@@ -111,30 +114,46 @@ window.onload = function() {
           }
         }
 
-// 4. Main menu animation - web
+// 5. Main menu animation - web
 
 function menuWeb() {
   var search =  document.getElementById("search");
   var btn =  document.getElementsByClassName("btn");
+  var blog =  document.getElementsByClassName("blog");
+  var blogger =  document.getElementsByClassName("blogger");
 
   if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-      $(search).fadeOut(200);
-      $(btn).fadeOut(200);
+      $(search).animate({opacity: 0.25}, 200);
+      $(blog).animate({opacity: 0.25}, 200);
+      $(blogger).animate({opacity: 0.25}, 200);
+      //$(btn).fadeOut(200);
       document.getElementById("mainMenu").setAttribute('class','open');
       document.getElementById("mainList").setAttribute('class','show');
-      document.getElementById("navigation").style.backgroundColor = "#000000";
+      //document.getElementById("navigation").style.backgroundColor = "#000000";
       document.getElementById("navhead").style.backgroundColor = "#000000";
       document.getElementById("myHeader").style.backgroundColor = "#000000";
   }
   else {
-      $(search).fadeIn(200);
+      $(search).animate({opacity: 1}, 200);
+      $(blog).animate({opacity: 1}, 200);
+      $(blogger).animate({opacity: 1}, 200);
       $(btn).fadeIn(200);
       document.getElementById("mainMenu").setAttribute('class','closed');
       document.getElementById("mainList").setAttribute('class','hide');
-      document.getElementById("navigation").style.backgroundColor = "#082a3e";
+      //document.getElementById("navigation").style.backgroundColor = "#082a3e";
       document.getElementById("navhead").style.backgroundColor = "#082a3e";
       document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
   }
 }       
           
-        
+// 6. Show menu on orientation change
+
+window.addEventListener('resize', function(){
+  var navhead = document.getElementById("navhead");
+  if( $(window).width() < 481) {
+    $(navhead).slideUp(50);
+  }
+  else {
+    $(navhead).slideDown(50);
+  }
+}, false);
