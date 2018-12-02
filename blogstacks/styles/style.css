@@ -19,31 +19,31 @@ body {
     width: 100%;
     height: 56px;
     background-color: #0c3c58;
-}
-
-@media screen and (max-width: 480px) {
-  .header {
-    height: 88px;
-    position: fixed;
     /* Status bar height on iOS 10 */
     padding-top: 20px;
     /* Status bar height on iOS 11.0 */
     padding-top: constant(safe-area-inset-top);
     /* Status bar height on iOS 11+ */
     padding-top: env(safe-area-inset-top);
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    height: 88px;
+    position: fixed;
   }
 }
 
 img.logo {
   height: 33px;
   padding: 10px 0px 13px 0px;
+  z-index: 2000;
 }
 
 @media screen and (max-width: 480px) {
   img.logo {
     height: 30px;
     padding: 0px 0px 0px 0px;
-    z-index: 1000;
     position: relative;
     vertical-align: middle;
   }
@@ -76,11 +76,19 @@ img.logo {
       }
 
   /* Burger Menu */
-                  
+                
+  .menuWeb {
+    display: inline-block;
+  }
+
   .menuMob {
     display: none;
   }
   @media screen and (max-width: 480px) {
+    .menuWeb {
+      display: none;
+    }
+
     .menuMob {
       height: 0;
       display: block;
@@ -100,13 +108,20 @@ img.logo {
                   {
                     display: block;
                     position: relative;
-                    top: 10px;
-                    left: 15px;
-                    
-                    z-index: 1000;
-                    
+                    top: 7px;
+                    left: 5px;
+                    padding-right: 20px;
+                    z-index: 1100;
                     -webkit-user-select: none;
                     user-select: none;
+                  }
+                  @media screen and (max-width: 480px) {
+                    #menuToggle
+                    {  
+                      padding-right: 0px;
+                      top: 10px;
+                      left: 15px;
+                    }
                   }
                   
                   #menuToggle input
@@ -121,7 +136,7 @@ img.logo {
                     cursor: pointer;
                     
                     opacity: 0; /* hide this */
-                    z-index: 1000; /* and place it over the hamburger */
+                    z-index: 1100; /* and place it over the hamburger */
                     
                     -webkit-touch-callout: none;
                   }
@@ -140,7 +155,7 @@ img.logo {
                     background: #ffffff;
                     border-radius: 3px;
                     
-                    z-index: 1000;
+                    z-index: 1100;
                     
                     transform-origin: 4px 0px;
                     
@@ -183,8 +198,15 @@ img.logo {
                   * Make this absolute positioned
                   * at the top left of the screen
                   */
-                  #menu
+                  
+                  #mainMenu{
+                    opacity: 0;
+                  }
+
+                  @media screen and (max-width: 480px) {
+                  #mainMenu
                   {
+                    opacity: 1;
                     position: absolute;
                     width: 105%;
                     height: 700px;
@@ -193,6 +215,7 @@ img.logo {
                     padding: 0;
                     padding-top: 125px;
                     left: -15px;
+                    z-index: 1000;
                     
                     background-color: #0c3c58;
                     list-style-type: none;
@@ -202,20 +225,16 @@ img.logo {
                     transform-origin: 0% 0%;
                     transform: translate(0,-100%);
                     
-                    transition: transform 0.5s cubic-bezier(0.1,0.1,0.1,0.1);
+                    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
                   }
+                 }
 
                   #menuToggle input:checked ~ menu {
                     background-color: #323232;
+      
                     -webkit-transition: background-color 1000ms linear;
                     -ms-transition: background-color 1000ms linear;
                     transition: background-color 0.5s linear; 
-                  }
-                  
-                  #menu li
-                  {
-                    padding: 10px 0;
-                    font-size: 22px;
                   }
                   
                   /*
@@ -225,6 +244,44 @@ img.logo {
                   {
                     transform: none;
                   }
+
+                  #mainList {
+                    position: absolute;
+                    z-index: 1100;
+                    color: white;
+                    display: inline-block;
+                    display: none;
+                    font-family: DIN Alternate, sans-serif;
+                    font-size: 16px;
+                    font-weight: 100;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    width: 100%;
+                    margin-top: 40px;
+                    border-top: solid 1px #555555;
+                    /*transition: opacity 0.5s linear;*/
+                  }
+
+                  #mainList ul {
+                    width: 100%;
+                    padding: 0px 0px 0px;
+                  }
+
+                  #mainList li {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-left: 4px;
+                    border-bottom: solid 1px #555555;
+                    margin-left: 12%;
+                    margin-right: 12%;
+                    text-align: left;
+                  }
+
+                  #ig {
+                    height: 16px;
+                    padding-top: 4px;
+                  }
+
 
   /* End - Burger Menu */
 
@@ -239,6 +296,7 @@ img.logo {
   @media screen and (max-width: 480px) {
     #navhead {
       top: 12px;
+      display: none;
     }
   }
 
@@ -260,7 +318,7 @@ img.logo {
 
   div.navigation button{
     color: #bbbbbb;
-    background-color: #082a3e;
+    background-color: transparent;
     outline: none;
     border-right: none;
     border-left: none;
@@ -320,7 +378,8 @@ img.logo {
     width: 97%; /* Full-width */
     height: 35px;
     float: none; 
-  }}
+  }
+  }
 
   #butFilter {
     border-top-left-radius: 2px;
@@ -436,13 +495,13 @@ img.logo {
     height: auto;
   }
 
-  .hide {
+  .closed {
     opacity: 1; 
     height: auto;
   }
 
   @media screen and (max-width: 480px) {
-    .hide {
+    .closed {
       transition: opacity 0.3s linear;
       opacity: 0; 
       height: 0;
@@ -497,19 +556,41 @@ img.logo {
     letter-spacing: 1px;
     /*text-transform: uppercase;*/
     overflow-y: scroll;
-    height: 100%;
+    height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     -ms-overflow-style: none;
+    /* Status bar height on iOS 10 */
+    padding-top: 20px;
+    /* Status bar height on iOS 11.0 */
+    padding-top: constant(safe-area-inset-top);
+    /* Status bar height on iOS 11+ */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
-  @media screen and (max-width: 480px) {
+  @media only screen and (max-width: 480px) {
     .blogger {
       top: 94px;
-      height: calc(100% - 96px);
+      height: calc(100% - 94px);
       }
     }
+
+    @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+  .blogger {
+  height: calc(100% - 122px);
+  }
+}
+
+@media only screen 
+and (min-device-width : 1024px)  { 
+  .blogger {
+  height: calc(100% - 102px);
+  }
+}
 
 
   .blog::-webkit-scrollbar { width: 0 !important }
@@ -529,19 +610,41 @@ img.logo {
     letter-spacing: 1px;
     /*text-transform: uppercase;*/
     overflow-y: scroll;
-    height: 100%;
+    height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     -ms-overflow-style: none;
+    /* Status bar height on iOS 10 */
+    padding-top: 20px;
+    /* Status bar height on iOS 11.0 */
+    padding-top: constant(safe-area-inset-top);
+    /* Status bar height on iOS 11+ */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
-  @media screen and (max-width: 480px) {
+  @media only screen and (max-width: 480px) {
   .blog {
     top: 94px;
-    height: calc(100% - 96px);
+    height: calc(100% - 94px);
     }
   }
+
+  @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+  .blog {
+  height: calc(100% - 122px);
+  }
+}
+
+@media only screen 
+and (min-device-width : 1024px)  { 
+  .blog {
+  height: calc(100% - 102px);
+  }
+}
 
   .image1r {
     min-width: 50px;
@@ -666,7 +769,7 @@ img.logo {
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
-  a:hover {color: orange; text-decoration: underline}
+  a:hover {color: orange; text-decoration: none}
   a:active {color: inherit; text-decoration: inherit}
 
   .stats ul{

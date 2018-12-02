@@ -16,6 +16,8 @@ window.onload = function() {
       // Get all buttons with class="btn" inside the container
       var btns = btnContainer.getElementsByClassName("btn");
 
+      var navhead = document.getElementById("navhead")
+
       // Loop through the buttons and add the active class to the current/clicked button
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function() {
@@ -23,7 +25,8 @@ window.onload = function() {
           document.getElementById("navActive").setAttribute('id','nav');
           this.setAttribute('id','navActive')
           document.getElementById("butFilter").innerHTML = this.innerHTML ;
-          document.getElementById("navhead").setAttribute('class','hide');
+          $(navhead).attr('class','closed');
+          $(navhead).slideUp(250);
           var input = document.querySelector('#navActive'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
@@ -67,12 +70,71 @@ window.onload = function() {
       
 // 3. Show NavBar when hit butfilter button
       function butFilter() {
-        if (document.getElementById("navhead").getAttribute('class') === 'hide') document.getElementById("navhead").setAttribute('class','show');
-        else document.getElementById("navhead").setAttribute('class','hide');
+        var navhead = document.getElementById("navhead");
+        
+        if ($(navhead).attr('class') === 'closed-nocss') {
+          $(navhead).attr('class','open');
+          $(navhead).slideDown(250);
+        }
+        else {
+          $(navhead).attr('class','closed-nocss');
+          $(navhead).slideUp(250);
+        }
+        //if (document.getElementById("navhead").getAttribute('class') === 'gone') document.getElementById("navhead").setAttribute('class','show');
+        //else document.getElementById("navhead").setAttribute('class','gone');
       }
 
-// 4. 
-      if (window.navigator.standalone) {
-        document.getElementById(blog).style.top = "114px";
-        document.getElementById(blogger).style.top = "114px";
+// 4. Main menu animation - mobile
+
+        function menuMob() {
+          var search =  document.getElementById("search");
+          var mainList = document.getElementById("mainList");
+          var navhead = document.getElementById("navhead");
+
+          if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
+              $(navhead).slideUp(250); 
+              $(navhead).attr('class','closed'); 
+              $(search).fadeOut(200);
+              $(mainList).fadeIn(500);
+              //$(search).animate({opacity: 0}, 200);
+              document.getElementById("mainMenu").setAttribute('class','open');
+              document.getElementById("mainMenu").style.backgroundColor = "#000000";
+              document.getElementById("myHeader").style.backgroundColor = "#000000";
+          }
+          else {
+              //$(search).animate({opacity: 1}, 750); 
+              $(search).fadeIn(200);
+              $(mainList).fadeOut(300);
+              document.getElementById("mainMenu").setAttribute('class','closed');
+              document.getElementById("mainMenu").style.backgroundColor = "#0c3c58";
+              document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
+          }
         }
+
+// 4. Main menu animation - web
+
+function menuWeb() {
+  var search =  document.getElementById("search");
+  var btn =  document.getElementsByClassName("btn");
+
+  if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
+      $(search).fadeOut(200);
+      $(btn).fadeOut(200);
+      document.getElementById("mainMenu").setAttribute('class','open');
+      document.getElementById("mainList").setAttribute('class','show');
+      document.getElementById("navigation").style.backgroundColor = "#000000";
+      document.getElementById("navhead").style.backgroundColor = "#000000";
+      document.getElementById("myHeader").style.backgroundColor = "#000000";
+  }
+  else {
+      $(search).fadeIn(200);
+      $(btn).fadeIn(200);
+      document.getElementById("mainMenu").setAttribute('class','closed');
+      document.getElementById("mainList").setAttribute('class','hide');
+      document.getElementById("navigation").style.backgroundColor = "#082a3e";
+      document.getElementById("navhead").style.backgroundColor = "#082a3e";
+      document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
+  }
+}       
+          
+        

@@ -47,12 +47,10 @@
         <ul>
           <nav class="menuMob">
               <div id="menuToggle">
-                <input type="checkbox" />
+                <input onclick="menuMob()" type="checkbox" />
                 <span></span>
                 <span></span>
-                <ul id="menu">
-                  <a href="#"><li></li></a>
-                  <a href="#"><li></li></a>
+                <ul id="mainMenu" class="closed">
                 </ul>
               </div>
             </nav>
@@ -60,10 +58,16 @@
           <li><img src="images/bs-logo-white.png" class="logo"/></li>
       </ul>
     
+      <div id="mainList">
+        <ul>
+            <a href="mailto:charlie@blogstacks.com?Subject=Web%20Contact%20Form" target="_top"><li>Contact Us</li></a>
+            <li><img src="images/ig-white.png" id="ig"></li>
+          </ul>
+      </div>
       
       <div class="searchhead">
-      <div class="search">
-          <button onclick="butFilter()" id="butFilter">ALLSTACKS</button><input type="text" id="myInput" placeholder="Search..." aria-autocomplete="none">
+      <div class="search" id="search">
+          <button onclick="butFilter()" id="butFilter"></button><input type="text" id="myInput" placeholder="Search..." aria-autocomplete="none">
           <button type="submit">
                 <ul>
                     <li><img src="images/search.png" class="mag"></li>
@@ -72,9 +76,18 @@
         </div>
       </div>
 
-      <div class="hide" id="navhead">
+      <div class="closed-nocss" id="navhead">
       <div class="navigation" id="navigation">
-          <button type="submit" class="btn" id="navActive" value="">ALLSTACKS</button>
+          <nav class="menuWeb">
+              <div id="menuToggle">
+                <input onclick="menuWeb()" type="checkbox" />
+                <span></span>
+                <span></span>
+                <ul id="mainMenu" class="closed"></ul>
+                </ul>
+              </div>
+            </nav>
+          <button type="submit" class="btn" id="navActive" value="">TOPSTACK</button>
           <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
           <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
           <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
@@ -96,7 +109,7 @@
           <td class="image1r"></td>
           <td class="titler">
               <a href="https://www.alloarnothing.co.uk/blog-1/" target="_blank">
-                <p id="desc_r">All Oar Nothing</p>
+                <p id="desc_r">All Oar Nothing28</p>
               </a>
                 <p id="acc_r">Expedition</p>
                 <p id="acc_r">Lifestyle</p>
