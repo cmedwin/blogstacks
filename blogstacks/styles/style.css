@@ -35,9 +35,10 @@ body {
 }
 
 img.logo {
+  position: relative;
   height: 33px;
   padding: 10px 0px 13px 0px;
-  z-index: 2000;
+  z-index: 2200;
 }
 
 @media screen and (max-width: 480px) {
@@ -111,7 +112,7 @@ img.logo {
                     top: 7px;
                     left: 5px;
                     padding-right: 20px;
-                    z-index: 1100;
+                    z-index: 1000;
                     -webkit-user-select: none;
                     user-select: none;
                   }
@@ -258,7 +259,7 @@ img.logo {
                     text-transform: uppercase;
                     width: 100%;
                     margin-top: 40px;
-                    border-top: solid 1px #555555;
+                    border-top: solid 1px #333333;
                     /*transition: opacity 0.5s linear;*/
                   }
 
@@ -272,7 +273,7 @@ img.logo {
                     padding-top: 14px;
                     padding-bottom: 10px;
                     padding-left: 4px;
-                    border-bottom: solid 1px #555555;
+                    border-bottom: solid 1px #333333;
                     margin-left: 12%;
                     margin-right: 12%;
                     text-align: left;
@@ -282,6 +283,52 @@ img.logo {
                   #ig {
                     height: 16px;
                     padding: 0px;
+                  }
+
+                  #mmContact {
+                    color: white;
+                    z-index: 2100;
+                  }
+
+                  #mmIG {
+                    background: url("../images/ig-white.png");
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 14px;
+                    margin-top: 0px;
+                    margin-bottom: 10px;
+                    margin-left: 20px;
+                    vertical-align: middle;
+                    z-index: 2100;
+                    
+                  }
+
+                  #mmIG:hover {
+                    background: url("../images/ig-orange.png");
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 14px;
+                    z-index: 2100;
+                  }
+
+                  #whiteOut {
+                    position: absolute;
+                    top: 20px;
+                    height: 100%;
+                    width: 100%;
+                    background-color: black;
+                    opacity: 0.5;
+                    z-index: 900;
+                    display: none;
+                    -webkit-overflow-scrolling: touch;
+                    /* Status bar height on iOS 10 */
+                    padding-top: 20px;
+                    /* Status bar height on iOS 11.0 */
+                    padding-top: constant(safe-area-inset-top);
+                    /* Status bar height on iOS 11+ */
+                    padding-top: env(safe-area-inset-top);
                   }
 
 
@@ -300,6 +347,7 @@ img.logo {
     #navhead {
       top: 12px;
       display: none;
+      height: auto;
     }
   }
 
@@ -318,6 +366,13 @@ img.logo {
     width: 100%; /* Full-width */
     vertical-align: middle;
   }
+  
+  @media screen and (max-width: 480px) {
+    div.navigation {
+      width: 96%;
+    }
+  }
+  
 
   div.navigation button{
     color: #bbbbbb;
@@ -329,8 +384,6 @@ img.logo {
     border-bottom: none;
     padding: 10px 15px 10px 15px;
     margin: 4px 0px 0px 0px;
-    /*float:left;*/
-    display: inline-block;
     font-family: DIN Alternate, sans-serif;
     font-size: 12px;
     font-weight: 100;
@@ -338,11 +391,57 @@ img.logo {
     text-transform: uppercase;
     text-align: center;
   }
+  div.navigation button.btn{
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 480px) {
+    div.navigation button{
+      width: 100%;
+      border-left: 4px solid #082a3e;
+      text-align: left;
+    }
+
+    #navAll {
+      border-top: 2px solid #0c3c58;
+    }
+  }
 
 #navActive {
   border-bottom: 4px solid orange;
   color: #ffffff
 }
+
+@media screen and (max-width: 480px) {
+  #navActive {
+    border-left: 4px solid orange;
+    border-bottom: 0px solid;
+  }
+}
+
+#navTop {
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+  #navTop {
+  white-space: normal;
+  columns: 2;
+  padding-bottom: 4px;
+  }
+
+  #navAll {
+  white-space: normal;
+  columns: 2;
+  padding-bottom: 4px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0px;
+  width: 100%;
+  }
+}
+
+
 
   ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
@@ -351,9 +450,12 @@ img.logo {
   }
 
   .searchhead {
+    position: relative;
     margin: auto;
     max-width: 713px;
     padding: 0px 8px;
+    z-index: 1800;
+    
   }
 
   @media screen and (max-width: 480px) {
@@ -369,7 +471,7 @@ img.logo {
     width: 70%; /* Full-width */
     height: 35px;
     float: right;
-    z-index: 1000;
+    
   }
 
   @media screen and (max-width: 480px) { 
@@ -542,9 +644,17 @@ img.logo {
     text-transform: uppercase;
   }*/
 
-  
-  .blogger::-webkit-scrollbar { width: 0 !important }
-  .blogger {
+  .scroll { 
+    overflow-y: scroll;
+  }
+
+  .noscroll { 
+    overflow-y: hidden;
+    position: static;
+  }
+
+  #blogger::-webkit-scrollbar { width: 0 !important }
+  #blogger {
     top: 102px;
     left: 50%;
     position: absolute;
@@ -559,7 +669,7 @@ img.logo {
     font-weight: 100;
     letter-spacing: 1px;
     /*text-transform: uppercase;*/
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
@@ -575,7 +685,7 @@ img.logo {
   }
   
   @media only screen and (max-width: 480px) {
-    .blogger {
+    #blogger {
       top: 94px;
       height: calc(100% - 94px);
       }
@@ -584,21 +694,21 @@ img.logo {
     @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
-  .blogger {
+  #blogger {
   height: calc(100% - 122px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
-  .blogger {
+  #blogger {
   height: calc(100% - 102px);
   }
 }
 
 
-  .blog::-webkit-scrollbar { width: 0 !important }
-  .blog {
+  #blog::-webkit-scrollbar { width: 0 !important }
+  #blog {
     top: 102px;
     left: 50%;
     position: absolute;
@@ -613,7 +723,7 @@ and (min-device-width : 1024px)  {
     font-weight: 100;
     letter-spacing: 1px;
     /*text-transform: uppercase;*/
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
@@ -629,7 +739,7 @@ and (min-device-width : 1024px)  {
   }
   
   @media only screen and (max-width: 480px) {
-  .blog {
+  #blog {
     top: 94px;
     height: calc(100% - 94px);
     }
@@ -638,17 +748,19 @@ and (min-device-width : 1024px)  {
   @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
-  .blog {
+  #blog {
   height: calc(100% - 122px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
-  .blog {
+  #blog {
   height: calc(100% - 102px);
   }
 }
+
+
 
   .image1r {
     min-width: 50px;

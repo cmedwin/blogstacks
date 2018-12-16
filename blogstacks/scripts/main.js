@@ -25,8 +25,10 @@ window.onload = function() {
           document.getElementById("navActive").setAttribute('id','nav');
           this.setAttribute('id','navActive')
           document.getElementById("butFilter").innerHTML = this.innerHTML ;
-          $(navhead).attr('class','closed');
+          if( $(window).width() < 481) {
+          $(navhead).attr('class','closed-nocss');
           $(navhead).slideUp(250);
+          }
           var input = document.querySelector('#navActive'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
@@ -106,7 +108,7 @@ window.onload = function() {
           }
           else {
               //$(search).animate({opacity: 1}, 750); 
-              $(search).fadeIn(200);
+              $(search).delay(100).fadeIn(250);
               $(mainList).fadeOut(300);
               document.getElementById("mainMenu").setAttribute('class','closed');
               document.getElementById("mainMenu").style.backgroundColor = "#0c3c58";
@@ -118,42 +120,79 @@ window.onload = function() {
 
 function menuWeb() {
   var search =  document.getElementById("search");
+  var whiteOut =  document.getElementById("whiteOut");
   var btn =  document.getElementsByClassName("btn");
-  var blog =  document.getElementsByClassName("blog");
-  var blogger =  document.getElementsByClassName("blogger");
+  var blog =  document.getElementById("blog");
+  var mmC =  document.getElementById("mmContact");
+  var mmI =  document.getElementById("mmIG");
+  var blogger =  document.getElementById("blogger");
 
   if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-      $(search).animate({opacity: 0.25}, 200);
-      $(blog).animate({opacity: 0.25}, 200);
-      $(blogger).animate({opacity: 0.25}, 200);
-      //$(btn).fadeOut(200);
+      //$(search).animate({opacity: 0.25}, 400);
+      //$(blog).animate({opacity: 0.25}, 400);
+      //$(blogger).animate({opacity: 0.25}, 400);
+      $(whiteOut).fadeIn(400)
+      $(btn).fadeOut(200);
+      $(search).fadeOut(200);
+      $(mmC).delay(150).fadeIn(200);
+      $(mmI).delay(150).fadeIn(200);
       document.getElementById("mainMenu").setAttribute('class','open');
       document.getElementById("mainList").setAttribute('class','show');
+      document.getElementById("blog").setAttribute('class','noscroll');
+      document.getElementById("blogger").setAttribute('class','noscroll');
+      document.getElementById("body").setAttribute('class','noscroll');
       //document.getElementById("navigation").style.backgroundColor = "#000000";
       document.getElementById("navhead").style.backgroundColor = "#000000";
       document.getElementById("myHeader").style.backgroundColor = "#000000";
   }
   else {
-      $(search).animate({opacity: 1}, 200);
-      $(blog).animate({opacity: 1}, 200);
-      $(blogger).animate({opacity: 1}, 200);
-      $(btn).fadeIn(200);
+      //$(search).animate({opacity: 1}, 400);
+      //$(blog).animate({opacity: 1}, 400);
+      //$(blogger).animate({opacity: 1}, 400);
+      $(whiteOut).fadeOut(400)
+      $(btn).delay(150).fadeIn(200);
+      $(search).delay(150).fadeIn(200);
+      $(mmC).fadeOut(200);
+      $(mmI).fadeOut(200);
       document.getElementById("mainMenu").setAttribute('class','closed');
       document.getElementById("mainList").setAttribute('class','hide');
+      document.getElementById("blog").setAttribute('class','scroll');
+      document.getElementById("blogger").setAttribute('class','scroll');
+      document.getElementById("body").setAttribute('class','scroll');
       //document.getElementById("navigation").style.backgroundColor = "#082a3e";
       document.getElementById("navhead").style.backgroundColor = "#082a3e";
       document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
   }
 }       
           
-// 6. Show menu on orientation change
+// 6. Show nav / close main menu on orientation change
 
 window.addEventListener('resize', function(){
+  if (document.getElementById("menuInputWeb").checked === true){
+    document.getElementById('menuInputWeb').click();
+  }
+  if (document.getElementById("menuInputMob").checked === true){
+    document.getElementById('menuInputMob').click();
+  }
   var navhead = document.getElementById("navhead");
-  if( $(window).width() < 481) {
-    $(navhead).slideUp(50);
-  }
-  else {
-    $(navhead).slideDown(50);
-  }
+      if( $(window).width() < 481) {
+        $(navhead).slideUp(50);
+        $(navhead).attr('class','closed-nocss');
+      }
+      else {
+        $(navhead).slideDown(50);
+        $(navhead).attr('class','open');
+      }
 }, false);
+
+
+// 7. Close Menu when whiteout area is active
+
+  function closeMenu() {
+    document.getElementById('menuInputWeb').click();
+  } 
+
+
+
+              
+      

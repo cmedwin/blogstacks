@@ -39,15 +39,16 @@
     <link rel="apple-touch-startup-image" href="images/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     
   </head>
-  <body>
+  <body id="body">
 
-      
+    <div id="whiteOut" onclick="closeMenu()"></div>
+       
     <div class="header" id="myHeader">
       
         <ul>
           <nav class="menuMob">
               <div id="menuToggle">
-                <input onclick="menuMob()" type="checkbox" />
+                <input id="menuInputMob" onclick="menuMob()" type="checkbox" />
                 <span></span>
                 <span></span>
                 <ul id="mainMenu" class="closed">
@@ -66,6 +67,7 @@
       </div>
       
       <div class="searchhead">
+          
       <div class="search" id="search">
           <button onclick="butFilter()" id="butFilter"></button><input type="text" id="myInput" placeholder="Search..." aria-autocomplete="none">
           <button type="submit">
@@ -80,17 +82,39 @@
       <div class="navigation" id="navigation">
           <nav class="menuWeb">
               <div id="menuToggle">
-                <input onclick="menuWeb()" type="checkbox" />
+                <input id="menuInputWeb" onclick="menuWeb()" type="checkbox" />
                 <span></span>
                 <span></span>
                 <ul id="mainMenu" class="closed"></ul>
                 </ul>
               </div>
             </nav>
+        
+        <div id="navTop">    
           <button type="submit" class="btn" id="navActive" value="">TOPSTACK</button>
           <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
           <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
           <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
+          <button type="submit" class="btn" id="nav" value="ALL STACKS">ALL STACKS</button>
+          <button type="submit" class="btn" id="nav" value="SHARE">SHARE</button>
+          <button type="submit" class="btn" id="nav" value="SHUFFLE">SHUFFLE</button>
+          <button type="submit" class="gone" id="mmContact" ><a href="mailto:charlie@blogstacks.com?Subject=Web%20Contact%20Form" target="_top">Contact Us</a></button>
+          <button type="submit" class="gone" id="mmIG" ></button>
+        </div>
+        
+        <div class="navigation" id="navAll">
+          <button type="submit" class="btn" id="nav" value="ACTIVE LIFESTYLE">ACTIVE LIFESTYLE</button>
+          <button type="submit" class="btn" id="nav" value="BUSINESS">BUSINESS</button>
+          <button type="submit" class="btn" id="nav" value="DESIGN">DESIGN</button>
+          <button type="submit" class="btn" id="nav" value="ENTERTAINMENT">ENTERTAINMENT</button>
+          <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
+          <button type="submit" class="btn" id="nav" value="FOOD / DRINK">FOOD / DRINK</button>
+          <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
+          <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
+          <button type="submit" class="btn" id="nav" value="TRAVEL">TRAVEL</button>
+          <button type="submit" class="btn" id="nav" value="TECHNOLOGY">TECHNOLOGY</button>
+          <button type="submit" class="btn" id="nav" value="SPORTS">SPORTS</button>
+        </div>
       </div>
       </div>
       
@@ -101,7 +125,7 @@
         
       </div>
 
-      <table class="blogger" id="blogger">
+      <table id="blogger" class="scroll">
         <thead> 
       </thead> 
       <tbody>
@@ -109,7 +133,7 @@
           <td class="image1r"></td>
           <td class="titler">
               <a href="https://www.alloarnothing.co.uk/blog-1/" target="_blank">
-                <p id="desc_r">All Oar Nothing28</p>
+                <p id="desc_r">All Oar Nothing19</p>
               </a>
                 <p id="acc_r">Expedition</p>
                 <p id="acc_r">Lifestyle</p>
@@ -424,7 +448,7 @@
       </tbody>
       </table>
 
-      <table class="blog" id="blog">
+      <table id="blog" class="scroll">
         <thead>
       </thead>
       <tbody>
