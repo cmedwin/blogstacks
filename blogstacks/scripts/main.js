@@ -1,8 +1,8 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
-    document.getElementById("navActive").setAttribute('id','navActive');
-    document.getElementById("butFilter").innerHTML = document.getElementById("navActive").innerHTML;
-      var input = document.querySelector('#navActive'),
+    document.getElementById("navTopstack").setAttribute('id','navTopstack');
+    document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
+      var input = document.querySelector('#navTopstack'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
       searchTable(table, input);
@@ -22,14 +22,60 @@ window.onload = function() {
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function() {
           document.getElementById("myInput").value = "";
-          document.getElementById("navActive").setAttribute('id','nav');
-          this.setAttribute('id','navActive')
+          //document.getElementById("navActive").setAttribute('id','nav');
+          //this.setAttribute('id','navActive')
           document.getElementById("butFilter").innerHTML = this.innerHTML ;
-          if( $(window).width() < 481) {
-          $(navhead).attr('class','closed-nocss');
-          $(navhead).slideUp(250);
+            var nav1val = document.getElementById("nav1").value;
+            var nav1html = document.getElementById("nav1").innerHTML;
+            var nav2val = document.getElementById("nav2").value;
+            var nav2html = document.getElementById("nav2").innerHTML;
+            var nav3val = document.getElementById("nav3").value;
+            var nav3html = document.getElementById("nav3").innerHTML;
+            var btnactive = document.getElementsByClassName("btn Active");
+          if (this.innerHTML === "<p>TOPSTACK</p>") {
+            var vInput = document.querySelector('#navTopstack');
+            $(btnactive).attr('class','btn');
+            document.getElementById("navTopstack").setAttribute('class','btn Active');
+            
           }
-          var input = document.querySelector('#navActive'),
+          else { if (this.value === nav1val) {
+            var vInput = document.querySelector('#nav1');
+            $(btnactive).attr('class','btn');
+            document.getElementById("nav1").setAttribute('class','btn Active');
+          }
+          else { if (this.value === nav2val) {
+            var vInput = document.querySelector('#nav2');
+            $(btnactive).attr('class','btn');
+            document.getElementById("nav2").setAttribute('class','btn Active');
+          }
+          else { if (this.value === nav3val) {
+            var vInput = document.querySelector('#nav3');
+            $(btnactive).attr('class','btn');
+            document.getElementById("nav3").setAttribute('class','btn Active');
+          }
+          else {
+            document.getElementById("nav1").innerHTML = this.innerHTML;
+            document.getElementById("nav1").setAttribute('value',this.value);
+            document.getElementById("nav2").innerHTML = nav1html;
+            document.getElementById("nav2").setAttribute('value',nav1val);
+            document.getElementById("nav3").innerHTML = nav2html;
+            document.getElementById("nav3").setAttribute('value',nav2val);
+            $(btnactive).attr('class','btn');
+            document.getElementById("nav1").setAttribute('class','btn Active');
+            var vInput = document.querySelector('#nav1');
+          }}}}
+
+          if( $(window).width() < 481) {
+            document.getElementById('butFilter').click();
+          }
+          else {
+            if ($(navAll).attr('class') === 'open') {
+              document.getElementById('allStacks').click();
+            }
+          }
+
+            var input = vInput,
+            //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
             searchTable(table, input);
@@ -75,14 +121,24 @@ window.onload = function() {
         if( $(window).width() < 481)
         {
         var navhead = document.getElementById("navhead");
+        var navAll = document.getElementById("navAll");
+        var whiteOut =  document.getElementById("whiteOut");
         
         if ($(navhead).attr('class') === 'closed-nocss') {
           $(navhead).attr('class','open');
+          $(navAll).attr('class','open');
           $(navhead).slideDown(250);
+          $(whiteOut).fadeIn(400)
+          document.getElementById("blog").setAttribute('class','noscroll');
+          document.getElementById("blogger").setAttribute('class','noscroll');
         }
         else {
           $(navhead).attr('class','closed-nocss');
+          //$(navAll).attr('class','gone');
           $(navhead).slideUp(250);
+          $(whiteOut).fadeOut(400)
+          document.getElementById("blog").setAttribute('class','scroll');
+          document.getElementById("blogger").setAttribute('class','scroll');
         }
         //if (document.getElementById("navhead").getAttribute('class') === 'gone') document.getElementById("navhead").setAttribute('class','show');
         //else document.getElementById("navhead").setAttribute('class','gone');
@@ -97,8 +153,9 @@ window.onload = function() {
           var navhead = document.getElementById("navhead");
 
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-              $(navhead).slideUp(250); 
-              $(navhead).attr('class','closed-nocss'); 
+              if (document.getElementById("navhead").getAttribute('class') === 'open'){
+               butFilter ()
+              }
               $(search).fadeOut(200);
               $(mainList).fadeIn(500);
               //$(search).animate({opacity: 0}, 200);
@@ -109,7 +166,7 @@ window.onload = function() {
           else {
               //$(search).animate({opacity: 1}, 750); 
               $(search).delay(100).fadeIn(250);
-              $(mainList).fadeOut(300);
+              $(mainList).fadeOut(150);
               document.getElementById("mainMenu").setAttribute('class','closed');
               document.getElementById("mainMenu").style.backgroundColor = "#0c3c58";
               document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
@@ -120,6 +177,7 @@ window.onload = function() {
 
 function menuWeb() {
   var search =  document.getElementById("search");
+  var navRight =  document.getElementById("navRight");
   var whiteOut =  document.getElementById("whiteOut");
   var btn =  document.getElementsByClassName("btn");
   var blog =  document.getElementById("blog");
@@ -131,9 +189,13 @@ function menuWeb() {
       //$(search).animate({opacity: 0.25}, 400);
       //$(blog).animate({opacity: 0.25}, 400);
       //$(blogger).animate({opacity: 0.25}, 400);
+      if ($(navAll).attr('class') === 'open') {
+        document.getElementById('allStacks').click();
+      }
       $(whiteOut).fadeIn(400)
       $(btn).fadeOut(200);
-      $(search).fadeOut(200);
+      $(navRight).fadeOut(200);
+      //$(search).fadeOut(200);
       $(mmC).delay(150).fadeIn(200);
       $(mmI).delay(150).fadeIn(200);
       document.getElementById("mainMenu").setAttribute('class','open');
@@ -151,7 +213,8 @@ function menuWeb() {
       //$(blogger).animate({opacity: 1}, 400);
       $(whiteOut).fadeOut(400)
       $(btn).delay(150).fadeIn(200);
-      $(search).delay(150).fadeIn(200);
+      $(navRight).delay(150).fadeIn(200);
+      //$(search).delay(150).fadeIn(200);
       $(mmC).fadeOut(200);
       $(mmI).fadeOut(200);
       document.getElementById("mainMenu").setAttribute('class','closed');
@@ -174,25 +237,78 @@ window.addEventListener('resize', function(){
   if (document.getElementById("menuInputMob").checked === true){
     document.getElementById('menuInputMob').click();
   }
+  //if (document.getElementById("navAll").getAttribute('class') === 'open'){
+    //butFilter ()
+  //}
   var navhead = document.getElementById("navhead");
+  var navAll = document.getElementById("navAll");
+  var whiteOut =  document.getElementById("whiteOut");
       if( $(window).width() < 481) {
         $(navhead).slideUp(50);
         $(navhead).attr('class','closed-nocss');
+        $(navAll).attr('class','open');
+        $(navAll).fadeIn(20);
       }
       else {
         $(navhead).slideDown(50);
         $(navhead).attr('class','open');
+        $(navAll).attr('class','gone');
+        $(navAll).fadeOut(20);
+        $(whiteOut).fadeOut(20)
+        document.getElementById("blog").setAttribute('class','scroll');
+        document.getElementById("blogger").setAttribute('class','scroll');
       }
+
 }, false);
 
 
 // 7. Close Menu when whiteout area is active
 
   function closeMenu() {
+    if (document.getElementById("navAll").getAttribute('class') === 'open'){
+      butFilter ()
+    }
+    if (document.getElementById("mainMenu").getAttribute('class') === 'open'){
     document.getElementById('menuInputWeb').click();
+    }
   } 
 
+// 8. Open All Stacks menu when in web mode
 
+  function openAllStacksWeb() {
+    var navAll = document.getElementById("navAll");
+    if ($(navAll).attr('class') === 'gone') {
+      $(navAll).fadeIn(20);
+      $(navAll).attr('class','open');
+    }
+    else {
+      $(navAll).fadeOut(20);
+      $(navAll).attr('class','gone');
+    }
+  }
 
-              
-      
+// 9. Clear menu's before search in web view
+
+  var myInput = document.getElementById("myInput");
+
+  myInput.addEventListener("keyup", function(event) {
+    if(event.keyCode === 13){
+      preWebSearch();
+    }
+  });
+
+  function preWebSearch() {
+    if( $(window).width() < 481) {
+          closeMenu();
+    }
+    else {
+          closeMenu();
+          var navAll = document.getElementById("navAll");
+          if ($(navAll).attr('class') === 'open') {
+           $(navAll).fadeOut(20);
+           $(navAll).attr('class','gone');
+    }
+    }
+  }
+  
+          

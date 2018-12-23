@@ -45,7 +45,7 @@
        
     <div class="header" id="myHeader">
       
-        <ul>
+      <ul>
           <nav class="menuMob">
               <div id="menuToggle">
                 <input id="menuInputMob" onclick="menuMob()" type="checkbox" />
@@ -54,7 +54,7 @@
                 <ul id="mainMenu" class="closed">
                 </ul>
               </div>
-            </nav>
+          </nav>
             
           <li><img src="images/bs-logo-white.png" class="logo"/></li>
       </ul>
@@ -69,8 +69,8 @@
       <div class="searchhead">
           
       <div class="search" id="search">
-          <button onclick="butFilter()" id="butFilter"></button><input type="text" id="myInput" placeholder="Search..." aria-autocomplete="none">
-          <button type="submit">
+          <button onclick="butFilter()" id="butFilter"></button><input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none">
+          <button type="submit" >
                 <ul>
                     <li><img src="images/search.png" class="mag"></li>
                 </ul>
@@ -91,29 +91,34 @@
             </nav>
         
         <div id="navTop">    
-          <button type="submit" class="btn" id="navActive" value="">TOPSTACK</button>
-          <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
-          <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
-          <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
-          <button type="submit" class="btn" id="nav" value="ALL STACKS">ALL STACKS</button>
-          <button type="submit" class="btn" id="nav" value="SHARE">SHARE</button>
-          <button type="submit" class="btn" id="nav" value="SHUFFLE">SHUFFLE</button>
+          <button type="submit" class="btn Active" id="navTopstack" value=""><p>TOPSTACK</p></button>
+          <button type="submit" class="btn" id="nav1" value="EXPEDITION"><p>EXPEDITION</p></button>
+          <button type="submit" class="btn" id="nav2" value="HEALTH / FITNESS"><p>HEALTH / FITNESS</p></button>
+          <button type="submit" class="btn" id="nav3" value="LIFESTYLE"><p>LIFESTYLE</p></button>
           <button type="submit" class="gone" id="mmContact" ><a href="mailto:charlie@blogstacks.com?Subject=Web%20Contact%20Form" target="_top">Contact Us</a></button>
           <button type="submit" class="gone" id="mmIG" ></button>
+        </div> 
+
+        <div id="navRight"> 
+            <button type="submit" class="func" id="allStacks" value="ALL STACKS" onclick="openAllStacksWeb()"><p>ALL STACKS</p></button>
+            <button type="submit" class="func" id="share" value="SHARE"><p><img src="images/share_white.png" id="navIcon"></p></button>
+            <button type="submit" class="func" id="shuffle" value="SHUFFLE"><p><img src="images/refresh-white.png" id="navIcon"></p></button>
         </div>
-        
-        <div class="navigation" id="navAll">
-          <button type="submit" class="btn" id="nav" value="ACTIVE LIFESTYLE">ACTIVE LIFESTYLE</button>
-          <button type="submit" class="btn" id="nav" value="BUSINESS">BUSINESS</button>
-          <button type="submit" class="btn" id="nav" value="DESIGN">DESIGN</button>
-          <button type="submit" class="btn" id="nav" value="ENTERTAINMENT">ENTERTAINMENT</button>
-          <button type="submit" class="btn" id="nav" value="EXPEDITION">EXPEDITION</button>
-          <button type="submit" class="btn" id="nav" value="FOOD / DRINK">FOOD / DRINK</button>
-          <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">HEALTH / FITNESS</button>
-          <button type="submit" class="btn" id="nav" value="LIFESTYLE">LIFESTYLE</button>
-          <button type="submit" class="btn" id="nav" value="TRAVEL">TRAVEL</button>
-          <button type="submit" class="btn" id="nav" value="TECHNOLOGY">TECHNOLOGY</button>
-          <button type="submit" class="btn" id="nav" value="SPORTS">SPORTS</button>
+
+        <div id="navAllHead">
+        <div class="gone" id="navAll">
+          <button type="submit" class="btn" id="nav" value="ACTIVE LIFESTYLE"><p>ACTIVE LIFESTYLE</p></button>
+          <button type="submit" class="btn" id="nav" value="BUSINESS"><p>BUSINESS</p></button>
+          <button type="submit" class="btn" id="nav" value="DESIGN"><p>DESIGN</p></button>
+          <button type="submit" class="btn" id="nav" value="ENTERTAINMENT"><p>ENTERTAINMENT</p></button>
+          <button type="submit" class="btn" id="nav" value="EXPEDITION"><p>EXPEDITION</p></button>
+          <button type="submit" class="btn" id="nav" value="FOOD / DRINK"><p>FOOD / DRINK</p></button>
+          <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS"><p>HEALTH / FITNESS</p></button>
+          <button type="submit" class="btn" id="nav" value="LIFESTYLE"><p>LIFESTYLE</p></button>
+          <button type="submit" class="btn" id="nav" value="TRAVEL"><p>TRAVEL</p></button>
+          <button type="submit" class="btn" id="nav" value="TECHNOLOGY"><p>TECHNOLOGY</p></button>
+          <button type="submit" class="btn" id="nav" value="SPORTS"><p>SPORTS</p></button>
+        </div>
         </div>
       </div>
       </div>
@@ -124,6 +129,7 @@
       </ul>-->
         
       </div>
+    
 
       <table id="blogger" class="scroll">
         <thead> 
@@ -133,7 +139,7 @@
           <td class="image1r"></td>
           <td class="titler">
               <a href="https://www.alloarnothing.co.uk/blog-1/" target="_blank">
-                <p id="desc_r">All Oar Nothing19</p>
+                <p id="desc_r">All Oar Nothing16</p>
               </a>
                 <p id="acc_r">Expedition</p>
                 <p id="acc_r">Lifestyle</p>

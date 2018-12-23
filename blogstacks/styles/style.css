@@ -13,6 +13,8 @@ body {
   }
 
 
+
+
 .header {
     z-index: 900;
     position: fixed;
@@ -107,10 +109,10 @@ img.logo {
                   
                   #menuToggle
                   {
-                    display: block;
-                    position: relative;
-                    top: 7px;
-                    left: 5px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 18px;
+                    left: 18px;
                     padding-right: 20px;
                     z-index: 1000;
                     -webkit-user-select: none;
@@ -120,8 +122,9 @@ img.logo {
                     #menuToggle
                     {  
                       padding-right: 0px;
-                      top: 10px;
+                      top: 20px;
                       left: 15px;
+                      width:100%;
                     }
                   }
                   
@@ -210,7 +213,7 @@ img.logo {
                     opacity: 1;
                     position: absolute;
                     width: 105%;
-                    height: 700px;
+                    height: 100vh;
                     top: 60px;
                     margin: auto;
                     padding: 0;
@@ -259,7 +262,7 @@ img.logo {
                     text-transform: uppercase;
                     width: 100%;
                     margin-top: 40px;
-                    border-top: solid 1px #333333;
+                    border-top: solid 1px #222222;
                     /*transition: opacity 0.5s linear;*/
                   }
 
@@ -273,7 +276,7 @@ img.logo {
                     padding-top: 14px;
                     padding-bottom: 10px;
                     padding-left: 4px;
-                    border-bottom: solid 1px #333333;
+                    border-bottom: solid 1px #222222;
                     margin-left: 12%;
                     margin-right: 12%;
                     text-align: left;
@@ -288,6 +291,8 @@ img.logo {
                   #mmContact {
                     color: white;
                     z-index: 2100;
+                    padding: 10px 15px 10px 15px;
+                    border: none;
                   }
 
                   #mmIG {
@@ -301,6 +306,8 @@ img.logo {
                     margin-left: 20px;
                     vertical-align: middle;
                     z-index: 2100;
+                    padding: 10px 15px 10px 15px;
+                    border: none;
                     
                   }
 
@@ -314,7 +321,7 @@ img.logo {
                   }
 
                   #whiteOut {
-                    position: absolute;
+                    position: fixed;
                     top: 20px;
                     height: 100%;
                     width: 100%;
@@ -322,7 +329,6 @@ img.logo {
                     opacity: 0.5;
                     z-index: 900;
                     display: none;
-                    -webkit-overflow-scrolling: touch;
                     /* Status bar height on iOS 10 */
                     padding-top: 20px;
                     /* Status bar height on iOS 11.0 */
@@ -337,10 +343,11 @@ img.logo {
 
   /*navigation ribbon*/
   #navhead {
-    top: -7px;
+    top: -8px;
     position: relative;
     background-color:#082a3e;
     height:42px;
+    margin: 0  auto;
   }
 
   @media screen and (max-width: 480px) {
@@ -348,12 +355,14 @@ img.logo {
       top: 12px;
       display: none;
       height: auto;
+      width: 100%;
     }
   }
 
   div.navigation {
     /*left: 50%;
     transform: translate(-50%, 0%);*/
+    top: -35.5px;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     background-color: transparent;
@@ -361,15 +370,17 @@ img.logo {
     padding: 0px 8px 0px 8px;
     font-size: 0px;
     position: relative;
-    margin: auto;
+    margin: 0 auto;
     max-width: 713px;
-    width: 100%; /* Full-width */
+    width: calc(100% - 16px); /* Full-width */
     vertical-align: middle;
+    overflow-x: hidden;
   }
   
   @media screen and (max-width: 480px) {
     div.navigation {
       width: 96%;
+      top: 0px;
     }
   }
   
@@ -378,67 +389,184 @@ img.logo {
     color: #bbbbbb;
     background-color: transparent;
     outline: none;
-    border-right: none;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-    padding: 10px 15px 10px 15px;
+    
     margin: 4px 0px 0px 0px;
     font-family: DIN Alternate, sans-serif;
     font-size: 12px;
     font-weight: 100;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     text-align: center;
   }
   div.navigation button.btn{
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: 3px solid #082a3e;
+    padding: 8px 0px 8px 0px;
     display: inline-block;
+    
   }
 
   @media screen and (max-width: 480px) {
     div.navigation button{
       width: 100%;
-      border-left: 4px solid #082a3e;
+      border-left: 3px solid #082a3e;
+      border-bottom:none;
       text-align: left;
-    }
-
-    #navAll {
-      border-top: 2px solid #0c3c58;
     }
   }
 
-#navActive {
-  border-bottom: 4px solid orange;
-  color: #ffffff
+#navTop button.Active {
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom: 3px solid orange;
+  color: #ffffff;
+  padding: 8px 0px 8px 0px;
+}
+
+
+#navAll button {
+  width: 100%;
+  border-bottom: 0px solid;
+  text-align: left;
+  padding-left: 8px;
 }
 
 @media screen and (max-width: 480px) {
-  #navActive {
-    border-left: 4px solid orange;
+  #navTop button.Active {
+    border-left: 3px solid orange;
     border-bottom: 0px solid;
+  }
+
+  #navAll button {
   }
 }
 
 #navTop {
-  display: inline-block;
+  display:inline-block;
+  z-index: 1000;
+  max-width: calc(100% - 240px);
+  overflow-wrap: normal;
+  white-space: normal;
+  max-height:41px;
+  overflow: hidden;
+  padding-left: 44px;
 }
+
+#navTop p {
+  border-right: 1px solid #444444;
+  padding: 2px 8px 2px 8px;
+  margin: 0px;
+}
+
+#navAllHead {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #000000;
+}
+
+#navAll {
+  white-space: normal;
+  background: #000000;
+  border-bottom: 4px solid #0c3c58;
+  columns: 3;
+  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-right: 0px;
+  width: 100%;
+  max-width: 713px;
+  margin: auto;
+}
+
+#navAll p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
 
 @media screen and (max-width: 480px) {
   #navTop {
-  white-space: normal;
   columns: 2;
   padding-bottom: 4px;
+  padding-left: 0px;
+  max-width: 100%;
+  max-height:82px;
+  ;
   }
 
   #navAll {
   white-space: normal;
+  border-bottom: none;
+  background: #082a3e;
   columns: 2;
   padding-bottom: 4px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
   margin: 0px;
-  width: 100%;
+  width: calc(100% - 16px);
+  border-top: 2px solid #0c3c58;
   }
+
+  #navTop p {
+    border-right: 0px;
+  }
+}
+
+#navRight {
+ position: relative;
+ float: right;
+ z-index: 1200;
+}
+
+@media screen and (max-width: 480px) {
+  #navRight {
+    display: none;
+  }
+}
+
+.func {
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: inherit;
+    padding: 6.5px 0px 6.5px 0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 480px) {
+  .func {
+    display: none;
+  }
+}
+
+#navRight p {
+  display: inline-block;
+  padding: 2px 12px 2px 12px;
+  margin: 0px;
+  height: 16px;
+}
+
+#navIcon {
+  height:16px;
+}
+
+#allStacks {
+  padding-top: 8px;
+  color: orange;
+}
+#allStacks p {
+  padding-right: 0px;
+}
+
+#allStacks::after {
+  content: '\00A0\25bc\00fe0e';
+  color:  orange;
+  font-size: 7px;
+  padding-right: 12px;
 }
 
 
@@ -473,6 +601,8 @@ img.logo {
     float: right;
     
   }
+
+  
 
   @media screen and (max-width: 480px) { 
   .search {
@@ -509,6 +639,11 @@ img.logo {
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: auto;
+  }
+
+  #butFilter p{
+    display: inline-block;
+    margin: 0px;
   }
 
   @media screen and (max-width: 480px) {
@@ -650,13 +785,13 @@ img.logo {
 
   .noscroll { 
     overflow-y: hidden;
-    position: static;
   }
 
   #blogger::-webkit-scrollbar { width: 0 !important }
   #blogger {
     top: 102px;
     left: 50%;
+    grid-gap: 10px;
     position: absolute;
     width: 38%;
     max-width: 280px;
