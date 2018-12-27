@@ -32,7 +32,7 @@ window.onload = function() {
             var nav3val = document.getElementById("nav3").value;
             var nav3html = document.getElementById("nav3").innerHTML;
             var btnactive = document.getElementsByClassName("btn Active");
-          if (this.innerHTML === "<p>TOPSTACK</p>") {
+          if (this.innerHTML === "<p>Topstack</p>") {
             var vInput = document.querySelector('#navTopstack');
             $(btnactive).attr('class','btn');
             document.getElementById("navTopstack").setAttribute('class','btn Active');
@@ -66,7 +66,9 @@ window.onload = function() {
           }}}}
 
           if( $(window).width() < 481) {
-            document.getElementById('butFilter').click();
+            if ($(navhead).attr('class') === 'open') {
+              document.getElementById('butFilter').click();
+            }
           }
           else {
             if ($(navAll).attr('class') === 'open') {
@@ -113,8 +115,11 @@ window.onload = function() {
           else alert('Table or input does not exist.');
         };
       // We can add as many individual inputs / tables as we want by just calling bindSearch with the right ids.
+      function search() {
       bindSearch('#blog', '#myInput');
       bindSearch('#blogger', '#myInput');
+      }
+      search();
       
 // 3. Show NavBar when hit butfilter button
       function butFilter() {
@@ -186,7 +191,7 @@ function menuWeb() {
   var blogger =  document.getElementById("blogger");
 
   if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-      //$(search).animate({opacity: 0.25}, 400);
+      $(search).animate({opacity: 0.5}, 400);
       //$(blog).animate({opacity: 0.25}, 400);
       //$(blogger).animate({opacity: 0.25}, 400);
       if ($(navAll).attr('class') === 'open') {
@@ -208,7 +213,7 @@ function menuWeb() {
       document.getElementById("myHeader").style.backgroundColor = "#000000";
   }
   else {
-      //$(search).animate({opacity: 1}, 400);
+      $(search).animate({opacity: 1}, 400);
       //$(blog).animate({opacity: 1}, 400);
       //$(blogger).animate({opacity: 1}, 400);
       $(whiteOut).fadeOut(400)
@@ -299,7 +304,10 @@ window.addEventListener('resize', function(){
 
   function preWebSearch() {
     if( $(window).width() < 481) {
-          closeMenu();
+      if (document.getElementById("navhead").getAttribute('class') === 'closed-nocss') {}
+      else {
+           closeMenu();
+      }
     }
     else {
           closeMenu();
@@ -311,4 +319,51 @@ window.addEventListener('resize', function(){
     }
   }
   
+// search input mag icon / cross icon behaviour
+
+function clearSearch() {
+    if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
+        var mag = document.getElementById("mag");
+        var searchClose = document.getElementById("searchClose");
+        var myInput = document.getElementById("myInput");
+        $(mag).delay(50).fadeIn(50);
+        $(searchClose).fadeOut(50);
+        document.getElementById("myInput").value = "";
+        document.getElementById("searchIcon").setAttribute('class','searchIcon');
+        document.getElementsByClassName("btn Active")[0].click();
+    }
+    else {
+      if (document.getElementById("searchIcon").getAttribute('class') === 'searchIcon') {
+        if (document.getElementById("myInput").value === "") {
+          $(myInput).blur();
+        }
+        else {
+        var mag = document.getElementById("mag");
+        var searchClose = document.getElementById("searchClose");
+        var myInput = document.getElementById("myInput");
+        $(mag).fadeOut(50);
+        $(searchClose).delay(50).fadeIn(50);
+        document.getElementById("searchIcon").setAttribute('class','searchClose');
+        $(myInput).blur();
+    }}
+  }}
+
+$(myInput).on('keyup', function (e) {
+  if (e.keyCode == 13) {
+    var myInput = document.getElementById("myInput");
+    if (document.getElementById("myInput").value === "") {
+      $(myInput).blur();
+    }
+    else {
+      clearSearch();
+  }
+  }
+  else {
+      var mag = document.getElementById("mag");
+      var searchClose = document.getElementById("searchClose");
+      $(mag).delay(50).fadeIn(50);
+      $(searchClose).fadeOut(50);
+      document.getElementById("searchIcon").setAttribute('class','searchIcon');
+  }
+});
           

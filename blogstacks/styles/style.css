@@ -1,4 +1,9 @@
 
+:root {
+  --bs-orange: #29bb9c;
+}
+
+
 
 body {
     /*background-image: linear-gradient(to bottom, #EEE, #EEE 21pt, #EEE 21pt);
@@ -191,7 +196,7 @@ img.logo {
                   
                   
                   /*
-                  * Ohyeah and the last one should go the other direction
+                  * the last one should go the other direction
                   */
                   #menuToggle input:checked ~ span:nth-last-child(2)
                   {
@@ -259,7 +264,7 @@ img.logo {
                     font-size: 16px;
                     font-weight: 100;
                     letter-spacing: 1.5px;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     width: 100%;
                     margin-top: 40px;
                     border-top: solid 1px #222222;
@@ -312,7 +317,7 @@ img.logo {
                   }
 
                   #mmIG:hover {
-                    background: url("../images/ig-orange.png");
+                    background: url("../images/ig-var(--bs-orange).png");
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -395,7 +400,7 @@ img.logo {
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1.2px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
   }
   div.navigation button.btn{
@@ -421,7 +426,7 @@ img.logo {
   border-right: none;
   border-left: none;
   border-top: none;
-  border-bottom: 3px solid orange;
+  border-bottom: 3px solid #082a3e;
   color: #ffffff;
   padding: 8px 0px 8px 0px;
 }
@@ -436,7 +441,7 @@ img.logo {
 
 @media screen and (max-width: 480px) {
   #navTop button.Active {
-    border-left: 3px solid orange;
+    border-left: 3px solid #082a3e;
     border-bottom: 0px solid;
   }
 
@@ -493,8 +498,7 @@ img.logo {
   padding-bottom: 4px;
   padding-left: 0px;
   max-width: 100%;
-  max-height:82px;
-  ;
+  max-height: 100px;
   }
 
   #navAll {
@@ -521,9 +525,22 @@ img.logo {
  z-index: 1200;
 }
 
+#navRightMob {
+  display:none;
+}
+
 @media screen and (max-width: 480px) {
   #navRight {
     display: none;
+  }
+
+  #navRightMob {
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    right: -5px;
+    z-index: 2200;
+    vertical-align: middle;
   }
 }
 
@@ -556,7 +573,7 @@ img.logo {
 
 #allStacks {
   padding-top: 8px;
-  color: orange;
+  color: var(--bs-orange);
 }
 #allStacks p {
   padding-right: 0px;
@@ -564,7 +581,7 @@ img.logo {
 
 #allStacks::after {
   content: '\00A0\25bc\00fe0e';
-  color:  orange;
+  color:  var(--bs-orange);
   font-size: 7px;
   padding-right: 12px;
 }
@@ -627,10 +644,10 @@ img.logo {
     background: #f3f3f3;
     vertical-align: middle;
     font-family: 'DIN Alternate', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 100;
     color: #666666;
-    text-transform: uppercase;
+    text-transform: capitalize;
     height: 100%;
     border: 0px;
     border-right: 1px solid #cdcdcd;
@@ -670,7 +687,7 @@ img.logo {
     font-family: 'DIN Alternate', sans-serif;
     font-size: 14px;
     font-weight: 100;
-    text-transform: uppercase;
+    /*text-transform: capitalize;*/
     margin: 0px;
     position: static;
     z-index: 100;
@@ -692,7 +709,7 @@ img.logo {
   }
 
   #search:focus {
-    border: 1px solid orange;
+    border: 1px solid var(--bs-orange);
   }
 
   .search button {
@@ -701,8 +718,8 @@ img.logo {
     border-bottom-right-radius: 2px;
     width: 45px;
     height: 100%;
-    background:orange;
-    border: 1px solid orange;
+    background:var(--bs-orange);
+    border: 1px solid var(--bs-orange);
     color: white;
     cursor: pointer;
     position: absolute;
@@ -728,6 +745,30 @@ img.logo {
     border: 0px; 
     top: -6px;
     padding: 1.5px;
+  }
+
+  #searchClose {
+    display:none;
+  }
+
+  #searchClose span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin-left: 4px;
+    position: relative; 
+    background: #515151;
+    border-radius: 5px;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+  @media screen and (max-width: 480px) {
+    #searchClose span {
+      margin-left: 8px;
+    }
+  }
+
+  #searchClose span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(-0.5px, 0px);
   }
 
   .show {
@@ -776,7 +817,7 @@ img.logo {
     font-size: 10px;
     font-weight: 100;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }*/
 
   .scroll { 
@@ -803,7 +844,7 @@ img.logo {
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
-    /*text-transform: uppercase;*/
+    /*text-transform: capitalize;*/
     /*overflow-y: scroll;*/
     height: calc(100% - 82px);
     display: inline-block;
@@ -857,7 +898,7 @@ and (min-device-width : 1024px)  {
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
-    /*text-transform: uppercase;*/
+    /*text-transform: capitalize;*/
     /*overflow-y: scroll;*/
     height: calc(100% - 82px);
     display: inline-block;
@@ -986,10 +1027,10 @@ and (min-device-width : 1024px)  {
     font-size: 7px;
     height: 10px;
     overflow: hidden;
-    color: orange;
+    color: var(--bs-orange);
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   #desc_r {
@@ -1012,15 +1053,15 @@ and (min-device-width : 1024px)  {
     font-size: 7px;
     height: 8px;
     overflow: hidden;
-    color: orange;
+    color: var(--bs-orange);
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
-  a:hover {color: orange; text-decoration: none}
+  a:hover {color: var(--bs-orange); text-decoration: none}
   a:active {color: inherit; text-decoration: inherit}
 
   .stats ul{
@@ -1041,7 +1082,7 @@ and (min-device-width : 1024px)  {
     font-weight: 100;
     letter-spacing: 0px;
     padding: 0px 1px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     opacity: 0;
   }
 
