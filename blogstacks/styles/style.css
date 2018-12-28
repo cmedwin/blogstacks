@@ -558,6 +558,11 @@ img.logo {
   .func {
     display: none;
   }
+
+  .funcMob {
+    border: none;
+    background: inherit;
+  }
 }
 
 #navRight p {
