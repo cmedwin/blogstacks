@@ -1,12 +1,18 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
-    document.getElementById("navTopstack").setAttribute('id','navTopstack');
-    document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
+
+  var bloggerHead = document.getElementById("blogger");
+  var blogHead = document.getElementById("blog");
+  $( bloggerHead ).load("stacks/blogger1.html", 
+  $( blogHead ).load("stacks/blog1.html", function() {
+   document.getElementById("navTopstack").setAttribute('id','navTopstack');
+   document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
       var input = document.querySelector('#navTopstack'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
       searchTable(table, input);
       searchTable(table2, input);
+  }));
 }
 
 // 1. Reflect change in active button on nav bar
@@ -155,7 +161,7 @@ window.onload = function() {
         function menuMob() {
           var search =  document.getElementById("search");
           var mainList = document.getElementById("mainList");
-          var navhead = document.getElementById("navhead");
+          var navRightMob = document.getElementById("navRightMob");
 
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
               if (document.getElementById("navhead").getAttribute('class') === 'open'){
@@ -163,6 +169,7 @@ window.onload = function() {
               }
               $(search).fadeOut(200);
               $(mainList).fadeIn(500);
+              $(navRightMob).fadeOut(200);
               //$(search).animate({opacity: 0}, 200);
               document.getElementById("mainMenu").setAttribute('class','open');
               document.getElementById("mainMenu").style.backgroundColor = "#000000";
@@ -172,6 +179,7 @@ window.onload = function() {
               //$(search).animate({opacity: 1}, 750); 
               $(search).delay(100).fadeIn(250);
               $(mainList).fadeOut(150);
+              $(navRightMob).delay(100).fadeIn(250);
               document.getElementById("mainMenu").setAttribute('class','closed');
               document.getElementById("mainMenu").style.backgroundColor = "#0c3c58";
               document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
@@ -319,7 +327,7 @@ window.addEventListener('resize', function(){
     }
   }
   
-// search input mag icon / cross icon behaviour
+// 10. search input mag icon / cross icon behaviour
 
 function clearSearch() {
     if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
@@ -366,4 +374,38 @@ $(myInput).on('keyup', function (e) {
       document.getElementById("searchIcon").setAttribute('class','searchIcon');
   }
 });
-          
+
+// 11. shuffle
+
+$("#shuffle").click(function(){
+
+  var bloggerHead = document.getElementById("bloggerHead");
+  var blogHead = document.getElementById("blogHead");
+
+  
+  
+  $(bloggerHead).fadeOut(200,function() {
+
+  var $firstCells = $("#blogger tr"),
+      $copies = $firstCells.clone(true);
+  
+  [].sort.call($copies, function() { return Math.random() - 0.5; });
+  
+  $copies.each(function(i){
+      $firstCells.eq(i).replaceWith(this);
+  })});
+
+  $(blogHead).fadeOut(200, function() {
+  var $firstCells = $("#blog tr"),
+      $copies = $firstCells.clone(true);
+  
+  [].sort.call($copies, function() { return Math.random() - 0.5; });
+  
+  $copies.each(function(i){
+      $firstCells.eq(i).replaceWith(this);
+  })});
+
+  $(blogHead).delay(200).fadeIn(200);
+  $(bloggerHead).delay(200).fadeIn(200);
+
+});
