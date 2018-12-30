@@ -573,6 +573,20 @@ img.logo {
   }
 }
 
+#shuffleRotate {
+  -webkit-animation: rotation 0.4s linear;
+  height: 16px;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
+}
+
 #navRight p {
   display: inline-block;
   padding: 2px 12px 2px 12px;
@@ -580,7 +594,15 @@ img.logo {
   height: 16px;
 }
 
-#navIcon {
+#shareIcon {
+  height:16px;
+}
+
+#shuffleIconMob {
+  height:16px;
+}
+
+#shuffleIconWeb {
   height:16px;
 }
 

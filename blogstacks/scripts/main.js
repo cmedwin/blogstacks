@@ -375,16 +375,17 @@ $(myInput).on('keyup', function (e) {
   }
 });
 
-// 11. shuffle
+// 11a. shuffle for mobile - note: isolating the function and calling same one for each button didnt work so for now have just copied function twice until time to review.
 
-$("#shuffle").click(function(){
+$("#shuffleMob").click(function(){
 
-  var bloggerHead = document.getElementById("bloggerHead");
-  var blogHead = document.getElementById("blogHead");
+  var bloggerHead = document.getElementById("blogger");
+  var blogHead = document.getElementById("blog");
 
-  
-  
-  $(bloggerHead).fadeOut(200,function() {
+  var shuffle = document.getElementById("shuffleIconMob");
+  $(shuffle).attr('id','shuffleRotate');
+
+  $(bloggerHead).fadeOut(150,function() {
 
   var $firstCells = $("#blogger tr"),
       $copies = $firstCells.clone(true);
@@ -395,7 +396,7 @@ $("#shuffle").click(function(){
       $firstCells.eq(i).replaceWith(this);
   })});
 
-  $(blogHead).fadeOut(200, function() {
+  $(blogHead).fadeOut(150, function() {
   var $firstCells = $("#blog tr"),
       $copies = $firstCells.clone(true);
   
@@ -405,7 +406,51 @@ $("#shuffle").click(function(){
       $firstCells.eq(i).replaceWith(this);
   })});
 
-  $(blogHead).delay(200).fadeIn(200);
-  $(bloggerHead).delay(200).fadeIn(200);
+  $(blogHead).delay(150).fadeIn(150);
+  $(bloggerHead).delay(150).fadeIn(150);
 
+  var shuffle = document.getElementById("shuffleRotate");
+  $(shuffle).delay(400).queue(function() {
+    $(this).attr('id','shuffleIconMob').dequeue();
+  })
+});
+
+// 11b. shuffle for web - note: isolating the function and calling same one for each button didnt work so for now have just copied function twice until time to review.
+
+$("#shuffleWeb").click(function(){
+
+  var bloggerHead = document.getElementById("blogger");
+  var blogHead = document.getElementById("blog");
+
+  var shuffle = document.getElementById("shuffleIconWeb");
+  $(shuffle).attr('id','shuffleRotate');
+
+  $(bloggerHead).fadeOut(150,function() {
+
+  var $firstCells = $("#blogger tr"),
+      $copies = $firstCells.clone(true);
+  
+  [].sort.call($copies, function() { return Math.random() - 0.5; });
+  
+  $copies.each(function(i){
+      $firstCells.eq(i).replaceWith(this);
+  })});
+
+  $(blogHead).fadeOut(150, function() {
+  var $firstCells = $("#blog tr"),
+      $copies = $firstCells.clone(true);
+  
+  [].sort.call($copies, function() { return Math.random() - 0.5; });
+  
+  $copies.each(function(i){
+      $firstCells.eq(i).replaceWith(this);
+  })});
+
+  $(blogHead).delay(150).fadeIn(150);
+  $(bloggerHead).delay(150).fadeIn(150);
+
+  var shuffle = document.getElementById("shuffleRotate");
+  $(shuffle).delay(400).queue(function() {
+    $(this).attr('id','shuffleIconWeb').dequeue();
+  })
 });
