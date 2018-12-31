@@ -291,11 +291,11 @@ window.addEventListener('resize', function(){
   function openAllStacksWeb() {
     var navAll = document.getElementById("navAll");
     if ($(navAll).attr('class') === 'gone') {
-      $(navAll).fadeIn(20);
+      $(navAll).fadeIn(100);
       $(navAll).attr('class','open');
     }
     else {
-      $(navAll).fadeOut(20);
+      $(navAll).fadeOut(100);
       $(navAll).attr('class','gone');
     }
   }

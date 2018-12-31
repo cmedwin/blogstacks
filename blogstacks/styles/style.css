@@ -974,22 +974,12 @@ and (min-device-width : 1024px)  {
 
 
 
-  .image1r {
+  .imageR {
     min-width: 50px;
-    background: url("https://scontent.flhr4-2.fna.fbcdn.net/v/t1.0-9/27858096_337250043430016_4527363611506847069_n.jpg?_nc_cat=110&oh=2153b275fcce46810fc5c9e6c885cd48&oe=5C5B69CA");
-    background-size: contain;
-    background-position: center;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-  .image2r {
-    min-width: 50px;
-    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/t/4/assets/logo-small.svg?14457229167469512304");
-    background-size: contain;
-    background-position: center;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-}
+
 
    .image1g {
     min-width: 75px;
