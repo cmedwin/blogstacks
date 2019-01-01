@@ -976,6 +976,8 @@ and (min-device-width : 1024px)  {
 
   .imageR {
     min-width: 50px;
+    padding: 2px;
+    /*border: 1px solid #607c8d;*/
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
@@ -1023,7 +1025,9 @@ and (min-device-width : 1024px)  {
 
   .titler {
     background: #607c8d;
-    width: 100%;
+    /*width: calc(38% - 55px);
+    max-width: 215px;*/
+    width: 38%;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }
@@ -1060,11 +1064,9 @@ and (min-device-width : 1024px)  {
   }
 
   #desc_r {
-    width: calc(100% - 10px);
     margin: 0px;  
-    padding: 2px 5px 6px;
-    height: 22px;
-    line-height: 12px;
+    padding: 2px 3px 6px;
+    height: 40px;
     overflow: hidden;
     word-wrap: break-word;
     display: -webkit-box;
@@ -1073,9 +1075,9 @@ and (min-device-width : 1024px)  {
   }
 
   #acc_r {
-    width: 100%;
+    width: calc(38vw - 68px);
     margin: 0px;  
-    padding: 0px 5px;
+    padding: 0px 3px;
     font-size: 9px;
     height: 11px;
     overflow: hidden;
@@ -1091,24 +1093,10 @@ and (min-device-width : 1024px)  {
   a:active {color: inherit; text-decoration: inherit}
 
   .stats ul{
-    color: inherit;
-    padding: 0px 5px 3px;
-    margin: 0;
-    background-color: inherit;
-    overflow: auto;
-    font-size: 10px;
-    opacity: 0;
-    height: 0px;
+    display: none;
   }
 
   .stats li {
-    float:left;
-    display: block;
-    font-family: 'DIN Alternate', sans-serif;
-    font-weight: 100;
-    letter-spacing: 0px;
-    padding: 0px 1px;
-    text-transform: capitalize;
-    opacity: 0;
+    display: none;
   }
 

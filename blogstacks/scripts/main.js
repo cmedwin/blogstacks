@@ -291,11 +291,11 @@ window.addEventListener('resize', function(){
   function openAllStacksWeb() {
     var navAll = document.getElementById("navAll");
     if ($(navAll).attr('class') === 'gone') {
-      $(navAll).fadeIn(100);
+      $(navAll).fadeIn(40);
       $(navAll).attr('class','open');
     }
     else {
-      $(navAll).fadeOut(100);
+      $(navAll).fadeOut(40);
       $(navAll).attr('class','gone');
     }
   }
@@ -454,3 +454,9 @@ $("#shuffleWeb").click(function(){
     $(this).attr('id','shuffleIconWeb').dequeue();
   })
 });
+
+// 12. blogger filter
+//window.addEventListener("load", function(){
+  //document.getElementsByClassName("titler").onclick = function(){alert("test")};
+//});
+
