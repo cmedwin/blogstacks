@@ -13,6 +13,15 @@ window.onload = function() {
       searchTable(table, input);
       searchTable(table2, input);
   }));
+
+  // Change logo to pre-rescaled 33px height version when using windows
+  var mainlogo = document.getElementById("logo");
+  var mainlogoWin = document.getElementById("logoWin");
+  if (navigator.appVersion.indexOf("Win")!=-1) {
+    $(mainlogo).css('display','none');
+    $(mainlogoWin).css('display','inline-block');
+  } 
+
 }
 
 // 1. Reflect change in active button on nav bar
@@ -153,6 +162,9 @@ window.onload = function() {
         }
         //if (document.getElementById("navhead").getAttribute('class') === 'gone') document.getElementById("navhead").setAttribute('class','show');
         //else document.getElementById("navhead").setAttribute('class','gone');
+        }
+        else {
+          openAllStacksWeb();
         }
       }
 

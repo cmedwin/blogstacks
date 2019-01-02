@@ -42,10 +42,19 @@ body {
 }
 
 img.logo {
+  display: inline-block;
   position: relative;
   height: 33px;
   padding: 10px 0px 13px 0px;
   z-index: 2200;
+}
+
+img.logoWin {
+  position: relative;
+  height: 33px;
+  padding: 10px 0px 13px 0px;
+  z-index: 2200;
+  display: none;
 }
 
 @media screen and (max-width: 480px) {
@@ -260,7 +269,7 @@ img.logo {
                     color: white;
                     display: inline-block;
                     display: none;
-                    font-family: DIN Alternate, sans-serif;
+                    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
                     font-size: 16px;
                     font-weight: 100;
                     letter-spacing: 1.5px;
@@ -396,7 +405,7 @@ img.logo {
     outline: none;
     
     margin: 4px 0px 0px 0px;
-    font-family: DIN Alternate, sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1.2px;
@@ -678,7 +687,7 @@ img.logo {
     max-width: 180px;
     background: #f3f3f3;
     vertical-align: middle;
-    font-family: 'DIN Alternate', sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
     color: #666666;
@@ -721,7 +730,7 @@ img.logo {
     outline: 0;
     width: calc(60% - 60px); /* Full-width */
     max-width: 258px;
-    font-family: 'DIN Alternate', sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
     /*text-transform: capitalize;*/
@@ -850,7 +859,7 @@ img.logo {
     transform: translate(-50%, -50%);
     z-index: 999;
     text-align: center;
-    font-family: 'DIN Alternate', sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 10px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -867,16 +876,18 @@ img.logo {
 
   #blogger::-webkit-scrollbar { width: 0 !important }
   #blogger {
-    top: 102px;
+    top: 96px;
     left: 50%;
     position: absolute;
     width: 38%;
     max-width: 280px;
     margin-right: 0%;
+    border-collapse: separate;
+    border-spacing: 0px 4px;
     vertical-align: top;
     transform: translate(-128%, 0%);
     color: #FFF;
-    font-family: 'DIN Alternate', sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -898,8 +909,8 @@ img.logo {
   
   @media only screen and (max-width: 480px) {
     #blogger {
-      top: 94px;
-      height: calc(100% - 94px);
+      top: 88px;
+      height: calc(100% - 88px);
       }
     }
 
@@ -907,30 +918,32 @@ img.logo {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
   #blogger {
-  height: calc(100% - 122px);
+  height: calc(100% - 114px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blogger {
-  height: calc(100% - 102px);
+  height: calc(100% - 94px);
   }
 }
 
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 102px;
+    top: 96px;
     left: 50%;
     position: absolute;
     width: 58%;
     max-width: 428px;
     margin-right: 0%;
+    border-collapse: separate;
+    border-spacing: 0px 4px;
     vertical-align: top;
     transform: translate(-16%,0%);
     color: #323232;
-    font-family: 'DIN Alternate', sans-serif;
+    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -952,8 +965,8 @@ and (min-device-width : 1024px)  {
   
   @media only screen and (max-width: 480px) {
   #blog {
-    top: 94px;
-    height: calc(100% - 94px);
+    top: 88px;
+    height: calc(100% - 88px);
     }
   }
 
@@ -961,14 +974,14 @@ and (min-device-width : 1024px)  {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
   #blog {
-  height: calc(100% - 122px);
+  height: calc(100% - 114px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blog {
-  height: calc(100% - 102px);
+  height: calc(100% - 94px);
   }
 }
 
@@ -1025,8 +1038,8 @@ and (min-device-width : 1024px)  {
 
   .titler {
     background: #607c8d;
-    /*width: calc(38% - 55px);
-    max-width: 215px;*/
+    /*width: calc(38% - 55px);*/
+    max-width: 220px;
     width: 38%;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -1085,6 +1098,10 @@ and (min-device-width : 1024px)  {
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: capitalize;
+  }
+
+  #acc_r:nth-last-child(2) {
+    padding-bottom: 2px;
   }
 
   a:link {color: inherit; text-decoration: inherit}
