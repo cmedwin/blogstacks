@@ -909,8 +909,8 @@ img.logoWin {
   
   @media only screen and (max-width: 480px) {
     #blogger {
-      top: 88px;
-      height: calc(100% - 88px);
+      top: 90px;
+      height: calc(100% - 90px);
       }
     }
 
@@ -918,14 +918,14 @@ img.logoWin {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
   #blogger {
-  height: calc(100% - 114px);
+  height: calc(100% - 116px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blogger {
-  height: calc(100% - 94px);
+  height: calc(100% - 96px);
   }
 }
 
@@ -965,8 +965,8 @@ and (min-device-width : 1024px)  {
   
   @media only screen and (max-width: 480px) {
   #blog {
-    top: 88px;
-    height: calc(100% - 88px);
+    top: 90px;
+    height: calc(100% - 90px);
     }
   }
 
@@ -974,14 +974,14 @@ and (min-device-width : 1024px)  {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
   #blog {
-  height: calc(100% - 114px);
+  height: calc(100% - 116px);
   }
 }
 
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blog {
-  height: calc(100% - 94px);
+  height: calc(100% - 96px);
   }
 }
 

@@ -3,8 +3,8 @@ window.onload = function() {
 
   var bloggerHead = document.getElementById("blogger");
   var blogHead = document.getElementById("blog");
-  $( bloggerHead ).load("stacks/blogger1.html", 
-  $( blogHead ).load("stacks/blog1.html", function() {
+  $( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(10)", 
+  $( blogHead ).load("stacks/blog1.html tbody tr:lt(10)", function() {
    document.getElementById("navTopstack").setAttribute('id','navTopstack');
    document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
       var input = document.querySelector('#navTopstack'),
@@ -22,7 +22,13 @@ window.onload = function() {
     $(mainlogoWin).css('display','inline-block');
   } 
 
+  $( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
+  $( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
+
+
 }
+
+  $( bloggerHead ).load("stacks/blogger1.html tr:lt(2)");
 
 // 1. Reflect change in active button on nav bar
       // Get the container element
