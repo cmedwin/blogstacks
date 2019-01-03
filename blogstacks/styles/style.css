@@ -876,7 +876,7 @@ img.logoWin {
 
   #blogger::-webkit-scrollbar { width: 0 !important }
   #blogger {
-    top: 96px;
+    top: 100px;
     left: 50%;
     position: absolute;
     width: 38%;
@@ -925,14 +925,14 @@ and (max-device-width : 1024px)  {
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blogger {
-  height: calc(100% - 96px);
+  height: calc(100% - 92px);
   }
 }
 
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 96px;
+    top: 100px;
     left: 50%;
     position: absolute;
     width: 58%;
@@ -981,7 +981,7 @@ and (max-device-width : 1024px)  {
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blog {
-  height: calc(100% - 96px);
+  height: calc(100% - 92px);
   }
 }
 

@@ -1,4 +1,5 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
+var vInput = document.querySelector('#navTopstack'); 
 window.onload = function() {
 
   var bloggerHead = document.getElementById("blogger");
@@ -7,11 +8,12 @@ window.onload = function() {
   $( blogHead ).load("stacks/blog1.html", function() {
    document.getElementById("navTopstack").setAttribute('id','navTopstack');
    document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
-      var input = document.querySelector('#navTopstack'),
+      var input1 = vInput;
+          input2 = document.querySelector('#myInput');
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
-      searchTable(table, input);
-      searchTable(table2, input);
+      searchTable(table, input1, input2);
+      searchTable(table2, input1, input2);
   }));
 
   // Change logo to pre-rescaled 33px height version when using windows
@@ -96,49 +98,54 @@ window.onload = function() {
               document.getElementById('allStacks').click();
             }
           }
-
-            var input = vInput,
+            var input1 = vInput;
+            var input2 = document.getElementById("myInput");
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
-            searchTable(table, input);
-            searchTable(table2, input);
+            searchTable(table, input1, input2);
+            searchTable(table2, input1, input2);
         });
+        
       }
 
 // 2. Search - bind tables and input
-      var searchTable = function searchTable(table, input) {
+      var searchTable = function searchTable(table, input1, input2) {
           // Since we bound the input, we can use input.value to get the current words typed into the input.
-          var filter = input.value.toUpperCase(),
+          var filter1 = input1.value.toUpperCase();
+          var filter2 = input2.value.toUpperCase();
             // A table has both a thead and a tbody.
             // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
             // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
             // The original code uses getElementsByTagName, which return a LIVE nodeList, watch out for this difference.
-            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+          var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
           rows.forEach(function(row) {
             // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
             // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
-            var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
+            var hide1 = (row.innerHTML.toUpperCase().indexOf(filter1) === -1);
+            var hide2 = (row.innerHTML.toUpperCase().indexOf(filter2) === -1);
             // The alternative is actually checking each cell, but this makes the script take longer:
             // var hide = !Array.prototype.slice.call( row.querySelectorAll('td') ).some(function( cell ) {
             //     return (cell.innerHTML.indexOf( filter ) !== -1);
             // });
-            if (hide) row.classList.add('gone');
+            if (hide1 === false && hide2 === true) row.classList.add('gone');
             else if (row.classList.contains('gone')) row.classList.remove('gone');
           });
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
         // We add an onchange event listener, passing it a bound version of searchTable.
-        bindSearch = function bindSearch(tableID, inputID) {
-          var input = document.querySelector(inputID),
-            table = document.querySelector(tableID);
-          if (table && input) input.addEventListener('change', searchTable.bind(null, table, input));
+        bindSearch = function bindSearch(tableID, inputID1, inputID2) {
+          var input1 = document.querySelector(inputID1);
+              input2 = document.querySelector(inputID2);
+              table = document.querySelector(tableID);
+          if (table && input1 && input2) input2.addEventListener('change', searchTable.bind(null, table, input1, input2));
+          if (table && input1 && input2) input2.addEventListener('change', searchTable.bind(null, table, input1, input2));
           else alert('Table or input does not exist.');
         };
       // We can add as many individual inputs / tables as we want by just calling bindSearch with the right ids.
       function search() {
-      bindSearch('#blog', '#myInput');
-      bindSearch('#blogger', '#myInput');
+      bindSearch('#blog', vInput, '#myInput');
+      bindSearch('#blogger', vInput, '#myInput');
       }
       search();
       
