@@ -269,7 +269,7 @@ img.logoWin {
                     color: white;
                     display: inline-block;
                     display: none;
-                    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+                    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
                     font-size: 16px;
                     font-weight: 100;
                     letter-spacing: 1.5px;
@@ -405,7 +405,7 @@ img.logoWin {
     outline: none;
     
     margin: 4px 0px 0px 0px;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1.2px;
@@ -687,7 +687,7 @@ img.logoWin {
     max-width: 180px;
     background: #f3f3f3;
     vertical-align: middle;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
     color: #666666;
@@ -730,7 +730,7 @@ img.logoWin {
     outline: 0;
     width: calc(60% - 60px); /* Full-width */
     max-width: 258px;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
     /*text-transform: capitalize;*/
@@ -859,7 +859,7 @@ img.logoWin {
     transform: translate(-50%, -50%);
     z-index: 999;
     text-align: center;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 10px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -887,7 +887,7 @@ img.logoWin {
     vertical-align: top;
     transform: translate(-128%, 0%);
     color: #FFF;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
@@ -943,7 +943,7 @@ and (min-device-width : 1024px)  {
     vertical-align: top;
     transform: translate(-16%,0%);
     color: #323232;
-    font-family: DIN alternate, verdana, arial, helvetica, sans-serif;
+    font-family: DIN Alternate, Tw Cen MT, verdana, arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
     letter-spacing: 1px;
