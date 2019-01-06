@@ -45,6 +45,7 @@ body {
   .header {
     height: 88px;
     position: fixed;
+    box-shadow: 0px 2px 9px #ccc;
   }
 }
 
@@ -68,6 +69,7 @@ img.logoWin {
   img.logo {
     height: 30px;
     padding: 0px 0px 0px 0px;
+    padding-left: 55px;
     position: relative;
     vertical-align: middle;
   }
@@ -90,11 +92,11 @@ img.logoWin {
       .header ul{
           list-style-type: none;
           box-sizing: border-box;
-          padding: 10px 0px 0px;
+          padding: 10px 0px 0px 0px;
           position: relative;
           top: 0;
-          text-align: center;
-          margin: 0;
+          /*text-align: center;*/
+          margin-left: 0;
           z-index: 900;
         }
       }
@@ -663,7 +665,7 @@ img.logoWin {
   .search {
     position: relative;
     top: -52px;
-    max-width: 500px;
+    max-width: 350px;
     width: 70%; /* Full-width */
     height: 35px;
     float: right;
@@ -690,20 +692,21 @@ img.logoWin {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     position: static;
-    width:40%;
+    width:auto;
     max-width: 180px;
-    background: #f3f3f3;
+    background: #ffffff;
     vertical-align: middle;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
-    color: #666666;
+    color: #c0c0c0;
     text-transform: capitalize;
     height: 100%;
     border: 0px;
-    border-right: 1px solid #cdcdcd;
+    /*border-right: 1px solid #cdcdcd;*/
     outline: 0;
-    padding: 0px;
+    padding-left: 12px;
+    padding-right: 0px;
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: auto;
@@ -721,22 +724,24 @@ img.logoWin {
   }
 
   #butFilter::after {
-    content: '\00A0\00A0\25b6\00fe0e';
+    content: '\00A0\ff5c\00fe0e';
     color:  #cdcdcd;
-    font-size: 10px;
+    font-size: 16px;
+    vertical-align: middle;
   }
   
-  #butFilter::before {
+  /*#butFilter::before {
     content: '\25c0\00fe0e\00A0\00A0';
     color:  #cdcdcd;
     font-size: 10px;
-  }
+  }*/
 
   #myInput {
     border-radius: 0px;
     outline: 0;
-    width: calc(60% - 60px); /* Full-width */
-    max-width: 258px;
+    /*width: calc(60% - 60px); /* Full-width */
+    /*width: auto;*/
+    max-width: 294px;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 14px;
     font-weight: 100;
@@ -745,7 +750,7 @@ img.logoWin {
     position: static;
     z-index: 100;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 5px;
     padding-right: 25px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -780,16 +785,24 @@ img.logoWin {
     padding: 1px 0px 0px 6px;
     outline: none;
   }
-  
+
+  .search ul {
+    padding: 1px;
+  }
+
   @media screen and (max-width: 480px) {
     .search button {
       padding: 1px 0px 0px 2px;
     }
-
+    .search ul {
+      padding: 1px;
+      text-align: center;
+    }
   }
 
   .search ul {
     padding: 1px;
+    
   }
 
   .mag {
@@ -883,15 +896,15 @@ img.logoWin {
 
   #blogger::-webkit-scrollbar { width: 0 !important }
   #blogger {
-    top: 102px;
-    left: calc(50% + 20px);
+    top: 106px;
+    left: 50%;
     position: absolute;
-    width: calc(45% + 20px);
-    max-width: calc(713px * 0.45);
+    width: 40%;
+    max-width: calc(713px * 0.40);
     margin-right: 0px;
     margin-left: 0px;
     vertical-align: top;
-    transform: translate(-106%, 0%);
+    transform: translate(-124%, 0%);
     color: #FFF;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
@@ -915,16 +928,18 @@ img.logoWin {
   }
 
   #blogger tbody {
-    /*display: block;*/
-    width: calc(100% - 20px);
-    max-width: 236px;
+    display: block;
+    width: 92%;
+    max-width: calc(713px * 0.4 * 0.92);
     margin:0 auto;
   }
 
   #blogger tr {
-    /*display: inline-block;*/
     width: 100%;
-    
+  }
+
+  .rowShow {
+    display: inline-block;
   }
 
   #blogger td {
@@ -934,8 +949,8 @@ img.logoWin {
   
   @media only screen and (max-width: 480px) {
     #blogger {
-      top: 96px;
-      height: calc(100% - 96px);
+      top: 98px;
+      height: calc(100% - 98px);
       }
     }
 
@@ -959,15 +974,15 @@ and (min-device-width : 1024px)  {
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 102px;
-    left: calc(50% + 20px);
+    top: 106px;
+    left: 50%;
     position: absolute;
-    width: calc(45% + 20px);
-    max-width: calc(713px * 0.45);
+    width: 60%;
+    max-width: calc(713px * 0.6);
     margin-right: 0px;
     margin-left: 0px;
     vertical-align: top;
-    transform: translate(-10%,0%);
+    transform: translate(-17%,0%);
     color: #323232;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
@@ -991,16 +1006,18 @@ and (min-device-width : 1024px)  {
   }
 
   #blog tbody {
-    /*display: block;*/
-    width: calc(100% - 20px);
-    max-width: 236px;
+    display: block;
+    width: 92%;
+    max-width: calc(713px * 0.6 * 0.92);
     margin:0 auto;
   }
 
   #blog tr {
-    /*display: inline-block;*/
     width: 100%;
-    
+  }
+
+  .rowShow {
+    display: inline-block;
   }
 
   #blog td {
@@ -1010,8 +1027,8 @@ and (min-device-width : 1024px)  {
   
   @media only screen and (max-width: 480px) {
   #blog {
-    top: 96px;
-    height: calc(100% - 96px);
+    top: 98px;
+    height: calc(100% - 98px);
     }
   }
 
@@ -1035,12 +1052,12 @@ and (min-device-width : 1024px)  {
   background: transparent;
 }
 
-  .imgHead {
+  /*.imgHead {
     overflow: hidden;
     border-top: 1px solid #373737;
     box-sizing: border-box;
     width: 100%;
-}
+}*/
 
   .imageR {
     padding-bottom: 66%;
@@ -1070,7 +1087,7 @@ and (min-device-width : 1024px)  {
 
 
 
-   .image1g {
+   .imageG {
     padding-bottom: 66%;
     border-top: 1px solid #373737;
     width: 100%;
@@ -1079,24 +1096,6 @@ and (min-device-width : 1024px)  {
     background-size: contain; 
     background-position: center;
 }
-
-
-  .image4g {
-    min-width: 75px;
-    background: url("https://static1.squarespace.com/static/5a75c1c8be42d6cd6a794749/t/5b9a7a520ebbe8e940a1d005/1536850517136/WhatsApp+Image+2018-04-25+at+09.37.46.jpeg?format=1500w");
-    background-size: cover;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
-
-  .image5g {
-    min-width: 75px;
-    background: url("https://cdn.shopify.com/s/files/1/0010/2832/5442/files/messi_yerba_mate_large.jpg?v=1522328410");
-    background-size: cover;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
-
 
   .titler {
     background: var(--bs-grey);
@@ -1120,7 +1119,7 @@ and (min-device-width : 1024px)  {
 
   #desc {
     margin: 0px;  
-    padding: 4px 5px 2px;
+    /*padding: 4px 5px 2px;*/
     font-weight: 300;
     font-size: 0.9em;
     line-height: 1.3;
@@ -1133,7 +1132,8 @@ and (min-device-width : 1024px)  {
 
   #acc {
     margin: 0px;  
-    padding: 2px 5px 0px;
+    padding-bottom: 5px;
+    /*padding: 2px 5px 0px;*/
     font-size: 1em;
     line-height: 1.4;
     font-weight: 600;

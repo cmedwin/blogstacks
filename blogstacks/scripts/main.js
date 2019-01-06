@@ -11,7 +11,8 @@ window.onload = function() {
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
       searchTable(table, input);
-      searchTable(table2, input);
+      searchTable(table2, input), 
+      myInputWidth();
   }));
 
   // Change logo to pre-rescaled 33px height version when using windows
@@ -96,7 +97,7 @@ window.onload = function() {
               document.getElementById('allStacks').click();
             }
           }
-
+            myInputWidth();
             var input = vInput,
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
@@ -123,8 +124,14 @@ window.onload = function() {
             // var hide = !Array.prototype.slice.call( row.querySelectorAll('td') ).some(function( cell ) {
             //     return (cell.innerHTML.indexOf( filter ) !== -1);
             // });
-            if (hide) row.classList.add('gone');
-            else if (row.classList.contains('gone')) row.classList.remove('gone');
+            if (hide) {
+              row.classList.add('gone'); 
+              row.classList.remove('rowShow');
+            }
+            else if (row.classList.contains('gone')) {
+              row.classList.remove('gone');
+              row.classList.add('rowShow');
+            }
           });
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
@@ -262,6 +269,7 @@ function menuWeb() {
 // 6. Show nav / close main menu on orientation change
 
 window.addEventListener('resize', function(){
+  myInputWidth();
   if (document.getElementById("menuInputWeb").checked === true){
     document.getElementById('menuInputWeb').click();
   }
@@ -478,3 +486,12 @@ $("#shuffleWeb").click(function(){
   //document.getElementsByClassName("titler").onclick = function(){alert("test")};
 //});
 
+function myInputWidth() {
+  var searchWidth = $("#search").width();
+  var butFilterWidth = $("#butFilter").width();
+  var finWidth = searchWidth - butFilterWidth - 45 - 33;
+  var myInput = document.getElementById("myInput");
+  myInput.style.width = finWidth + "px";
+  //alert(finWidth);
+}
+ 
