@@ -22,8 +22,8 @@ window.onload = function() {
     $(mainlogoWin).css('display','inline-block');
   } 
 
-  $( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
-  $( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
+  //$( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
+  //$( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
 
 
 }
