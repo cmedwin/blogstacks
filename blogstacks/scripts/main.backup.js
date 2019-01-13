@@ -5,9 +5,8 @@ window.onload = function() {
   var blogHead = document.getElementById("blog");
   $( bloggerHead ).load("stacks/blogger1.html", 
   $( blogHead ).load("stacks/blog1.html", function() {
-   document.getElementById("navTopstack").setAttribute('id','navTopstack');
-   document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
-      var input = document.querySelector('#navTopstack'),
+   document.getElementById("butFilter").innerHTML = "";
+      var input = document.querySelector('#butFilter'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
       searchTable(table, input);
@@ -22,8 +21,8 @@ window.onload = function() {
     $(mainlogoWin).css('display','inline-block');
   } 
 
-  $( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
-  $( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
+  //$( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
+  //$( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
 
 
 }
@@ -32,7 +31,7 @@ window.onload = function() {
 
 // 1. Reflect change in active button on nav bar
       // Get the container element
-      var btnContainer = document.getElementById("navigation");
+      var btnContainer = document.getElementById("mainList");
 
       // Get all buttons with class="btn" inside the container
       var btns = btnContainer.getElementsByClassName("btn");
@@ -96,7 +95,7 @@ window.onload = function() {
               document.getElementById('allStacks').click();
             }
           }
-
+            
             var input = vInput,
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
@@ -123,8 +122,14 @@ window.onload = function() {
             // var hide = !Array.prototype.slice.call( row.querySelectorAll('td') ).some(function( cell ) {
             //     return (cell.innerHTML.indexOf( filter ) !== -1);
             // });
-            if (hide) row.classList.add('gone');
-            else if (row.classList.contains('gone')) row.classList.remove('gone');
+            if (hide) {
+              row.classList.add('gone'); 
+              row.classList.remove('rowShow');
+            }
+            else if (row.classList.contains('gone')) {
+              row.classList.remove('gone');
+              row.classList.add('rowShow');
+            }
           });
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
@@ -262,6 +267,7 @@ function menuWeb() {
 // 6. Show nav / close main menu on orientation change
 
 window.addEventListener('resize', function(){
+  
   if (document.getElementById("menuInputWeb").checked === true){
     document.getElementById('menuInputWeb').click();
   }
@@ -478,3 +484,5 @@ $("#shuffleWeb").click(function(){
   //document.getElementsByClassName("titler").onclick = function(){alert("test")};
 //});
 
+
+ 

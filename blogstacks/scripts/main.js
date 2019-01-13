@@ -5,14 +5,12 @@ window.onload = function() {
   var blogHead = document.getElementById("blog");
   $( bloggerHead ).load("stacks/blogger1.html", 
   $( blogHead ).load("stacks/blog1.html", function() {
-   document.getElementById("navTopstack").setAttribute('id','navTopstack');
-   document.getElementById("butFilter").innerHTML = document.getElementById("navTopstack").innerHTML;
-      var input = document.querySelector('#navTopstack'),
+   document.getElementById("butFilter").innerHTML = "";
+      var input = document.querySelector('#butFilter'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
       searchTable(table, input);
-      searchTable(table2, input), 
-      myInputWidth();
+      searchTable(table2, input);
   }));
 
   // Change logo to pre-rescaled 33px height version when using windows
@@ -33,7 +31,7 @@ window.onload = function() {
 
 // 1. Reflect change in active button on nav bar
       // Get the container element
-      var btnContainer = document.getElementById("navigation");
+      var btnContainer = document.getElementById("mainList");
 
       // Get all buttons with class="btn" inside the container
       var btns = btnContainer.getElementsByClassName("btn");
@@ -97,7 +95,7 @@ window.onload = function() {
               document.getElementById('allStacks').click();
             }
           }
-            myInputWidth();
+            
             var input = vInput,
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
@@ -181,33 +179,19 @@ window.onload = function() {
         }
       }
 
-// 4. Main menu animation - mobile
+// 4. Main menu animation 
 
-        function menuMob() {
-          var search =  document.getElementById("search");
-          var mainList = document.getElementById("mainList");
-          var navRightMob = document.getElementById("navRightMob");
+        function menu() {
+          var mainMenu = document.getElementById("mainMenu");
 
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-              if (document.getElementById("navhead").getAttribute('class') === 'open'){
-               butFilter ()
-              }
-              $(search).fadeOut(200);
-              $(mainList).fadeIn(500);
-              $(navRightMob).fadeOut(200);
+              $(mainMenu).fadeIn(200);
               //$(search).animate({opacity: 0}, 200);
               document.getElementById("mainMenu").setAttribute('class','open');
-              document.getElementById("mainMenu").style.backgroundColor = "#000000";
-              document.getElementById("myHeader").style.backgroundColor = "#000000";
           }
           else {
-              //$(search).animate({opacity: 1}, 750); 
-              $(search).delay(100).fadeIn(250);
-              $(mainList).fadeOut(150);
-              $(navRightMob).delay(100).fadeIn(250);
-              document.getElementById("mainMenu").setAttribute('class','closed');
-              document.getElementById("mainMenu").style.backgroundColor = "#0c3c58";
-              document.getElementById("myHeader").style.backgroundColor = "#0c3c58";   
+              $(mainList).fadeOut(200);
+              document.getElementById("mainMenu").setAttribute('class','closed');   
           }
         }
 
@@ -269,7 +253,7 @@ function menuWeb() {
 // 6. Show nav / close main menu on orientation change
 
 window.addEventListener('resize', function(){
-  myInputWidth();
+  
   if (document.getElementById("menuInputWeb").checked === true){
     document.getElementById('menuInputWeb').click();
   }
@@ -486,12 +470,5 @@ $("#shuffleWeb").click(function(){
   //document.getElementsByClassName("titler").onclick = function(){alert("test")};
 //});
 
-function myInputWidth() {
-  var searchWidth = $("#search").width();
-  var butFilterWidth = $("#butFilter").width();
-  var finWidth = searchWidth - butFilterWidth - 45 - 33;
-  var myInput = document.getElementById("myInput");
-  myInput.style.width = finWidth + "px";
-  //alert(finWidth);
-}
+
  

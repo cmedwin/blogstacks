@@ -3,6 +3,9 @@
   --bs-turq: #29bb9c;
   --bs-grey: #373737;
   --bs-lblue: #607c8d;
+  --bs-dblue: #082a3e;
+  --bs-mblue: #0c3c58;
+  --bs-mdblue: #0a334b;
 }
 
 @font-face { 
@@ -25,151 +28,96 @@ body {
   }
 
 
+/*Header Start*/
+          #headerSpacer {
+            width: 100%;
+            position: fixed;
+            background-color: #0c3c58;
+            z-index: 1000;
+            /* Status bar height on iOS 10 */
+            padding-top: 20px;
+            /* Status bar height on iOS 11.0 */
+            padding-top: constant(safe-area-inset-top);
+            /* Status bar height on iOS 11+ */
+            padding-top: env(safe-area-inset-top);
+          }
+
+          #headerSpacer2 {
+            width: 100%;
+            background-color: transparent;
+            /* Status bar height on iOS 10 */
+            padding-top: 20px;
+            /* Status bar height on iOS 11.0 */
+            padding-top: constant(safe-area-inset-top);
+            /* Status bar height on iOS 11+ */
+            padding-top: env(safe-area-inset-top);
+          }
+
+          .header {
+              z-index: 900;
+              position: fixed;
+              width: calc(100% - 16px);
+              height: 48px;
+              background-color: var(--bs-mblue);
+              padding-left: 8px;
+              padding-right: 8px;
+              padding-bottom: 8px;
+              padding-top: 8px;
+              box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+          }
+
+          @media screen and (max-width: 480px) {
+            .header {
+              width: calc(100% - 8px);
+              padding-left: 4px;
+              padding-right: 4px;
+              padding-bottom: 4px;
+              padding-top: 4px;
+            }
+          }
 
 
-.header {
-    z-index: 900;
-    position: fixed;
-    width: 100%;
-    height: 56px;
-    background-color: #0c3c58;
-    /* Status bar height on iOS 10 */
-    padding-top: 20px;
-    /* Status bar height on iOS 11.0 */
-    padding-top: constant(safe-area-inset-top);
-    /* Status bar height on iOS 11+ */
-    padding-top: env(safe-area-inset-top);
-}
+          .header ul{
+            padding: 0px;
+            width: 100%; 
+            margin: 0;
+            list-style-type: none;
+            position: relative;
+            top: 0;
+            text-align: left; 
+          }
 
-@media screen and (max-width: 480px) {
-  .header {
-    height: 88px;
-    position: fixed;
-    box-shadow: 0px 2px 9px #ccc;
-  }
-}
-
-img.logo {
-  display: inline-block;
-  position: relative;
-  height: 33px;
-  padding: 10px 0px 13px 0px;
-  z-index: 2200;
-}
-
-img.logoWin {
-  position: relative;
-  height: 33px;
-  padding: 10px 0px 13px 0px;
-  z-index: 2200;
-  display: none;
-}
-
-@media screen and (max-width: 480px) {
-  img.logo {
-    height: 30px;
-    padding: 0px 0px 0px 0px;
-    margin-left: 55px;
-    position: relative;
-    vertical-align: middle;
-  }
-}
-
-  .header ul{
-      margin: auto;
-      max-width: 710px;
-      width: 96%; /* Full-width */
-      list-style-type: none;
-      box-sizing: border-box;
-      padding: 2px 0px 0px;
-      position: relative;
-      top: 0;
-      text-align: left;
-      
-    }
-
-    @media screen and (max-width: 480px) { 
-      .header ul{
-          list-style-type: none;
-          box-sizing: border-box;
-          padding: 10px 0px 0px 0px;
-          position: relative;
-          top: 0;
-          /*text-align: center;*/
-          margin-left: 0;
-          z-index: 900;
-        }
-      }
 
   /* Burger Menu */
                 
-  .menuWeb {
-    display: inline-block;
-  }
-
-  .menuMob {
-    display: none;
-  }
-  @media screen and (max-width: 480px) {
-    .menuWeb {
-      display: none;
-    }
-
-    .menuMob {
-      height: 0;
-      display: block;
-    }
-  } 
-
-                  a
-                  {
-                    text-decoration: none;
-                    color: #232323;
-                    
-                    transition: color 0.3s ease;
+                  .menu {
+                    display: inline-block;
                   }
-                  
                   
                   #menuToggle
                   {
                     display: inline-block;
                     position: absolute;
-                    top: 18px;
-                    left: 18px;
-                    padding-right: 20px;
+                    top: 17px;
+                    left: 11px;
                     z-index: 1100;
                     -webkit-user-select: none;
                     user-select: none;
                   }
-                  @media screen and (max-width: 480px) {
-                    #menuToggle
-                    {  
-                      padding-right: 0px;
-                      top: 20px;
-                      left: 15px;
-                      width:100%;
-                    }
-
-                    #menuInputMob {
-                      position: absolute;
-                      z-index: 2300;
-                    }
-
-                  }
                   
                   #menuToggle input
                   {
-                    display: block;
+                    display: inline-block;
                     width: 40px;
                     height: 32px;
                     position: absolute;
-                    top: -16px;
-                    left: -8px;
+                    top: -12px;
+                    left: -12px;
                     
                     cursor: pointer;
                     
                     opacity: 0; /* hide this */
-                    z-index: 1100; /* and place it over the hamburger */
+                    z-index: 2300; /* and place it over the hamburger */
                     
                     -webkit-touch-callout: none;
                   }
@@ -180,18 +128,14 @@ img.logoWin {
                   #menuToggle span
                   {
                     display: block;
-                    width: 20px;
-                    height: 1px;
-                    margin-bottom: 5px;
+                    width: 18px;
+                    height: 2px;
+                    margin-bottom: 4px;
                     position: relative;
-                    
                     background: #ffffff;
                     border-radius: 3px;
-                    
                     z-index: 1100;
-                    
                     transform-origin: 4px 0px;
-                    
                     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                                 opacity 0.55s ease;
@@ -214,65 +158,23 @@ img.logoWin {
                   #menuToggle input:checked ~ span
                   {
                     opacity: 1;
-                    transform: rotate(45deg) translate(0px, -3px);
+                    transform: rotate(45deg) translate(0px, 2px);
                     background: #ffffff;
                   }
                   
-                  
+                  #menuToggle input:checked ~ span:nth-last-child(3)
+                  {
+                    opacity: 0;
+                    transform: rotate(0deg) scale(0.2, 0.2);
+                  }
                   /*
                   * the last one should go the other direction
                   */
                   #menuToggle input:checked ~ span:nth-last-child(2)
                   {
-                    transform: rotate(-45deg) translate(0px, 4px);
+                    transform: rotate(-45deg) translate(1px, -1px);
                   }
                   
-                  /*
-                  * Make this absolute positioned
-                  * at the top left of the screen
-                  */
-                  
-                  #mainMenu{
-                    opacity: 0;
-                  }
-
-                  @media screen and (max-width: 480px) {
-                  #mainMenu
-                  {
-                    opacity: 1;
-                    position: absolute;
-                    width: 105%;
-                    height: 100vh;
-                    top: 60px;
-                    margin: auto;
-                    padding: 0;
-                    padding-top: 125px;
-                    left: -15px;
-                    z-index: 1000;
-                    
-                    background-color: #0c3c58;
-                    list-style-type: none;
-                    -webkit-font-smoothing: antialiased;
-                    /* to stop flickering of text in safari */
-                    
-                    transform-origin: 0% 0%;
-                    transform: translate(0,-100%);
-                    
-                    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-                  }
-                 }
-
-                  #menuToggle input:checked ~ menu {
-                    background-color: #323232;
-      
-                    -webkit-transition: background-color 1000ms linear;
-                    -ms-transition: background-color 1000ms linear;
-                    transition: background-color 0.5s linear; 
-                  }
-                  
-                  /*
-                  * And let's slide it in from the left
-                  */
                   #menuToggle input:checked ~ ul
                   {
                     transform: none;
@@ -293,60 +195,6 @@ img.logoWin {
                     margin-top: 40px;
                     border-top: solid 1px #222222;
                     /*transition: opacity 0.5s linear;*/
-                  }
-
-                  #mainList ul {
-                    width: 100%;
-                    padding: 0px 0px 0px;
-                  }
-
-
-                  #mainList li {
-                    padding-top: 14px;
-                    padding-bottom: 10px;
-                    padding-left: 4px;
-                    border-bottom: solid 1px #222222;
-                    margin-left: 12%;
-                    margin-right: 12%;
-                    text-align: left;
-                    height: 22px;
-                  }
-
-                  #ig {
-                    height: 16px;
-                    padding: 0px;
-                  }
-
-                  #mmContact {
-                    color: white;
-                    z-index: 2100;
-                    padding: 10px 15px 10px 15px;
-                    border: none;
-                  }
-
-                  #mmIG {
-                    background: url("../images/ig-white.png");
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 14px;
-                    margin-top: 0px;
-                    margin-bottom: 10px;
-                    margin-left: 20px;
-                    vertical-align: middle;
-                    z-index: 2100;
-                    padding: 10px 15px 10px 15px;
-                    border: none;
-                    
-                  }
-
-                  #mmIG:hover {
-                    background: url("../images/ig-orange.png");
-                    background-size: contain;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 14px;
-                    z-index: 2100;
                   }
 
                   #whiteOut {
@@ -370,14 +218,120 @@ img.logoWin {
   /* End - Burger Menu */
 
 
-  /*navigation ribbon*/
-  #navhead {
-    top: -8px;
-    position: relative;
-    background-color:#082a3e;
-    height:42px;
-    margin: 0  auto;
-  }
+            img.logo {
+              position: absolute;
+              height: 30px;
+              left: 45px;
+              top: 9px;
+              z-index: 2200;
+            }
+            
+            #logo {
+              display: inline-block;
+            }
+            
+            #logoWin {
+              display: none;
+            }
+            
+            #logoName {
+              position: absolute;
+              display: inline;
+              left: 82px;
+              top: 7px;
+              font-size: 26px;
+              color: white;
+              font-family: DIN Condensed, arial, helvetica, sans-serif;
+              /*font-weight: 500;*/
+            }
+
+            #category {
+              position: absolute;
+              display: inline;
+              left: 118px;
+              top: 28px;
+              font-size: 12px;
+              color: var(--bs-turq);
+              font-family: 'Arimo', arial, helvetica, sans-serif;
+              font-weight: bold;
+            }
+
+            #navRightMob {
+              display: inline-block;
+              position: absolute;
+              top: 3.75px;
+              right: 0px;
+              z-index: 2200;
+              vertical-align: middle;
+            }
+
+            .funcMob {
+              border-radius:50%;
+              -moz-border-radius:50%;
+              -webkit-border-radius:50%;
+              border: none;
+              background: var(--bs-mdblue);
+              width: 40.5px;
+              margin-left: 2px;
+              margin-right: 2px;
+            } 
+
+            #searchWeb {
+              display: none;
+            }
+
+            @media screen and (max-width: 639px) {
+              #searchWeb {
+                display: inline;
+              }
+            }
+
+
+            #shareWeb {
+              padding-left: 10px;
+              padding-right: 6px;
+            }
+
+            #shareIcon {
+              height:16px;
+            }
+            
+            #shuffleIconMob {
+              height:16px;
+            }
+
+            #shuffleRotate {
+              animation: rotation 0.4s linear;
+              -webkit-animation: rotation 0.4s linear;
+              height: 16px;
+            }
+            
+            @-webkit-keyframes rotation {
+              from {
+                  -webkit-transform: rotate(0deg);
+              }
+              to {
+                  -webkit-transform: rotate(359deg);
+              }
+            }
+            
+/*Header End*/
+
+
+
+
+
+
+
+
+/*navigation ribbon*/
+#navhead {
+  top: -8px;
+  position: relative;
+  background-color:#082a3e;
+  height:42px;
+  margin: 0  auto;
+}
 
   @media screen and (max-width: 480px) {
     #navhead {
@@ -550,26 +504,17 @@ img.logoWin {
  z-index: 1200;
 }
 
-#navRightMob {
-  display:none;
-}
+
 
 @media screen and (max-width: 480px) {
   #navRight {
     display: none;
   }
 
-  #navRightMob {
-    display: inline-block;
-    position: absolute;
-    top: 2px;
-    right: -5px;
-    z-index: 2200;
-    vertical-align: middle;
-  }
+  
 }
 
-.func {
+/*.func {
     border-right: none;
     border-left: none;
     border-top: none;
@@ -579,37 +524,21 @@ img.logoWin {
     vertical-align: middle;
 }
 
+
 @media screen and (max-width: 480px) {
   .func {
     display: none;
-  }
+  }*/
 
-  .funcMob {
-    border: none;
-    background: inherit;
-    padding-left: 6px;
-    padding-right: 6px;
-  } 
+  
 
-  .funcMob:nth-last-child(1) {
-    margin-left: 6px;
-    margin-right: 6px;
-  }
-}
+  /*.funcMob:nth-last-child(2) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }*/
+/*}*/
 
-#shuffleRotate {
-  -webkit-animation: rotation 0.4s linear;
-  height: 16px;
-}
 
-@-webkit-keyframes rotation {
-  from {
-      -webkit-transform: rotate(0deg);
-  }
-  to {
-      -webkit-transform: rotate(359deg);
-  }
-}
 
 #navRight p {
   display: inline-block;
@@ -618,17 +547,7 @@ img.logoWin {
   height: 16px;
 }
 
-#shareIcon {
-  height:16px;
-}
 
-#shuffleIconMob {
-  height:16px;
-}
-
-#shuffleIconWeb {
-  height:16px;
-}
 
 #allStacks {
   padding-top: 8px;
@@ -647,224 +566,230 @@ img.logoWin {
 
 
 
-  ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    height: 0px;
-    background: transparent;  /* optional: just make scrollbar invisible */
-  }
-
-  .searchhead {
-    position: relative;
-    margin: auto;
-    max-width: 713px;
-    padding: 0px 8px;
-    z-index: 1800;
-    
-  }
-
-  @media screen and (max-width: 480px) {
-    .searchhead {
-      padding: 0px 0px;
-    }
-  }
-
-  .search {
-    position: relative;
-    top: -52px;
-    max-width: 350px;
-    width: 70%; /* Full-width */
-    height: 35px;
-    float: right;
-    
-  }
-
   
+/* Search start*/
+            .searchhead {
+              position: relative;
+              /*margin: auto;*/
+              width: calc(100% - 250px - 135px);
+              max-width: 703px;
+              padding-left: 250px;
+              padding-right: 135px;
+              z-index: 1800;
+              
+            }
 
-  @media screen and (max-width: 480px) { 
-  .search {
-    position: relative;
-    top: 6px;
-    margin: auto;
-    max-width: 500px;
-    width: 97%; /* Full-width */
-    height: 35px;
-    float: none; 
-  }
-  }
+            @media screen and (max-width: 639px) {
+              .searchhead {
+                width: 97%;
+                display: none;
+              }
+            }
 
-  #butFilter {
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    position: static;
-    width:auto;
-    max-width: 180px;
-    background: #ffffff;
-    vertical-align: middle;
-    font-family: 'Arimo', arial, helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-    color: #c0c0c0;
-    text-transform: capitalize;
-    height: 100%;
-    border: 0px;
-    border-right: 1px solid #ffffff;
-    outline: 0;
-    padding-left: 12px;
-    padding-right: 0px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    cursor: auto;
-  }
+            @media screen and (min-width: 1220px) {
+              .searchhead {
+                padding-left: 0px;
+                padding-right: 0px;
+                margin: 0 auto;
+              }
+            }
 
-  #butFilter p{
-    display: inline-block;
-    margin: 0px;
-  }
+            .search {
+              position: relative;
+              top: -18px;
+              width: 100%; /* Full-width */
+              height: 46px;
+              float: right;
+              
+            }
 
-  @media screen and (max-width: 480px) {
-    #butFilter {
-      max-width: 250px;
-    }
-  }
+            
 
-  #butFilter::after {
-    content: '\00A0\ff5c\00fe0e';
-    color:  #cdcdcd;
-    font-size: 16px;
-    vertical-align: middle;
-  }
-  
-  /*#butFilter::before {
-    content: '\25c0\00fe0e\00A0\00A0';
-    color:  #cdcdcd;
-    font-size: 10px;
-  }*/
+            @media screen and (max-width: 639px) { 
+            .search {
+              position: relative;
+              top: 6px;
+              margin: auto;
+              max-width: 500px;
+              width: 100%; /* Full-width */
+              height: 35px;
+              float: none; 
+            }
+            }
 
-  #myInput {
-    border-radius: 0px;
-    outline: 0;
-    /*width: calc(60% - 60px); /* Full-width */
-    /*width: auto;*/
-    max-width: 294px;
-    font-family: 'Arimo', arial, helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-    /*text-transform: capitalize;*/
-    margin: 0px;
-    position: static;
-    z-index: 100;
-    text-align: left;
-    padding-left: 5px;
-    padding-right: 25px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border: 0px;
-    height: 100%;
-    -webkit-appearance: none;
-    box-shadow: none;
-    vertical-align: middle;
-  }
+            #butFilter {
+              display:none;
+              border-radius: 5px;
+              position: static;
+              width:auto;
+              max-width: 180px;
+              background: #ffffff;
+              vertical-align: middle;
+              font-family: 'Arimo', arial, helvetica, sans-serif;
+              font-size: 14px;
+              font-weight: 100;
+              color: #c0c0c0;
+              text-transform: capitalize;
+              height: 21px;
+              border: 0px;
+              /*border-right: 1px solid #ffffff;*/
+              outline: 0;
+              padding-left: 8px;
+              padding-right: 8px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              cursor: auto;
+            }
 
-  #myInput::placeholder{
-    color: #c0c0c0;
-    opacity: 1;
-  }
+            #butFilter p{
+              display: inline-block;
+              margin: 0px;
+            }
 
-  #search:focus {
-    border: 1px solid var(--bs-turq);
-  }
+            @media screen and (max-width: 639px) {
+              #butFilter {
+                max-width: 250px;
+              }
+            }
 
-  .search button {
-    right: 0px;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    width: 45px;
-    height: 100%;
-    background:var(--bs-turq);
-    border: 1px solid var(--bs-turq);
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    z-index: 200;
-    padding: 1px 0px 0px 6px;
-    outline: none;
-  }
+            #butFilter::after {
+              content: '';
+              color:  #cdcdcd;
+              font-size: 16px;
+              vertical-align: middle;
+            }
+            
+            /*#butFilter::before {
+              content: '\25c0\00fe0e\00A0\00A0';
+              color:  #cdcdcd;
+              font-size: 10px;
+            }*/
 
-  .search ul {
-    padding: 1px;
-  }
+            #myInput {
+              border-top-left-radius: 2px;
+              border-bottom-left-radius: 2px;
+              border-top-right-radius: 0px;
+              border-bottom-right-radius: 0px;
+              outline: 0;
+              width: calc(100% - 45px - 20px);
+              font-family: 'Arimo', arial, helvetica, sans-serif;
+              font-size: 14px;
+              font-weight: 100;
+              /*text-transform: capitalize;*/
+              margin: 0px;
+              position: static;
+              z-index: 100;
+              text-align: left;
+              padding-left: 10px;
+              padding-right: 10px;
+              padding-top: 0px;
+              padding-bottom: 0px;
+              border: 0px;
+              height: 100%;
+              -webkit-appearance: none;
+              box-shadow: none;
+              vertical-align: middle;
+            }
 
-  @media screen and (max-width: 480px) {
-    .search button {
-      padding: 1px 0px 0px 2px;
-    }
-    .search ul {
-      padding: 1px;
-      text-align: center;
-    }
-  }
+            #myInput::placeholder{
+              color: #c0c0c0;
+              opacity: 1;
+            }
 
-  .search ul {
-    padding: 1px;
-    
-  }
+            #search:focus {
+              border: 1px solid var(--bs-turq);
+            }
 
-  .mag {
-    width: 25px;
-    padding: 0px;
-    border: 0px; 
-    top: -6px;
-    padding: 1.5px;
-  }
+            .search button {
+              right: 0px;
+              border-top-right-radius: 2px;
+              border-bottom-right-radius: 2px;
+              width: 45px;
+              height: 100%;
+              background:var(--bs-turq);
+              border: 1px solid var(--bs-turq);
+              color: white;
+              cursor: pointer;
+              position: absolute;
+              z-index: 200;
+              padding: 1px 0px 0px 6px;
+              outline: none;
+            }
 
-  #searchClose {
-    display:none;
-  }
+            .search ul {
+              padding: 1px;
+            }
 
-  #searchClose span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    margin-left: 4px;
-    position: relative; 
-    background: #515151;
-    border-radius: 5px;
-    transform: rotate(45deg) translate(-1px, -1px);
-  }
-  @media screen and (max-width: 480px) {
-    #searchClose span {
-      margin-left: 8px;
-    }
-  }
+            @media screen and (max-width: 639px) {
+              .search button {
+                padding: 1px 0px 0px 2px;
+              }
+              .search ul {
+                padding: 1px;
+                text-align: center;
+              }
+            }
 
-  #searchClose span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(-0.5px, 0px);
-  }
+            .search ul {
+              padding: 1px;
+              
+            }
 
-  .show {
-    transition: opacity 0.3s linear;
-    opacity: 1; 
-    height: auto;
-  }
+            .mag {
+              width: 25px;
+              padding: 0px;
+              border: 0px; 
+              top: -6px;
+              padding: 1.5px;
+            }
 
-  .closed {
-    opacity: 1; 
-    height: auto;
-  }
+            #searchClose {
+              display:none;
+            }
 
-  @media screen and (max-width: 480px) {
-    .closed {
-      transition: opacity 0.3s linear;
-      opacity: 0; 
-      height: 0;
-    }
-  }
+            #searchClose span {
+              display: block;
+              width: 20px;
+              height: 2px;
+              margin-left: 4px;
+              position: relative; 
+              background: #515151;
+              border-radius: 5px;
+              transform: rotate(45deg) translate(-1px, -1px);
+            }
+            @media screen and (max-width: 639px) {
+              #searchClose span {
+                margin-left: 8px;
+              }
+            }
 
-  .gone {
-    display: none;
-  }
+            #searchClose span:nth-last-child(2) {
+              transform: rotate(-45deg) translate(-0.5px, 0px);
+            }
+
+            .show {
+              transition: opacity 0.3s linear;
+              opacity: 1; 
+              height: auto;
+            }
+
+            .closed {
+              opacity: 1; 
+              height: auto;
+            }
+
+            @media screen and (max-width: 639px) {
+              .closed {
+                transition: opacity 0.3s linear;
+                opacity: 0; 
+                height: 0;
+              }
+            }
+
+            .gone {
+              display: none;
+            }
+  /* Search End */
   
   
 
@@ -900,9 +825,17 @@ img.logoWin {
     overflow-y: hidden;
   }
 
+  ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    height: 0px;
+    background: transparent;  /* optional: just make scrollbar invisible */
+  }
+
   #blogger::-webkit-scrollbar { width: 0 !important }
   #blogger {
-    top: 106px;
+    direction: rtl;
+    top: 72px;
+    height: calc(100% - 72px);
     left: 50%;
     position: absolute;
     width: 40%;
@@ -920,7 +853,6 @@ img.logoWin {
     /*text-transform: capitalize;*/
     /*overflow-x: scroll;*/
     overflow-x: hidden;
-    height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
@@ -933,11 +865,18 @@ img.logoWin {
     padding-bottom: env(safe-area-inset-bottom);
   }
 
+  #blogger thead {
+    direction: ltr;
+  }
+
   #blogger tbody {
+    direction:ltr;
     display: block;
-    width: 92%;
-    max-width: calc(713px * 0.4 * 0.92);
-    margin:0 auto;
+    width: calc(100% - 10px);
+    max-width: calc(calc(713px * 0.4) - 10px);
+    /*margin:0 auto;*/
+    margin-left: 4px;
+    margin-right: 6px;
   }
 
   #blogger tr {
@@ -952,22 +891,25 @@ img.logoWin {
     display: block;
     width: 100%;
   }
-  
+
+/* Phone Devices */
   @media only screen and (max-width: 480px) {
     #blogger {
-      top: 98px;
-      height: calc(100% - 98px);
+      top: 64px;
+      height: calc(100% - 64px);
       }
     }
 
+/* Tablet Devices */
     @media only screen 
 and (min-device-width : 768px) 
-and (max-device-width : 1024px)  { 
+and (max-device-width : 1023px)  { 
   #blogger {
   height: calc(100% - 116px);
   }
 }
 
+/* Laptop/Desktop Devices */
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blogger {
@@ -980,7 +922,8 @@ and (min-device-width : 1024px)  {
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 106px;
+    top: 72px;
+    height: calc(100% - 72px);
     left: 50%;
     position: absolute;
     width: 60%;
@@ -998,7 +941,6 @@ and (min-device-width : 1024px)  {
     /*text-transform: capitalize;*/
     /*overflow-y: scroll;*/
     overflow-x: hidden;
-    height: calc(100% - 82px);
     display: inline-block;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
@@ -1013,9 +955,11 @@ and (min-device-width : 1024px)  {
 
   #blog tbody {
     display: block;
-    width: 92%;
-    max-width: calc(713px * 0.6 * 0.92);
-    margin:0 auto;
+    width: calc(100% - 10px);
+    max-width: calc(calc(713px * 0.6) - 10px);
+    /*margin:0 auto;*/
+    margin-left: 3px;
+    margin-right: 7px;
   }
 
   #blog tr {
@@ -1029,23 +973,27 @@ and (min-device-width : 1024px)  {
   #blog td {
     display: block;
     width: 100%;
+    
   }
   
+/* Phone Devices */
   @media only screen and (max-width: 480px) {
   #blog {
-    top: 98px;
-    height: calc(100% - 98px);
+    top: 64px;
+    height: calc(100% - 64px);
     }
   }
 
+/* Tablet Devices */
   @media only screen 
 and (min-device-width : 768px) 
-and (max-device-width : 1024px)  { 
+and (max-device-width : 1023px)  { 
   #blog {
   height: calc(100% - 116px);
   }
 }
 
+/* Laptop/Desktop Devices */
 @media only screen 
 and (min-device-width : 1024px)  { 
   #blog {
@@ -1054,7 +1002,7 @@ and (min-device-width : 1024px)  {
 }
 
 .spacer {
-  height: 10px;
+  height: 9px;
   background: transparent;
 }
 
@@ -1067,12 +1015,15 @@ and (min-device-width : 1024px)  {
 
   .imageR {
     padding-bottom: 66%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     border-top: 1px solid #373737;
     width: 100%;
     position: relative;
     z-index: 1000;
     background-size: contain; 
     background-position: center;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
     /*filter: blur(3px);
     -webkit-filter: blur(3px);*/
 }
@@ -1095,36 +1046,49 @@ and (min-device-width : 1024px)  {
 
    .imageG {
     padding-bottom: 66%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     border-top: 1px solid #373737;
     width: 100%;
     position: relative;
     z-index: 1000;
     background-size: contain; 
     background-position: center;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 }
 
   .titler {
     background: var(--bs-grey);
     /*width: calc(38% - 55px);*/
-    width: 90%;
-    padding: 5%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    box-shadow: 0px 2px 9px #ccc;
+    width: 100%;
+    padding: 0%;
+    z-index: 2000;
+    position: relative;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    /*box-shadow: 0px 2px 9px #ccc;*/
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
   }
 
   .titleg {
     background: #ffffff;
     padding: 1px 1px 2px 1px;
-    width: 94%;
-    padding: 3%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    box-shadow: 0px 2px 9px #ccc;
+    width: 100%;
+    padding: 0%;
+    z-index: 2000;
+    position: relative;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    /*box-shadow: 0px 2px 9px #ccc;*/
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
   }
 
   #desc {
-    margin: 0px;  
+    margin: 0px; 
+    padding-left: 8px; 
+    padding-right: 8px; 
+    padding-top: 0px;
+    padding-bottom: 10px;
     /*padding: 4px 5px 2px;*/
     font-weight: 300;
     font-size: 0.9em;
@@ -1138,6 +1102,9 @@ and (min-device-width : 1024px)  {
 
   #acc {
     margin: 0px;  
+    padding-left: 8px; 
+    padding-right: 8px; 
+    padding-top: 5px;
     padding-bottom: 5px;
     /*padding: 2px 5px 0px;*/
     font-size: 1em;
@@ -1152,7 +1119,10 @@ and (min-device-width : 1024px)  {
 
   #desc_r {
     margin: 0px;  
-    padding-bottom: 1.2em;
+    padding-left: 8px; 
+    padding-right: 8px; 
+    padding-top: 5px;
+    padding-bottom: 15px;
     font-weight: 700;
     font-size: 1.2em;
     line-height: 1.1;
@@ -1166,7 +1136,10 @@ and (min-device-width : 1024px)  {
   #acc_r {
     width: calc(100% - 10px);
     margin: 0px;  
-    padding: 0px 0px;
+    padding-left: 8px; 
+    padding-right: 8px; 
+    padding-top: 0px;
+    padding-bottom: 0px;
     font-size: 0.8em;
     font-weight: 600;
     overflow: hidden;
@@ -1176,6 +1149,9 @@ and (min-device-width : 1024px)  {
     text-transform: capitalize;
   }
 
+  #acc_r:nth-last-child(2) {
+    padding-bottom: 10px;
+  }
 
   a:link {color: inherit; text-decoration: inherit}
   a:visited {color: inherit; text-decoration: inherit}
