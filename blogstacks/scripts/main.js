@@ -31,12 +31,10 @@ window.onload = function() {
 
 // 1. Reflect change in active button on nav bar
       // Get the container element
-      var btnContainer = document.getElementById("mainList");
+      var btnContainer = document.getElementById("mainMenu");
 
       // Get all buttons with class="btn" inside the container
       var btns = btnContainer.getElementsByClassName("btn");
-
-      var navhead = document.getElementById("navhead")
 
       // Loop through the buttons and add the active class to the current/clicked button
       for (var i = 0; i < btns.length; i++) {
@@ -45,57 +43,10 @@ window.onload = function() {
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
           document.getElementById("butFilter").innerHTML = this.innerHTML ;
-            var nav1val = document.getElementById("nav1").value;
-            var nav1html = document.getElementById("nav1").innerHTML;
-            var nav2val = document.getElementById("nav2").value;
-            var nav2html = document.getElementById("nav2").innerHTML;
-            var nav3val = document.getElementById("nav3").value;
-            var nav3html = document.getElementById("nav3").innerHTML;
-            var btnactive = document.getElementsByClassName("btn Active");
-          if (this.innerHTML === "<p>Topstack</p>") {
-            var vInput = document.querySelector('#navTopstack');
-            $(btnactive).attr('class','btn');
-            document.getElementById("navTopstack").setAttribute('class','btn Active');
-            
-          }
-          else { if (this.value === nav1val) {
-            var vInput = document.querySelector('#nav1');
-            $(btnactive).attr('class','btn');
-            document.getElementById("nav1").setAttribute('class','btn Active');
-          }
-          else { if (this.value === nav2val) {
-            var vInput = document.querySelector('#nav2');
-            $(btnactive).attr('class','btn');
-            document.getElementById("nav2").setAttribute('class','btn Active');
-          }
-          else { if (this.value === nav3val) {
-            var vInput = document.querySelector('#nav3');
-            $(btnactive).attr('class','btn');
-            document.getElementById("nav3").setAttribute('class','btn Active');
-          }
-          else {
-            document.getElementById("nav1").innerHTML = this.innerHTML;
-            document.getElementById("nav1").setAttribute('value',this.value);
-            document.getElementById("nav2").innerHTML = nav1html;
-            document.getElementById("nav2").setAttribute('value',nav1val);
-            document.getElementById("nav3").innerHTML = nav2html;
-            document.getElementById("nav3").setAttribute('value',nav2val);
-            $(btnactive).attr('class','btn');
-            document.getElementById("nav1").setAttribute('class','btn Active');
-            var vInput = document.querySelector('#nav1');
-          }}}}
-
-          if( $(window).width() < 481) {
-            if ($(navhead).attr('class') === 'open') {
-              document.getElementById('butFilter').click();
-            }
-          }
-          else {
-            if ($(navAll).attr('class') === 'open') {
-              document.getElementById('allStacks').click();
-            }
-          }
-            
+          var btnactive = document.getElementsByClassName("btn Active");
+          $(btnactive).attr('class','btn');
+          this.setAttribute('class','btn Active');
+          var vInput = this.value;
             var input = vInput,
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
@@ -190,7 +141,7 @@ window.onload = function() {
               document.getElementById("mainMenu").setAttribute('class','open');
           }
           else {
-              $(mainList).fadeOut(200);
+              $(mainMenu).fadeOut(200);
               document.getElementById("mainMenu").setAttribute('class','closed');   
           }
         }

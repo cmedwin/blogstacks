@@ -182,19 +182,24 @@ body {
 
                   #mainMenu {
                     position: absolute;
-                    z-index: 1100;
-                    color: white;
+                    z-index: 900;
                     display: inline-block;
                     display: none;
                     font-family: 'Arimo', arial, helvetica, sans-serif;
                     font-size: 16px;
                     font-weight: 100;
                     letter-spacing: 1.5px;
-                    text-transform: capitalize;
-                    width: 100%;
-                    margin-top: 40px;
-                    border-top: solid 1px #222222;
-                    /*transition: opacity 0.5s linear;*/
+                    width: 65%;
+                    height: 100%;
+                    background: var(--bs-dblue);
+                    padding-top: 60px;
+                  }
+
+                  #mainMenu button {
+                    display: block;
+                    border: 0px;
+                    background: transparent;
+                    color: white;
                   }
 
                   #whiteOut {
