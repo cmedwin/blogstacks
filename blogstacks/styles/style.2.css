@@ -3,9 +3,10 @@
   --bs-turq: #29bb9c;
   --bs-grey: #373737;
   --bs-lblue: #607c8d;
-  --bs-dblue: #082a3e;
-  --bs-mblue: #0c3c58;
+  --bs-dblue: /*#082a3e*/ #242f42;
+  --bs-mblue: /*#0c3c58*/ #151b26;
   --bs-mdblue: #0a334b;
+  --bs-macgrey: #37434a;
 }
 
 @font-face { 
@@ -32,7 +33,7 @@ body {
           #headerSpacer {
             width: 100%;
             position: fixed;
-            background-color: #0c3c58;
+            background-color: var(--bs-mblue);
             z-index: 1000;
             /* Status bar height on iOS 10 */
             padding-top: 20px;
@@ -54,7 +55,7 @@ body {
           }
 
           .header {
-              z-index: 900;
+              z-index: 1000;
               position: fixed;
               width: calc(100% - 16px);
               height: 48px;
@@ -158,11 +159,11 @@ body {
                   #menuToggle input:checked ~ span
                   {
                     opacity: 1;
-                    transform: rotate(45deg) translate(0px, 2px);
+                    transform: rotate(45deg) translate(3px, 2px);
                     background: #ffffff;
                   }
                   
-                  #menuToggle input:checked ~ span:nth-last-child(3)
+                  #menuToggle input:checked ~ span:nth-last-child(2)
                   {
                     opacity: 0;
                     transform: rotate(0deg) scale(0.2, 0.2);
@@ -170,9 +171,9 @@ body {
                   /*
                   * the last one should go the other direction
                   */
-                  #menuToggle input:checked ~ span:nth-last-child(2)
+                  #menuToggle input:checked ~ span:nth-last-child(1)
                   {
-                    transform: rotate(-45deg) translate(1px, -1px);
+                    transform: rotate(-45deg) translate(0px, -2px);
                   }
                   
                   #menuToggle input:checked ~ ul
@@ -183,24 +184,64 @@ body {
                   #mainMenu {
                     position: absolute;
                     z-index: 900;
-                    display: inline-block;
-                    display: none;
+                    /*display: inline-block;*/
                     font-family: 'Arimo', arial, helvetica, sans-serif;
                     font-size: 16px;
                     font-weight: 100;
                     letter-spacing: 1.5px;
-                    width: 65%;
-                    height: 100%;
-                    background: var(--bs-dblue);
-                    padding-top: 60px;
+                    width: 0;
+                    max-width: 243px;
+                    height: calc(100% - 78px);
+                    background: var(--bs-mblue);
+                    padding-top: 78px;
+                    overflow-y: scroll;
+                    -webkit-overflow-scrolling: touch;
+                    transition: 0.5s;
+                    opacity: 0.9;
+
+                  }
+
+                  @media screen and (max-width: 639px) {
+                    #mainMenu {
+                      height: calc(100% - 70px);
+                      padding-top: 70px;
+                    }
                   }
 
                   #mainMenu button {
+                    padding-top: 12.5px;
+                    padding-bottom: 12.5px;
                     display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-align: left;
+                    width: calc(100% - 36px);
                     border: 0px;
+                    padding-left: 17px;
+                    margin-left: 18px;
                     background: transparent;
                     color: white;
+                    transition: 0.3s;
+
                   }
+
+                  #mainMenu button:first-child {
+                    padding-bottom: 25px;
+                    border-bottom: 1px solid #666666;
+                    margin-bottom: 12.5px;
+                  }
+
+                  #mainMenu button:nth-last-child(2) {
+                    padding-top: 25px;
+                    border-top: 1px solid #666666;
+                    margin-top: 12.5px;
+                  }
+
+                  #mainMenu button.Active {
+                    color: var(--bs-turq);
+                  }
+
+                  
 
                   #whiteOut {
                     position: fixed;
@@ -275,7 +316,7 @@ body {
               -moz-border-radius:50%;
               -webkit-border-radius:50%;
               border: none;
-              background: var(--bs-mdblue);
+              background: var(--bs-dblue);
               width: 36px;
               height: 36px;
               margin-left: 2px;
@@ -629,6 +670,7 @@ body {
     /* Status bar height on iOS 11+ */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    transition: margin-left 0.5s;
   }
 
   #blogger thead {
@@ -717,6 +759,7 @@ and (min-device-width : 1024px)  {
     /* Status bar height on iOS 11+ */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    transition: margin-left 0.5s;
   }
 
   #blog tbody {

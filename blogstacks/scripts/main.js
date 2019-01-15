@@ -46,12 +46,13 @@ window.onload = function() {
           document.getElementById("myInput").value = "";
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
-          document.getElementById("butFilter").innerHTML = this.innerHTML ;
+          document.getElementById("butFilter").innerHTML = this.value;
+          document.getElementById("category").innerHTML = this.innerHTML;
           var btnactive = document.getElementsByClassName("btn Active");
           $(btnactive).attr('class','btn');
           this.setAttribute('class','btn Active');
-          var vInput = this.value;
-            var input = vInput,
+          document.getElementById('menuInputMob').click();
+          var input = document.querySelector('#butFilter'),
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
@@ -140,12 +141,18 @@ window.onload = function() {
           var mainMenu = document.getElementById("mainMenu");
 
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
-              $(mainMenu).fadeIn(200);
+              document.getElementById('mainMenu').style.width ='243px';
+              document.getElementById('blogger').style.marginLeft ='243px';
+              document.getElementById('blog').style.marginLeft ='243px';
               //$(search).animate({opacity: 0}, 200);
               document.getElementById("mainMenu").setAttribute('class','open');
+              //document.getElementById('blogger').style.marginLeft ='250px';
+              //document.getElementById('blog').style.marginLeft ='250px';
           }
           else {
-              $(mainMenu).fadeOut(200);
+              document.getElementById('mainMenu').style.width ='0';
+              document.getElementById('blogger').style.marginLeft ='0';
+              document.getElementById('blog').style.marginLeft ='0';
               document.getElementById("mainMenu").setAttribute('class','closed');   
           }
         }
