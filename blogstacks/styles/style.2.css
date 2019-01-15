@@ -19,7 +19,7 @@ body {
     /*background-image: linear-gradient(to bottom, #EEE, #EEE 21pt, #EEE 21pt);
     background-attachment: fixed;
     background-repeat: no-repeat;*/
-    background-color: #f4f5f4;
+    background-color: #eeeeee;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -98,7 +98,7 @@ body {
                   {
                     display: inline-block;
                     position: absolute;
-                    top: 17px;
+                    top: 15px;
                     left: 11px;
                     z-index: 1100;
                     -webkit-user-select: none;
@@ -243,18 +243,18 @@ body {
               position: absolute;
               display: inline;
               left: 82px;
-              top: 7px;
-              font-size: 26px;
+              top: 2px;
+              font-size: 25px;
+              font-stretch: ultra-condensed;
               color: white;
-              font-family: DIN Condensed, arial, helvetica, sans-serif;
-              /*font-weight: 500;*/
+              font-family: 'Abel', arial, helvetica, sans-serif;
             }
 
             #category {
               position: absolute;
               display: inline;
-              left: 118px;
-              top: 28px;
+              left: 124px;
+              top: 26px;
               font-size: 12px;
               color: var(--bs-turq);
               font-family: 'Arimo', arial, helvetica, sans-serif;
@@ -276,7 +276,8 @@ body {
               -webkit-border-radius:50%;
               border: none;
               background: var(--bs-mdblue);
-              width: 40.5px;
+              width: 36px;
+              height: 36px;
               margin-left: 2px;
               margin-right: 2px;
             } 
@@ -288,13 +289,23 @@ body {
             @media screen and (max-width: 639px) {
               #searchWeb {
                 display: inline;
+                padding:10px;
               }
             }
 
-
             #shareWeb {
               padding-left: 10px;
-              padding-right: 6px;
+              padding-right: 6.8666px;
+              padding-top: 9px;
+              padding-bottom: 11px;
+            }
+
+            #shuffleMob {
+              padding:10px;
+            }
+
+            #searchIcon2 {
+              height:16px;
             }
 
             #shareIcon {
@@ -728,7 +739,6 @@ and (min-device-width : 1024px)  {
   #blog td {
     display: block;
     width: 100%;
-    
   }
   
 /* Phone Devices */
@@ -770,9 +780,9 @@ and (min-device-width : 1024px)  {
 
   .imageR {
     padding-bottom: 66%;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top: 1px solid #373737;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    /*border-top: 1px solid #373737;*/
     width: 100%;
     position: relative;
     z-index: 1000;
@@ -801,9 +811,9 @@ and (min-device-width : 1024px)  {
 
    .imageG {
     padding-bottom: 66%;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-top: 1px solid #373737;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    /*border-top: 1px solid #373737;*/
     width: 100%;
     position: relative;
     z-index: 1000;
@@ -827,9 +837,9 @@ and (min-device-width : 1024px)  {
 
   .titleg {
     background: #ffffff;
-    padding: 1px 1px 2px 1px;
     width: 100%;
-    padding: 0%;
+    padding-top: 5px;
+    padding-bottom: 10px;
     z-index: 2000;
     position: relative;
     border-bottom-left-radius: 3px;

@@ -16,9 +16,13 @@ window.onload = function() {
   // Change logo to pre-rescaled 33px height version when using windows
   var mainlogo = document.getElementById("logo");
   var mainlogoWin = document.getElementById("logoWin");
+  var headerSpacer = document.getElementById("headerSpacer");
+  var headerSpacer2 = document.getElementById("headerSpacer2");
   if (navigator.appVersion.indexOf("Win")!=-1) {
     $(mainlogo).css('display','none');
     $(mainlogoWin).css('display','inline-block');
+    $(headerSpacer).css('display','none');
+    $(headerSpacer2).css('display','none');
   } 
 
   //$( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
