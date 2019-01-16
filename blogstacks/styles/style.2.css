@@ -23,9 +23,8 @@ body {
     background-color: #eeeeee;
     margin: 0;
     padding: 0;
-    position: fixed;
     overflow: hidden;
-    height: calc(100% + 20px);
+    height: 100%;
     overscroll-behavior-y: contain;
   }
 
@@ -250,7 +249,7 @@ body {
                   #whiteOut {
                     position: fixed;
                     top: 20px;
-                    height: calc(100% + 20px);
+                    height: 100%;
                     width: 100%;
                     background-color: black;
                     opacity: 0.5;
@@ -630,8 +629,8 @@ body {
   }*/
 
   .scroll { 
-    /*position: absolute;
-    overflow-y: scroll;*/
+    /*position: absolute;*/
+    overflow-y: scroll;
   }
 
   .noscroll { 
