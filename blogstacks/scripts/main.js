@@ -3,14 +3,13 @@ window.onload = function() {
 
   var bloggerHead = document.getElementById("blogger");
   var blogHead = document.getElementById("blog");
-  $( bloggerHead ).load("stacks/blogger1.html", 
+  $( bloggerHead ).load("stacks/blogger2.html", 
   $( blogHead ).load("stacks/blog1.html", function() {
-   document.getElementById("butFilter").innerHTML = "";
-      var input = document.querySelector('#butFilter'),
+      var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
-      searchTable(table, input);
-      searchTable(table2, input);
+      searchTableC(table, input);
+      searchTableC(table2, input);
   }));
 
   // Change logo to pre-rescaled 33px height version when using windows
@@ -46,23 +45,68 @@ window.onload = function() {
           document.getElementById("myInput").value = "";
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
-          document.getElementById("butFilter").innerHTML = this.value;
+          //document.getElementById("butFilter").innerHTML = this.value;
+          document.getElementById("category").value = this.value;
           document.getElementById("category").innerHTML = this.innerHTML;
           var btnactive = document.getElementsByClassName("btn Active");
           $(btnactive).attr('class','btn');
           this.setAttribute('class','btn Active');
           document.getElementById('menuInputMob').click();
-          var input = document.querySelector('#butFilter'),
+          var input = document.querySelector('#category'),
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
-            searchTable(table, input);
-            searchTable(table2, input);
+            searchTableC(table, input);
+            searchTableC(table2, input);
         });
       }
 
-// 2. Search - bind tables and input
-      var searchTable = function searchTable(table, input) {
+// 2a. Search - category - bind tables and input
+        var searchTableC = function searchTableC(table, input) {
+          //alert("C");
+          // Since we bound the input, we can use input.value to get the current words typed into the input.
+          var filter = input.value.toUpperCase(),
+            // A table has both a thead and a tbody.
+            // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
+            // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
+            // The original code uses getElementsByTagName, which return a LIVE nodeList, watch out for this difference.
+            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+          rows.forEach(function(row) {
+            // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
+            // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
+            var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
+            // The alternative is actually checking each cell, but this makes the script take longer:
+            // var hide = !Array.prototype.slice.call( row.querySelectorAll('td') ).some(function( cell ) {
+            //     return (cell.innerHTML.indexOf( filter ) !== -1);
+            // });
+            if (hide) {
+              row.classList.add('gone'); 
+              row.classList.remove('rowShow');
+            }
+            //else if (row.classList.contains('gone')) {
+            //  row.classList.remove('gone');
+            //  row.classList.add('rowShow');
+            //}
+          });
+        },
+        // helper function that we can use to bind the searchTable function to any table and input we want
+        // We add an onchange event listener, passing it a bound version of searchTable.
+        bindSearchC = function bindSearchC(tableID, inputID) {
+          var input = document.querySelector(inputID),
+            table = document.querySelector(tableID);
+          if (table && input) input.addEventListener('change', searchTableC.bind(null, table, input));
+          else alert('Table or input does not exist.');
+        };
+        // We can add as many individual inputs / tables as we want by just calling bindSearch with the right ids.
+        function searchC() {
+        bindSearchC('#blog', '#myInput');
+        bindSearchC('#blogger', '#myInput');
+        }
+        searchC();
+
+// 2c. Search - search box input - bind tables and input
+      var searchTableI = function searchTableI(table, input) {
+        alert("I");
           // Since we bound the input, we can use input.value to get the current words typed into the input.
           var filter = input.value.toUpperCase(),
             // A table has both a thead and a tbody.
@@ -90,18 +134,21 @@ window.onload = function() {
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
         // We add an onchange event listener, passing it a bound version of searchTable.
-        bindSearch = function bindSearch(tableID, inputID) {
+        bindSearchI = function bindSearchI(tableID, inputID) {
           var input = document.querySelector(inputID),
             table = document.querySelector(tableID);
-          if (table && input) input.addEventListener('change', searchTable.bind(null, table, input));
+          if (table && input) input.addEventListener('change', searchTableI.bind(null, table, input));
           else alert('Table or input does not exist.');
         };
       // We can add as many individual inputs / tables as we want by just calling bindSearch with the right ids.
-      function search() {
-      bindSearch('#blog', '#myInput');
-      bindSearch('#blogger', '#myInput');
+      function searchI() {
+      bindSearchI('#blog', '#myInput');
+      bindSearchI('#blogger', '#myInput');
       }
-      search();
+      searchI();
+
+
+
 
 
 // 3. Main menu animation 
@@ -168,14 +215,21 @@ window.addEventListener('resize', function(){
 
 function clearSearch() {
     if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
+      alert ("test1");
         var mag = document.getElementById("mag");
         var searchClose = document.getElementById("searchClose");
         var myInput = document.getElementById("myInput");
         $(mag).delay(50).fadeIn(50);
         $(searchClose).fadeOut(50);
         document.getElementById("myInput").value = "";
+        alert ("test2");
+        var input = document.querySelector('#category');
+        var table = document.querySelector('#blogger');
+        var table2 = document.querySelector('#blog');
+        searchTable(table, input);
+        searchTable(table2, input);
+        alert ("test3");
         document.getElementById("searchIcon").setAttribute('class','searchIcon');
-        //document.getElementsByClassName("btn Active")[0].click();
     }
     else {
       if (document.getElementById("searchIcon").getAttribute('class') === 'searchIcon') {
@@ -224,7 +278,7 @@ $("#shuffleMob").click(function(){
 
   $(bloggerHead).fadeOut(150,function() {
 
-  var $firstCells = $("#blogger tr"),
+  var $firstCells = $("#blogger tbody tr"),
       $copies = $firstCells.clone(true);
   
   [].sort.call($copies, function() { return Math.random() - 0.5; });
@@ -234,7 +288,7 @@ $("#shuffleMob").click(function(){
   })});
 
   $(blogHead).fadeOut(150, function() {
-  var $firstCells = $("#blog tr"),
+  var $firstCells = $("#blog tbody tr"),
       $copies = $firstCells.clone(true);
   
   [].sort.call($copies, function() { return Math.random() - 0.5; });

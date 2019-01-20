@@ -31,7 +31,7 @@
     <meta charset="utf-8">
     <title>BlogStacks</title>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    <link href="styles/style.2.css" rel="stylesheet" type="text/css">
+    <link href="styles/style.3.css" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon-2.png">
     <link rel="mask-icon" href="images/website-icon.svg" color="black">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
@@ -56,15 +56,16 @@
                 
               </div>
           </nav>
-            
+
           <li><img src="images/bs-stack-logo-white-turq.png" id="logo" class="logo"/><img src="images/bs-stack-logo-white-turq.png" id="logoWin" class="logo"/></li>
           <div id="logoName">BlogStacks</div>
-          <div id="category">TopStack</div>
+          <button id="category" value="">TopStack</button>
 
           <div class="searchhead">
-              <button onclick="butFilter()" id="butFilter"></button>    
+                 
               <div class="search" id="search">
-                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none">
+                  <button onclick="butFilter()" id="butFilter" value=""></button> 
+                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none" >
                   <button type="submit" class="searchIcon" id="searchIcon" onclick="clearSearch()">
                         <ul>
                             <li><img src="images/search.png" class="mag" id="mag"></li>
