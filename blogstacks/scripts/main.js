@@ -4,7 +4,7 @@ window.onload = function() {
   var bloggerHead = document.getElementById("blogger");
   var blogHead = document.getElementById("blog");
   $( bloggerHead ).load("stacks/blogger2.html", 
-  $( blogHead ).load("stacks/blog1.html", function() {
+  $( blogHead ).load("stacks/blog2.html", function() {
       var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
