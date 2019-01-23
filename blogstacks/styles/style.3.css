@@ -651,14 +651,14 @@ body {
     height: calc(100% - 64px + 9px);
     left: 50%;
     position: fixed;
-    width: 33%;
+    width: 31%;
     max-width: calc(713px * 0.33);
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: 1%;
+    margin-left: 1%;
     /*margin-top: 9px;*/
     vertical-align: top;
     /*transform: translate(-124%, 0%);*/
-    transform: translate(-149.5%, 0%);
+    transform: translate(-156%, 0%);
     color: #FFF;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
@@ -726,13 +726,13 @@ body {
     height: calc(100% - 64px + 9px);
     left: 50%;
     position: fixed;
-    width: 66%;
+    width: 64%;
     max-width: calc(713px * 0.66);
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: 1%;
+    margin-left: 1%;
     vertical-align: top;
     /*transform: translate(-17%,0%);*/
-    transform: translate(-24.5%,0%);
+    transform: translate(-26%,0%);
     color: #323232;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
@@ -826,7 +826,7 @@ body {
   }
 
 .spacer {
-  height: 8px;
+  height: 12px;
   background: transparent;
 }
 
@@ -883,7 +883,7 @@ body {
 
 
    .imageG {
-    padding-bottom: 66%;
+    padding-bottom: calc(100% - 40px);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     /*border-top: 1px solid #373737;*/
@@ -901,7 +901,7 @@ body {
     /*background: black;
     opacity: 0.8;*/
     height: 100%;
-    background: linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,.001));
+    background: linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.001));
     /*width: calc(38% - 55px);*/
     width: 100%;
     padding: 0%;
@@ -916,24 +916,9 @@ body {
     box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);*/
   }
 
-  @media screen and (max-width: 600px) {
-    .titler {
-        background: linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.001));
-        
-        /*background: -moz-linear-gradient(top,  rgba(0,0,0,0) 30%, rgba(0,0,0,1) 100%); /* FF3.6+ */
-        /*background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
-        /*background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
-        /*background: -o-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
-        /*background: -ms-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* IE10+ */
-        /*background: linear-gradient(to bottom,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* W3C */
-        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-    }
-  }
-
-
   .titleg {
     height: 100%;
-    background: linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,.001));
+    background: linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.001));
     /*width: calc(38% - 55px);*/
     width: 100%;
     padding: 0%;
@@ -945,6 +930,26 @@ body {
     -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
   }
+
+  @media screen and (max-width: 600px) {
+    .titler {
+        background: linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.001));
+        
+        /*background: -moz-linear-gradient(top,  rgba(0,0,0,0) 30%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+        /*background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+        /*background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+        /*background: -o-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+        /*background: -ms-linear-gradient(top,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* IE10+ */
+        /*background: linear-gradient(to bottom,  rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); /* W3C */
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    }
+
+    .titleg {
+      background: linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.001));
+    }
+  }
+
+
 
   .authorg {
     background: #ffffff;
@@ -973,7 +978,7 @@ body {
     padding-top: 0px;
     padding-bottom: 5px;
     /*padding: 4px 5px 2px;*/
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.1em;
     line-height: 1.3;
     overflow: hidden;
@@ -1015,12 +1020,12 @@ body {
 
   #desc_r {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     margin: 0px;  
-    padding-left: 8px; 
-    padding-right: 8px; 
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 6px; 
+    padding-right: 6px; 
+    padding-top: 0px;
+    padding-bottom: 0px;
     font-weight: 600;
     font-size: 0.9em;
     line-height: 1.1;
@@ -1033,15 +1038,15 @@ body {
 
   #acc_r {
     position: absolute;
-    bottom: 5px;
+    bottom: 3px;
     width: calc(100% - 10px);
     margin: 0px;  
-    padding-left: 8px; 
-    padding-right: 8px; 
+    padding-left: 6px; 
+    padding-right: 6px; 
     padding-top: 0px;
-    padding-bottom: 3px;
+    padding-bottom: 0px;
     font-size: 0.6em;
-    font-weight: 300;
+    font-weight: 500;
     overflow: hidden;
     color: var(--bs-turq);
     white-space: nowrap;
