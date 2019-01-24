@@ -628,6 +628,25 @@ body {
     text-transform: capitalize;
   }*/
 
+  p.stackType {
+    width: 100%;
+    /*position: relative;*/
+    display: block;
+    height: 25px;
+    margin: 0px;
+    margin-top: 4px;
+    font-size: 1.65em;
+    font-family: 'Abel';
+    /* text-transform: uppercase; */
+    /* text-decoration: underline; */
+    left: 0px;
+    background-color: #CCC;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+    }
+
+
   .scroll { 
     /*position: absolute;*/
     overflow-y: scroll;
@@ -687,6 +706,11 @@ body {
 
   #blogger thead {
     direction: ltr;
+    display: block;
+    width: calc(100% - 10px);
+    max-width: calc(calc(713px * 0.33) - 10px);
+    margin-left: 4px;
+    margin-right: 6px;
   }
 
   #blogger tbody {
@@ -760,6 +784,17 @@ body {
     -webkit-transition: translateZ(0);
   }
 
+  #blog thead {
+    display: block;
+    width: calc(100% - 4px);
+    max-width: calc(calc(713px * 0.66) - 4px);
+    /*margin:0 auto;*/
+    margin-left: -4px;
+    margin-right: 0px;
+    text-align: right;
+    
+  }
+
   #blog tbody {
     display: block;
     width: calc(100% - 4px);
@@ -825,13 +860,18 @@ body {
     }
   }
 
-.spacer {
+#blog .spacer {
   height: 12px;
   background: transparent;
 }
 
+#blogger .spacer {
+  height: 10.5px;
+  background: transparent;
+}
+
 .startSpacer {
-  height: 9px;
+  height: 2px;
   background: transparent;
 }
 
@@ -928,14 +968,43 @@ body {
       hsla(0, 0%, 0%, 0.3) 55%,
       hsla(0, 0%, 0%, 0.4) 60%,
       hsla(0, 0%, 0%, 0.5) 65%,
-      hsla(0, 0%, 0%, 0.6) 70%,
-      hsla(0, 0%, 0%, 0.7) 75%,
-      hsla(0, 0%, 0%, 0.8) 80%,
+      hsla(0, 0%, 0%, 0.575) 70%,
+      hsla(0, 0%, 0%, 0.65) 75%,
+      hsla(0, 0%, 0%, 0.725) 80%,
       hsla(0, 0%, 0%, 0.8) 85%,
       hsla(0, 0%, 0%, 0.85) 90%,
       hsla(0, 0%, 0%, 0.9) 95%,
-      hsla(0, 0%, 0%, 0.9) 100%
+      hsla(0, 0%, 0%, 0.95) 100%
     );
+  }
+
+  @media screen and (max-width: 500px) {
+    .titler {
+      background: linear-gradient(
+      hsla(0, 0%, 0%,0.0) 0%,
+      hsla(0, 0%, 0%, 0.0) 5%,
+      hsla(0, 0%, 0%, 0.0) 10%,
+      hsla(0, 0%, 0%, 0.0) 15%,
+      hsla(0, 0%, 0%, 0.0) 20%,
+      hsla(0, 0%, 0%, 0.01) 25%,
+      hsla(0, 0%, 0%, 0.03) 30%,
+      hsla(0, 0%, 0%, 0.05) 35%,
+      hsla(0, 0%, 0%, 0.1) 40%,
+      hsla(0, 0%, 0%, 0.2) 45%,
+      hsla(0, 0%, 0%, 0.3) 50%,
+      hsla(0, 0%, 0%, 0.4) 55%,
+      hsla(0, 0%, 0%, 0.5) 60%,
+      hsla(0, 0%, 0%, 0.575) 65%,
+      hsla(0, 0%, 0%, 0.65) 70%,
+      hsla(0, 0%, 0%, 0.725) 75%,
+      hsla(0, 0%, 0%, 0.8) 80%,
+      hsla(0, 0%, 0%, 0.85) 85%,
+      hsla(0, 0%, 0%, 0.9) 90%,
+      hsla(0, 0%, 0%, 0.95) 95%,
+      hsla(0, 0%, 0%, 1.0) 100%
+    );
+    }
+
   }
 
   .titleg {
@@ -952,26 +1021,26 @@ body {
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     background: linear-gradient(
   hsla(0, 0%, 0%,0.0) 0%,
-  hsla(0, 0%, 0%, 0.0) 5%,
-  hsla(0, 0%, 0%, 0.0) 10%,
-  hsla(0, 0%, 0%, 0.0) 15%,
-  hsla(0, 0%, 0%, 0.0) 20%,
-  hsla(0, 0%, 0%, 0.0) 25%,
-  hsla(0, 0%, 0%, 0.01) 30%,
-  hsla(0, 0%, 0%, 0.03) 35%,
-  hsla(0, 0%, 0%, 0.05) 40%,
-  hsla(0, 0%, 0%, 0.1) 45%,
-  hsla(0, 0%, 0%, 0.2) 50%,
-  hsla(0, 0%, 0%, 0.3) 55%,
-  hsla(0, 0%, 0%, 0.4) 60%,
-  hsla(0, 0%, 0%, 0.5) 65%,
-  hsla(0, 0%, 0%, 0.6) 70%,
-  hsla(0, 0%, 0%, 0.7) 75%,
-  hsla(0, 0%, 0%, 0.8) 80%,
-  hsla(0, 0%, 0%, 0.8) 85%,
-  hsla(0, 0%, 0%, 0.85) 90%,
-  hsla(0, 0%, 0%, 0.9) 95%,
-  hsla(0, 0%, 0%, 0.9) 100%
+      hsla(0, 0%, 0%, 0.0) 5%,
+      hsla(0, 0%, 0%, 0.0) 10%,
+      hsla(0, 0%, 0%, 0.0) 15%,
+      hsla(0, 0%, 0%, 0.0) 20%,
+      hsla(0, 0%, 0%, 0.0) 25%,
+      hsla(0, 0%, 0%, 0.01) 30%,
+      hsla(0, 0%, 0%, 0.03) 35%,
+      hsla(0, 0%, 0%, 0.05) 40%,
+      hsla(0, 0%, 0%, 0.1) 45%,
+      hsla(0, 0%, 0%, 0.2) 50%,
+      hsla(0, 0%, 0%, 0.3) 55%,
+      hsla(0, 0%, 0%, 0.4) 60%,
+      hsla(0, 0%, 0%, 0.5) 65%,
+      hsla(0, 0%, 0%, 0.575) 70%,
+      hsla(0, 0%, 0%, 0.65) 75%,
+      hsla(0, 0%, 0%, 0.725) 80%,
+      hsla(0, 0%, 0%, 0.8) 85%,
+      hsla(0, 0%, 0%, 0.85) 90%,
+      hsla(0, 0%, 0%, 0.9) 95%,
+      hsla(0, 0%, 0%, 0.95) 100%
 );
   }
 
@@ -1015,6 +1084,7 @@ body {
 
   #acc {
     display: inline-block;
+    position: absolute;
     margin: 0px;
     padding-left: 4px; 
     padding-right: 8px; 
@@ -1028,6 +1098,8 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: capitalize;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
   }
 
   .fafa {
