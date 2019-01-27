@@ -10,7 +10,38 @@ window.onload = function() {
           table2 = document.querySelector('#blog');
       searchTableC(table, input);
       searchTableC(table2, input);
+      
+      /* Shuffle on load*/
+            //$(bloggerHead).fadeOut(0);
+            //$(blogHead).fadeOut(0);
+            $(bloggerHead).fadeIn(1,function() {
+
+            $(bloggerHead).css('display','inline-block');
+
+            var $firstCells = $("#blogger tbody tr"),
+                $copies = $firstCells.clone(true);
+            
+            [].sort.call($copies, function() { return Math.random() - 0.5; });
+            
+            $copies.each(function(i){
+                $firstCells.eq(i).replaceWith(this);  
+            })});
+          
+            $(blogHead).fadeIn(1, function() {
+          
+            $(blogHead).css('display','inline-block');
+
+            var $firstCells = $("#blog tbody tr"),
+                $copies = $firstCells.clone(true);
+            
+            [].sort.call($copies, function() { return Math.random() - 0.5; });
+            
+            $copies.each(function(i){
+                $firstCells.eq(i).replaceWith(this);
+            })});     
+      /* shuffle end*/
   }));
+
 
   // Change logo to pre-rescaled 33px height version when using windows
   var mainlogo = document.getElementById("logo");
@@ -156,44 +187,57 @@ window.onload = function() {
         function menu() {
           var mainMenu = document.getElementById("mainMenu");
           var whiteOut =  document.getElementById("whiteOut");
+          var blogger =  document.getElementById("blogger");
+          var blog =  document.getElementById("blog");
           var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
           var adjW = (243 - ((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 914) / 2)) + "px";
           var adjW2 = (243 - ((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 685) / 2)) + "px";
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
               document.getElementById("mainMenu").setAttribute('class','open');
-              document.getElementById('mainMenu').style.width ='243px';
-              //document.getElementById("blog").style.position = 'Fixed';
-              //document.getElementById("blogger").style.position = 'Fixed';
-              //document.getElementById("body").style.position = 'Fixed';
+              //document.getElementById('mainMenu').style.width ='243px';
+              $(mainMenu).animate({ width: '243px'}, 400);
               $(whiteOut).fadeIn(400)
             if (w <= 670) {
-              document.getElementById('blogger').style.marginLeft ='250px';
-              document.getElementById('blog').style.marginLeft ='250px';
+              //document.getElementById('blogger').style.marginLeft ='250px';
+              //document.getElementById('blog').style.marginLeft ='250px';
+              $(blogger).animate({ marginLeft: '250px'}, 400);
+              $(blog).animate({ marginLeft: '250px'}, 400);
             }
             else if (w > 670 && w < 804){
-                document.getElementById('blogger').style.marginLeft = adjW2;
-                document.getElementById('blog').style.marginLeft = adjW2;
+              //document.getElementById('blogger').style.marginLeft = adjW2;
+              //document.getElementById('blog').style.marginLeft = adjW2;
+              $(blogger).animate({ marginLeft: adjW2}, 400);
+              $(blog).animate({ marginLeft: adjW2}, 400);
             }
             else if (w >= 804 && w < 894){
-              document.getElementById('blogger').style.marginLeft ='243px';
-              document.getElementById('blog').style.marginLeft ='243px';
+              //document.getElementById('blogger').style.marginLeft ='243px';
+              //document.getElementById('blog').style.marginLeft ='243px';
+              $(blogger).animate({ marginLeft: '243px'}, 400);
+              $(blog).animate({ marginLeft: '243px'}, 400);
             }
             else if (w >= 894 && w < 1400){
-              document.getElementById('blogger').style.marginLeft = adjW;
-              document.getElementById('blog').style.marginLeft = adjW;
+              //document.getElementById('blogger').style.marginLeft = adjW;
+              //document.getElementById('blog').style.marginLeft = adjW;
+              $(blogger).animate({ marginLeft: adjW}, 400);
+              $(blog).animate({ marginLeft: adjW}, 400);
             }
           }
           else {
-              document.getElementById('mainMenu').style.width ='0';
+              //document.getElementById('mainMenu').style.width ='0';
+              $(mainMenu).animate({ width: '0px'}, 400);
               document.getElementById("mainMenu").setAttribute('class','closed');
               $(whiteOut).fadeOut(400) 
               if (w <= 580) {
-                document.getElementById('blogger').style.marginLeft ='1%';
-                document.getElementById('blog').style.marginLeft ='1%';
+                //document.getElementById('blogger').style.marginLeft ='1%';
+                //document.getElementById('blog').style.marginLeft ='1%';
+                $(blogger).animate({ marginLeft: '1%'}, 400);
+                $(blog).animate({ marginLeft: '1%'}, 400);
               }
               else {
-                document.getElementById('blogger').style.marginLeft ='11px';
-                document.getElementById('blog').style.marginLeft ='11px';
+                //document.getElementById('blogger').style.marginLeft ='11px';
+                //document.getElementById('blog').style.marginLeft ='11px';
+                $(blogger).animate({ marginLeft: '11px'}, 400);
+                $(blog).animate({ marginLeft: '11px'}, 400);
               }  
           }
         }
