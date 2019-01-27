@@ -157,7 +157,8 @@ window.onload = function() {
           var mainMenu = document.getElementById("mainMenu");
           var whiteOut =  document.getElementById("whiteOut");
           var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-          var adjW = (243 - ((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 713) / 2)) + "px";
+          var adjW = (243 - ((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 914) / 2)) + "px";
+          var adjW2 = (243 - ((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 685) / 2)) + "px";
           if (document.getElementById("mainMenu").getAttribute('class') === 'closed'){
               document.getElementById("mainMenu").setAttribute('class','open');
               document.getElementById('mainMenu').style.width ='243px';
@@ -165,26 +166,35 @@ window.onload = function() {
               //document.getElementById("blogger").style.position = 'Fixed';
               //document.getElementById("body").style.position = 'Fixed';
               $(whiteOut).fadeIn(400)
-            if (w <= 713) {
+            if (w <= 670) {
+              document.getElementById('blogger').style.marginLeft ='250px';
+              document.getElementById('blog').style.marginLeft ='250px';
+            }
+            else if (w > 670 && w < 804){
+                document.getElementById('blogger').style.marginLeft = adjW2;
+                document.getElementById('blog').style.marginLeft = adjW2;
+            }
+            else if (w >= 804 && w < 894){
               document.getElementById('blogger').style.marginLeft ='243px';
               document.getElementById('blog').style.marginLeft ='243px';
-              }
-            else if (w >= 1199){
-              }
-            else {
+            }
+            else if (w >= 894 && w < 1400){
               document.getElementById('blogger').style.marginLeft = adjW;
               document.getElementById('blog').style.marginLeft = adjW;
-              }
+            }
           }
           else {
               document.getElementById('mainMenu').style.width ='0';
-              document.getElementById('blogger').style.marginLeft ='0';
-              document.getElementById('blog').style.marginLeft ='0';
               document.getElementById("mainMenu").setAttribute('class','closed');
-              //document.getElementById("blog").style.position = 'Absolute';
-              //document.getElementById("blogger").style.position = 'Absolute';
-              //document.getElementById("body").style.position = 'Absolute';
-              $(whiteOut).fadeOut(400)   
+              $(whiteOut).fadeOut(400) 
+              if (w <= 580) {
+                document.getElementById('blogger').style.marginLeft ='1%';
+                document.getElementById('blog').style.marginLeft ='1%';
+              }
+              else {
+                document.getElementById('blogger').style.marginLeft ='11px';
+                document.getElementById('blog').style.marginLeft ='11px';
+              }  
           }
         }
       
@@ -192,6 +202,11 @@ window.onload = function() {
 // 4. Event on orientation change
 
 window.addEventListener('resize', function(){
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if (w <= 580) {
+      document.getElementById('blogger').style.marginLeft ='1%';
+      document.getElementById('blog').style.marginLeft ='1%';
+    }
 }, false); 
 
 
@@ -278,16 +293,25 @@ $("#shuffleMob").click(function(){
 
   $(bloggerHead).fadeOut(150,function() {
 
+    $('#blogger').show();
+    $('#blogger').scrollTop(0);
+    $('#blogger').hide();
+
   var $firstCells = $("#blogger tbody tr"),
       $copies = $firstCells.clone(true);
   
   [].sort.call($copies, function() { return Math.random() - 0.5; });
   
   $copies.each(function(i){
-      $firstCells.eq(i).replaceWith(this);
+      $firstCells.eq(i).replaceWith(this);  
   })});
 
   $(blogHead).fadeOut(150, function() {
+
+    $('#blog').show();
+    $('#blog').scrollTop(0);
+    $('#blog').hide();
+
   var $firstCells = $("#blog tbody tr"),
       $copies = $firstCells.clone(true);
   
@@ -296,6 +320,8 @@ $("#shuffleMob").click(function(){
   $copies.each(function(i){
       $firstCells.eq(i).replaceWith(this);
   })});
+
+
 
   $(blogHead).delay(150).fadeIn(150);
   $(bloggerHead).delay(150).fadeIn(150);
