@@ -690,7 +690,7 @@ body {
     /*overflow-x: scroll;*/
     overflow-x: hidden;
     display: inline-block;
-    display: none;
+    opacity: 0;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     /* Status bar height on iOS 10 */
@@ -805,7 +805,7 @@ body {
     /*overflow-y: scroll;*/
     overflow-x: hidden;
     display: inline-block;
-    display: none;
+    opacity: 0;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     /* Status bar height on iOS 10 */

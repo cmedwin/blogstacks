@@ -12,33 +12,34 @@ window.onload = function() {
       searchTableC(table2, input);
       
       /* Shuffle on load*/
-            //$(bloggerHead).fadeOut(0);
-            //$(blogHead).fadeOut(0);
-            $(bloggerHead).fadeIn(1,function() {
 
-            $(bloggerHead).css('display','inline-block');
+        $(bloggerHead).fadeOut(5,function() {
+      
+        var $firstCells = $("#blogger tbody tr"),
+            $copies = $firstCells.clone(true);
+        
+        [].sort.call($copies, function() { return Math.random() - 0.5; });
+        
+        $copies.each(function(i){
+            $firstCells.eq(i).replaceWith(this);  
+        })});
+      
+        $(blogHead).fadeOut(5, function() {
+ 
+        var $firstCells = $("#blog tbody tr"),
+            $copies = $firstCells.clone(true);
+        
+        [].sort.call($copies, function() { return Math.random() - 0.5; });
+        
+        $copies.each(function(i){
+            $firstCells.eq(i).replaceWith(this);
+        })});
+      
+        $(blogHead).delay(10).fadeIn(10);
+        $(bloggerHead).delay(10).fadeIn(10);
+        $(bloggerHead).animate({opacity: 1}, 30);
+        $(blogHead).animate({opacity: 1}, 30);
 
-            var $firstCells = $("#blogger tbody tr"),
-                $copies = $firstCells.clone(true);
-            
-            [].sort.call($copies, function() { return Math.random() - 0.5; });
-            
-            $copies.each(function(i){
-                $firstCells.eq(i).replaceWith(this);  
-            })});
-          
-            $(blogHead).fadeIn(1, function() {
-          
-            $(blogHead).css('display','inline-block');
-
-            var $firstCells = $("#blog tbody tr"),
-                $copies = $firstCells.clone(true);
-            
-            [].sort.call($copies, function() { return Math.random() - 0.5; });
-            
-            $copies.each(function(i){
-                $firstCells.eq(i).replaceWith(this);
-            })});     
       /* shuffle end*/
   }));
 
@@ -382,5 +383,13 @@ $("#shuffleMob").click(function(){
     document.getElementById('menuInputMob').click();
   }
 
+
+// 9. Search bar show hide for mobile
+
+  function searchBar() {
+    var header = documnet.getElementsByClassName('header');
+    var searchHead = document.getElementsByClassName('searchhead');
+    $(searchHead).fadeIn(100);
+  }
 
  
