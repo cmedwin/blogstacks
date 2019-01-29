@@ -1,49 +1,49 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
 
-  var bloggerHead = document.getElementById("blogger");
-  var blogHead = document.getElementById("blog");
-  $( bloggerHead ).load("stacks/blogger2.html", 
-  $( blogHead ).load("stacks/blog2.html", function() {
-      var input = document.querySelector('#category'),
-          table = document.querySelector('#blogger');
-          table2 = document.querySelector('#blog');
-      searchTableC(table, input);
-      searchTableC(table2, input);
-      
-      /* Shuffle on load*/
-
-        $(bloggerHead).fadeOut(5,function() {
-      
-        var $firstCells = $("#blogger tbody tr"),
+  // blogger stack 
+    //load
+    var bloggerHead = document.getElementById("blogger");
+    $( bloggerHead ).load("stacks/blogger2.html", function() {
+    //filter
+    var input = document.querySelector('#category'),
+        table = document.querySelector('#blogger');
+    searchTableC(table, input);
+    //shuffle
+    var $firstCells = $("#blogger tbody tr"),
             $copies = $firstCells.clone(true);
         
         [].sort.call($copies, function() { return Math.random() - 0.5; });
         
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);  
-        })});
-      
-        $(blogHead).fadeOut(5, function() {
- 
-        var $firstCells = $("#blog tbody tr"),
+        })
+    //make visible
+    $(bloggerHead).animate({opacity: 1}, 30);
+  });
+
+  // blog stack
+    //load
+    var blogHead = document.getElementById("blog");
+    $( blogHead ).load("stacks/blog2.html", function() {
+    //filter
+    var input = document.querySelector('#category'),
+        table2 = document.querySelector('#blog');
+    searchTableC(table2, input);
+    //shuffle
+    var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
         
         [].sort.call($copies, function() { return Math.random() - 0.5; });
         
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);
-        })});
-      
-        $(blogHead).delay(10).fadeIn(10);
-        $(bloggerHead).delay(10).fadeIn(10);
-        $(bloggerHead).animate({opacity: 1}, 30);
-        $(blogHead).animate({opacity: 1}, 30);
+        })
+    //make visible
+    $(blogHead).animate({opacity: 1}, 30);
+    });
 
-      /* shuffle end*/
-  }));
-
-
+  
   // Change logo to pre-rescaled 33px height version when using windows
   var mainlogo = document.getElementById("logo");
   var mainlogoWin = document.getElementById("logoWin");
@@ -88,8 +88,9 @@ window.onload = function() {
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
-            searchTableC(table, input);
             searchTableC(table2, input);
+            searchTableC(table, input);
+            
         });
       }
 
@@ -98,11 +99,12 @@ window.onload = function() {
           //alert("C");
           // Since we bound the input, we can use input.value to get the current words typed into the input.
           var filter = input.value.toUpperCase(),
+          
             // A table has both a thead and a tbody.
             // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
             // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
             // The original code uses getElementsByTagName, which return a LIVE nodeList, watch out for this difference.
-            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
           rows.forEach(function(row) {
             // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
             // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
@@ -115,10 +117,10 @@ window.onload = function() {
               row.classList.add('gone'); 
               row.classList.remove('rowShow');
             }
-            //else if (row.classList.contains('gone')) {
-            //  row.classList.remove('gone');
-            //  row.classList.add('rowShow');
-            //}
+            else if (row.classList.contains('gone')) {
+              row.classList.remove('gone');
+              row.classList.add('rowShow');
+            }
           });
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
@@ -145,7 +147,7 @@ window.onload = function() {
             // By only selecting the tr nodes from the body, we can remove the entire 'check if this is a header tr logic of `tr.classList.contains('header')`
             // Keep in mind that querySelector returns a nodeList, so if we want to use array methods, we need to covnert it into a real array.
             // The original code uses getElementsByTagName, which return a LIVE nodeList, watch out for this difference.
-            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
           rows.forEach(function(row) {
             // Since we don't care in which cell the fitler is contained, we can just check the innerHTML of the entire row.
             // This will only fail if the filter typed into the inputs is either 'tr' or 'td'
@@ -158,10 +160,10 @@ window.onload = function() {
               row.classList.add('gone'); 
               row.classList.remove('rowShow');
             }
-            else if (row.classList.contains('gone')) {
-              row.classList.remove('gone');
-              row.classList.add('rowShow');
-            }
+            //else if (row.classList.contains('gone')) {
+              //row.classList.remove('gone');
+              //row.classList.add('rowShow');
+            //}
           });
         },
         // helper function that we can use to bind the searchTable function to any table and input we want
