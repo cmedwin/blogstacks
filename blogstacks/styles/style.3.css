@@ -20,7 +20,7 @@ body {
     /*background-image: linear-gradient(to bottom, #EEE, #EEE 21pt, #EEE 21pt);
     background-attachment: fixed;
     background-repeat: no-repeat;*/
-    background-color: #eeeeee;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -316,7 +316,14 @@ body {
               color: var(--bs-turq);
               font-family: 'Abel', arial, helvetica, sans-serif;
               font-weight: bold;
+              cursor: pointer;
             }
+
+            #category::after {
+              content: " \25BE"
+            }
+
+
 
             #navRightMob {
               display: inline-block;
@@ -777,7 +784,7 @@ body {
 
   #blogger td {
     display: block;
-    
+    padding: 0px;
     width: 100%;
   }
 
@@ -892,7 +899,7 @@ body {
   }
   
   #blog tr {
-    display:block;
+    /*display:block;*/
     width: calc(33.3333% - 16px);
     float:left;
     margin-left: 16px;
@@ -900,7 +907,7 @@ body {
   }
 
   #blog tr:first-child {
-    display:block;
+    /*display:block;*/
     width: calc(66.6666% - 16px);
     margin-left: 16px;
     margin-right: 0px;
@@ -952,6 +959,9 @@ body {
           #blog tr:first-child .spacer {
             height: 16px;
           }
+
+          
+
         }
 
       /* 2 columns for medium devices */ 
@@ -994,6 +1004,7 @@ body {
   #blog td {
     display: block;
     width: 100%;
+    padding: 0px;
   }
   
 
@@ -1027,7 +1038,7 @@ body {
 
   .imageR {
     padding-bottom: 100%;
-    border-radius: 1px;
+    border-radius: 2px;
     /*border-top: 1px solid #373737;*/
     width: 100%;
     position: relative;
@@ -1059,8 +1070,8 @@ body {
 
    .imageG {
     padding-bottom: calc(100% - 40px);
-    border-top-left-radius: 1px;
-    border-top-right-radius: 1px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
     /*border-top: 1px solid #373737;*/
     width: 100%;
     position: relative;
@@ -1082,7 +1093,8 @@ body {
     z-index: 2000;
     position: absolute;
     bottom: 0px;
-    border-radius: 1px;
+    cursor: pointer;
+    border-radius: 2px;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     /*box-shadow: 0px 2px 9px #ccc;
@@ -1094,25 +1106,25 @@ body {
       hsla(0, 0%, 0%, 0.0) 15%,
       hsla(0, 0%, 0%, 0.0) 20%,
       hsla(0, 0%, 0%, 0.0) 25%,
-      hsla(0, 0%, 0%, 0.01) 30%,
-      hsla(0, 0%, 0%, 0.03) 35%,
-      hsla(0, 0%, 0%, 0.05) 40%,
-      hsla(0, 0%, 0%, 0.1) 45%,
-      hsla(0, 0%, 0%, 0.2) 50%,
-      hsla(0, 0%, 0%, 0.3) 55%,
-      hsla(0, 0%, 0%, 0.4) 60%,
-      hsla(0, 0%, 0%, 0.5) 65%,
-      hsla(0, 0%, 0%, 0.575) 70%,
-      hsla(0, 0%, 0%, 0.65) 75%,
-      hsla(0, 0%, 0%, 0.725) 80%,
-      hsla(0, 0%, 0%, 0.8) 85%,
-      hsla(0, 0%, 0%, 0.85) 90%,
+      hsla(0, 0%, 0%, 0.0) 30%,
+      hsla(0, 0%, 0%, 0.0) 35%,
+      hsla(0, 0%, 0%, 0.01) 40%,
+      hsla(0, 0%, 0%, 0.03) 45%,
+      hsla(0, 0%, 0%, 0.05) 50%,
+      hsla(0, 0%, 0%, 0.1) 55%,
+      hsla(0, 0%, 0%, 0.2) 60%,
+      hsla(0, 0%, 0%, 0.3) 65%,
+      hsla(0, 0%, 0%, 0.4) 70%,
+      hsla(0, 0%, 0%, 0.5) 75%,
+      hsla(0, 0%, 0%, 0.6) 80%,
+      hsla(0, 0%, 0%, 0.7) 85%,
+      hsla(0, 0%, 0%, 0.8) 90%,
       hsla(0, 0%, 0%, 0.9) 95%,
       hsla(0, 0%, 0%, 0.95) 100%
     );
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     .titler {
       background: linear-gradient(
       hsla(0, 0%, 0%,0.0) 0%,
@@ -1149,8 +1161,8 @@ body {
     z-index: 2000;
     position: absolute;
     bottom: 0px;
-    border-top-left-radius: 1px;
-    border-top-right-radius: 1px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     background: linear-gradient(
@@ -1178,6 +1190,90 @@ body {
 );
   }
 
+/*make gradient lighter for first child whilst tile is larger*/
+    #blog tr:first-child .titleg{
+      background: linear-gradient(
+    hsla(0, 0%, 0%,0.0) 0%,
+        hsla(0, 0%, 0%, 0.0) 5%,
+        hsla(0, 0%, 0%, 0.0) 10%,
+        hsla(0, 0%, 0%, 0.0) 15%,
+        hsla(0, 0%, 0%, 0.0) 20%,
+        hsla(0, 0%, 0%, 0.0) 25%,
+        hsla(0, 0%, 0%, 0.0) 30%,
+        hsla(0, 0%, 0%, 0.0) 35%,
+        hsla(0, 0%, 0%, 0.0) 40%,
+        hsla(0, 0%, 0%, 0.0) 45%,
+        hsla(0, 0%, 0%, 0.0) 50%,
+        hsla(0, 0%, 0%, 0.0) 55%,
+        hsla(0, 0%, 0%, 0.0) 60%,
+        hsla(0, 0%, 0%, 0.01) 65%,
+        hsla(0, 0%, 0%, 0.10) 70%,
+        hsla(0, 0%, 0%, 0.25) 75%,
+        hsla(0, 0%, 0%, 0.40) 80%,
+        hsla(0, 0%, 0%, 0.55) 85%,
+        hsla(0, 0%, 0%, 0.675) 90%,
+        hsla(0, 0%, 0%, 0.80) 95%,
+        hsla(0, 0%, 0%, 0.90) 100%
+  );;
+    }
+/* reset gradient for first tile to heavier when first tile is reduced to smaller size by media queries*/
+    @media screen and (max-width: 450px) {
+      #blog tr:first-child .titleg {
+      background: linear-gradient(
+        hsla(0, 0%, 0%,0.0) 0%,
+        hsla(0, 0%, 0%, 0.0) 5%,
+        hsla(0, 0%, 0%, 0.0) 10%,
+        hsla(0, 0%, 0%, 0.0) 15%,
+        hsla(0, 0%, 0%, 0.0) 20%,
+        hsla(0, 0%, 0%, 0.0) 25%,
+        hsla(0, 0%, 0%, 0.01) 30%,
+        hsla(0, 0%, 0%, 0.03) 35%,
+        hsla(0, 0%, 0%, 0.05) 40%,
+        hsla(0, 0%, 0%, 0.1) 45%,
+        hsla(0, 0%, 0%, 0.2) 50%,
+        hsla(0, 0%, 0%, 0.3) 55%,
+        hsla(0, 0%, 0%, 0.4) 60%,
+        hsla(0, 0%, 0%, 0.5) 65%,
+        hsla(0, 0%, 0%, 0.575) 70%,
+        hsla(0, 0%, 0%, 0.65) 75%,
+        hsla(0, 0%, 0%, 0.725) 80%,
+        hsla(0, 0%, 0%, 0.8) 85%,
+        hsla(0, 0%, 0%, 0.85) 90%,
+        hsla(0, 0%, 0%, 0.9) 95%,
+        hsla(0, 0%, 0%, 0.95) 100%
+      );
+      }
+    }
+
+    @media screen and (max-height: 560px) {
+      #blog tr:first-child .titleg {
+      background: linear-gradient(
+        hsla(0, 0%, 0%,0.0) 0%,
+        hsla(0, 0%, 0%, 0.0) 5%,
+        hsla(0, 0%, 0%, 0.0) 10%,
+        hsla(0, 0%, 0%, 0.0) 15%,
+        hsla(0, 0%, 0%, 0.0) 20%,
+        hsla(0, 0%, 0%, 0.0) 25%,
+        hsla(0, 0%, 0%, 0.01) 30%,
+        hsla(0, 0%, 0%, 0.03) 35%,
+        hsla(0, 0%, 0%, 0.05) 40%,
+        hsla(0, 0%, 0%, 0.1) 45%,
+        hsla(0, 0%, 0%, 0.2) 50%,
+        hsla(0, 0%, 0%, 0.3) 55%,
+        hsla(0, 0%, 0%, 0.4) 60%,
+        hsla(0, 0%, 0%, 0.5) 65%,
+        hsla(0, 0%, 0%, 0.575) 70%,
+        hsla(0, 0%, 0%, 0.65) 75%,
+        hsla(0, 0%, 0%, 0.725) 80%,
+        hsla(0, 0%, 0%, 0.8) 85%,
+        hsla(0, 0%, 0%, 0.85) 90%,
+        hsla(0, 0%, 0%, 0.9) 95%,
+        hsla(0, 0%, 0%, 0.95) 100%
+      );
+      }
+    }
+  
+
   .authorg {
     background: #ffffff;
     width: 100%;
@@ -1186,8 +1282,8 @@ body {
     padding-bottom: 5px;
     z-index: 2000;
     position: relative;
-    border-bottom-left-radius: 1px;
-    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     /*box-shadow: 0px 2px 9px #ccc;
@@ -1198,16 +1294,18 @@ body {
 
   #desc {
     position: absolute;
+    /*height: 28px;*/
     margin: 0px; 
-    bottom: 5px;
-    padding-left: 12px; 
-    padding-right: 12px; 
+    bottom: 6px;
+    padding-left: 10px; 
+    padding-right: 10px; 
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     /*padding: 4px 5px 2px;*/
-    font-weight: 500;
-    font-size: 1.1em;
-    line-height: 1.3;
+    font-weight: 100;
+    font-size: 11px;
+    text-shadow: 0px -2px 4px #000000;
+    line-height: 1.2;
     overflow: hidden;
     color: #ffffff;
     word-wrap: break-word;
@@ -1235,6 +1333,11 @@ body {
     text-transform: capitalize;
     -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
+    cursor: pointer;
+  }
+
+  #acc:hover {
+    color: var(--bs-turq)
   }
 
   .fafa {
@@ -1247,30 +1350,38 @@ body {
     margin-left: 12px;
     margin-right: 6px;
     background: lightgray;
+    cursor: pointer;
   }
 
   #desc_r {
     position: absolute;
     bottom: 15px;
+    width: calc(100% - 12px);
     margin: 0px;  
     padding-left: 6px; 
     padding-right: 6px; 
-    padding-top: 0px;
+    padding-top: 30px;
     padding-bottom: 0px;
     font-weight: 600;
     font-size: 0.9em;
+    text-shadow: 0px -2px 4px #000000;
     line-height: 1.1;
     overflow: hidden;
     word-wrap: break-word;
-    display: -webkit-box;
+    /*display: -webkit-box;*/
+    display: table-cell;
+    vertical-align: bottom;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    
   }
 
-  #acc_r {
+  .acc_r {
     position: absolute;
+    background-color: transparent;
+    border: none;
     bottom: 4px;
-    width: calc(100% - 10px);
+    max-width: calc(100% - 12px);
     margin: 0px;  
     padding-left: 6px; 
     padding-right: 6px; 
@@ -1283,21 +1394,28 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: uppercase;
+    cursor: pointer;
+  }
+  .acc_r:hover {
+    color: white;
   }
 
   @media screen and (min-width: 580px) {
     #desc_r {
       bottom: 20px;
       padding-left: 10px;
+      padding-right: 10px;
+      width: calc(100% - 20px);
     }
 
-    #acc_r {
+    .acc_r {
       bottom: 8px;
       padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
-  #acc_r:nth-last-child(2) {
+  .acc_r:nth-last-child(2) {
     display:none;
   }
 

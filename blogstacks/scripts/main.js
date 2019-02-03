@@ -73,7 +73,7 @@ window.onload = function() {
 
       // Loop through the buttons and add the active class to the current/clicked button
       for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
+        btns[i].addEventListener("click", function(){
           document.getElementById("myInput").value = "";
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
@@ -83,7 +83,9 @@ window.onload = function() {
           var btnactive = document.getElementsByClassName("btn Active");
           $(btnactive).attr('class','btn');
           this.setAttribute('class','btn Active');
+        if (document.getElementById("mainMenu").getAttribute('class') === 'open'){
           document.getElementById('menuInputMob').click();
+        }
           var input = document.querySelector('#category'),
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
@@ -385,13 +387,34 @@ $("#shuffleMob").click(function(){
     document.getElementById('menuInputMob').click();
   }
 
+// 9. Menu open/close for 'Choose Stack' button
 
-// 9. Search bar show hide for mobile
-
-  function searchBar() {
-    var header = documnet.getElementsByClassName('header');
-    var searchHead = document.getElementsByClassName('searchhead');
-    $(searchHead).fadeIn(100);
+  function menuCat() {
+    document.getElementById('menuInputMob').click();
   }
+
+// 10. Filter on category in blogger stack tiles
+
+function bloggerCatFilter(innerHTML) {
+  var cat = innerHTML;
+  var headings = document.evaluate("//button[contains(., '" + cat + "')]", document, null, XPathResult.ANY_TYPE, null );
+  var thisHeading = headings.iterateNext();
+  thisHeading.click();
+}
+
+function bloggerFilter(innerHTML) {
+  alert(innerHTML);
+}
+
+
+// 11. Share button - currently displays variables for search
+
+  function shareBut() {
+    var category = document.getElementById("category").value;
+    var myInput = document.getElementById("myInput").value;
+    alert (category);
+    alert (myInput);
+  }
+   
 
  
