@@ -341,8 +341,8 @@ body {
               border: none;
               background: var(--bs-dblue);
               opacity: 1;
-              width: 36px;
-              height: 36px;
+              width: 32px;
+              height: 32px;
               margin-left: 2px;
               margin-right: 2px;
             } 
@@ -354,19 +354,19 @@ body {
             @media screen and (max-width: 725px) {
               #searchWeb {
                 display: inline;
-                padding:10px;
+                padding:8px;
               }
             }
 
             #shareWeb {
-              padding-left: 10px;
-              padding-right: 6.8666px;
-              padding-top: 9px;
-              padding-bottom: 11px;
+              padding-left: 8px;
+              padding-right: 4.8666px;
+              padding-top: 7px;
+              padding-bottom: 9px;
             }
 
             #shuffleMob {
-              padding:10px;
+              padding:8px;
             }
 
             #searchIcon2 {
@@ -780,6 +780,15 @@ body {
 
   .rowShow {
     display: inline-block;
+  }
+
+  #blogger.fade {
+    display: inline-block;
+    opacity: 0.5;
+  }
+
+  #blog.fade {
+    display: none;
   }
 
   #blogger td {
@@ -1319,7 +1328,8 @@ body {
     display: inline-block;
     position: absolute;
     margin: 0px;
-    padding-left: 6px; 
+    margin-left: -40px;
+    padding-left: 46px; 
     padding-right: 6px; 
     padding-top: 8.5px;
     padding-bottom: 8.5px;
@@ -1340,7 +1350,7 @@ body {
     color: var(--bs-turq)
   }
 
-  .fafa {
+  .favicon {
     display: inline-block;
     border-radius: 50px;
     height: 25px;
@@ -1360,7 +1370,7 @@ body {
     margin: 0px;  
     padding-left: 6px; 
     padding-right: 6px; 
-    padding-top: 30px;
+    padding-top: calc(100% - 38px);
     padding-bottom: 0px;
     font-weight: 600;
     font-size: 0.9em;
