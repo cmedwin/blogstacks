@@ -348,17 +348,18 @@ body {
               height: 100%;
               z-index: 2200;
               vertical-align: middle;
+              overflow-y: hidden;
             }
 
             .funcMob {
               /*border-radius:50%;
               -moz-border-radius:50%;
               -webkit-border-radius:50%;*/
-
+              
               border: none;
-              background: var(--bs-dblue);
+              background: var(--ms-dblue);
               opacity: 1;
-              width: 40px;
+              width: 45px;
               height: calc(100% + 16px);
               margin-top: -16px;
               margin-right: 0px;
@@ -373,6 +374,19 @@ body {
 
             #searchWeb {
               display: none;
+              
+            }
+            #searchWeb:before {
+              position: absolute;
+              top: 34px;
+              left: -12px;
+              width: 12px;
+              height: 100px;
+              content: '';
+              background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
+              transform: skewY(-75deg);
+              transform-origin: 0 0;
+               
             }
             @media screen and (max-width: 725px) {
               #searchWeb {
@@ -382,11 +396,35 @@ body {
             }
 
             #shareWeb {
+              display: inline;
               padding: 8px;
             }
+            #shareWeb:before {
+              position: absolute;
+              top: 37px;
+              left: 37px;
+              width: 12px;
+              height: 100px;
+              content: '';
+              background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
+              transform: skewY(-75deg);
+              transform-origin: 0 0;
+            }
+           
 
             #shuffleMob {
               padding:8px;
+            }
+            #shuffleMob:before {
+              position: absolute;
+              top: 37px;
+              left: 86px;
+              width: 12px;
+              height: 100px;
+              content: '';
+              background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
+              transform: skewY(-75deg);
+              transform-origin: 0 0;
             }
 
             #searchIcon2 {
