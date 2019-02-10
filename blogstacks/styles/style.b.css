@@ -877,7 +877,7 @@ body {
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
     border-collapse: collapse;
     /*text-transform: capitalize;*/
     /*overflow-y: scroll;*/
@@ -988,7 +988,7 @@ body {
   }
 
   #blog tr:first-child .imageG {
-    padding-bottom: calc(100% - 40px + 2px);
+    padding-bottom: calc(100% - 73px + 0px);
   }
 
   #blog tr:nth-last-child(1) .spacer {
@@ -1060,7 +1060,7 @@ body {
               }
 
               #blog tr:first-child .imageG {
-                padding-bottom: calc(100% - 40px);
+                padding-bottom: calc(100% - 73px);
               }
             }
         }
@@ -1139,7 +1139,7 @@ body {
 
 
    .imageG {
-    padding-bottom: calc(100% - 40px);
+    padding-bottom: calc(100% - 73px);
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     /*border-top: 1px solid #373737;*/
@@ -1160,7 +1160,7 @@ body {
     /*width: calc(38% - 55px);*/
     width: 100%;
     padding: 0%;
-    z-index: 2000;
+    z-index: 1500;
     position: absolute;
     bottom: 0px;
     cursor: pointer;
@@ -1222,134 +1222,14 @@ body {
     }
 
   }
-
-  .titleg {
-    height: 100%;
-    /*width: calc(38% - 55px);*/
-    width: 100%;
-    padding: 0%;
-    z-index: 2000;
-    position: absolute;
-    bottom: 0px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    background: linear-gradient(
-  hsla(0, 0%, 0%,0.0) 0%,
-      hsla(0, 0%, 0%, 0.0) 5%,
-      hsla(0, 0%, 0%, 0.0) 10%,
-      hsla(0, 0%, 0%, 0.0) 15%,
-      hsla(0, 0%, 0%, 0.0) 20%,
-      hsla(0, 0%, 0%, 0.0) 25%,
-      hsla(0, 0%, 0%, 0.01) 30%,
-      hsla(0, 0%, 0%, 0.03) 35%,
-      hsla(0, 0%, 0%, 0.05) 40%,
-      hsla(0, 0%, 0%, 0.1) 45%,
-      hsla(0, 0%, 0%, 0.2) 50%,
-      hsla(0, 0%, 0%, 0.3) 55%,
-      hsla(0, 0%, 0%, 0.4) 60%,
-      hsla(0, 0%, 0%, 0.5) 65%,
-      hsla(0, 0%, 0%, 0.575) 70%,
-      hsla(0, 0%, 0%, 0.65) 75%,
-      hsla(0, 0%, 0%, 0.725) 80%,
-      hsla(0, 0%, 0%, 0.8) 85%,
-      hsla(0, 0%, 0%, 0.85) 90%,
-      hsla(0, 0%, 0%, 0.9) 95%,
-      hsla(0, 0%, 0%, 0.95) 100%
-);
-  }
-
-/*make gradient lighter for first child whilst tile is larger*/
-    #blog tr:first-child .titleg{
-      background: linear-gradient(
-    hsla(0, 0%, 0%,0.0) 0%,
-        hsla(0, 0%, 0%, 0.0) 5%,
-        hsla(0, 0%, 0%, 0.0) 10%,
-        hsla(0, 0%, 0%, 0.0) 15%,
-        hsla(0, 0%, 0%, 0.0) 20%,
-        hsla(0, 0%, 0%, 0.0) 25%,
-        hsla(0, 0%, 0%, 0.0) 30%,
-        hsla(0, 0%, 0%, 0.0) 35%,
-        hsla(0, 0%, 0%, 0.0) 40%,
-        hsla(0, 0%, 0%, 0.0) 45%,
-        hsla(0, 0%, 0%, 0.0) 50%,
-        hsla(0, 0%, 0%, 0.0) 55%,
-        hsla(0, 0%, 0%, 0.0) 60%,
-        hsla(0, 0%, 0%, 0.01) 65%,
-        hsla(0, 0%, 0%, 0.10) 70%,
-        hsla(0, 0%, 0%, 0.25) 75%,
-        hsla(0, 0%, 0%, 0.40) 80%,
-        hsla(0, 0%, 0%, 0.55) 85%,
-        hsla(0, 0%, 0%, 0.675) 90%,
-        hsla(0, 0%, 0%, 0.80) 95%,
-        hsla(0, 0%, 0%, 0.90) 100%
-  );;
-    }
-/* reset gradient for first tile to heavier when first tile is reduced to smaller size by media queries*/
-    @media screen and (max-width: 450px) {
-      #blog tr:first-child .titleg {
-      background: linear-gradient(
-        hsla(0, 0%, 0%,0.0) 0%,
-        hsla(0, 0%, 0%, 0.0) 5%,
-        hsla(0, 0%, 0%, 0.0) 10%,
-        hsla(0, 0%, 0%, 0.0) 15%,
-        hsla(0, 0%, 0%, 0.0) 20%,
-        hsla(0, 0%, 0%, 0.0) 25%,
-        hsla(0, 0%, 0%, 0.01) 30%,
-        hsla(0, 0%, 0%, 0.03) 35%,
-        hsla(0, 0%, 0%, 0.05) 40%,
-        hsla(0, 0%, 0%, 0.1) 45%,
-        hsla(0, 0%, 0%, 0.2) 50%,
-        hsla(0, 0%, 0%, 0.3) 55%,
-        hsla(0, 0%, 0%, 0.4) 60%,
-        hsla(0, 0%, 0%, 0.5) 65%,
-        hsla(0, 0%, 0%, 0.575) 70%,
-        hsla(0, 0%, 0%, 0.65) 75%,
-        hsla(0, 0%, 0%, 0.725) 80%,
-        hsla(0, 0%, 0%, 0.8) 85%,
-        hsla(0, 0%, 0%, 0.85) 90%,
-        hsla(0, 0%, 0%, 0.9) 95%,
-        hsla(0, 0%, 0%, 0.95) 100%
-      );
-      }
-    }
-
-    @media screen and (max-height: 560px) {
-      #blog tr:first-child .titleg {
-      background: linear-gradient(
-        hsla(0, 0%, 0%,0.0) 0%,
-        hsla(0, 0%, 0%, 0.0) 5%,
-        hsla(0, 0%, 0%, 0.0) 10%,
-        hsla(0, 0%, 0%, 0.0) 15%,
-        hsla(0, 0%, 0%, 0.0) 20%,
-        hsla(0, 0%, 0%, 0.0) 25%,
-        hsla(0, 0%, 0%, 0.01) 30%,
-        hsla(0, 0%, 0%, 0.03) 35%,
-        hsla(0, 0%, 0%, 0.05) 40%,
-        hsla(0, 0%, 0%, 0.1) 45%,
-        hsla(0, 0%, 0%, 0.2) 50%,
-        hsla(0, 0%, 0%, 0.3) 55%,
-        hsla(0, 0%, 0%, 0.4) 60%,
-        hsla(0, 0%, 0%, 0.5) 65%,
-        hsla(0, 0%, 0%, 0.575) 70%,
-        hsla(0, 0%, 0%, 0.65) 75%,
-        hsla(0, 0%, 0%, 0.725) 80%,
-        hsla(0, 0%, 0%, 0.8) 85%,
-        hsla(0, 0%, 0%, 0.85) 90%,
-        hsla(0, 0%, 0%, 0.9) 95%,
-        hsla(0, 0%, 0%, 0.95) 100%
-      );
-      }
-    }
   
 
   .authorg {
-    background: #ffffff;
+    background: white;
     width: 100%;
-    height: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    height: 73px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     z-index: 2000;
     position: relative;
     border-bottom-left-radius: 2px;
@@ -1365,28 +1245,37 @@ body {
   }
 
 
-
-  #desc {
-    position: absolute;
+ 
+  #titleg {
+    position: relative;
+    display: block;
+    z-index: 1500;
     /*height: 28px;*/
-    margin: 0px; 
-    bottom: 6px;
+    min-width: calc (100% - 20px);
     padding-left: 10px; 
     padding-right: 10px; 
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 6px;
+    background: var(--bs-mblue);
     /*padding: 4px 5px 2px;*/
     font-weight: 100;
-    font-size: 12px;
-    text-shadow: 0px -2px 4px #000000;
+    font-size: 11px;
+    /*text-shadow: 0px -2px 4px #000000;*/
     line-height: 1.2;
     overflow: hidden;
-    color: #ffffff;
+    color: white;
     word-wrap: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
+  }
+
+  #desc {
+    height: 26px;
+    padding-bottom: 6px;
+    margin: 0px;
   }
 
   #acc {
@@ -1396,13 +1285,13 @@ body {
     margin-left: -40px;
     padding-left: 46px; 
     padding-right: 6px; 
-    padding-top: 8.5px;
-    padding-bottom: 8.5px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     /*padding: 2px 5px 0px;*/
     font-size: 0.8em;
     font-weight: 500;
     overflow: hidden;
-    color: #202124;
+    color: black;
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: capitalize;
@@ -1418,11 +1307,11 @@ body {
   .favicon {
     display: inline-block;
     border-radius: 50px;
-    height: 25px;
-    width: 25px;
-    margin-top: 2.5px;
+    height: 20px;
+    width: 20px;
+    margin-top: 8px;
     margin-bottom: 2.5px;
-    margin-left: 12px;
+    margin-left: 11px;
     margin-right: 6px;
     background: lightgray;
     cursor: pointer;

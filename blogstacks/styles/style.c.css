@@ -877,7 +877,6 @@ body {
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
-    letter-spacing: 1px;
     border-collapse: collapse;
     /*text-transform: capitalize;*/
     /*overflow-y: scroll;*/
@@ -988,7 +987,7 @@ body {
   }
 
   #blog tr:first-child .imageG {
-    padding-bottom: calc(100% - 40px + 2px);
+    padding-bottom: calc(100% - 70px + 0px);
   }
 
   #blog tr:nth-last-child(1) .spacer {
@@ -1060,7 +1059,7 @@ body {
               }
 
               #blog tr:first-child .imageG {
-                padding-bottom: calc(100% - 40px);
+                padding-bottom: calc(100% - 70px);
               }
             }
         }
@@ -1139,13 +1138,13 @@ body {
 
 
    .imageG {
-    padding-bottom: calc(100% - 40px);
-    border-top-left-radius: 2px;
+    padding-bottom: calc(100% - 70px);
+    /*border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    /*border-top: 1px solid #373737;*/
+    border-top: 1px solid #373737;*/
     width: 100%;
     position: relative;
-    z-index: 1000;
+    z-index: 1500;
     background-size: contain; 
     background-position: center;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
@@ -1224,18 +1223,18 @@ body {
   }
 
   .titleg {
-    height: 100%;
+    height: 35px;
     /*width: calc(38% - 55px);*/
     width: 100%;
     padding: 0%;
     z-index: 2000;
-    position: absolute;
-    bottom: 0px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    position: relative;
+    /*bottom: 0px;*/
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    background: linear-gradient(
+    /*background: linear-gradient(
   hsla(0, 0%, 0%,0.0) 0%,
       hsla(0, 0%, 0%, 0.0) 5%,
       hsla(0, 0%, 0%, 0.0) 10%,
@@ -1257,10 +1256,10 @@ body {
       hsla(0, 0%, 0%, 0.85) 90%,
       hsla(0, 0%, 0%, 0.9) 95%,
       hsla(0, 0%, 0%, 0.95) 100%
-);
+);*/
   }
 
-/*make gradient lighter for first child whilst tile is larger*/
+/*make gradient lighter for first child whilst tile is larger
     #blog tr:first-child .titleg{
       background: linear-gradient(
     hsla(0, 0%, 0%,0.0) 0%,
@@ -1285,8 +1284,8 @@ body {
         hsla(0, 0%, 0%, 0.80) 95%,
         hsla(0, 0%, 0%, 0.90) 100%
   );;
-    }
-/* reset gradient for first tile to heavier when first tile is reduced to smaller size by media queries*/
+    }*/
+/* reset gradient for first tile to heavier when first tile is reduced to smaller size by media queries
     @media screen and (max-width: 450px) {
       #blog tr:first-child .titleg {
       background: linear-gradient(
@@ -1341,19 +1340,19 @@ body {
         hsla(0, 0%, 0%, 0.95) 100%
       );
       }
-    }
+    }*/
   
 
   .authorg {
     background: #ffffff;
     width: 100%;
     height: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    z-index: 2000;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    z-index: 1000;
     position: relative;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     /*box-shadow: 0px 2px 9px #ccc;
@@ -1368,20 +1367,20 @@ body {
 
   #desc {
     position: absolute;
-    /*height: 28px;*/
+    height: 26.4px;
     margin: 0px; 
-    bottom: 6px;
+    bottom: 0px;
     padding-left: 10px; 
     padding-right: 10px; 
-    padding-top: 0px;
-    padding-bottom: 0px;
+    margin-top: 4.3px;
+    margin-bottom: 4.3px;
     /*padding: 4px 5px 2px;*/
     font-weight: 100;
-    font-size: 12px;
-    text-shadow: 0px -2px 4px #000000;
+    font-size: 11px;
+    /*text-shadow: 0px -2px 4px #000000;*/
     line-height: 1.2;
     overflow: hidden;
-    color: #ffffff;
+    color: black;
     word-wrap: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -1418,10 +1417,10 @@ body {
   .favicon {
     display: inline-block;
     border-radius: 50px;
-    height: 25px;
-    width: 25px;
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
+    height: 20px;
+    width: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 12px;
     margin-right: 6px;
     background: lightgray;

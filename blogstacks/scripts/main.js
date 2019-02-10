@@ -25,7 +25,7 @@ window.onload = function() {
   // blog stack
     //load
     var blogHead = document.getElementById("blog");
-    $( blogHead ).load("stacks/blog2.html", function() {
+    $( blogHead ).load("stacks/blogc.html", function() {
     //filter - Cat
     var input = document.querySelector('#category'),
         table2 = document.querySelector('#blog');
@@ -75,6 +75,7 @@ window.onload = function() {
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function(){
           document.getElementById("myInput").value = "";
+          bloggerShowHead();
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
           //document.getElementById("butFilter").innerHTML = this.value;
@@ -93,6 +94,8 @@ window.onload = function() {
             searchTableC(table2, input);
             searchTableC(table, input);
             
+        $('#blog').scrollTop(0);
+        $('#blogger').scrollTop(0);
         });
       }
 
@@ -116,21 +119,45 @@ window.onload = function() {
 
 
 // 2.2. Search - blogger - bind tables and input
+        
+        //show all tiles on catgory change
+        function bloggerShowHead() {
+          table = document.querySelector('#blogger');
+          table2 = document.querySelector('#blog');
+          bloggerShow(table);
+          bloggerShow(table2);
+          function bloggerShow(table) {
+            var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+            rows.forEach(function(row) {
+              row.classList.remove('fade');
+            });
+          }
+          bloggerArray.length = 0;
+        }
+
+        //fade all tiles when array changed
+        function bloggerClear(table) {
+          //if (array === undefined || array.length == 0) {
+            //bloggerShowHead();
+          //}
+          //else {
+          var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+            rows.forEach(function(row) {
+              row.classList.add('fade');
+            });
+          //}
+        };
+
+        // un-fade any matching bloggers/blogs in this loop
         function searchTableB(table, input) {
-          //alert(input.value);
-            var filter = input.value.toUpperCase(),
+            var filter = input.toUpperCase(),
               rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
             rows.forEach(function(row) {
               var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
-              row.classList.remove('fade');
-              if (hide) {
-                row.classList.add('fade'); 
-                //row.classList.remove('rowShow');
+              if (hide) {}
+              else {
+                row.classList.remove('fade'); 
               }
-              //else if (row.classList.contains('gone')) {
-                //row.classList.remove('gone');
-                //row.classList.add('rowShow');
-              //}
             });
           };
         
@@ -324,8 +351,18 @@ $("#shuffleMob").click(function(){
   var $firstCells = $("#blogger tbody tr"),
       $copies = $firstCells.clone(true);
   
-  [].sort.call($copies, function() { return Math.random() - 0.5; });
+  for (var i = 0; i < $copies.length; i++) {
+    if ($copies[i].classList.contains('fade')) {
+      var ranVar = 0.5;
+    }
+    else {
+      var ranVar = -0.5;
+    }
+  }
   
+  //[].sort.call($copies, function() { return Math.random() - 0.5; });
+  [].sort.call($copies, function() { return Math.random() - ranVar; });
+
   $copies.each(function(i){
       $firstCells.eq(i).replaceWith(this);  
   })});
@@ -379,23 +416,42 @@ function bloggerCatFilter(innerHTML) {
 
 
 // 11. Filter on blogger in blogger stack tiles & blog author tiles
-
-function bloggerFilter(innerHTML) {
-  document.getElementById("bloggerFilter").value = innerHTML;
-  var input = document.querySelector('#bloggerFilter'),
-            table = document.querySelector('#blogger');
-            table2 = document.querySelector('#blog');
-            searchTableB(table2, input);
-            searchTableB(table, input);
-}
+    //define array
+    var bloggerArray = [];
+    //add or remove from array when blogger tile clicked
+    function bloggerFilter(innerHTML) {
+      var index = bloggerArray.indexOf(innerHTML);
+      if (index > -1){
+        bloggerArray.splice(index, 1);
+      }
+      else { 
+        bloggerArray.push(innerHTML);
+      }
+      //fade all tiles when array changed
+      table = document.querySelector('#blogger');
+      table2 = document.querySelector('#blog');
+      bloggerClear(table);
+      bloggerClear(table2);
+      
+      //loop through contents of array and un-fade any matching bloggers/blogs
+      for (var i = 0; i < bloggerArray.length; i++) {
+        var input = bloggerArray[i],
+                table = document.querySelector('#blogger');
+                table2 = document.querySelector('#blog');
+                searchTableB(table2, input);
+                searchTableB(table, input);
+      }
+    }
 
 
 // XX. Share button - currently displays variables for search
 
   function shareBut() {
     var category = document.getElementById("category").value;
+    var bloggers = bloggerArray;
     var myInput = document.getElementById("myInput").value;
     alert (category);
+    alert (bloggers);
     alert (myInput);
   }
    
