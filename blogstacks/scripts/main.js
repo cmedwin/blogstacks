@@ -132,7 +132,8 @@ window.onload = function() {
               row.classList.remove('fade');
             });
           }
-          bloggerArray.length = 0;
+          bloggerArray = "";
+          $('#blog').scrollTop(0);
         }
 
         //fade all tiles when array changed
@@ -159,6 +160,7 @@ window.onload = function() {
                 row.classList.remove('fade'); 
               }
             });
+            $('#blog').scrollTop(0);
           };
         
 
@@ -416,30 +418,30 @@ function bloggerCatFilter(innerHTML) {
 
 
 // 11. Filter on blogger in blogger stack tiles & blog author tiles
-    //define array
-    var bloggerArray = [];
-    //add or remove from array when blogger tile clicked
+    //define variable
+    var bloggerArray = "";
+    //add or remove from variable when blogger tile clicked
     function bloggerFilter(innerHTML) {
-      var index = bloggerArray.indexOf(innerHTML);
-      if (index > -1){
-        bloggerArray.splice(index, 1);
-      }
-      else { 
-        bloggerArray.push(innerHTML);
-      }
-      //fade all tiles when array changed
-      table = document.querySelector('#blogger');
-      table2 = document.querySelector('#blog');
-      bloggerClear(table);
-      bloggerClear(table2);
       
-      //loop through contents of array and un-fade any matching bloggers/blogs
-      for (var i = 0; i < bloggerArray.length; i++) {
-        var input = bloggerArray[i],
-                table = document.querySelector('#blogger');
-                table2 = document.querySelector('#blog');
-                searchTableB(table2, input);
-                searchTableB(table, input);
+      if (bloggerArray === innerHTML) {
+        
+        bloggerShowHead();
+        
+      }
+      else {
+        bloggerArray = innerHTML;
+        //fade all tiles when array changed
+        table = document.querySelector('#blogger');
+        table2 = document.querySelector('#blog');
+        bloggerClear(table);
+        bloggerClear(table2);
+        
+        //filter by variable for any matching bloggers/blogs
+          var input = bloggerArray,
+                  table = document.querySelector('#blogger');
+                  table2 = document.querySelector('#blog');
+                  searchTableB(table2, input);
+                  searchTableB(table, input);
       }
     }
 
