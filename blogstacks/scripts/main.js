@@ -25,7 +25,7 @@ window.onload = function() {
   // blog stack
     //load
     var blogHead = document.getElementById("blog");
-    $( blogHead ).load("stacks/blogc.html", function() {
+    $( blogHead ).load("stacks/blogb.html", function() {
     //filter - Cat
     var input = document.querySelector('#category'),
         table2 = document.querySelector('#blog');

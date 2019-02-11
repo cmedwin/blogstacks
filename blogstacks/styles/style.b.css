@@ -957,6 +957,10 @@ body {
     text-align: right;
   }
 
+  #tile {
+    border-radius: 2px;
+    box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+  }
 
 
   #blog tbody {
@@ -988,7 +992,7 @@ body {
   }
 
   #blog tr:first-child .imageG {
-    padding-bottom: calc(100% - 73px + 0px);
+    padding-bottom: calc(100% - 90px + 0px);
   }
 
   #blog tr:nth-last-child(1) .spacer {
@@ -1018,6 +1022,7 @@ body {
             width: calc(100% - 6px);
             margin-left: 5px;
             margin-right: 5px;
+            
           }
 
           #blog tr:first-child {
@@ -1060,7 +1065,7 @@ body {
               }
 
               #blog tr:first-child .imageG {
-                padding-bottom: calc(100% - 73px);
+                padding-bottom: calc(100% - 90px);
               }
             }
         }
@@ -1139,7 +1144,7 @@ body {
 
 
    .imageG {
-    padding-bottom: calc(100% - 73px);
+    padding-bottom: calc(100% - 90px);
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     /*border-top: 1px solid #373737;*/
@@ -1148,9 +1153,6 @@ body {
     z-index: 1000;
     background-size: contain; 
     background-position: center;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    /*box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);*/
 }
 
   .titler {
@@ -1226,15 +1228,18 @@ body {
 
   .authorg {
     background: white;
-    width: 100%;
-    height: 73px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    width: calc(100% - 18px);
+    height: 62px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 9px;
+    padding-right: 9px;
     z-index: 2000;
     position: relative;
+    
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
+    /*-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     /*box-shadow: 0px 2px 9px #ccc;
     box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);*/
@@ -1248,50 +1253,36 @@ body {
  
   #titleg {
     position: relative;
-    display: block;
+    display: inline-block;
     z-index: 1500;
     /*height: 28px;*/
-    min-width: calc (100% - 20px);
-    padding-left: 10px; 
-    padding-right: 10px; 
-    padding-top: 6px;
-    background: var(--bs-mblue);
-    /*padding: 4px 5px 2px;*/
-    font-weight: 100;
-    font-size: 11px;
-    /*text-shadow: 0px -2px 4px #000000;*/
-    line-height: 1.2;
-    overflow: hidden;
-    color: white;
-    word-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
+    width: calc(100% - 43.375px - 10px);
+    margin-left: 5px;
   }
 
   #desc {
-    height: 26px;
-    padding-bottom: 6px;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 1.2125;
+    display: block;
     margin: 0px;
+    padding-right: 10px;
+    color: rgb(20,23,26);
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    overflow: hidden;
   }
 
   #acc {
-    display: inline-block;
-    position: absolute;
-    margin: 0px;
-    margin-left: -40px;
-    padding-left: 46px; 
-    padding-right: 6px; 
-    padding-top: 11px;
-    padding-bottom: 11px;
-    /*padding: 2px 5px 0px;*/
-    font-size: 0.8em;
-    font-weight: 500;
+    display: block;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
     overflow: hidden;
-    color: black;
+    margin-bottom: 2px;
+    color: rgb(20,23,26);
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: capitalize;
@@ -1306,13 +1297,14 @@ body {
 
   .favicon {
     display: inline-block;
+    vertical-align: top;
     border-radius: 50px;
-    height: 20px;
-    width: 20px;
-    margin-top: 8px;
-    margin-bottom: 2.5px;
-    margin-left: 11px;
-    margin-right: 6px;
+    height: 43.375px;
+    width: 43.375px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 5px;
     background: lightgray;
     cursor: pointer;
   }
