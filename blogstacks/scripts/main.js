@@ -4,7 +4,7 @@ window.onload = function() {
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
-    $( bloggerHead ).load("stacks/blogger2.html", function() {
+    $( bloggerHead ).load("stacks/bloggerb.html", function() {
     //filter - cat
     var input = document.querySelector('#category'),
         table = document.querySelector('#blogger');
@@ -133,6 +133,7 @@ window.onload = function() {
             });
           }
           bloggerArray = "";
+          //$("#shuffleMob").click();
           $('#blog').scrollTop(0);
         }
 
@@ -160,6 +161,7 @@ window.onload = function() {
                 row.classList.remove('fade'); 
               }
             });
+            //$("#shuffleMob").click();
             $('#blog').scrollTop(0);
           };
         
@@ -344,30 +346,25 @@ $("#shuffleMob").click(function(){
   var shuffle = document.getElementById("shuffleIconMob");
   $(shuffle).attr('id','shuffleRotate');
 
-  $(bloggerHead).fadeOut(150,function() {
+  if (bloggerArray === "") {
+    $(bloggerHead).fadeOut(150,function() {
 
-    $('#blogger').show();
-    $('#blogger').scrollTop(0);
-    $('#blogger').hide();
+      $('#blogger').show();
+      $('#blogger').scrollTop(0);
+      $('#blogger').hide();
 
-  var $firstCells = $("#blogger tbody tr"),
-      $copies = $firstCells.clone(true);
-  
-  for (var i = 0; i < $copies.length; i++) {
-    if ($copies[i].classList.contains('fade')) {
-      var ranVar = 0.5;
-    }
-    else {
-      var ranVar = -0.5;
-    }
+    var $firstCells = $("#blogger tbody tr"),
+        $copies = $firstCells.clone(true);
+    
+    [].sort.call($copies, function() { return Math.random() - 0.5; });
+
+
+    $copies.each(function(i){
+        $firstCells.eq(i).replaceWith(this);  
+    })});
+
+    $(bloggerHead).delay(150).fadeIn(150);
   }
-  
-  //[].sort.call($copies, function() { return Math.random() - 0.5; });
-  [].sort.call($copies, function() { return Math.random() - ranVar; });
-
-  $copies.each(function(i){
-      $firstCells.eq(i).replaceWith(this);  
-  })});
 
   $(blogHead).fadeOut(150, function() {
 
@@ -384,10 +381,8 @@ $("#shuffleMob").click(function(){
       $firstCells.eq(i).replaceWith(this);
   })});
 
-
-
   $(blogHead).delay(150).fadeIn(150);
-  $(bloggerHead).delay(150).fadeIn(150);
+  
 
   var shuffle = document.getElementById("shuffleRotate");
   $(shuffle).delay(400).queue(function() {
