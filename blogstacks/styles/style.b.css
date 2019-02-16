@@ -623,6 +623,7 @@ body {
             }
 
             #searchClose {
+              margin-top: 18px;
               display:none;
             }
 
@@ -630,6 +631,7 @@ body {
               display: block;
               width: 20px;
               height: 2px;
+              
               margin-left: 4px;
               position: relative; 
               background: #515151;
@@ -712,7 +714,7 @@ body {
     font-weight: bold;
     background-color: #aaa;
     color: transparent;
-    text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    text-shadow: 1px 1px 1px rgba(255,255,255,1);
     -webkit-background-clip: text;
     }
 
@@ -839,16 +841,20 @@ body {
     width: 100%;
   }
 
-  .rowShow {
+  .catShow {
     display: inline-block;
   }
 
-  #blogger tr.fade {
+  #blogger tr.bloggerFade {
     display: inline-block;
     opacity: 0.3;
   }
 
-  #blog tr.fade {
+  #blog tr.bloggerFade {
+    display: none;
+  }
+
+  #blog tr.searchGone {
     display: none;
   }
 
@@ -866,13 +872,13 @@ body {
     height: calc(100% - 64px + 9px);
     left: 50%;
     position: fixed;
-    width: calc(894px - 202px - 22px + 18px);
+    width: calc(894px - 202px - 22px + 8px);
     max-width: calc(894px - 202px - 22px + 18px);
     margin-right: 11px;
     margin-left: 11px;
     vertical-align: top;
     /*transform: translate(-17%,0%);*/
-    transform: translate(calc(-448px + 202px),0%);
+    transform: translate(calc(-447px + 202px - 8px),0%);
     color: #323232;
     font-family: 'Arimo', arial, helvetica, sans-serif;
     font-size: 12px;
@@ -1002,7 +1008,15 @@ body {
   #blog thead tr:first-child{
     width: calc(100% - 10px);
   }
-  
+
+  #blog tr:first-child .favicon {
+    height: 43.375px;
+    width: 43.375px;
+  }
+
+  #blog tr:first-child #titleg {
+    width: calc(100% - 43.375px - 10px);
+  }
 
 /* Config for number of columns in blog stack */ 
       /* 1 column for mobile devices */ 
@@ -1033,6 +1047,15 @@ body {
 
           #blog tr:first-child .spacer {
             height: 16px;
+          }
+
+          #blog tr:first-child .favicon {
+            height: 25px;
+            width: 25px;
+          }
+        
+          #blog tr:first-child #titleg {
+            width: calc(100% - 25px - 10px);
           }
 
           
@@ -1067,12 +1090,17 @@ body {
               #blog tr:first-child .imageG {
                 padding-bottom: calc(100% - 80px);
               }
+
+              #blog tr:first-child .favicon {
+                height: 25px;
+                width: 25px;
+              }
             }
         }
 /* end section */
 
 
-  .rowShow {
+  .catShow {
     display: block;
   }
 
@@ -1118,7 +1146,8 @@ body {
     width: 100%;
     position: relative;
     z-index: 1000;
-    background-size: contain; 
+    background-size: cover; 
+    min-height:100%;
     background-position: center;
     -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
@@ -1151,7 +1180,7 @@ body {
     width: 100%;
     position: relative;
     z-index: 1000;
-    background-size: contain; 
+    background-size: cover; 
     background-position: center;
 }
 
@@ -1235,7 +1264,7 @@ body {
     padding-right: 9px;
     z-index: 2000;
     position: relative;
-    
+    overflow: hidden;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     /*-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.26);
@@ -1267,25 +1296,45 @@ body {
     font-weight: 100;
     font-size: 12px;
     line-height: 1.2125;
+    min-height: 43.65px;
+    max-height: 43.65px;
     display: block;
     margin: 0px;
     margin-top: 2px;
     padding-right: 5px;
-    color: rgb(20,23,26);
-    -webkit-line-clamp: 3;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    word-wrap: break-word;
+    color: rgb(61, 61, 61);
     overflow: hidden;
   }
+  #desc:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 1.2125em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+  @supports (-webkit-line-clamp: 3) {
+    #desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+        height: auto;
+    }
+    #desc:after {
+        display: none;
+    }
+}
 
   #acc {
     display: block;
     position: relative;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     overflow: hidden;
-    color: rgb(20,23,26);
+    color: var(--bs-turq);
+    
     white-space: nowrap;
     text-overflow: ellipsis;
     text-transform: capitalize;

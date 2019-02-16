@@ -108,11 +108,11 @@ window.onload = function() {
             var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
             if (hide) {
               row.classList.add('gone'); 
-              row.classList.remove('rowShow');
+              row.classList.remove('catShow');
             }
             else if (row.classList.contains('gone')) {
               row.classList.remove('gone');
-              row.classList.add('rowShow');
+              row.classList.add('catShow');
             }
           });
         };
@@ -129,7 +129,7 @@ window.onload = function() {
           function bloggerShow(table) {
             var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
             rows.forEach(function(row) {
-              row.classList.remove('fade');
+              row.classList.remove('bloggerFade');
             });
           }
           bloggerArray = "";
@@ -143,9 +143,9 @@ window.onload = function() {
             //bloggerShowHead();
           //}
           //else {
-          var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+          var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
             rows.forEach(function(row) {
-              row.classList.add('fade');
+              row.classList.add('bloggerFade');
             });
           //}
         };
@@ -153,12 +153,12 @@ window.onload = function() {
         // un-fade any matching bloggers/blogs in this loop
         function searchTableB(table, input) {
             var filter = input.toUpperCase(),
-              rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+              rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
             rows.forEach(function(row) {
               var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
               if (hide) {}
               else {
-                row.classList.remove('fade'); 
+                row.classList.remove('bloggerFade'); 
               }
             });
             //$("#shuffleMob").click();
@@ -171,17 +171,17 @@ window.onload = function() {
       function searchTableI(table, input) {
         alert("Input");
           var filter = input.value.toUpperCase(),
-            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.rowShow'));
+            rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
           rows.forEach(function(row) {
             var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
             if (hide) {
-              row.classList.add('gone'); 
-              row.classList.remove('rowShow');
+              row.classList.add('searchGone'); 
+              row.classList.remove('searchShow');
             }
-            //else if (row.classList.contains('gone')) {
-              //row.classList.remove('gone');
-              //row.classList.add('rowShow');
-            //}
+            else {
+              row.classList.remove('searchGone'); 
+              row.classList.add('searchShow');
+            }
           });
         };
 
@@ -267,14 +267,6 @@ window.addEventListener('resize', function(){
 
 // 5. Clear menu's before search in web view
 
-  var myInput = document.getElementById("myInput");
-
-  myInput.addEventListener("keyup", function(event) {
-    if(event.keyCode === 13){
-      preWebSearch();
-    }
-  });
-
   function preWebSearch() {
       if (document.getElementById("mainMenu").getAttribute('class') === 'open') {
             document.getElementById('menuInputMob').click();
@@ -283,22 +275,17 @@ window.addEventListener('resize', function(){
   
 // 6. search input mag icon / cross icon behaviour
 
-function clearSearch() {
+function Search() {
     if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
-      alert ("test1");
         var mag = document.getElementById("mag");
         var searchClose = document.getElementById("searchClose");
         var myInput = document.getElementById("myInput");
         $(mag).delay(50).fadeIn(50);
         $(searchClose).fadeOut(50);
         document.getElementById("myInput").value = "";
-        alert ("test2");
-        var input = document.querySelector('#category');
-        var table = document.querySelector('#blogger');
+        var input = document.querySelector('#myInput');
         var table2 = document.querySelector('#blog');
-        searchTable(table, input);
-        searchTable(table2, input);
-        alert ("test3");
+        searchTableI(table2, input);
         document.getElementById("searchIcon").setAttribute('class','searchIcon');
     }
     else {
@@ -314,6 +301,9 @@ function clearSearch() {
         $(searchClose).delay(50).fadeIn(50);
         document.getElementById("searchIcon").setAttribute('class','searchClose');
         $(myInput).blur();
+        var input = document.querySelector('#myInput');
+        var table2 = document.querySelector('#blog');
+        searchTableI(table2, input);
     }}
   }}
 
@@ -321,10 +311,13 @@ $(myInput).on('keyup', function (e) {
   if (e.keyCode == 13) {
     var myInput = document.getElementById("myInput");
     if (document.getElementById("myInput").value === "") {
+      var input = document.querySelector('#myInput');
+      var table2 = document.querySelector('#blog');
+      searchTableI(table2, input);
       $(myInput).blur();
     }
     else {
-      clearSearch();
+      Search();
   }
   }
   else {
@@ -340,18 +333,16 @@ $(myInput).on('keyup', function (e) {
 
 $("#shuffleMob").click(function(){
 
-  var bloggerHead = document.getElementById("blogger");
-  var blogHead = document.getElementById("blog");
-
   var shuffle = document.getElementById("shuffleIconMob");
   $(shuffle).attr('id','shuffleRotate');
-
+  
+  function bloggerShuffle(){
   if (bloggerArray === "") {
-    $(bloggerHead).fadeOut(150,function() {
+    $("#blogger tbody").fadeOut(150,function() {
 
-      $('#blogger').show();
+      $('#blogger tbody').show();
       $('#blogger').scrollTop(0);
-      $('#blogger').hide();
+      $('#blogger tbody').hide();
 
     var $firstCells = $("#blogger tbody tr"),
         $copies = $firstCells.clone(true);
@@ -363,14 +354,17 @@ $("#shuffleMob").click(function(){
         $firstCells.eq(i).replaceWith(this);  
     })});
 
-    $(bloggerHead).delay(150).fadeIn(150);
+    $("#blogger tbody").delay(150).fadeIn(150);
   }
+  }
+  bloggerShuffle();
 
-  $(blogHead).fadeOut(150, function() {
+  function blogShuffle() {
+  $("#blog tbody").fadeOut(150, function() {
 
-    $('#blog').show();
+    $('#blog tbody').show();
     $('#blog').scrollTop(0);
-    $('#blog').hide();
+    $('#blog tbody').hide();
 
   var $firstCells = $("#blog tbody tr"),
       $copies = $firstCells.clone(true);
@@ -381,14 +375,16 @@ $("#shuffleMob").click(function(){
       $firstCells.eq(i).replaceWith(this);
   })});
 
-  $(blogHead).delay(150).fadeIn(150);
-  
+  $("#blog tbody").delay(150).fadeIn(150);
+}
+blogShuffle();
 
   var shuffle = document.getElementById("shuffleRotate");
   $(shuffle).delay(400).queue(function() {
     $(this).attr('id','shuffleIconMob').dequeue();
   })
 });
+
 
 // 8. WhiteOut close menu
 
@@ -437,6 +433,15 @@ function bloggerCatFilter(innerHTML) {
                   table2 = document.querySelector('#blog');
                   searchTableB(table2, input);
                   searchTableB(table, input);
+        
+                  
+      }
+    }
+
+    function bloggerFilterG(innerHTML) {
+      if (bloogerArray === innerHTML){}
+      else {
+        bloggerFilter(innerHTML);
       }
     }
 
