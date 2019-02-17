@@ -75,6 +75,7 @@ window.onload = function() {
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function(){
           document.getElementById("myInput").value = "";
+          Search();
           bloggerShowHead();
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
@@ -130,6 +131,7 @@ window.onload = function() {
             var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
             rows.forEach(function(row) {
               row.classList.remove('bloggerFade');
+              row.classList.remove('bloggerShow');
             });
           }
           bloggerArray = "";
@@ -143,9 +145,10 @@ window.onload = function() {
             //bloggerShowHead();
           //}
           //else {
-          var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
+            var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
             rows.forEach(function(row) {
               row.classList.add('bloggerFade');
+              row.classList.remove('bloggerShow');
             });
           //}
         };
@@ -159,6 +162,7 @@ window.onload = function() {
               if (hide) {}
               else {
                 row.classList.remove('bloggerFade'); 
+                row.classList.add('bloggerShow');
               }
             });
             //$("#shuffleMob").click();
@@ -167,9 +171,8 @@ window.onload = function() {
         
 
 
-// 2.3. Search - search box input - bind tables and input
+// 2.3.a. Search - search box input - bind tables and input for blog stack
       function searchTableI(table, input) {
-        alert("Input");
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
           rows.forEach(function(row) {
@@ -185,7 +188,20 @@ window.onload = function() {
           });
         };
 
+  //2.3.b. Search - search box input - filter blogger stack based on blog stack results
 
+      function searchTableIR(table, input) {
+        var filter = input.innerHTML.toUpperCase(),
+          rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
+        rows.forEach(function(row) {
+          var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
+          if (hide) {}
+          else {
+            row.classList.remove('searchGoneR');
+            row.classList.add('searchShowR');
+          }
+        });
+      };
 
 
 
@@ -273,7 +289,7 @@ window.addEventListener('resize', function(){
       }
     }
   
-// 6. search input mag icon / cross icon behaviour
+// 6a. search input mag icon / cross icon behaviour
 
 function Search() {
     if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
@@ -287,11 +303,18 @@ function Search() {
         var table2 = document.querySelector('#blog');
         searchTableI(table2, input);
         document.getElementById("searchIcon").setAttribute('class','searchIcon');
+        searchBloggerClear();
+        bloggerFilterPos();
     }
     else {
       if (document.getElementById("searchIcon").getAttribute('class') === 'searchIcon') {
         if (document.getElementById("myInput").value === "") {
+          var input = document.querySelector('#myInput');
+          var table2 = document.querySelector('#blog');
+          searchTableI(table2, input);
           $(myInput).blur();
+          searchBloggerClear();
+          bloggerFilterPos();
         }
         else {
         var mag = document.getElementById("mag");
@@ -304,12 +327,14 @@ function Search() {
         var input = document.querySelector('#myInput');
         var table2 = document.querySelector('#blog');
         searchTableI(table2, input);
+        searchBlogger();
+        bloggerFilterPos();
     }}
   }}
 
 $(myInput).on('keyup', function (e) {
   if (e.keyCode == 13) {
-    var myInput = document.getElementById("myInput");
+    /*var myInput = document.getElementById("myInput");
     if (document.getElementById("myInput").value === "") {
       var input = document.querySelector('#myInput');
       var table2 = document.querySelector('#blog');
@@ -318,7 +343,8 @@ $(myInput).on('keyup', function (e) {
     }
     else {
       Search();
-  }
+  }*/
+  Search();
   }
   else {
       var mag = document.getElementById("mag");
@@ -328,6 +354,44 @@ $(myInput).on('keyup', function (e) {
       document.getElementById("searchIcon").setAttribute('class','searchIcon');
   }
 });
+
+//6b. Reflect blog search results in blogger stack
+
+    function searchBlogger() {
+      //hide all blogger tiles
+      var table = document.querySelector('#blogger');
+      var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
+              rows.forEach(function(row) {
+                row.classList.add('searchGoneR');
+              });
+      //unhide blogger tiles where blog stack contains authors posts
+          //create array
+          var bloggersSearch = []
+          //find blog tiles that are results from search
+          var elements = document.getElementsByClassName('searchShow');
+          //loop through results find blog author and add to array if not already
+          //then search blogger stack and show blogger tile when found
+          for(var i=0; i<elements.length; i++) {
+            var blogger = elements[i].getElementsByClassName('acc')[0];
+            var index = bloggersSearch.indexOf(blogger.innerHTML);
+            if (index > -1){}
+            else { 
+              bloggersSearch.push(blogger.innerHTML);
+              var input = blogger,
+              table = document.querySelector('#blogger');
+              searchTableIR(table,input);
+            }
+      }
+    }
+
+    function searchBloggerClear() {
+      var table = document.querySelector('#blogger');
+      var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
+              rows.forEach(function(row) {
+                row.classList.remove('searchGoneR');
+                row.classList.remove('searchShowR');
+              });
+    }
 
 // 7. shuffle 
 
@@ -433,8 +497,6 @@ function bloggerCatFilter(innerHTML) {
                   table2 = document.querySelector('#blog');
                   searchTableB(table2, input);
                   searchTableB(table, input);
-        
-                  
       }
     }
 
@@ -446,16 +508,64 @@ function bloggerCatFilter(innerHTML) {
     }
 
 
-// XX. Share button - currently displays variables for search
+// 12. Share button - currently displays variables for search
 
   function shareBut() {
-    var category = document.getElementById("category").value;
+
+    /*var category = document.getElementById("category").value;
     var bloggers = bloggerArray;
     var myInput = document.getElementById("myInput").value;
     alert (category);
     alert (bloggers);
-    alert (myInput);
+    alert (myInput);*/
   }
    
 
- 
+ //13. Function used to scroll to position in stack - Finds y value of given object - called from elsewhere above
+
+    function bloggerFilterPos() {
+      element = document.getElementById("blogger");
+      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - 100) ;
+    }
+
+    function findPos(obj) {
+      var curtop = 0;
+      if (obj.offsetParent) {
+          do {
+              curtop += obj.offsetTop;
+          } while (obj = obj.offsetParent);
+      return [curtop];
+      }
+    }
+
+//14. Show/hide searchbar in mobile view using search button
+
+    function searchBar() {
+      var blogger =  document.getElementById("blogger");
+      var blog =  document.getElementById("blog");
+      var searchWeb = document.getElementById('searchWeb');
+      var searchHead = document.getElementById('searchhead');
+      var searchSpacer = document.getElementById('searchSpacer');
+      if (searchWeb.classList.contains('closedSearch')) {
+        preWebSearch();
+        searchWeb.classList.add('openSearch');
+        searchWeb.classList.remove('closedSearch');
+        $(blogger).animate({ marginTop: '48px'}, 200);
+        $(blog).animate({ marginTop: '48px'}, 200);
+        $(searchSpacer).slideDown(200);
+        $(searchHead).fadeIn(400);
+      }
+      else if (searchWeb.classList.contains('openSearch'))  {
+        searchWeb.classList.add('closedSearch');
+        searchWeb.classList.remove('openSearch');
+        $(blogger).delay(50).animate({ marginTop: '0px'}, 200);
+        $(blog).delay(50).animate({ marginTop: '0px'}, 200);
+        $(searchSpacer).delay(50).slideUp(200);
+        $(searchHead).fadeOut(200)
+      }
+    }
+
+
+    
+
+              
