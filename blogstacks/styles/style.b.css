@@ -480,8 +480,8 @@ body {
                 padding-left: 0%;
                 padding-right: 0%;
                 margin: 0 auto;
-                width: 96%;
-                width: 96%;
+                width: 97%;
+                max-width: 97%;
                 display: none;
                 box-shadow: 0 1px 6px rgba(32,33,36,0.28);
               }
@@ -517,7 +517,7 @@ body {
               top: 0px;
               margin: auto;
               width: 100%; /* Full-width */
-              height: 35px;
+              height: 44px;
               float: none; 
             }
             }
@@ -630,7 +630,7 @@ body {
 
             @media screen and (max-width: 725px) {
               .mag {
-                padding-top: 2px;
+                padding-top: 6.5px;
                 padding-left: 0px;
                 margin-left: -5px;
               }
@@ -643,8 +643,8 @@ body {
             }
             @media screen and (max-width: 725px) {
               #searchClose {
-                margin-left: 1px;
-                margin-top: 14px;
+                margin-left: 3px;
+                margin-top: 18.5px;
               }
             }
 
@@ -691,13 +691,15 @@ body {
             #searchSpacer {
               position: relative;
               z-index: 100;
-              top: 56px;
-              height: 50px;
+              top: 90px;
+              height: 28px;
               width: 100%;
               /*background: var(--bs-mblue);*/
-              
-              opacity: 0.8;
               display:none;
+              background: linear-gradient(
+            hsla(0, 0%, 100%,1.0) 0%,
+            hsla(0, 0%, 100%, 1.0) 67%,
+            hsla(0, 0%, 100%, 0.0) 100%);
             }
   
             

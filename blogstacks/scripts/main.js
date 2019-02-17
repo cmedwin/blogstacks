@@ -278,6 +278,24 @@ window.addEventListener('resize', function(){
       document.getElementById('blogger').style.marginLeft ='11px';
       document.getElementById('blog').style.marginLeft ='11px';
     }
+
+    var blogger =  document.getElementById("blogger");
+    var blog =  document.getElementById("blog");
+    var searchWeb = document.getElementById('searchWeb');
+    var searchHead = document.getElementById('searchhead');
+
+    if (w <= 725) {
+      if (searchWeb.classList.contains('closedSearch')) {
+        $(searchHead).fadeOut(0);
+      }
+    }
+    else {
+      searchWeb.classList.add('closedSearch');
+      searchWeb.classList.remove('openSearch');
+      $(blogger).animate({ paddingTop: '20px'}, 20);
+      $(blog).animate({ paddingTop: '20px'}, 20);
+      $(searchHead).fadeIn(50);
+    }
 }, false); 
 
 
@@ -550,17 +568,17 @@ function bloggerCatFilter(innerHTML) {
         preWebSearch();
         searchWeb.classList.add('openSearch');
         searchWeb.classList.remove('closedSearch');
-        $(blogger).animate({ marginTop: '48px'}, 200);
-        $(blog).animate({ marginTop: '48px'}, 200);
-        $(searchSpacer).slideDown(200);
+        $(blogger).animate({ paddingTop: '74px'}, 200);
+        $(blog).animate({ paddingTop: '74px'}, 200);
+        //$(searchSpacer).slideDown(200);
         $(searchHead).fadeIn(400);
       }
       else if (searchWeb.classList.contains('openSearch'))  {
         searchWeb.classList.add('closedSearch');
         searchWeb.classList.remove('openSearch');
-        $(blogger).delay(50).animate({ marginTop: '0px'}, 200);
-        $(blog).delay(50).animate({ marginTop: '0px'}, 200);
-        $(searchSpacer).delay(50).slideUp(200);
+        $(blogger).delay(50).animate({ paddingTop: '20px'}, 200);
+        $(blog).delay(50).animate({ paddingTop: '20px'}, 200);
+        //$(searchSpacer).delay(50).slideUp(200);
         $(searchHead).fadeOut(200)
       }
     }
