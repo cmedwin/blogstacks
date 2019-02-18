@@ -323,8 +323,8 @@ function Search() {
         document.getElementById("searchIcon").setAttribute('class','searchIcon');
         searchBloggerClear();
         bloggerFilterPos();
-        $('#blogger').scrollTop(0);
         $('#blog').scrollTop(0);
+        $('#searchFlag').fadeOut(10);
     }
     else {
       if (document.getElementById("searchIcon").getAttribute('class') === 'searchIcon') {
@@ -335,8 +335,8 @@ function Search() {
           $(myInput).blur();
           searchBloggerClear();
           bloggerFilterPos();
-          $('#blogger').scrollTop(0);
           $('#blog').scrollTop(0);
+          $('#searchFlag').fadeOut(10);
         }
         else {
         var mag = document.getElementById("mag");
@@ -351,8 +351,8 @@ function Search() {
         searchTableI(table2, input);
         searchBlogger();
         bloggerFilterPos();
-        $('#blogger').scrollTop(0);
         $('#blog').scrollTop(0);
+        $('#searchFlag').fadeIn(10).css("display","inline-block");
     }}
   }}
 
@@ -535,7 +535,6 @@ function bloggerCatFilter(innerHTML) {
 // 12. Share button - currently displays variables for search
 
   function shareBut() {
-
     var category = document.getElementById("category").value;
     var bloggers = bloggerArray;
     var myInput = document.getElementById("myInput").value;
@@ -548,11 +547,21 @@ function bloggerCatFilter(innerHTML) {
  //13. Function used to scroll to position in stack - Finds y value of given object - called from elsewhere above
 
     function bloggerFilterPos() {
-      if (bloggerArray === '') {}
+      
+
+      if (bloggerArray === '') {
+        $('#blogger').scrollTop(0);
+      }
       else {
-        alert("test");
       element = document.getElementById("blogger");
-      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - 100) ;
+      var searchWeb = document.getElementById('searchWeb');
+      if (searchWeb.classList.contains('closedSearch')) {
+        adjust = 118;
+      }
+      else if (searchWeb.classList.contains('openSearch')) {
+        adjust = 164;
+      }
+      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust) ;
       }
     }
 

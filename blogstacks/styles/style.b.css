@@ -432,7 +432,15 @@ body {
           }
 
             #searchIcon2 {
+              display: inline-block;
               height:16px;
+            }
+
+            #searchFlag {
+              display:inline-block;
+              display: none;
+              color: var(--bs-turq);
+              font-size: 16px;
             }
 
             #shareIcon {
@@ -1170,7 +1178,7 @@ body {
 }
 
 .endSpacer {
-  height: 20px;
+  height: 40px;
   background: transparent;
 }
 
