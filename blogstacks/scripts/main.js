@@ -279,8 +279,8 @@ window.addEventListener('resize', function(){
       document.getElementById('blog').style.marginLeft ='11px';
     }
 
-    var blogger =  document.getElementById("blogger");
-    var blog =  document.getElementById("blog");
+    var blogger =  document.getElementById("startSpacerR");
+    var blog =  document.getElementById("startSpacerG");
     var searchWeb = document.getElementById('searchWeb');
     var searchHead = document.getElementById('searchhead');
 
@@ -292,8 +292,8 @@ window.addEventListener('resize', function(){
     else {
       searchWeb.classList.add('closedSearch');
       searchWeb.classList.remove('openSearch');
-      $(blogger).animate({ paddingTop: '20px'}, 20);
-      $(blog).animate({ paddingTop: '20px'}, 20);
+      $(blogger).animate({ height: '0px'}, 20);
+      $(blog).animate({ height: '0px'}, 20);
       $(searchHead).fadeIn(50);
     }
 }, false); 
@@ -323,6 +323,8 @@ function Search() {
         document.getElementById("searchIcon").setAttribute('class','searchIcon');
         searchBloggerClear();
         bloggerFilterPos();
+        $('#blogger').scrollTop(0);
+        $('#blog').scrollTop(0);
     }
     else {
       if (document.getElementById("searchIcon").getAttribute('class') === 'searchIcon') {
@@ -333,6 +335,8 @@ function Search() {
           $(myInput).blur();
           searchBloggerClear();
           bloggerFilterPos();
+          $('#blogger').scrollTop(0);
+          $('#blog').scrollTop(0);
         }
         else {
         var mag = document.getElementById("mag");
@@ -347,6 +351,8 @@ function Search() {
         searchTableI(table2, input);
         searchBlogger();
         bloggerFilterPos();
+        $('#blogger').scrollTop(0);
+        $('#blog').scrollTop(0);
     }}
   }}
 
@@ -530,20 +536,24 @@ function bloggerCatFilter(innerHTML) {
 
   function shareBut() {
 
-    /*var category = document.getElementById("category").value;
+    var category = document.getElementById("category").value;
     var bloggers = bloggerArray;
     var myInput = document.getElementById("myInput").value;
     alert (category);
     alert (bloggers);
-    alert (myInput);*/
+    alert (myInput);
   }
    
 
  //13. Function used to scroll to position in stack - Finds y value of given object - called from elsewhere above
 
     function bloggerFilterPos() {
+      if (bloggerArray === '') {}
+      else {
+        alert("test");
       element = document.getElementById("blogger");
       element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - 100) ;
+      }
     }
 
     function findPos(obj) {
@@ -559,27 +569,30 @@ function bloggerCatFilter(innerHTML) {
 //14. Show/hide searchbar in mobile view using search button
 
     function searchBar() {
-      var blogger =  document.getElementById("blogger");
-      var blog =  document.getElementById("blog");
+      var blogger =  document.getElementById("startSpacerR");
+      var blog =  document.getElementById("startSpacerG");
       var searchWeb = document.getElementById('searchWeb');
       var searchHead = document.getElementById('searchhead');
+      var input = document.getElementById('myInput');
       var searchSpacer = document.getElementById('searchSpacer');
       if (searchWeb.classList.contains('closedSearch')) {
         preWebSearch();
         searchWeb.classList.add('openSearch');
         searchWeb.classList.remove('closedSearch');
-        $(blogger).animate({ paddingTop: '74px'}, 200);
-        $(blog).animate({ paddingTop: '74px'}, 200);
+        $(blogger).animate({ height: '54px'}, 200);
+        $(blog).animate({ height: '54px'}, 200);
         //$(searchSpacer).slideDown(200);
         $(searchHead).fadeIn(400);
+        input.focus();
       }
       else if (searchWeb.classList.contains('openSearch'))  {
         searchWeb.classList.add('closedSearch');
         searchWeb.classList.remove('openSearch');
-        $(blogger).delay(50).animate({ paddingTop: '20px'}, 200);
-        $(blog).delay(50).animate({ paddingTop: '20px'}, 200);
+        $(blogger).delay(50).animate({ height: '0px'}, 200);
+        $(blog).delay(50).animate({ height: '0px'}, 200);
         //$(searchSpacer).delay(50).slideUp(200);
         $(searchHead).fadeOut(200)
+        
       }
     }
 

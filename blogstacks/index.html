@@ -66,7 +66,7 @@
                  
               <div class="search" id="search">
                   <button onclick="butFilter()" id="butFilter" value=""></button> 
-                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none" >
+                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none" onfocus="this.value = this.value;">
                   <button type="submit" class="searchIcon" id="searchIcon" onclick="Search()">
                         <ul>
                             <li><img src="images/search.png" class="mag" id="mag"></li>
