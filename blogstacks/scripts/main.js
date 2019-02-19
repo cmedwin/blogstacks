@@ -1,14 +1,43 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
 
+  // extract params from URL
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    //category
+    var catURL = url.searchParams.get("cat");
+    if (catURL === null){}
+    else {  
+      document.getElementById("category").innerHTML = catURL;
+      document.getElementById("category").value = catURL;
+    }
+    //blogger
+    var bloggerURL = url.searchParams.get("blogger");
+
+    
+    //var searchURL = url.searchParams.get("search");
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
     $( bloggerHead ).load("stacks/bloggerb.html", function() {
     //filter - cat
-    var input = document.querySelector('#category'),
-        table = document.querySelector('#blogger');
-    searchTableC(table, input);
+      var input = document.querySelector('#category'),
+          table = document.querySelector('#blogger');
+      searchTableC(table, input);
+    //filter - blogger
+    if (bloggerURL === null){}
+    else { 
+      bloggerArray = bloggerURL;
+      //fade all tiles when array changed
+      table = document.querySelector('#blogger');
+      bloggerClear(table);
+      //filter by variable for any matching bloggers/blogs
+        var input = bloggerArray,
+                table = document.querySelector('#blogger');
+                searchTableB(table, input);
+    }
+      //scroll to blogger
+      bloggerFilterPos();
     //shuffle
     var $firstCells = $("#blogger tbody tr"),
             $copies = $firstCells.clone(true);
@@ -27,9 +56,21 @@ window.onload = function() {
     var blogHead = document.getElementById("blog");
     $( blogHead ).load("stacks/blogb.html", function() {
     //filter - Cat
-    var input = document.querySelector('#category'),
-        table2 = document.querySelector('#blog');
-    searchTableC(table2, input);
+      var input = document.querySelector('#category'),
+          table = document.querySelector('#blog');
+      searchTableC(table, input);
+    //filter - blogger
+    if (bloggerURL === null){}
+    else { 
+      bloggerArray = bloggerURL;
+      //fade all tiles when array changed
+      table2 = document.querySelector('#blog');
+      bloggerClear(table2);
+      //filter by variable for any matching bloggers/blogs
+        var input = bloggerArray,
+                table2 = document.querySelector('#blog');
+                searchTableB(table2, input);
+    }
     //shuffle
     var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
@@ -103,6 +144,8 @@ window.onload = function() {
 // 2.1. Search - category - bind tables and input
         function searchTableC(table, input) {
           //alert("Cat");
+          if (input.value === ""){}
+          else {setQueryStringParameter("cat", input.innerHTML);}
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
           rows.forEach(function(row) {
@@ -135,6 +178,7 @@ window.onload = function() {
             });
           }
           bloggerArray = "";
+          setQueryStringParameter("blogger", "");
           //$("#shuffleMob").click();
           $('#blog').scrollTop(0);
         }
@@ -155,6 +199,7 @@ window.onload = function() {
 
         // un-fade any matching bloggers/blogs in this loop
         function searchTableB(table, input) {
+          setQueryStringParameter("blogger", input);
             var filter = input.toUpperCase(),
               rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
             rows.forEach(function(row) {
@@ -173,6 +218,7 @@ window.onload = function() {
 
 // 2.3.a. Search - search box input - bind tables and input for blog stack
       function searchTableI(table, input) {
+          setQueryStringParameter("search", input.value);
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
           rows.forEach(function(row) {
@@ -528,7 +574,7 @@ function bloggerCatFilter(innerHTML) {
     }
 
     function bloggerFilterG(innerHTML) {
-      if (bloogerArray === innerHTML){}
+      if (bloggerArray === innerHTML){}
       else {
         bloggerFilter(innerHTML);
       }
@@ -536,14 +582,19 @@ function bloggerCatFilter(innerHTML) {
 
 
 // 12. Share button - currently displays variables for search
+  
 
   function shareBut() {
-    var category = document.getElementById("category").value;
+    alert(window.location.href);
+    //bloggerFilter(bloggerURL);
+  
+
+    /*var category = document.getElementById("category").value;
     var bloggers = bloggerArray;
     var myInput = document.getElementById("myInput").value;
     alert (category);
     alert (bloggers);
-    alert (myInput);
+    alert (myInput);*/
   }
    
 
@@ -608,7 +659,15 @@ function bloggerCatFilter(innerHTML) {
       }
     }
 
+//15. Adds variable values to URL
 
+    function setQueryStringParameter(name, value) {
+      const params = new URLSearchParams(location.search);
+      params.set(name, value);
+      window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${params}`));
+    }
+    
+    
     
 
               
