@@ -208,6 +208,9 @@ window.onload = function() {
 // 3. Main menu animation 
 
         function menu() {
+          if (searchWeb.classList.contains('openSearch')) {
+            searchBar()
+          }
           var mainMenu = document.getElementById("mainMenu");
           var whiteOut =  document.getElementById("whiteOut");
           var blogger =  document.getElementById("blogger");
