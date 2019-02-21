@@ -1304,7 +1304,7 @@ body {
   }
   
 
-  .authorg {
+  .authorG {
     background: white;
     width: calc(100% - 18px);
     height: 62px;
@@ -1327,7 +1327,7 @@ body {
     display:none;
   }
 
-  #bloggerCategories {
+  .bloggerCategories {
     display:none;
   }
 
@@ -1363,7 +1363,7 @@ body {
     right: 0;
     width: 50%;
     height: 1.2125em;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
 }
   @supports (-webkit-line-clamp: 3) {
     .desc {
@@ -1403,10 +1403,13 @@ body {
     margin-top: 2px;
     margin-bottom: 0px;
     margin-left: 0px;
-    margin-right: 5px;
+    margin-right: 0px;
     background: lightgray;
     cursor: pointer;
+    background-size: cover; 
+    background-position: center;
   }
+  
 
   .desc_r {
     position: absolute;
