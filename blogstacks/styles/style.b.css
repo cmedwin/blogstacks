@@ -440,7 +440,7 @@ body {
               display:inline-block;
               display: none;
               color: var(--bs-turq);
-              font-size: 16px;
+              font-size: 20px;
             }
 
             #shareIcon {
@@ -1227,12 +1227,21 @@ body {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     /*border-top: 1px solid #373737;*/
+    background-color: var(--bs-mblue);
     width: 100%;
     position: relative;
     z-index: 1000;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
-}
+  }
+  .lazy {
+    /*background-image: url(../images/bs-stack-logo-white-turq.png) !important;
+    background-size: contain !important;
+    opacity: 0.3;*/
+    background-image:none !important;
+    background-color: red;
+  }
+  
 
   .titler {
     /*background: black;
@@ -1404,7 +1413,6 @@ body {
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    background: lightgray;
     cursor: pointer;
     background-size: cover; 
     background-position: center;

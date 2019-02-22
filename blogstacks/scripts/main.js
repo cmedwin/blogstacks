@@ -13,9 +13,9 @@ window.onload = function() {
     }
     //blogger
     var bloggerURL = url.searchParams.get("blogger");
+    //search
+    var searchURL = url.searchParams.get("search");
 
-    
-    //var searchURL = url.searchParams.get("search");
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
@@ -52,7 +52,7 @@ window.onload = function() {
   });
 
   // blog stack
-    //load
+    //load html 
     var blogHead = document.getElementById("blog");
     $( blogHead ).load("stacks/blogb.html", function() {
     //filter - Cat
@@ -71,6 +71,12 @@ window.onload = function() {
                 table2 = document.querySelector('#blog');
                 searchTableB(table2, input);
     }
+    //filter - search
+    if (searchURL === null){}
+    else { 
+      document.getElementById("myInput").value = searchURL;
+      Search();
+    }
     //shuffle
     var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
@@ -82,6 +88,7 @@ window.onload = function() {
         })
     //make visible
     $(blogHead).animate({opacity: 1}, 30);
+    //showBlogImages();
     });
 
   
@@ -98,7 +105,7 @@ window.onload = function() {
   } 
 
   //$( bloggerHead ).load("stacks/blogger1.html tbody tr:lt(100)");
-  //$( blogHead ).load("stacks/blog1.html tbody tr:lt(100)");
+  //$( blogHead ).append($("#blog").load("stacks/blogb.html tbody tr:gt(50)"));
 
 
 }
@@ -229,7 +236,10 @@ window.onload = function() {
             }
             else {
               row.classList.remove('searchGone'); 
-              row.classList.add('searchShow');
+              if (input.value === '') {}
+              else {
+                row.classList.add('searchShow');
+              }
             }
           });
         };
@@ -667,6 +677,34 @@ function bloggerCatFilter(innerHTML) {
       window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${params}`));
     }
     
+    
+//16. Shw blog images on load
+
+    function showBlogImages() {
+      //$("#blog .imageG:lt(10)").removeClass('loading');
+      $("#blog .imageG").slice(0,10).removeClass('loading');
+      setTimeout(showBlogImages2(), 2000);
+    }
+    function showBlogImages2() {
+      $("#blog .imageG").slice(10,30).removeClass('loading');
+      setTimeout(showBlogImages3(), 2000);
+    }
+    function showBlogImages3() {
+      $("#blog .imageG").slice(30,80).removeClass('loading');
+      setTimeout(showBlogImages4(), 2000);
+    }
+    function showBlogImages4() {
+      $("#blog .imageG").slice(80,150).removeClass('loading');
+      setTimeout(showBlogImages5(), 2000);
+    }
+    function showBlogImages5() {
+      $("#blog .imageG").slice(150,300).removeClass('loading');
+      //showBlogImages6()
+    }
+
+
+
+ 
     
     
 
