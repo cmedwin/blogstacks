@@ -35,9 +35,6 @@ window.onload = function() {
         var input = bloggerArray,
                 table = document.querySelector('#blogger');
                 searchTableB(table, input);
-    
-      //show description
-      //bloggerDescriptionShow(bloggerURL);
       }
       //scroll to blogger
       bloggerFilterPos();
@@ -54,6 +51,8 @@ window.onload = function() {
         })
     //make visible
     $(bloggerHead).animate({opacity: 1}, 30);
+    //shoe blogger description
+    bloggerDescriptionShow(bloggerURL);
   });
 
   // blog stack
@@ -594,6 +593,7 @@ function bloggerCatFilter(innerHTML) {
       else {
         bloggerFilter(innerHTML);
         bloggerFilterPos();
+        
       }
     }
 
@@ -736,11 +736,14 @@ function bloggerCatFilter(innerHTML) {
       $(imageHeading).css('border-bottom-right-radius','0px');
       $(titleHeading).css('border-bottom-left-radius','0px');
       $(titleHeading).css('border-bottom-right-radius','0px');
-
-      $(oldHeading).slideUp(100);
-      oldHeading.classList.remove('openBlogger');
-      $(oldImageHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
-      $(oldTitleHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
+      
+      if (oldHeading === null){}
+      else{
+        $(oldHeading).slideUp(100);
+        oldHeading.classList.remove('openBlogger');
+        $(oldImageHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
+        $(oldTitleHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
+      }
     }
 
     function bloggerDescriptionHide() {
