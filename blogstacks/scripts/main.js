@@ -269,7 +269,7 @@ window.onload = function() {
 
         function menu() {
           if (searchWeb.classList.contains('openSearch')) {
-            searchBar()
+            searchBar();     
           }
           var mainMenu = document.getElementById("mainMenu");
           var whiteOut =  document.getElementById("whiteOut");
@@ -310,22 +310,25 @@ window.onload = function() {
           }
           else {
               //document.getElementById('mainMenu').style.width ='0';
-              $(mainMenu).animate({ width: '0px'}, 400);
+              $(mainMenu).animate({ width: '0px'}, 200);
               document.getElementById("mainMenu").setAttribute('class','closed');
-              $(whiteOut).fadeOut(400) 
+              $(whiteOut).fadeOut(200) 
               if (w <= 580) {
                 //document.getElementById('blogger').style.marginLeft ='1%';
                 //document.getElementById('blog').style.marginLeft ='1%';
-                $(blogger).animate({ marginLeft: '1%'}, 400);
-                $(blog).animate({ marginLeft: '1%'}, 400);
+                $(blogger).animate({ marginLeft: '1%'}, 200);
+                $(blog).animate({ marginLeft: '1%'}, 200);
               }
               else {
                 //document.getElementById('blogger').style.marginLeft ='11px';
                 //document.getElementById('blog').style.marginLeft ='11px';
-                $(blogger).animate({ marginLeft: '11px'}, 400);
-                $(blog).animate({ marginLeft: '11px'}, 400);
+                $(blogger).animate({ marginLeft: '11px'}, 200);
+                $(blog).animate({ marginLeft: '11px'}, 200);
               }  
+
           }
+
+
         }
       
           
@@ -668,10 +671,10 @@ function bloggerCatFilter(innerHTML) {
       else if (searchWeb.classList.contains('openSearch'))  {
         searchWeb.classList.add('closedSearch');
         searchWeb.classList.remove('openSearch');
-        $(blogger).delay(50).animate({ height: '0px'}, 200);
-        $(blog).delay(50).animate({ height: '0px'}, 200);
+        $(blogger).delay(0).animate({ height: '0px'}, 150);
+        $(blog).delay(0).animate({ height: '0px'}, 150);
         //$(searchSpacer).delay(50).slideUp(200);
-        $(searchHead).fadeOut(200)
+        $(searchHead).fadeOut(100)
         
       }
     }
