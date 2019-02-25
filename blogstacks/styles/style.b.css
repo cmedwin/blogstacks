@@ -434,18 +434,21 @@ body {
             #searchIcon2 {
               display: inline-block;
               height:16px;
+              padding-top: 4px;
+              padding-bottom: 0px;
             }
 
             #searchFlag {
               display:inline-block;
               display: none;
               color: var(--bs-turq);
-              font-size: 18px;
+              font-size: 17px;
             }
 
             #shareIcon {
               height:16px;
             }
+            /*shareWindow format below*/
             
             #shuffleIconMob {
               height:16px;
@@ -713,7 +716,93 @@ body {
             
   /* Search End */
   
-  
+  /*shareWindow start*/
+
+            #shareWindow {
+              display: none;
+              position: relative;
+              height: 308px;
+              width: 268px;
+              border-radius: 4px;
+              background-color: white;
+              z-index: 3000;
+              margin: auto;
+              top: calc(50vh - 132px);
+              box-shadow: rgba(0, 0, 0, 0.219608) 0px 5px 26px 0px, rgba(0, 0, 0, 0.298039) 0px 20px 28px 0px;
+            }
+
+            #shareWindowInner {
+              padding: 24px;
+              padding-top: 21px;
+              height: 263px;
+              width: 220px;
+            }
+
+            #shareTitle {
+              display: block;
+              font-size: 20px;
+              font-family: 'Abel', arial, helvetica, sans-serif;
+              line-height: 24px;
+              padding-bottom: 19px;
+              font-weight: 600;
+            }
+
+            #shareHeader{
+              display: inline-block;
+            }
+
+            #shareClose {
+              display: inline-block;
+              float: right;
+            }
+            #shareClose:hover {
+              color: var(--bs-turq);
+            }
+
+            .sharePlatform {
+              height: 24px;
+              padding-top: 8px;
+              padding-bottom: 8px;
+            }
+
+            .shareImage{
+              display: inline-block;
+              margin-right: 24px;
+            }
+
+            .shareName{
+              display: inline-block;
+              margin-left: -4px;
+              color: rgba(0,0,0,.87);
+              font-size: 14px;
+              line-height: 24px;
+              font-family: 'Abel', arial, helvetica, sans-serif;
+              vertical-align: middle;
+              margin-top: -14px;
+            }
+
+            #shareLinkHeader {
+              padding-top: 11px;
+              padding-bottom: 7px;
+              color: rgba(0, 0, 0, 0.541176);
+              font-family: 'Abel', arial, helvetica, sans-serif;
+              font-size: 14px;
+              line-height: 16px;
+            }
+
+            #shareLinkAdd {
+              padding:0px;
+              padding-top: 4px;
+              padding-bottom: 4px;
+              margin: 0px;
+              border-left: 0px;
+              border-right: 0px;
+              border-top: 0px;
+              width: 100%;
+              font-size: 14px;
+              line-height: 16px;
+            }
+  /*shareWindow end*/
 
   /*.stackHeader {
     box-sizing: border-box;

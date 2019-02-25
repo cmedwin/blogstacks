@@ -543,7 +543,13 @@ blogShuffle();
 // 8. WhiteOut close menu
 
   function whiteOut() {
-    document.getElementById('menuInputMob').click();
+    var shareWindow = document.getElementById("shareWindow");
+    if (shareWindow.classList.contains('open')) {
+      document.getElementById('shareWeb').click();
+    }
+    else {
+      document.getElementById('menuInputMob').click();
+    }
   }
 
 // 9. Menu open/close for 'Choose Stack' button
@@ -605,16 +611,27 @@ function bloggerCatFilter(innerHTML) {
   
 
   function shareBut() {
-    alert(window.location.href);
-    //bloggerFilter(bloggerURL);
+    //alert(window.location.href);
+    //var shareLinkAdd = document.getElementById("shareLinkAdd");
+    var shareWindow = document.getElementById("shareWindow");
+    var whiteOut =  document.getElementById("whiteOut");
+    if (shareWindow.classList.contains('closed')) {
+      $(shareWindow).fadeIn(100);
+      $(whiteOut).fadeIn(150);
+      shareWindow.classList.add('open');
+      shareWindow.classList.remove('closed');
+      $('#shareLinkAdd').val(window.location);
+    }
+    else {
+      $(shareWindow).fadeOut(100);
+      $(whiteOut).fadeOut(100);
+      shareWindow.classList.add('closed');
+      shareWindow.classList.remove('open');
+    }
+
   
 
-    /*var category = document.getElementById("category").value;
-    var bloggers = bloggerArray;
-    var myInput = document.getElementById("myInput").value;
-    alert (category);
-    alert (bloggers);
-    alert (myInput);*/
+  
   }
    
 

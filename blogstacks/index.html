@@ -88,6 +88,32 @@
       </ul>
     </div>
 
+      <div id="shareWindow" class="closed">
+        <div id="shareWindowInner">
+          <div id="shareTitle">
+            <div id="shareHeader">Share</div>
+            <div id="shareClose" onclick="shareBut()">✕</div>
+          </div>
+          <div class="sharePlatform">
+            <img class="shareImage" alt="" height="24" width="24" src="https://www.gstatic.com/kpui/social/fb_32x32.png">
+            <div class="shareName">Facebook</div>
+          </div>
+          <div class="sharePlatform">
+            <img class="shareImage" alt="" height="24" width="24" src="https://www.gstatic.com/kpui/social/twitter_32x32.png">
+            <div class="shareName">Twitter</div>
+          </div>
+          <div class="sharePlatform">
+              <img class="shareImage" alt="" height="24" width="24" src="https://www.google.co.uk/images/icons/material/system/1x/email_grey600_24dp.png">
+              <div class="shareName">Email</div>
+          </div>
+          <div id="shareLink">
+              <div id="shareLinkHeader">Share Link</div>
+              <input id="shareLinkAdd" readonly type="url" onfocus="this.select();">
+          </div>
+
+        </div>
+      </div>
+
       <div id="mainMenu" class="closed">
           <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
           <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
