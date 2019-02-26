@@ -610,30 +610,65 @@ function bloggerCatFilter(innerHTML) {
 // 12. Share button - currently displays variables for search
   
 
-  function shareBut() {
-    //alert(window.location.href);
-    //var shareLinkAdd = document.getElementById("shareLinkAdd");
-    var shareWindow = document.getElementById("shareWindow");
-    var whiteOut =  document.getElementById("whiteOut");
-    if (shareWindow.classList.contains('closed')) {
-      $(shareWindow).fadeIn(100);
-      $(whiteOut).fadeIn(150);
-      shareWindow.classList.add('open');
-      shareWindow.classList.remove('closed');
-      $('#shareLinkAdd').val(window.location);
-    }
-    else {
-      $(shareWindow).fadeOut(100);
-      $(whiteOut).fadeOut(100);
-      shareWindow.classList.add('closed');
-      shareWindow.classList.remove('open');
-    }
+      function shareBut() {
+        //alert(window.location.href);
+        //var shareLinkAdd = document.getElementById("shareLinkAdd");
+        var shareWindow = document.getElementById("shareWindow");
+        var whiteOut =  document.getElementById("whiteOut");
+        var shareMailLink = document.getElementById("shareMailLink");
+        var ShareWALink = document.getElementById("shareWALink");
+        if (shareWindow.classList.contains('closed')) {
+          $(shareWindow).fadeIn(100);
+          $(whiteOut).fadeIn(150);
+          shareWindow.classList.add('open');
+          shareWindow.classList.remove('closed');
+          $('#shareLinkAdd').val(window.location.href);
+          shareWALink.href = "https://wa.me/?text=Check out these blogs! " + window.location.href;
+          shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" + window.location.href;
+        }
+        else {
+          $(shareWindow).fadeOut(100);
+          $(whiteOut).fadeOut(100);
+          shareWindow.classList.add('closed');
+          shareWindow.classList.remove('open');
+          //reset link copied notification
+          var copyTitle = document.getElementById("shareLinkHeader");
+          copyTitle.innerHTML = "Share Link";
+          copyTitle.style.color = "rgba(0, 0, 0, 0.541176)";
+        }
+      }
+      //copy URL link when clicked
+      function shareCopy() {
+        //copy link
+        var copyText = document.getElementById("shareLinkAdd");
+        copyText.select();
+        document.execCommand("copy");
+        //alert("Copied the text: " + copyText.value);
+        //add copy notification
+        var copyTitle = document.getElementById("shareLinkHeader");
+        copyTitle.innerHTML = "Link Copied";
+        copyTitle.style.color = "var(--bs-turq)";
+      }
+      
+      //share twitter
+      var twitterShare = document.querySelector('[data-js="twitter-share"]');
 
-  
+      twitterShare.onclick = function(e) {
+        e.preventDefault();
+        var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
+        if(twitterWindow.focus) { twitterWindow.focus(); }
+          return false;
+        }
+      
+      //facebook share
+        var facebookShare = document.querySelector('[data-js="facebook-share"]');
 
-  
-  }
-   
+        facebookShare.onclick = function(e) {
+          e.preventDefault();
+          var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+          if(facebookWindow.focus) { facebookWindow.focus(); }
+            return false;
+        }
 
  //13. Function used to scroll to position in stack - Finds y value of given object - called from elsewhere above
 

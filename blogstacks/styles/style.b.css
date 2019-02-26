@@ -743,7 +743,7 @@ body {
               font-size: 20px;
               font-family: 'Abel', arial, helvetica, sans-serif;
               line-height: 24px;
-              padding-bottom: 19px;
+              padding-bottom: 12px;
               font-weight: 600;
             }
 
@@ -778,7 +778,11 @@ body {
               line-height: 24px;
               font-family: 'Abel', arial, helvetica, sans-serif;
               vertical-align: middle;
-              margin-top: -14px;
+              margin-top: -15px;
+              cursor: pointer;
+            }
+            .shareName:hover{
+              color: var(--bs-turq);
             }
 
             #shareLinkHeader {
