@@ -129,6 +129,7 @@ window.onload = function() {
           document.getElementById("myInput").value = "";
           Search();
           bloggerShowHead();
+          bloggerDescriptionHide();
           //document.getElementById("navActive").setAttribute('id','nav');
           //this.setAttribute('id','navActive')
           //document.getElementById("butFilter").innerHTML = this.value;
@@ -620,15 +621,21 @@ function bloggerCatFilter(innerHTML) {
         if (shareWindow.classList.contains('closed')) {
           $(shareWindow).fadeIn(100);
           $(whiteOut).fadeIn(150);
+          $(whiteOut).css('z-index', '1900');
           shareWindow.classList.add('open');
           shareWindow.classList.remove('closed');
           $('#shareLinkAdd').val(window.location.href);
-          shareWALink.href = "https://wa.me/?text=Check out these blogs! " + window.location.href;
-          shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" + window.location.href;
+          $('#shareLinkAdd').html(window.location.href);
+          var WALink = "https://wa.me/?text=Check out these blogs! " + window.location.href;
+          shareWALink.href = WALink.replace(/&/g,'%26');
+          //alert(shareWALink.href);
+          var mailLink = window.location.href;
+          shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" +  mailLink.replace(/&/g,'%26');
         }
         else {
           $(shareWindow).fadeOut(100);
           $(whiteOut).fadeOut(100);
+          $(whiteOut).css('z-index', '900');
           shareWindow.classList.add('closed');
           shareWindow.classList.remove('open');
           //reset link copied notification
@@ -641,14 +648,17 @@ function bloggerCatFilter(innerHTML) {
       function shareCopy() {
         //copy link
         var copyText = document.getElementById("shareLinkAdd");
+        
         copyText.select();
         document.execCommand("copy");
         iosCopyToClipboard(copyText);
+        $(copyText).blur();
         //alert("Copied the text: " + copyText.value);
         //add copy notification
         var copyTitle = document.getElementById("shareLinkHeader");
         copyTitle.innerHTML = "Link Copied";
         copyTitle.style.color = "var(--bs-turq)";
+       
       }
       //allow copy on iOS devices
                 function iosCopyToClipboard(el) {
@@ -677,7 +687,7 @@ function bloggerCatFilter(innerHTML) {
 
       twitterShare.onclick = function(e) {
         e.preventDefault();
-        var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
+        var twitterWindow = window.open('https://twitter.com/intent/tweet?url=' + window.location.href.replace(/&/g,'%26'));
         if(twitterWindow.focus) { twitterWindow.focus(); }
           return false;
         }
@@ -687,7 +697,7 @@ function bloggerCatFilter(innerHTML) {
 
         facebookShare.onclick = function(e) {
           e.preventDefault();
-          var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+          var facebookWindow = window.open('https://www.facebook.com/sharer.php?u=' + window.location.href.replace(/&/g,'%26'));
           if(facebookWindow.focus) { facebookWindow.focus(); }
             return false;
         }
@@ -831,10 +841,13 @@ function bloggerCatFilter(innerHTML) {
       var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
       var oldTitleHeading = oldTitleHeadings.iterateNext();
 
+      if (oldHeading === null){}
+      else{
       $(oldHeading).slideUp(100);
       oldHeading.classList.remove('openBlogger');
       $(oldImageHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
       $(oldTitleHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
+      }
     }
     
     
