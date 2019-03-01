@@ -66,7 +66,7 @@
                  
               <div class="search" id="search">
                   <button onclick="butFilter()" id="butFilter" value=""></button> 
-                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." aria-autocomplete="none" onfocus="this.value = this.value;">
+                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." autocomplete="off" autocorrect="off" onfocus="this.value = this.value;">
                   <button type="submit" class="searchIcon" id="searchIcon" onclick="Search()">
                         <ul>
                             <li><img src="images/search.png" class="mag" id="mag"></li>
@@ -96,15 +96,15 @@
           </div>
           <div class="sharePlatform">
               <img class="shareImage" alt="" height="24" width="24" src="./images/whatsappico.png">
-              <div class="shareName"><a id="shareWALink">WhatsApp</a></div>
+              <div class="shareName"><a id="shareWALink" target="_blank">WhatsApp</a></div>
             </div>
           <div class="sharePlatform">
             <img class="shareImage" alt="" height="24" width="24" src="https://www.gstatic.com/kpui/social/fb_32x32.png">
-            <div class="shareName" data-js="facebook-share">Facebook</div>
+            <div class="shareName"><a id="shareFBLink" target="_blank">Facebook</a></div>
           </div>
           <div class="sharePlatform">
             <img class="shareImage" alt="" height="24" width="24" src="https://www.gstatic.com/kpui/social/twitter_32x32.png">
-            <div class="shareName" data-js="twitter-share">Twitter</div>
+            <div class="shareName"><a id="shareTWLink" target="_blank">Twitter</a></div>
           </div>
           <div class="sharePlatform">
               <img class="shareImage" alt="" height="24" width="24" src="https://www.google.co.uk/images/icons/material/system/1x/email_grey600_24dp.png">

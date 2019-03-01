@@ -5,16 +5,18 @@ window.onload = function() {
     var url_string = window.location.href;
     var url = new URL(url_string);
     //category
-    var catURL = url.searchParams.get("cat");
-    if (catURL === null){}
-    else {  
+    var catURL_ = url.searchParams.get("cat");
+    if (catURL_ === null){}
+    else { 
+      catURL = catURL_.replace(/_/g," ");
       document.getElementById("category").innerHTML = catURL;
       document.getElementById("category").value = catURL;
     }
     //blogger
-    var bloggerURL = url.searchParams.get("blogger");
+    var bloggerURL_ = url.searchParams.get("blogger");
+    //alert(bloggerURL);
     //search
-    var searchURL = url.searchParams.get("search");
+    var searchURL_ = url.searchParams.get("search");
 
   // blogger stack 
     //load
@@ -25,8 +27,9 @@ window.onload = function() {
           table = document.querySelector('#blogger');
       searchTableC(table, input);
     //filter - blogger
-    if (bloggerURL === null){}
+    if (bloggerURL_ === null){}
     else { 
+      bloggerURL = bloggerURL_.replace(/_/g," ");
       bloggerArray = bloggerURL;
       //fade all tiles when array changed
       table = document.querySelector('#blogger');
@@ -64,8 +67,9 @@ window.onload = function() {
           table = document.querySelector('#blog');
       searchTableC(table, input);
     //filter - blogger
-    if (bloggerURL === null){}
+    if (bloggerURL_ === null){}
     else { 
+      bloggerURL = bloggerURL_.replace(/_/g," ");
       bloggerArray = bloggerURL;
       //fade all tiles when array changed
       table2 = document.querySelector('#blog');
@@ -76,8 +80,9 @@ window.onload = function() {
                 searchTableB(table2, input);
     }
     //filter - search
-    if (searchURL === null){}
+    if (searchURL_ === null){}
     else { 
+      searchURL = searchURL_.replace(/_/g," ");
       document.getElementById("myInput").value = searchURL;
       Search();
     }
@@ -617,7 +622,9 @@ function bloggerCatFilter(innerHTML) {
         var shareWindow = document.getElementById("shareWindow");
         var whiteOut =  document.getElementById("whiteOut");
         var shareMailLink = document.getElementById("shareMailLink");
-        var ShareWALink = document.getElementById("shareWALink");
+        var shareWALink = document.getElementById("shareWALink");
+        var shareFBLink = document.getElementById("shareFBLink");
+        var shareTWLink = document.getElementById("shareTWLink");
         if (shareWindow.classList.contains('closed')) {
           $(shareWindow).fadeIn(100);
           $(whiteOut).fadeIn(150);
@@ -626,11 +633,11 @@ function bloggerCatFilter(innerHTML) {
           shareWindow.classList.remove('closed');
           $('#shareLinkAdd').val(window.location.href);
           $('#shareLinkAdd').html(window.location.href);
-          var WALink = "https://wa.me/?text=Check out these blogs! " + window.location.href;
-          shareWALink.href = WALink.replace(/&/g,'%26');
-          //alert(shareWALink.href);
-          var mailLink = window.location.href;
-          shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" +  mailLink.replace(/&/g,'%26');
+          var currURL = window.location.href;
+          shareWALink.href = "whatsapp://send?text=Check out these blogs! " + currURL.replace(/&/g,'%26').replace("+","+%2B");
+          shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" +  currURL.replace(/&/g,'%26').replace("+","+%2B");
+          shareFBLink.href = "https://www.facebook.com/sharer.php?u=" + currURL.replace(/&/g,'%26').replace("+","+%2B");
+          shareTWLink.href =  "https://twitter.com/intent/tweet?url=" + currURL.replace(/&/g,'%26').replace("+","+%2B");
         }
         else {
           $(shareWindow).fadeOut(100);
@@ -683,24 +690,24 @@ function bloggerCatFilter(innerHTML) {
               }
       
       //share twitter
-      var twitterShare = document.querySelector('[data-js="twitter-share"]');
+      /*var twitterShare = document.querySelector('[data-js="twitter-share"]');
 
       twitterShare.onclick = function(e) {
         e.preventDefault();
         var twitterWindow = window.open('https://twitter.com/intent/tweet?url=' + window.location.href.replace(/&/g,'%26'));
         if(twitterWindow.focus) { twitterWindow.focus(); }
           return false;
-        }
+        }*/
       
       //facebook share
-        var facebookShare = document.querySelector('[data-js="facebook-share"]');
+        /*var facebookShare = document.querySelector('[data-js="facebook-share"]');
 
         facebookShare.onclick = function(e) {
           e.preventDefault();
           var facebookWindow = window.open('https://www.facebook.com/sharer.php?u=' + window.location.href.replace(/&/g,'%26'));
           if(facebookWindow.focus) { facebookWindow.focus(); }
             return false;
-        }
+        }*/
 
  //13. Function used to scroll to position in stack - Finds y value of given object - called from elsewhere above
 
@@ -767,7 +774,8 @@ function bloggerCatFilter(innerHTML) {
 
     function setQueryStringParameter(name, value) {
       const params = new URLSearchParams(location.search);
-      params.set(name, value);
+      var adjValue = value.replace(/ /g,"_");
+      params.set(name, adjValue);
       window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${params}`));
     }
     
