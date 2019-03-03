@@ -6,17 +6,35 @@ window.onload = function() {
     var url = new URL(url_string);
     //category
     var catURL_ = url.searchParams.get("cat");
-    if (catURL_ === null){}
+    if (catURL_ === null){
+      var cookieCat = getCookie("cat");
+      //alert("cookieCat");
+      if (cookieCat === ""){
+        document.getElementById("category").innerHTML = "TopStack";
+      }
+      else {
+        document.getElementById("category").innerHTML = cookieCat;
+      }
+      document.getElementById("category").value = cookieCat;
+    }
     else { 
       catURL = catURL_.replace(/_/g," ");
+      if (catURL === ""){
+        document.getElementById("category").innerHTML = "TopStack";
+      }
+      else {
       document.getElementById("category").innerHTML = catURL;
+      }
       document.getElementById("category").value = catURL;
     }
+    
     //blogger
     var bloggerURL_ = url.searchParams.get("blogger");
+    var cookieBlogger = getCookie("blogger");
     //alert(bloggerURL);
     //search
     var searchURL_ = url.searchParams.get("search");
+    var cookieSearch = getCookie("search");
 
   // blogger stack 
     //load
@@ -26,8 +44,29 @@ window.onload = function() {
       var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
       searchTableC(table, input);
+      //update selected cat in main menu
+      if (catURL_ === null && cookieCat === "") {}
+      else {
+        var btnactive = document.getElementsByClassName("btn Active");
+            $(btnactive).attr('class','btn');
+        var cat = input.innerHTML;
+        var headings = document.evaluate("//button[@class='btn' and contains(., '" + cat + "')]", document, null, XPathResult.ANY_TYPE, null );
+        var thisHeading = headings.iterateNext();
+        thisHeading.setAttribute('class','btn Active');
+      }
     //filter - blogger
-    if (bloggerURL_ === null){}
+      //blogger cookie
+    if (bloggerURL_ === null){
+      bloggerArray = cookieBlogger;
+      //fade all tiles when array changed
+      table = document.querySelector('#blogger');
+      bloggerClear(table);
+      //filter by variable for any matching bloggers/blogs
+        var input = bloggerArray,
+                table = document.querySelector('#blogger');
+                searchTableB(table, input);
+    }
+      //blogger URL
     else { 
       bloggerURL = bloggerURL_.replace(/_/g," ");
       bloggerArray = bloggerURL;
@@ -39,23 +78,25 @@ window.onload = function() {
                 table = document.querySelector('#blogger');
                 searchTableB(table, input);
       }
-      //scroll to blogger
-      bloggerFilterPos();
-      
 
     //shuffle
     var $firstCells = $("#blogger tbody tr"),
             $copies = $firstCells.clone(true);
-        
+
         [].sort.call($copies, function() { return Math.random() - 0.5; });
-        
+        //localStorage.setItem("test2", JSON.stringify($test) );
+        //$copies = JSON.parse(localStorage.getItem("test2"));
+
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);  
         })
     //make visible
     $(bloggerHead).animate({opacity: 1}, 30);
-    //shoe blogger description
-    bloggerDescriptionShow(bloggerURL);
+    //show blogger description
+    if (bloggerURL_ === null && cookieBlogger === ""){}
+    else { 
+    bloggerDescriptionShow(bloggerArray);
+    }
   });
 
   // blog stack
@@ -67,7 +108,16 @@ window.onload = function() {
           table = document.querySelector('#blog');
       searchTableC(table, input);
     //filter - blogger
-    if (bloggerURL_ === null){}
+    if (bloggerURL_ === null){
+      bloggerArray = cookieBlogger;
+      //fade all tiles when array changed
+      table2 = document.querySelector('#blog');
+      bloggerClear(table2);
+      //filter by variable for any matching bloggers/blogs
+        var input = bloggerArray,
+                table2 = document.querySelector('#blog');
+                searchTableB(table2, input);
+    }
     else { 
       bloggerURL = bloggerURL_.replace(/_/g," ");
       bloggerArray = bloggerURL;
@@ -80,17 +130,28 @@ window.onload = function() {
                 searchTableB(table2, input);
     }
     //filter - search
-    if (searchURL_ === null){}
+    if (searchURL_ === null){
+      document.getElementById("myInput").value = cookieSearch;
+      Search();
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      if (w <= 725 && cookieSearch != "") {
+        searchBar();
+      }
+    }
     else { 
       searchURL = searchURL_.replace(/_/g," ");
       document.getElementById("myInput").value = searchURL;
       Search();
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      if (w <= 725 && searchURL != "") {
+        searchBar();
+      }
     }
     //shuffle
     var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
-        
-        [].sort.call($copies, function() { return Math.random() - 0.5; });
+
+          [].sort.call($copies, function() { return Math.random() - 0.5; });
         
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);
@@ -161,8 +222,14 @@ window.onload = function() {
 // 2.1. Search - category - bind tables and input
         function searchTableC(table, input) {
           //alert("Cat");
-          if (input.value === ""){}
-          else {setQueryStringParameter("cat", input.innerHTML);}
+          if (input.value === ""){
+            setQueryStringParameter("cat", "");
+            setCookie("cat", "", 1);
+          }
+          else {
+            setQueryStringParameter("cat", input.innerHTML);
+            setCookie("cat", input.innerHTML, 1);
+          }
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
           rows.forEach(function(row) {
@@ -196,6 +263,7 @@ window.onload = function() {
           }
           bloggerArray = "";
           setQueryStringParameter("blogger", "");
+          setCookie("blogger", "", 1);
           //$("#shuffleMob").click();
           $('#blog').scrollTop(0);
         }
@@ -217,6 +285,7 @@ window.onload = function() {
         // un-fade any matching bloggers/blogs in this loop
         function searchTableB(table, input) {
           setQueryStringParameter("blogger", input);
+          setCookie("blogger", input, 1);
             var filter = input.toUpperCase(),
               rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
             rows.forEach(function(row) {
@@ -236,6 +305,7 @@ window.onload = function() {
 // 2.3.a. Search - search box input - bind tables and input for blog stack
       function searchTableI(table, input) {
           setQueryStringParameter("search", input.value);
+          setCookie("search", input.value, 1);
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
           rows.forEach(function(row) {
@@ -316,20 +386,20 @@ window.onload = function() {
           }
           else {
               //document.getElementById('mainMenu').style.width ='0';
-              $(mainMenu).animate({ width: '0px'}, 200);
+              $(mainMenu).animate({ width: '0px'}, 300);
               document.getElementById("mainMenu").setAttribute('class','closed');
-              $(whiteOut).fadeOut(200) 
+              $(whiteOut).fadeOut(300) 
               if (w <= 580) {
                 //document.getElementById('blogger').style.marginLeft ='1%';
                 //document.getElementById('blog').style.marginLeft ='1%';
-                $(blogger).animate({ marginLeft: '1%'}, 200);
-                $(blog).animate({ marginLeft: '1%'}, 200);
+                $(blogger).animate({ marginLeft: '1%'}, 300);
+                $(blog).animate({ marginLeft: '1%'}, 300);
               }
               else {
                 //document.getElementById('blogger').style.marginLeft ='11px';
                 //document.getElementById('blog').style.marginLeft ='11px';
-                $(blogger).animate({ marginLeft: '11px'}, 200);
-                $(blog).animate({ marginLeft: '11px'}, 200);
+                $(blogger).animate({ marginLeft: '11px'}, 300);
+                $(blog).animate({ marginLeft: '11px'}, 300);
               }  
 
           }
@@ -607,8 +677,6 @@ function bloggerCatFilter(innerHTML) {
       if (bloggerArray === innerHTML){}
       else {
         bloggerFilter(innerHTML);
-        bloggerFilterPos();
-        
       }
     }
 
@@ -625,14 +693,15 @@ function bloggerCatFilter(innerHTML) {
         var shareWALink = document.getElementById("shareWALink");
         var shareFBLink = document.getElementById("shareFBLink");
         var shareTWLink = document.getElementById("shareTWLink");
+        var shareLinkText = document.getElementById("shareLinkText");
         if (shareWindow.classList.contains('closed')) {
           $(shareWindow).fadeIn(100);
           $(whiteOut).fadeIn(150);
           $(whiteOut).css('z-index', '1900');
           shareWindow.classList.add('open');
           shareWindow.classList.remove('closed');
-          $('#shareLinkAdd').val(window.location.href);
           $('#shareLinkAdd').html(window.location.href);
+          $('#shareLinkText').val(window.location.href);
           var currURL = window.location.href;
           shareWALink.href = "whatsapp://send?text=Check out these blogs! " + currURL.replace(/&/g,'%26').replace("+","+%2B");
           shareMailLink.href = "mailto:?subject=Check out these blogs!&body=Hi,I found these blogs and thought you might like them. %0D%0A" +  currURL.replace(/&/g,'%26').replace("+","+%2B");
@@ -654,8 +723,7 @@ function bloggerCatFilter(innerHTML) {
       //copy URL link when clicked
       function shareCopy() {
         //copy link
-        var copyText = document.getElementById("shareLinkAdd");
-        
+        var copyText = document.getElementById("shareLinkText");
         copyText.select();
         document.execCommand("copy");
         iosCopyToClipboard(copyText);
@@ -718,7 +786,7 @@ function bloggerCatFilter(innerHTML) {
         $('#blogger').scrollTop(0);
       }
       else {
-      element = document.getElementById("blogger");
+      var element = document.getElementById("blogger");
       var searchWeb = document.getElementById('searchWeb');
       if (searchWeb.classList.contains('closedSearch')) {
         adjust = 118;
@@ -726,7 +794,7 @@ function bloggerCatFilter(innerHTML) {
       else if (searchWeb.classList.contains('openSearch')) {
         adjust = 164;
       }
-      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust) ;
+      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust ) ;
       }
     }
 
@@ -823,7 +891,8 @@ function bloggerCatFilter(innerHTML) {
       var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
       var oldTitleHeading = oldTitleHeadings.iterateNext();
 
-
+      if (thisHeading === null){}
+      else{
       //$(thisHeading).css('display','block');
       $(thisHeading).slideDown(200);
       thisHeading.classList.add('openBlogger');
@@ -831,7 +900,9 @@ function bloggerCatFilter(innerHTML) {
       $(imageHeading).css('border-bottom-right-radius','0px');
       $(titleHeading).css('border-bottom-left-radius','0px');
       $(titleHeading).css('border-bottom-right-radius','0px');
-      
+      setTimeout(bloggerFilterPos, 100);
+      }
+
       if (oldHeading === null){}
       else{
         $(oldHeading).slideUp(100);
@@ -858,6 +929,27 @@ function bloggerCatFilter(innerHTML) {
       }
     }
     
-    
+//18. Set/get coookies
+
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
 
               

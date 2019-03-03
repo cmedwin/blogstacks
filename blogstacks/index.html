@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta charset="utf-8">
       <script type="text/javascript">
         (function(document,navigator,standalone) {
           // prevents links from apps from oppening in mobile safari
@@ -28,12 +29,12 @@
         })(document,window.navigator,'standalone');
       </script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <meta charset="utf-8">
     <title>BlogStacks</title>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
     <link href="styles/style.b.css" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="mask-icon" href="images/website-icon.svg" color="black">
+    <link rel="icon" href="images/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -112,7 +113,9 @@
           </div>
           <div id="shareLink">
               <div id="shareLinkHeader">Share Link</div>
-              <input type="text" readonly="true" id="shareLinkAdd" onclick="shareCopy()">
+              <button type="submit" id="shareLinkAdd" onclick="shareCopy()"></button>
+              <textarea readonly aria-readonly="true" id="shareLinkText"></textarea>
+
           </div>
 
         </div>
