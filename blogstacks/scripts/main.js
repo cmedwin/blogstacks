@@ -10,7 +10,7 @@ window.onload = function() {
       var cookieCat = getCookie("cat");
       //alert("cookieCat");
       if (cookieCat === ""){
-        document.getElementById("category").innerHTML = "TopStack";
+        document.getElementById("category").innerHTML = "Choose Stack";
       }
       else {
         document.getElementById("category").innerHTML = cookieCat;
@@ -20,7 +20,7 @@ window.onload = function() {
     else { 
       catURL = catURL_.replace(/_/g," ");
       if (catURL === ""){
-        document.getElementById("category").innerHTML = "TopStack";
+        document.getElementById("category").innerHTML = "Choose Stack";
       }
       else {
       document.getElementById("category").innerHTML = catURL;
@@ -45,7 +45,7 @@ window.onload = function() {
           table = document.querySelector('#blogger');
       searchTableC(table, input);
       //update selected cat in main menu
-      if (catURL_ === null && cookieCat === "") {}
+      if (input.value === "") {}
       else {
         var btnactive = document.getElementsByClassName("btn Active");
             $(btnactive).attr('class','btn');
@@ -57,6 +57,7 @@ window.onload = function() {
     //filter - blogger
       //blogger cookie
     if (bloggerURL_ === null){
+      if (cookieBlogger != null) {
       bloggerArray = cookieBlogger;
       //fade all tiles when array changed
       table = document.querySelector('#blogger');
@@ -65,6 +66,7 @@ window.onload = function() {
         var input = bloggerArray,
                 table = document.querySelector('#blogger');
                 searchTableB(table, input);
+      }
     }
       //blogger URL
     else { 
@@ -109,6 +111,7 @@ window.onload = function() {
       searchTableC(table, input);
     //filter - blogger
     if (bloggerURL_ === null){
+      if (cookieBlogger != null) {
       bloggerArray = cookieBlogger;
       //fade all tiles when array changed
       table2 = document.querySelector('#blog');
@@ -117,6 +120,7 @@ window.onload = function() {
         var input = bloggerArray,
                 table2 = document.querySelector('#blog');
                 searchTableB(table2, input);
+      }
     }
     else { 
       bloggerURL = bloggerURL_.replace(/_/g," ");
