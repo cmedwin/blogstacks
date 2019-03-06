@@ -9,23 +9,27 @@ window.onload = function() {
     if (catURL_ === null){
       var cookieCat = getCookie("cat");
       //alert("cookieCat");
-      if (cookieCat === ""){
+      if (cookieCat === "" || cookieCat === null){
         document.getElementById("category").innerHTML = "Choose Stack";
+        document.getElementById("category").value = "";
       }
       else {
         document.getElementById("category").innerHTML = cookieCat;
+        document.getElementById("category").value = cookieCat;
       }
-      document.getElementById("category").value = cookieCat;
+      
     }
     else { 
       catURL = catURL_.replace(/_/g," ");
       if (catURL === ""){
         document.getElementById("category").innerHTML = "Choose Stack";
+        document.getElementById("category").value = "";
       }
       else {
       document.getElementById("category").innerHTML = catURL;
-      }
       document.getElementById("category").value = catURL;
+      }
+      
     }
     
     //blogger
@@ -45,7 +49,7 @@ window.onload = function() {
           table = document.querySelector('#blogger');
       searchTableC(table, input);
       //update selected cat in main menu
-      if (input.value === "") {}
+      if (input.value === "" || input.value === "null") {}
       else {
         var btnactive = document.getElementsByClassName("btn Active");
             $(btnactive).attr('class','btn');
@@ -226,7 +230,7 @@ window.onload = function() {
 // 2.1. Search - category - bind tables and input
         function searchTableC(table, input) {
           //alert("Cat");
-          if (input.value === ""){
+          if (input.value === "" || input.value === "null"){
             setQueryStringParameter("cat", "");
             setCookie("cat", "", 1);
           }

@@ -196,6 +196,7 @@ body {
 
                   #mainMenu {
                     position: fixed;
+                    will-change: transform;
                     z-index: 900;
                     /*display: inline-block;*/
                     font-family: 'Arimo', arial, helvetica, sans-serif;
@@ -891,6 +892,7 @@ body {
     height: calc(100% - 64px + 9px);
     left: 50%;
     position: fixed;
+    will-change: transform;
     width: 180px;
     max-width: 180px;
     margin-right: 11px;
@@ -1004,7 +1006,7 @@ body {
   }
 
   .gone {
-    /*display: none;*/
+    display: none;
   }
 
   #blog tr.searchGone {
@@ -1029,6 +1031,7 @@ body {
     height: calc(100% - 64px + 9px);
     left: 50%;
     position: fixed;
+    will-change: transform;
     width: calc(894px - 202px - 22px + 8px);
     max-width: calc(894px - 202px - 22px + 18px);
     margin-right: 11px;
