@@ -43,7 +43,7 @@ window.onload = function() {
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
-    $( bloggerHead ).load("stacks/bloggerb.html", function() {
+    $( bloggerHead ).load("stacks/bloggerc.html", function() {
     //filter - cat
       var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
@@ -89,9 +89,14 @@ window.onload = function() {
     var $firstCells = $("#blogger tbody tr"),
             $copies = $firstCells.clone(true);
 
-        [].sort.call($copies, function() { return Math.random() - 0.5; });
-        //localStorage.setItem("test2", JSON.stringify($test) );
-        //$copies = JSON.parse(localStorage.getItem("test2"));
+            var counter = $copies.length, temp, index;
+            while (counter > 0) {
+              index = Math.floor(Math.random() * counter);
+              counter--;
+              temp = $copies[counter];
+              $copies[counter] = $copies[index];
+              $copies[index] = temp;
+            };
 
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);  
@@ -103,12 +108,15 @@ window.onload = function() {
     else { 
     bloggerDescriptionShow(bloggerArray);
     }
+    //lazy-load
+    bloggerDivs = [...document.getElementById('blogger').querySelectorAll('.lazy-image')];
+    lazyLoadBlogger();
   });
 
   // blog stack
     //load html 
     var blogHead = document.getElementById("blog");
-    $( blogHead ).load("stacks/blogb.html", function() {
+    $( blogHead ).load("stacks/blogc.html", function() {
     //filter - Cat
       var input = document.querySelector('#category'),
           table = document.querySelector('#blog');
@@ -159,14 +167,23 @@ window.onload = function() {
     var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
 
-          [].sort.call($copies, function() { return Math.random() - 0.5; });
-        
+            var counter = $copies.length, temp, index;
+            while (counter > 0) {
+              index = Math.floor(Math.random() * counter);
+              counter--;
+              temp = $copies[counter];
+              $copies[counter] = $copies[index];
+              $copies[index] = temp;
+            };
+
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);
         })
     //make visible
     $(blogHead).animate({opacity: 1}, 30);
-    //showBlogImages();
+    //lazy-load
+    blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
+    lazyLoadBlog();
     });
 
   
@@ -224,6 +241,12 @@ window.onload = function() {
             
         $('#blog').scrollTop(0);
         $('#blogger').scrollTop(0);
+
+        //lazy-loading
+        blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
+          lazyLoadBlog();
+        bloggerDivs = [...document.getElementById("blogger").querySelectorAll('.lazy-image')];
+          lazyLoadBlogger();
         });
       }
 
@@ -251,6 +274,7 @@ window.onload = function() {
               row.classList.add('catShow');
             }
           });
+          
         };
 
 
@@ -330,6 +354,9 @@ window.onload = function() {
               }
             }
           });
+          //lazy-loading
+            blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
+            lazyLoadBlog();
         };
 
   //2.3.b. Search - search box input - filter blogger stack based on blog stack results
@@ -345,6 +372,9 @@ window.onload = function() {
             row.classList.add('searchShowR');
           }
         });
+        //lazy-loading  
+          bloggerDivs = [...document.getElementById("blogger").querySelectorAll('.lazy-image')];
+          lazyLoadBlogger();
       };
 
 
@@ -585,13 +615,24 @@ $("#shuffleMob").click(function(){
     var $firstCells = $("#blogger tbody tr"),
         $copies = $firstCells.clone(true);
     
-    [].sort.call($copies, function() { return Math.random() - 0.5; });
-
-
+    /*[].sort.call($copies, function() { return Math.random() - 0.5; });
+    */
+    var counter = $copies.length, temp, index;
+    while (counter > 0) {
+      index = Math.floor(Math.random() * counter);
+      counter--;
+      temp = $copies[counter];
+      $copies[counter] = $copies[index];
+      $copies[index] = temp;
+    };
     $copies.each(function(i){
-        $firstCells.eq(i).replaceWith(this);  
-    })});
-
+      $firstCells.eq(i).replaceWith(this);  
+    });
+    //lazy-load
+    bloggerDivs = [...document.getElementById('blogger').querySelectorAll('.lazy-image')];
+    lazyLoadBlogger();
+  });
+    
     $("#blogger tbody").delay(150).fadeIn(150);
   }
   }
@@ -607,11 +648,23 @@ $("#shuffleMob").click(function(){
   var $firstCells = $("#blog tbody tr"),
       $copies = $firstCells.clone(true);
   
-  [].sort.call($copies, function() { return Math.random() - 0.5; });
-  
-  $copies.each(function(i){
-      $firstCells.eq(i).replaceWith(this);
-  })});
+  /*[].sort.call($copies, function() { return Math.random() - 0.5; });
+    */
+   var counter = $copies.length, temp, index;
+   while (counter > 0) {
+     index = Math.floor(Math.random() * counter);
+     counter--;
+     temp = $copies[counter];
+     $copies[counter] = $copies[index];
+     $copies[index] = temp;
+   };
+    $copies.each(function(i){
+        $firstCells.eq(i).replaceWith(this);
+    });
+    //lazy-load
+    blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
+    lazyLoadBlog();
+  });
 
   $("#blog tbody").delay(150).fadeIn(150);
 }
@@ -678,6 +731,11 @@ function bloggerCatFilter(innerHTML) {
                   searchTableB(table2, input);
                   searchTableB(table, input);
         bloggerDescriptionShow(innerHTML);
+        //lazy-loading
+        blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
+          lazyLoadBlog();
+        bloggerDivs = [...document.getElementById("blogger").querySelectorAll('.lazy-image')];
+          lazyLoadBlogger();
       }
     }
 
@@ -960,4 +1018,49 @@ function getCookie(name) {
   return null;
 }
 
-              
+
+//19. lazy loading images
+inAdvance = 200;
+
+function lazyLoadBlogger() {
+//console.log(bloggerDivs);
+var blogger = document.getElementById('blogger');
+  bloggerDivs.forEach(div => {
+    if (div.offsetTop < window.innerHeight + blogger.scrollTop + inAdvance) {
+      //console.log(div.offsetTop + '<' + window.innerHeight + '+' + blogger.scrollTop + '+' + inAdvance);
+      var attr = div.getAttribute('data-background-image');
+      div.setAttribute('style', attr);
+    }
+  })
+}
+
+function lazyLoadBlog() {
+  
+  //console.log(blogDivs);
+  var blog = document.getElementById('blog');
+  blogDivs.forEach(div => {
+    if (div.offsetTop < window.innerHeight + blog.scrollTop + inAdvance) {
+      //console.log(div.offsetTop + '<' + window.innerHeight + '+' + blogger.scrollTop + '+' + inAdvance);
+      var attr = div.getAttribute('data-background-image');
+      div.setAttribute('style', attr);
+      }
+    })
+  }
+
+  //Lazy-load - Scroll
+    document.getElementById("blogger").addEventListener('scroll', throttle(lazyLoadBlogger, 150));
+    document.getElementById("blog").addEventListener('scroll', throttle(lazyLoadBlog, 150));
+  //Lazy-load - resize
+    window.addEventListener('resize', throttle(lazyLoadBlogger, 150));
+    window.addEventListener('resize', throttle(lazyLoadBlog, 150));
+
+  //Throttler for scroll and resize event listeners
+  function throttle(fn, wait) {
+    var time = Date.now();
+    return function() {
+      if ((time + wait - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
+    }
+  }
