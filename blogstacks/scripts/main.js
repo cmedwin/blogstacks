@@ -97,10 +97,14 @@ window.onload = function() {
               $copies[counter] = $copies[index];
               $copies[index] = temp;
             };
-
+            
+            
+            //console.log($copies);
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);  
         })
+        localStorage.setItem('bloggerStack', $('#blogger')[0].innerHTML);
+        localStorage.setItem('bloggerStackTime', new Date().getTime());
     //make visible
     $(bloggerHead).animate({opacity: 1}, 30);
     //show blogger description
@@ -179,6 +183,8 @@ window.onload = function() {
         $copies.each(function(i){
             $firstCells.eq(i).replaceWith(this);
         })
+        localStorage.setItem('blogStack', $('#blog')[0].innerHTML);
+        localStorage.setItem('blogStackTime', new Date().getTime());
     //make visible
     $(blogHead).animate({opacity: 1}, 30);
     //lazy-load
@@ -628,6 +634,8 @@ $("#shuffleMob").click(function(){
     $copies.each(function(i){
       $firstCells.eq(i).replaceWith(this);  
     });
+    localStorage.setItem('bloggerStack', $('#blogger')[0].innerHTML);
+    localStorage.setItem('bloggerStackTime', new Date().getTime());
     //lazy-load
     bloggerDivs = [...document.getElementById('blogger').querySelectorAll('.lazy-image')];
     lazyLoadBlogger();
@@ -661,6 +669,8 @@ $("#shuffleMob").click(function(){
     $copies.each(function(i){
         $firstCells.eq(i).replaceWith(this);
     });
+    localStorage.setItem('blogStack', $('#blog')[0].innerHTML);
+    localStorage.setItem('blogStackTime', new Date().getTime());
     //lazy-load
     blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
     lazyLoadBlog();
@@ -943,21 +953,21 @@ function bloggerCatFilter(innerHTML) {
     function bloggerDescriptionShow(innerHTML) {
       var openBlogger = innerHTML;
       //var headings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR']/div/div/ul/li[@class='description'] ", document, null, XPathResult.ANY_TYPE, null );
-      var headings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='description']", document, null, XPathResult.ANY_TYPE, null );
+      var headings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR lazy-image']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='description']", document, null, XPathResult.ANY_TYPE, null );
       var thisHeading = headings.iterateNext();
       //var oldHeadings = document.evaluate("//table[@id='blogger']/tbody/tr/td/div[@class='imageR']/div/div/ul/li[@class='description openBlogger']", document, null, XPathResult.ANY_TYPE, null );
       var oldHeadings = document.evaluate("//table[@id='blogger']/tbody/tr/td/div[@class='description openBlogger']", document, null, XPathResult.ANY_TYPE, null );
       var oldHeading = oldHeadings.iterateNext();
-      var imageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR']", document, null, XPathResult.ANY_TYPE, null );
+      var imageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR lazy-image']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR lazy-image']", document, null, XPathResult.ANY_TYPE, null );
       var imageHeading = imageHeadings.iterateNext();
-      var oldImageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']", document, null, XPathResult.ANY_TYPE, null );
+      var oldImageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR lazy-image']", document, null, XPathResult.ANY_TYPE, null );
       var oldImageHeading = oldImageHeadings.iterateNext();
-      var titleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
+      var titleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR lazy-image']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR lazy-image']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
       var titleHeading = titleHeadings.iterateNext();
-      var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
+      var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR lazy-image']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
       var oldTitleHeading = oldTitleHeadings.iterateNext();
-
-      if (thisHeading === null){}
+      if (thisHeading === null){
+      }
       else{
       //$(thisHeading).css('display','block');
       $(thisHeading).slideDown(200);
@@ -997,11 +1007,11 @@ function bloggerCatFilter(innerHTML) {
     
 //18. Set/get coookies
 
-function setCookie(name, value, days) {
+function setCookie(name, value, hours) {
   var expires = "";
-  if (days) {
+  if (hours) {
     var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
     expires = "; expires=" + date.toUTCString();
   }
   document.cookie = name + "=" + (value || "") + expires + "; path=/";

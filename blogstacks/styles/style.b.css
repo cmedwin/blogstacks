@@ -210,6 +210,7 @@ body {
                     padding-top: 78px;
                     overflow-y: scroll;
                     -webkit-overflow-scrolling: touch;
+                    
                     /*transition: 0.5s;
                     -webkit-transition: .5s;
                     -webkit-transition: translate3d(0, 0, 0) !important;
@@ -242,6 +243,7 @@ body {
                     color: white;
                     font-size: 12px;
                     font-weight: 400;
+                    cursor: pointer;
                     /*transition: 0.5s;
                     -webkit-transition: .5s;
                     -webkit-transition: translate3d(0, 0, 0) !important;
