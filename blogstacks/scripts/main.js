@@ -43,7 +43,23 @@ window.onload = function() {
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
-    $( bloggerHead ).load("stacks/bloggerc.html", function() {
+    if (localStorage.getItem("bloggerStackTime") === null || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > 5000 ){
+      function checkLS(callback){
+      $( bloggerHead ).load("stacks/bloggerc.html");
+      alert("A");
+      callback(true);
+      
+      }
+      checkLS(loadBlogger);
+    }
+    else {
+      
+      bloggerHead.innerHTML = localStorage.getItem("bloggerStack");
+      alert("B");
+      $("#blogger tbody").fadeIn(10);
+      loadBlogger(false);
+    }
+     function loadBlogger(flagShuffle) {
     //filter - cat
       var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
@@ -86,6 +102,7 @@ window.onload = function() {
       }
 
     //shuffle
+    if (flagShuffle === true) {
     var $firstCells = $("#blogger tbody tr"),
             $copies = $firstCells.clone(true);
 
@@ -104,6 +121,7 @@ window.onload = function() {
             $firstCells.eq(i).replaceWith(this);  
         })
         localStorage.setItem('bloggerStack', $('#blogger')[0].innerHTML);
+      }
         localStorage.setItem('bloggerStackTime', new Date().getTime());
     //make visible
     $(bloggerHead).animate({opacity: 1}, 30);
@@ -115,7 +133,7 @@ window.onload = function() {
     //lazy-load
     bloggerDivs = [...document.getElementById('blogger').querySelectorAll('.lazy-image')];
     lazyLoadBlogger();
-  });
+  };
 
   // blog stack
     //load html 
