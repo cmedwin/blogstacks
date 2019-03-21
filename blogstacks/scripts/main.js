@@ -43,23 +43,20 @@ window.onload = function() {
   // blogger stack 
     //load
     var bloggerHead = document.getElementById("blogger");
-    if (localStorage.getItem("bloggerStackTime") === null || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > 5000 ){
-      function checkLS(callback){
-      $( bloggerHead ).load("stacks/bloggerc.html");
-      alert("A");
-      callback(true);
-      
-      }
-      checkLS(loadBlogger);
+    //load new stack as time limit expired
+    if (localStorage.getItem("bloggerStackTime") === null || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > 10000 ){
+          $( bloggerHead ).load("stacks/bloggerc.html", function(){
+            configBlogger(true);
+          });
+          $(bloggerHead).animate({opacity: 1}, 30);
     }
+    //load stored stack to retain app position on refresh
     else {
-      
       bloggerHead.innerHTML = localStorage.getItem("bloggerStack");
-      alert("B");
-      $("#blogger tbody").fadeIn(10);
-      loadBlogger(false);
+      configBlogger(false);
+      $(bloggerHead).animate({opacity: 1}, 30);
     }
-     function loadBlogger(flagShuffle) {
+     function configBlogger(flagShuffle) {
     //filter - cat
       var input = document.querySelector('#category'),
           table = document.querySelector('#blogger');
@@ -138,7 +135,22 @@ window.onload = function() {
   // blog stack
     //load html 
     var blogHead = document.getElementById("blog");
-    $( blogHead ).load("stacks/blogc.html", function() {
+
+    //load new stack as time limit expired
+    if (localStorage.getItem("blogStackTime") === null || (new Date().getTime() - localStorage.getItem("blogStackTime")) > 10000 ){
+      $( blogHead ).load("stacks/blogc.html", function(){
+        configBlog(true);
+      });
+      $(blogHead).animate({opacity: 1}, 30);
+    }
+    //load stored stack to retain app position on refresh
+    else {
+      blogHead.innerHTML = localStorage.getItem("blogStack");
+      configBlog(false);
+      $(blogHead).animate({opacity: 1}, 30);
+    }
+
+    function configBlog(flagShuffle) {
     //filter - Cat
       var input = document.querySelector('#category'),
           table = document.querySelector('#blog');
@@ -186,6 +198,7 @@ window.onload = function() {
       }
     }
     //shuffle
+    if (flagShuffle === true) {
     var $firstCells = $("#blog tbody tr"),
             $copies = $firstCells.clone(true);
 
@@ -202,13 +215,14 @@ window.onload = function() {
             $firstCells.eq(i).replaceWith(this);
         })
         localStorage.setItem('blogStack', $('#blog')[0].innerHTML);
+      }
         localStorage.setItem('blogStackTime', new Date().getTime());
     //make visible
     $(blogHead).animate({opacity: 1}, 30);
     //lazy-load
     blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
     lazyLoadBlog();
-    });
+    };
 
   
   // Change logo to pre-rescaled 33px height version when using windows
@@ -1009,9 +1023,9 @@ function bloggerCatFilter(innerHTML) {
     function bloggerDescriptionHide() {
       var oldHeadings = document.evaluate("//table[@id='blogger']/tbody/tr/td/div[@class='description openBlogger']", document, null, XPathResult.ANY_TYPE, null );
       var oldHeading = oldHeadings.iterateNext();
-      var oldImageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']", document, null, XPathResult.ANY_TYPE, null );
+      var oldImageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR lazy-image']", document, null, XPathResult.ANY_TYPE, null );
       var oldImageHeading = oldImageHeadings.iterateNext();
-      var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
+      var oldTitleHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR lazy-image']/div[@class='titler']", document, null, XPathResult.ANY_TYPE, null );
       var oldTitleHeading = oldTitleHeadings.iterateNext();
 
       if (oldHeading === null){}
