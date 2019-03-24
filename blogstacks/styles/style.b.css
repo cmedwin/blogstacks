@@ -488,6 +488,7 @@ body {
               z-index: 1800;
               max-height: 46px;
               
+              
             }
 
             @media screen and (max-width: 725px) {
@@ -500,8 +501,9 @@ body {
                 max-width: 635px;
                 display: none;
                 box-shadow: 0 1px 6px rgba(32,33,36,0.8);
-                
+                opacity: 0.7;
               }
+
             }
 
             @media screen and (min-width: 1220px) {

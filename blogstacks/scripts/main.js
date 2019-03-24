@@ -32,30 +32,45 @@ window.onload = function() {
       
     }
     
-    //blogger
+    //Filter variables - blogger
     var bloggerURL_ = url.searchParams.get("blogger");
     var cookieBlogger = getCookie("blogger");
-    //alert(bloggerURL);
-    //search
+    //Filter variables - search
     var searchURL_ = url.searchParams.get("search");
     var cookieSearch = getCookie("search");
+    //Scroll variables
+    var bloggerScroll = localStorage.getItem('bloggerScroll');
+    var blogScroll = localStorage.getItem('blogScroll'); 
+
 
   // blogger stack 
-    //load
-    var bloggerHead = document.getElementById("blogger");
-    //load new stack as time limit expired
-    if (localStorage.getItem("bloggerStackTime") === null || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > 10000 ){
-          $( bloggerHead ).load("stacks/bloggerc.html", function(){
-            configBlogger(true);
-          });
-          $(bloggerHead).animate({opacity: 1}, 30);
-    }
-    //load stored stack to retain app position on refresh
-    else {
-      bloggerHead.innerHTML = localStorage.getItem("bloggerStack");
-      configBlogger(false);
-      $(bloggerHead).animate({opacity: 1}, 30);
-    }
+    //load stack
+          var bloggerHead = document.getElementById("blogger");
+          //load new stack as time limit expired
+          var URLgroup = catURL_ + bloggerURL_ + searchURL_;
+          console.log("urlgroup:" + URLgroup);
+          var scrollCheck = parseInt(bloggerScroll) + parseInt(blogScroll);
+          console.log("scrollcheck:" + scrollCheck);
+          var bloggerRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
+          if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 65 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){
+                console.log("time: " + (new Date().getTime() - localStorage.getItem("bloggerStackTime")));
+                $( bloggerHead ).load("stacks/bloggerc.html", function(){
+                  configBlogger(true);
+                });
+                console.log("fresh");
+          }
+          //load stored stack to retain app position on refresh
+          else {
+            console.log("time: " + (new Date().getTime() - localStorage.getItem("bloggerStackTime")));
+            var bloggerScroll = localStorage.getItem('bloggerScroll'); //record scroll position before next line resets value
+            bloggerHead.innerHTML = localStorage.getItem("bloggerStack"); //load stored stack
+            configBlogger(false); //run function to manage filters ets
+            setTimeout(function(){ //scroll to correct location
+              bloggerHead.scrollTop = parseInt(bloggerScroll) + 0;
+            }, 0);
+            console.log("stored");
+          }
+    //filter stack
      function configBlogger(flagShuffle) {
     //filter - cat
       var input = document.querySelector('#category'),
@@ -122,6 +137,7 @@ window.onload = function() {
         localStorage.setItem('bloggerStackTime', new Date().getTime());
     //make visible
     $(bloggerHead).animate({opacity: 1}, 30);
+    $("#blogger tbody").fadeIn(50);
     //show blogger description
     if (bloggerURL_ === null && cookieBlogger === ""){}
     else { 
@@ -133,23 +149,26 @@ window.onload = function() {
   };
 
   // blog stack
-    //load html 
-    var blogHead = document.getElementById("blog");
-
-    //load new stack as time limit expired
-    if (localStorage.getItem("blogStackTime") === null || (new Date().getTime() - localStorage.getItem("blogStackTime")) > 10000 ){
-      $( blogHead ).load("stacks/blogc.html", function(){
-        configBlog(true);
-      });
-      $(blogHead).animate({opacity: 1}, 30);
-    }
-    //load stored stack to retain app position on refresh
-    else {
-      blogHead.innerHTML = localStorage.getItem("blogStack");
-      configBlog(false);
-      $(blogHead).animate({opacity: 1}, 30);
-    }
-
+    //load stack
+            var blogHead = document.getElementById("blog");
+            //load new stack as time limit expired
+            var blogRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
+            if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 65 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
+              $( blogHead ).load("stacks/blogc.html", function(){
+                configBlog(true);
+              });
+              
+            }
+            //load stored stack to retain app position on refresh
+            else {
+              var blogScroll = localStorage.getItem('blogScroll'); //record scroll position before next line resets value
+              blogHead.innerHTML = localStorage.getItem("blogStack"); //load stored stack
+              configBlog(false); //run function to manage filters ets
+              setTimeout(function(){ //scroll to correct location
+                blogHead.scrollTop = parseInt(blogScroll) + 0;
+              }, 0);
+            }
+    //filter stack
     function configBlog(flagShuffle) {
     //filter - Cat
       var input = document.querySelector('#category'),
@@ -219,6 +238,7 @@ window.onload = function() {
         localStorage.setItem('blogStackTime', new Date().getTime());
     //make visible
     $(blogHead).animate({opacity: 1}, 30);
+    $("#blog tbody").fadeIn(50);
     //lazy-load
     blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
     lazyLoadBlog();
@@ -946,6 +966,9 @@ function bloggerCatFilter(innerHTML) {
       }
     }
 
+
+
+
 //15. Adds variable values to URL
 
     function setQueryStringParameter(name, value) {
@@ -1073,7 +1096,8 @@ var blogger = document.getElementById('blogger');
       var attr = div.getAttribute('data-background-image');
       div.setAttribute('style', attr);
     }
-  })
+  });
+  localStorage.setItem('bloggerScroll', blogger.scrollTop);
 }
 
 function lazyLoadBlog() {
@@ -1086,12 +1110,13 @@ function lazyLoadBlog() {
       var attr = div.getAttribute('data-background-image');
       div.setAttribute('style', attr);
       }
-    })
+    });
+    localStorage.setItem('blogScroll', blog.scrollTop);
   }
 
   //Lazy-load - Scroll
-    document.getElementById("blogger").addEventListener('scroll', throttle(lazyLoadBlogger, 150));
-    document.getElementById("blog").addEventListener('scroll', throttle(lazyLoadBlog, 150));
+    document.getElementById("blogger").addEventListener('scroll', throttle(lazyLoadBlogger, 100));
+    document.getElementById("blog").addEventListener('scroll', throttle(lazyLoadBlog, 100));
   //Lazy-load - resize
     window.addEventListener('resize', throttle(lazyLoadBlogger, 150));
     window.addEventListener('resize', throttle(lazyLoadBlog, 150));
