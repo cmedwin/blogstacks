@@ -204,7 +204,7 @@ window.onload = function() {
       Search();
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       if (w <= 725 && cookieSearch != "") {
-        searchBar();
+        //searchBar();
       }
     }
     else { 
@@ -213,7 +213,7 @@ window.onload = function() {
       Search();
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       if (w <= 725 && searchURL != "") {
-        searchBar();
+        //searchBar();
       }
     }
     //shuffle
@@ -441,9 +441,10 @@ window.onload = function() {
 
         function menu() {
           if (searchWeb.classList.contains('openSearch')) {
-            searchBar();     
+            //searchBar();     
           }
           var mainMenu = document.getElementById("mainMenu");
+          var searchhead = document.getElementById("searchhead");
           var whiteOut =  document.getElementById("whiteOut");
           var blogger =  document.getElementById("blogger");
           var blog =  document.getElementById("blog");
@@ -479,10 +480,22 @@ window.onload = function() {
               $(blogger).animate({ marginLeft: adjW}, 400);
               $(blog).animate({ marginLeft: adjW}, 400);
             }
+
+            if (w <= 725) {
+              if (w <= 670) {
+                $(searchhead).animate({ marginLeft: '250px'}, 400);
+              }
+              else {
+                $(searchhead).animate({ marginLeft: adjW2}, 400);
+              }
+            }
+
+
           }
           else {
               //document.getElementById('mainMenu').style.width ='0';
               $(mainMenu).animate({ width: '0px'}, 300);
+              $(searchhead).animate({ marginLeft: '1.5%'}, 300);
               document.getElementById("mainMenu").setAttribute('class','closed');
               $(whiteOut).fadeOut(300) 
               if (w <= 580) {
@@ -490,12 +503,14 @@ window.onload = function() {
                 //document.getElementById('blog').style.marginLeft ='1%';
                 $(blogger).animate({ marginLeft: '1%'}, 300);
                 $(blog).animate({ marginLeft: '1%'}, 300);
+                
               }
               else {
                 //document.getElementById('blogger').style.marginLeft ='11px';
                 //document.getElementById('blog').style.marginLeft ='11px';
                 $(blogger).animate({ marginLeft: '11px'}, 300);
                 $(blog).animate({ marginLeft: '11px'}, 300);
+                
               }  
 
           }
@@ -920,7 +935,8 @@ function bloggerCatFilter(innerHTML) {
         adjust = 118;
       }
       else if (searchWeb.classList.contains('openSearch')) {
-        adjust = 164;
+        adjust = 118;
+        //adjust = 164;
       }
       element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust ) ;
       }
@@ -938,7 +954,7 @@ function bloggerCatFilter(innerHTML) {
 
 //14. Show/hide searchbar in mobile view using search button
 
-    function searchBar() {
+    /*function searchBar() {
       var blogger =  document.getElementById("startSpacerR");
       var blog =  document.getElementById("startSpacerG");
       var searchWeb = document.getElementById('searchWeb');
@@ -964,9 +980,18 @@ function bloggerCatFilter(innerHTML) {
         $(searchHead).fadeOut(100)
         
       }
+    }*/
+
+    //search input onfocus/onblur events
+    function searchFocus() {
+      var searchHead = document.getElementById('searchhead');
+        $(searchHead).animate({opacity: 1}, 30);
     }
-
-
+    
+    function searchBlur() {
+      var searchHead = document.getElementById('searchhead');
+        $(searchHead).animate({opacity: 0.6}, 30);
+    }
 
 
 //15. Adds variable values to URL
