@@ -69,11 +69,11 @@ body {
           .header {
               z-index: 1000;
               position: fixed;
-              width: calc(100% - 16px);
+              width: calc(100% - 12px);
               height: 48px;
               background-color: var(--bs-mblue);
               padding-left: 8px;
-              padding-right: 8px;
+              padding-right: 4px;
               padding-bottom: 8px;
               padding-top: 8px;
               box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
@@ -112,7 +112,7 @@ body {
                   {
                     display: inline-block;
                     position: absolute;
-                    top: 15px;
+                    top: 17px;
                     left: 11px;
                     z-index: 1100;
                     -webkit-user-select: none;
@@ -310,15 +310,15 @@ body {
             #logoName {
               position: absolute;
               display: inline;
-              left: 82px;
-              top: 2px;
+              left: 85px;
+              top: 8px;
               font-size: 25px;
               font-stretch: ultra-condensed;
               color: white;
               font-family: 'Abel', arial, helvetica, sans-serif;
             }
 
-            #category {
+            /*#category {
               background-color: inherit;
               border: none;
               padding: 0px;
@@ -337,7 +337,7 @@ body {
             #category::after {
               margin-left: 1px;
               content: "\25BE"
-            }
+            }*/
 
 
 
@@ -374,6 +374,7 @@ body {
               margin-top: -16px;
               margin-right: 0px;
               margin-left: 0px;
+              cursor: pointer;
             } 
             @media screen and (max-width: 725px) {
               .funcMob {
@@ -423,17 +424,17 @@ body {
             #shuffleMob {
               padding-top:8px;
             }
-            #shuffleMob:before {
+            /*#shuffleMob:before {
               position: absolute;
               top: 40px;
-              left: 86px;
+              left: -8px;
               width: 12px;
               height: 100px;
               content: '';
               background: linear-gradient(to left, rgba(0, 0, 0, 1.0), transparent);
               transform: skewY(-75deg);
               transform-origin: 0 0;
-            }
+            }*/
           }
 
             #searchIcon2 {
@@ -542,31 +543,33 @@ body {
             }
             }
 
-            #butFilter {
-              display:none;
-              border-radius: 29px;
-              background-color: #dcddde;
-              border: 1px solid black;
-              position: static;
+            #category{
+              display: inline-block;
+              position: relative;
               width:auto;
               vertical-align: middle;
               font-family: 'Arimo', arial, helvetica, sans-serif;
-              font-size: 12px;
+              font-size: 13px;
               font-weight: 100;
-              color: black;
+              color: var(--bs-turq);
               text-transform: capitalize;
-              height: 21px;
+              height: 30px;
               max-height: 46px;
               border: 0px;
-              /*border-right: 1px solid #ffffff;*/
+              border-right: 1px solid #969696;
+              border-radius: 0px;
               outline: 0;
               margin-left: 5px;
-              margin-right: 5px;
+              margin-right: 0px;
               padding-left: 8px;
-              padding-right: 8px;
+              padding-right: 14px;
               white-space: nowrap;
-              text-overflow: ellipsis;
-              cursor: auto;
+              cursor: pointer;
+            }
+
+            #category::after {
+              margin-left: 1px;
+              content: "\25BE"
             }
 
             #myInput {
@@ -576,7 +579,7 @@ body {
               border-bottom-right-radius: 0px;
               outline: 0;
               max-height: 46px;
-              width: calc(100% - 49px);
+              width: calc(100% - 49px - 126px - 20px);
               font-family: 'Arimo', arial, helvetica, sans-serif;
               font-size: 14px;
               font-weight: 100;
@@ -585,7 +588,7 @@ body {
               position: relative;
               z-index: 100;
               text-align: left;
-              padding-left: 10px;
+              padding-left: 9px;
               padding-right: 10px;
               padding-top: 0px;
               padding-bottom: 0px;
@@ -724,6 +727,13 @@ body {
   
             
   /* Search End */
+
+  /* Stack Menu Start*/
+            #stackMenu {
+              display: none;
+            }
+
+  /* Stack Menu End*/
   
   /*shareWindow start*/
 
@@ -1356,13 +1366,13 @@ body {
     padding-bottom: calc(100% - 80px);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    /*border-top: 1px solid #373737;*/
     /*background-color: var(--bs-mblue);*/
     width: 100%;
     position: relative;
     z-index: 1000;
     background-size: cover;
     background-position: center;
+
   }
   .loading {
     background-image: url(../images/bs-stack-logo-white-turq.png) !important;

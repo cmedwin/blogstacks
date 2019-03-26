@@ -52,7 +52,7 @@ window.onload = function() {
           var scrollCheck = parseInt(bloggerScroll) + parseInt(blogScroll);
           console.log("scrollcheck:" + scrollCheck);
           var bloggerRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
-          if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 65 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){
+          if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){
                 console.log("time: " + (new Date().getTime() - localStorage.getItem("bloggerStackTime")));
                 $( bloggerHead ).load("stacks/bloggerc.html", function(){
                   configBlogger(true);
@@ -153,7 +153,7 @@ window.onload = function() {
             var blogHead = document.getElementById("blog");
             //load new stack as time limit expired
             var blogRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
-            if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 65 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
+            if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
               $( blogHead ).load("stacks/blogc.html", function(){
                 configBlog(true);
               });
@@ -532,7 +532,7 @@ window.addEventListener('resize', function(){
       document.getElementById('blog').style.marginLeft ='11px';
     }
 
-    var blogger =  document.getElementById("startSpacerR");
+    /*var blogger =  document.getElementById("startSpacerR");
     var blog =  document.getElementById("startSpacerG");
     var searchWeb = document.getElementById('searchWeb');
     var searchHead = document.getElementById('searchhead');
@@ -548,7 +548,7 @@ window.addEventListener('resize', function(){
       $(blogger).animate({ height: '0px'}, 20);
       $(blog).animate({ height: '0px'}, 20);
       $(searchHead).fadeIn(50);
-    }
+    }*/
 }, false); 
 
 
@@ -935,7 +935,7 @@ function bloggerCatFilter(innerHTML) {
         adjust = 118;
       }
       else if (searchWeb.classList.contains('openSearch')) {
-        adjust = 118;
+        adjust = 144;
         //adjust = 164;
       }
       element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust ) ;

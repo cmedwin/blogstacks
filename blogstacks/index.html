@@ -60,13 +60,13 @@
 
           <li><img src="images/bs-stack-logo-white-turq.png" id="logo" class="logo"/><img src="images/bs-stack-logo-white-turq.png" id="logoWin" class="logo"/></li>
           <div id="logoName">BlogStacks</div>
-          <button id="category" onclick="menuCat()" value="">Choose Stack</button>
+          <!--<button id="category" onclick="menuCat()" value="">Choose Stack</button>-->
           
 
           <div id="searchhead">
                  
               <div class="search" id="search">
-                  <button onclick="butFilter()" id="butFilter" value=""></button> 
+                  <button onclick="butFilter()" id="category" value="">Choose Stack</button> 
                   <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." autocomplete="off" autocorrect="off" onfocus="searchFocus()" onblur="searchBlur()">
                   <button type="submit" class="searchIcon" id="searchIcon" onclick="Search()">
                         <ul>
@@ -79,6 +79,20 @@
                   </button>
                 </div>
           </div>
+
+          <div id="stackMenu" class="closed">
+              <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
+              <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
+              <!--<button type="submit" class="btn" id="nav" value="BUSINESS">Business</button>-->
+              <!--<button type="submit" class="btn" id="nav" value="DESIGN">Design</button>-->
+              <!--<button type="submit" class="btn" id="nav" value="ENTERTAINMENT">Entertainment</button>-->
+              <!--<button type="submit" class="btn" id="nav" value="FOOD / DRINK">Food / Drink</button>-->
+              <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">Health / Fitness</button>
+              <button type="submit" class="btn" id="nav" value="LIFESTYLE">Lifestyle</button>
+              <button type="submit" class="btn" id="nav" value="TRAVEL">Travel</button>
+          </div>
+
+
 
 
           <div id="navRightMob"> 
