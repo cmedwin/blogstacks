@@ -763,14 +763,20 @@ blogShuffle();
 
 // 8. WhiteOut close menu
 
-  function whiteOut() {
+  function clearWO() {
     var shareWindow = document.getElementById("shareWindow");
+    var stackMenu = document.getElementById("stackMenu");
 
     if (shareWindow.classList.contains('open')) {
       document.getElementById('shareWeb').click();
     }
+    else if (stackMenu.classList.contains('openStackMenu')) {
+      document.getElementById('category').click();
+      
+      //document.getElementById('menuInputMob').click();
+    }
     else {
-      document.getElementById('menuInputMob').click();
+      $(whiteOut).fadeOut(200);
     }
   }
 
@@ -783,7 +789,7 @@ blogShuffle();
     var whiteOut =  document.getElementById("whiteOut");
           
     if(stackMenu.classList.contains('closedStackMenu')) {
-      $(searchHead).animate({opacity: 1}, 30);
+      
       $(stackMenu).slideDown(200);
       stackMenu.classList.add('openStackMenu');
       stackMenu.classList.remove('closedStackMenu');
@@ -791,7 +797,13 @@ blogShuffle();
       $(searchHead).css('border-bottom-right-radius','0px');
       $(search).css('border-bottom-left-radius','0px');
       $(search).css('border-bottom-right-radius','0px');
-      $(whiteOut).fadeIn(200);
+      $(stackMenu).css('border-top-left-radius','0px');
+      $(stackMenu).css('border-top-right-radius','0px');
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      if (w <= 725) {
+        $(whiteOut).fadeIn(200);
+        $(searchHead).animate({opacity: 1}, 30);
+      }
     }
     else if(stackMenu.classList.contains('openStackMenu')) {
       //$(searchHead).animate({opacity: 1}, 30);
@@ -1023,7 +1035,10 @@ function bloggerCatFilter(innerHTML) {
       var searchHead = document.getElementById('searchhead');
       var whiteOut =  document.getElementById("whiteOut");
       $(searchHead).animate({opacity: 1}, 30);
-      $(whiteOut).fadeIn(200);
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      if (w <= 725) {
+        $(whiteOut).fadeIn(200);
+      }
     }
     
     /*function searchBlur() {
