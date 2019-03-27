@@ -267,7 +267,7 @@ window.onload = function() {
 
 // 1. Reflect change in active button on nav bar
       // Get the container element
-      var btnContainer = document.getElementById("mainMenu");
+      var btnContainer = document.getElementById("stackMenu");
 
       // Get all buttons with class="btn" inside the container
       var btns = btnContainer.getElementsByClassName("btn");
@@ -287,8 +287,8 @@ window.onload = function() {
           var btnactive = document.getElementsByClassName("btn Active");
           $(btnactive).attr('class','btn');
           this.setAttribute('class','btn Active');
-        if (document.getElementById("mainMenu").getAttribute('class') === 'open'){
-          document.getElementById('menuInputMob').click();
+        if (document.getElementById("stackMenu").getAttribute('class') === 'openStackMenu'){
+          document.getElementById('category').click();
         }
           var input = document.querySelector('#category'),
             //document.querySelector('#nav1'),
@@ -306,6 +306,9 @@ window.onload = function() {
         bloggerDivs = [...document.getElementById("blogger").querySelectorAll('.lazy-image')];
           lazyLoadBlogger();
         });
+
+        var whiteOut =  document.getElementById("whiteOut");
+        $(whiteOut).fadeOut(200);
       }
 
 // 2.1. Search - category - bind tables and input
@@ -415,6 +418,9 @@ window.onload = function() {
           //lazy-loading
             blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
             lazyLoadBlog();
+
+          var whiteOut =  document.getElementById("whiteOut");
+          $(whiteOut).fadeOut(200);
         };
 
   //2.3.b. Search - search box input - filter blogger stack based on blog stack results
@@ -595,6 +601,7 @@ function Search() {
         var mag = document.getElementById("mag");
         var searchClose = document.getElementById("searchClose");
         var myInput = document.getElementById("myInput");
+        console.log(myInput.value);
         $(mag).fadeOut(50);
         $(searchClose).delay(50).fadeIn(50);
         document.getElementById("searchIcon").setAttribute('class','searchClose');
@@ -758,6 +765,7 @@ blogShuffle();
 
   function whiteOut() {
     var shareWindow = document.getElementById("shareWindow");
+
     if (shareWindow.classList.contains('open')) {
       document.getElementById('shareWeb').click();
     }
@@ -769,7 +777,35 @@ blogShuffle();
 // 9. Menu open/close for 'Choose Stack' button
 
   function menuCat() {
-    document.getElementById('menuInputMob').click();
+    var searchHead = document.getElementById('searchhead');
+    var search = document.getElementById('search');
+    var stackMenu = document.getElementById('stackMenu');
+    var whiteOut =  document.getElementById("whiteOut");
+          
+    if(stackMenu.classList.contains('closedStackMenu')) {
+      $(searchHead).animate({opacity: 1}, 30);
+      $(stackMenu).slideDown(200);
+      stackMenu.classList.add('openStackMenu');
+      stackMenu.classList.remove('closedStackMenu');
+      $(searchHead).css('border-bottom-left-radius','0px');
+      $(searchHead).css('border-bottom-right-radius','0px');
+      $(search).css('border-bottom-left-radius','0px');
+      $(search).css('border-bottom-right-radius','0px');
+      $(whiteOut).fadeIn(200);
+    }
+    else if(stackMenu.classList.contains('openStackMenu')) {
+      //$(searchHead).animate({opacity: 1}, 30);
+      $(stackMenu).slideUp(200);
+      stackMenu.classList.add('closedStackMenu');
+      stackMenu.classList.remove('openStackMenu');
+      setTimeout( function(){
+      $(searchHead).css('border-bottom-left-radius','4px');
+      $(searchHead).css('border-bottom-right-radius','4px');
+      $(search).css('border-bottom-left-radius','4px');
+      $(search).css('border-bottom-right-radius','4px');
+      },200);
+      $(whiteOut).fadeOut(200);
+    }
   }
 
 // 10. Filter on category in blogger stack tiles
@@ -985,13 +1021,17 @@ function bloggerCatFilter(innerHTML) {
     //search input onfocus/onblur events
     function searchFocus() {
       var searchHead = document.getElementById('searchhead');
-        $(searchHead).animate({opacity: 1}, 30);
+      var whiteOut =  document.getElementById("whiteOut");
+      $(searchHead).animate({opacity: 1}, 30);
+      $(whiteOut).fadeIn(200);
     }
     
-    function searchBlur() {
+    /*function searchBlur() {
       var searchHead = document.getElementById('searchhead');
         $(searchHead).animate({opacity: 0.6}, 30);
-    }
+    }*/
+
+  
 
 
 //15. Adds variable values to URL

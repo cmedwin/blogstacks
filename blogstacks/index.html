@@ -66,8 +66,8 @@
           <div id="searchhead">
                  
               <div class="search" id="search">
-                  <button onclick="butFilter()" id="category" value="">Choose Stack</button> 
-                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." autocomplete="off" autocorrect="off" onfocus="searchFocus()" onblur="searchBlur()">
+                  <button onclick="menuCat()" id="category" value="">Choose Stack</button> 
+                  <input type="text" id="myInput" onclick="preWebSearch()" placeholder="Search..." autocomplete="off" autocorrect="off" onfocus="searchFocus()" >
                   <button type="submit" class="searchIcon" id="searchIcon" onclick="Search()">
                         <ul>
                             <li><img src="images/search.png" class="mag" id="mag"></li>
@@ -78,19 +78,18 @@
                         </ul>
                   </button>
                 </div>
+
+              <div id="stackMenu" class="closedStackMenu">
+                  <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
+                  <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
+                  <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">Health / Fitness</button>
+                  <button type="submit" class="btn" id="nav" value="LIFESTYLE">Lifestyle</button>
+                  <button type="submit" class="btn" id="nav" value="TRAVEL">Travel</button>
+              </div>
+          
           </div>
 
-          <div id="stackMenu" class="closed">
-              <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
-              <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
-              <!--<button type="submit" class="btn" id="nav" value="BUSINESS">Business</button>-->
-              <!--<button type="submit" class="btn" id="nav" value="DESIGN">Design</button>-->
-              <!--<button type="submit" class="btn" id="nav" value="ENTERTAINMENT">Entertainment</button>-->
-              <!--<button type="submit" class="btn" id="nav" value="FOOD / DRINK">Food / Drink</button>-->
-              <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">Health / Fitness</button>
-              <button type="submit" class="btn" id="nav" value="LIFESTYLE">Lifestyle</button>
-              <button type="submit" class="btn" id="nav" value="TRAVEL">Travel</button>
-          </div>
+          
 
 
 
@@ -136,27 +135,27 @@
       </div>
 
       <div id="mainMenu" class="closed">
-          <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
+          <!--<button type="submit" class="btn Active" id="nav" value="">TopStack</button>
           <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
-          <!--<button type="submit" class="btn" id="nav" value="BUSINESS">Business</button>-->
-          <!--<button type="submit" class="btn" id="nav" value="DESIGN">Design</button>-->
-          <!--<button type="submit" class="btn" id="nav" value="ENTERTAINMENT">Entertainment</button>-->
-          <!--<button type="submit" class="btn" id="nav" value="FOOD / DRINK">Food / Drink</button>-->
+          <button type="submit" class="btn" id="nav" value="BUSINESS">Business</button>
+          <button type="submit" class="btn" id="nav" value="DESIGN">Design</button>
+          <button type="submit" class="btn" id="nav" value="ENTERTAINMENT">Entertainment</button>
+          <button type="submit" class="btn" id="nav" value="FOOD / DRINK">Food / Drink</button>
           <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">Health / Fitness</button>
           <button type="submit" class="btn" id="nav" value="LIFESTYLE">Lifestyle</button>
           <button type="submit" class="btn" id="nav" value="TRAVEL">Travel</button>
-          <!--<button type="submit" class="btn" id="nav" value="TECHNOLOGY">Technology</button>-->
-          <!--<button type="submit" class="btn" id="nav" value="SPORTS">Sports</button>-->
+          <button type="submit" class="btn" id="nav" value="TECHNOLOGY">Technology</button>
+          <button type="submit" class="btn" id="nav" value="SPORTS">Sports</button>-->
           <button type="submit" class="contact" id="mmContact" ><a href="mailto:charlie@blogstacks.com?Subject=Web%20Contact%20Form" target="_top">Contact Us</a></button>
           <button type="submit" class="contact" id="mmIG" ></button>
       </div>
     
       <div id="searchSpacer"></div>
 
-      <table id="blogger" class="scroll">
+      <table id="blogger" class="scroll" >
       </table>
 
-      <table id="blog" class="scroll">
+      <table id="blog" class="scroll" >
       </table>
 
     <script src="scripts/main.js"></script>
