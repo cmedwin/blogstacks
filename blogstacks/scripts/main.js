@@ -203,7 +203,7 @@ window.onload = function() {
       document.getElementById("myInput").value = cookieSearch;
       Search();
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      if (w <= 725 && cookieSearch != "") {
+      if (w <= 660 && cookieSearch != "") {
         //searchBar();
       }
     }
@@ -212,7 +212,7 @@ window.onload = function() {
       document.getElementById("myInput").value = searchURL;
       Search();
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      if (w <= 725 && searchURL != "") {
+      if (w <= 660 && searchURL != "") {
         //searchBar();
       }
     }
@@ -309,6 +309,7 @@ window.onload = function() {
 
         var whiteOut =  document.getElementById("whiteOut");
         $(whiteOut).fadeOut(200);
+        
       }
 
 // 2.1. Search - category - bind tables and input
@@ -421,6 +422,9 @@ window.onload = function() {
 
           var whiteOut =  document.getElementById("whiteOut");
           $(whiteOut).fadeOut(200);
+          var searchHead = document.getElementById('searchhead');
+          searchHead.classList.remove('searchheadShow');
+          searchHead.classList.add('searchheadFade');
         };
 
   //2.3.b. Search - search box input - filter blogger stack based on blog stack results
@@ -445,7 +449,28 @@ window.onload = function() {
 
 // 3. Main menu animation 
 
-        function menu() {
+        function mainMenu() {
+          var mainMenuWindow = document.getElementById("mainMenuWindow");
+          var whiteOut =  document.getElementById("whiteOut");
+          
+          if (mainMenuWindow.classList.contains('closed')) {
+            $(mainMenuWindow).fadeIn(100);
+            $(whiteOut).fadeIn(150);
+            $(whiteOut).css('z-index', '1900');
+            mainMenuWindow.classList.add('open');
+            mainMenuWindow.classList.remove('closed');
+          }
+          else {
+            $(mainMenuWindow).fadeOut(100);
+            $(whiteOut).fadeOut(100);
+            $(whiteOut).css('z-index', '900');
+            mainMenuWindow.classList.add('closed');
+            mainMenuWindow.classList.remove('open');
+            }
+        }
+        
+
+        /*function menu() {
           if (searchWeb.classList.contains('openSearch')) {
             //searchBar();     
           }
@@ -487,7 +512,7 @@ window.onload = function() {
               $(blog).animate({ marginLeft: adjW}, 400);
             }
 
-            if (w <= 725) {
+            if (w <= 660) {
               if (w <= 670) {
                 $(searchhead).animate({ marginLeft: '250px'}, 400);
               }
@@ -522,7 +547,7 @@ window.onload = function() {
           }
 
 
-        }
+        }*/
       
           
 // 4. Event on orientation change
@@ -538,12 +563,16 @@ window.addEventListener('resize', function(){
       document.getElementById('blog').style.marginLeft ='11px';
     }
 
+    if (stackMenu.classList.contains('openStackMenu')) {
+        document.getElementById('category').click();
+    }
+    
     /*var blogger =  document.getElementById("startSpacerR");
     var blog =  document.getElementById("startSpacerG");
     var searchWeb = document.getElementById('searchWeb');
     var searchHead = document.getElementById('searchhead');
 
-    if (w <= 725) {
+    if (w <= 660) {
       if (searchWeb.classList.contains('closedSearch')) {
         $(searchHead).fadeOut(0);
       }
@@ -766,7 +795,7 @@ blogShuffle();
   function clearWO() {
     var shareWindow = document.getElementById("shareWindow");
     var stackMenu = document.getElementById("stackMenu");
-
+    var searchHead = document.getElementById("searchhead");
     if (shareWindow.classList.contains('open')) {
       document.getElementById('shareWeb').click();
     }
@@ -775,8 +804,13 @@ blogShuffle();
       
       //document.getElementById('menuInputMob').click();
     }
+    else if (mainMenuWindow.classList.contains('open')) {
+      document.getElementById('mainMenu').click();
+    }
     else {
       $(whiteOut).fadeOut(200);
+      searchHead.classList.remove('searchheadShow');
+      searchHead.classList.add('searchheadFade');
     }
   }
 
@@ -787,7 +821,8 @@ blogShuffle();
     var search = document.getElementById('search');
     var stackMenu = document.getElementById('stackMenu');
     var whiteOut =  document.getElementById("whiteOut");
-          
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
     if(stackMenu.classList.contains('closedStackMenu')) {
       
       $(stackMenu).slideDown(200);
@@ -797,12 +832,18 @@ blogShuffle();
       $(searchHead).css('border-bottom-right-radius','0px');
       $(search).css('border-bottom-left-radius','0px');
       $(search).css('border-bottom-right-radius','0px');
-      $(stackMenu).css('border-top-left-radius','0px');
-      $(stackMenu).css('border-top-right-radius','0px');
-      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      if (w <= 725) {
+      
+      if (w <= 660) {
         $(whiteOut).fadeIn(200);
-        $(searchHead).animate({opacity: 1}, 30);
+        //$(searchHead).animate({opacity: 1}, 30);
+        searchHead.classList.add('searchheadShow');
+        searchHead.classList.remove('searchheadFade');
+      }
+      else {
+        setTimeout( function(){
+          $(stackMenu).css('border-top-left-radius','4px');
+          $(stackMenu).css('border-top-right-radius','4px');
+        },200);
       }
     }
     else if(stackMenu.classList.contains('openStackMenu')) {
@@ -810,13 +851,20 @@ blogShuffle();
       $(stackMenu).slideUp(200);
       stackMenu.classList.add('closedStackMenu');
       stackMenu.classList.remove('openStackMenu');
+      $(stackMenu).css('border-top-left-radius','0px');
+      $(stackMenu).css('border-top-right-radius','0px');
       setTimeout( function(){
       $(searchHead).css('border-bottom-left-radius','4px');
       $(searchHead).css('border-bottom-right-radius','4px');
       $(search).css('border-bottom-left-radius','4px');
       $(search).css('border-bottom-right-radius','4px');
+      
       },200);
       $(whiteOut).fadeOut(200);
+      if (w <= 660) {
+        searchHead.classList.remove('searchheadShow');
+        searchHead.classList.add('searchheadFade');
+      }
     }
   }
 
@@ -979,13 +1027,14 @@ function bloggerCatFilter(innerHTML) {
       else {
       var element = document.getElementById("blogger");
       var searchWeb = document.getElementById('searchWeb');
-      if (searchWeb.classList.contains('closedSearch')) {
+      /*if (searchWeb.classList.contains('closedSearch')) {
         adjust = 118;
       }
       else if (searchWeb.classList.contains('openSearch')) {
         adjust = 144;
         //adjust = 164;
-      }
+      }*/
+      adjust = 144;
       element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust ) ;
       }
     }
@@ -1034,10 +1083,11 @@ function bloggerCatFilter(innerHTML) {
     function searchFocus() {
       var searchHead = document.getElementById('searchhead');
       var whiteOut =  document.getElementById("whiteOut");
-      $(searchHead).animate({opacity: 1}, 30);
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      if (w <= 725) {
+      if (w <= 660) {
         $(whiteOut).fadeIn(200);
+        searchHead.classList.add('searchheadShow');
+        searchHead.classList.remove('searchheadFade');
       }
     }
     
