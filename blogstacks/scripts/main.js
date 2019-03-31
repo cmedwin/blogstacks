@@ -1,6 +1,6 @@
 // 0. Run Filter on load as relies on change so first change wouldnt register without this onload function
 window.onload = function() {
-
+  
   // extract params from URL
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -799,12 +799,12 @@ blogShuffle();
     if (shareWindow.classList.contains('open')) {
       document.getElementById('shareWeb').click();
     }
-    else if (stackMenu.classList.contains('openStackMenu')) {
+    if (stackMenu.classList.contains('openStackMenu')) {
       document.getElementById('category').click();
       
       //document.getElementById('menuInputMob').click();
     }
-    else if (mainMenuWindow.classList.contains('open')) {
+    if (mainMenuWindow.classList.contains('open')) {
       document.getElementById('mainMenu').click();
     }
     else {
@@ -839,12 +839,7 @@ blogShuffle();
         searchHead.classList.add('searchheadShow');
         searchHead.classList.remove('searchheadFade');
       }
-      else {
-        setTimeout( function(){
-          $(stackMenu).css('border-top-left-radius','4px');
-          $(stackMenu).css('border-top-right-radius','4px');
-        },200);
-      }
+      
     }
     else if(stackMenu.classList.contains('openStackMenu')) {
       //$(searchHead).animate({opacity: 1}, 30);
@@ -1080,16 +1075,19 @@ function bloggerCatFilter(innerHTML) {
     }*/
 
     //search input onfocus/onblur events
-    function searchFocus() {
-      var searchHead = document.getElementById('searchhead');
-      var whiteOut =  document.getElementById("whiteOut");
-      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      if (w <= 660) {
-        $(whiteOut).fadeIn(200);
-        searchHead.classList.add('searchheadShow');
-        searchHead.classList.remove('searchheadFade');
-      }
-    }
+        function searchFocus() {
+          var searchHead = document.getElementById('searchhead');
+          var whiteOut =  document.getElementById("whiteOut");
+          var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+          if (w <= 660) {
+            $(whiteOut).fadeIn(200);
+            searchHead.classList.add('searchheadShow');
+            searchHead.classList.remove('searchheadFade');
+          }
+        }
+
+      // sticky hover fix in iOS
+      (function(l){var i,s={touchend:function(){}};for(i in s)l.addEventListener(i,s)})(document); 
     
     /*function searchBlur() {
       var searchHead = document.getElementById('searchhead');

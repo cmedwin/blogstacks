@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="../styles/style.redirect.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  </head>
+  <body>
+    <div id="title">
+        <img src="../images/bs-logo-blue-turq.png" id="logo" class="logo"/>
+        <p id="logoName">BlogStacks</p>
+    </div>
+    <div id="text">
+        <p>BlogStacks is not supported by Internet Explorer - Please use an alternate modern browser!</p>
+    </div>
+    <div id="images">
+        <img src="../images/ieredirect.png">
+    </div>
+  </body>
+</html>

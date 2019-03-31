@@ -2,9 +2,16 @@
 <html>
   <head>
       <meta charset="utf-8">
+      <!--Redirects when in IE to redirect page-->
+      <script type="text/javascript">
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        if (isIE === true) {
+          window.location = './pages/IE_Redirect';
+        }
+      </script>
+      <!-- prevents links from apps from oppening in mobile safari-->
       <script type="text/javascript">
         (function(document,navigator,standalone) {
-          // prevents links from apps from oppening in mobile safari
           // this javascript must be the first script in your <head>
           if ((standalone in navigator) && navigator[standalone]) {
             var curnode, location=document.location, stop=/^(a|html)$/i;
@@ -80,6 +87,7 @@
                 </div>
 
               <div id="stackMenu" class="closedStackMenu">
+                <div id="stackMenuSpacer">
                   <button type="submit" class="btn Active" id="nav" value="">TopStack</button>
                   <button type="submit" class="btn" id="nav" value="ADVENTURE">Adventure</button>
                   <button type="submit" class="btn" id="nav" value="HEALTH / FITNESS">Health / Fitness</button>
@@ -93,6 +101,7 @@
                   <button type="submit" class="btn" id="nav" value="TECHNOLOGY">Technology</button>
                   <button type="submit" class="btn" id="nav" value="SPORTS">Sports</button>
                   -->
+                </div>
               </div>
           
           </div>
