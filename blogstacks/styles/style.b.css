@@ -349,16 +349,16 @@ body {
               background: var(--ms-dblue);
               opacity: 1;
               width: 45px;
-              height: calc(100% + 16px);
-              margin-top: -16px;
+              padding-top: 24px;
+              margin-top: 0px;
               margin-right: 0px;
               margin-left: 0px;
               cursor: pointer;
             } 
             @media screen and (max-width: 660px) {
               .funcMob {
-                height: calc(100% + 8px);
-                margin-top: -8px;
+                padding-top: 20px;
+                margin-top: 0px;
               }
             }
 
@@ -373,8 +373,7 @@ body {
             }*/
 
             #shareWeb {
-              display: inline;
-              padding-top: 16px;
+              
             }
             #shareWeb:before {
               position: absolute;
@@ -389,7 +388,7 @@ body {
             }
             @media screen and (max-width: 660px) {
               #shareWeb {
-                padding-top: 8px;
+                
               }
               #shareWeb:before {
                 top: 40px;
@@ -398,7 +397,6 @@ body {
 
             #shuffleMob {
               
-              padding-top:16px;
             }
             #shuffleMob:before {
               position: absolute;
@@ -414,7 +412,7 @@ body {
 
             @media screen and (max-width: 660px) {
             #shuffleMob {
-              padding-top: 8px;
+              
             }
             #shuffleMob:before {
               top: 40px;
@@ -438,11 +436,13 @@ body {
 
             #shareIcon {
               height:16px;
+              margin: 0 auto;
             }
             /*shareWindow format below*/
             
             #shuffleIconMob {
               height:16px;
+              margin: 0 auto;
             }
 
             #shuffleRotate {
@@ -804,10 +804,11 @@ body {
 
       #stackMenu button {
         height: 108px;
-        width: 108px;
+        width: calc(33.33333% - 13px);
         margin: 6.5px;
         vertical-align: top;
         border-radius: 4px;
+        float:left;
       }
 
   /* Stack Menu End*/
