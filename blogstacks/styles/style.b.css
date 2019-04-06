@@ -803,13 +803,158 @@ body {
 
 
       #stackMenu button {
-        height: 108px;
+        padding-top: calc(33.33333% - 13px - 13px - 5px);
+        padding-left: 0px;
+        padding-right:0px;
+        padding-bottom: 5px;
         width: calc(33.33333% - 13px);
         margin: 6.5px;
         vertical-align: top;
         border-radius: 4px;
         float:left;
+        color: white;
+        border: 0px;
+        box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+        background-size: cover;
+        background-position: center;
       }
+      
+      #btnAllStacks {
+        background-image: linear-gradient(
+          hsla(0, 0%, 0%,0.0) 0%,
+          hsla(0, 0%, 0%, 0.0) 5%,
+          hsla(0, 0%, 0%, 0.0) 10%,
+          hsla(0, 0%, 0%, 0.0) 15%,
+          hsla(0, 0%, 0%, 0.0) 20%,
+          hsla(0, 0%, 0%, 0.0) 25%,
+          hsla(0, 0%, 0%, 0.0) 30%,
+          hsla(0, 0%, 0%, 0.0) 35%,
+          hsla(0, 0%, 0%, 0.0) 40%,
+          hsla(0, 0%, 0%, 0) 45%,
+          hsla(0, 0%, 0%, 0) 50%,
+          hsla(0, 0%, 0%, 0.01) 55%,
+          hsla(0, 0%, 0%, 0.03) 60%,
+          hsla(0, 0%, 0%, 0.05) 65%,
+          hsla(0, 0%, 0%, 0.1) 70%,
+          hsla(0, 0%, 0%, 0.25) 75%,
+          hsla(0, 0%, 0%, 0.4) 80%,
+          hsla(0, 0%, 0%, 0.55) 85%,
+          hsla(0, 0%, 0%, 0.7) 90%,
+          hsla(0, 0%, 0%, 0.85) 95%,
+          hsla(0, 0%, 0%, 1) 100%
+        ), 
+        url('../images/allstacksbtn.png');
+      }
+
+      #btnAdventure {
+        background-image: linear-gradient(
+          hsla(0, 0%, 0%,0.0) 0%,
+          hsla(0, 0%, 0%, 0.0) 5%,
+          hsla(0, 0%, 0%, 0.0) 10%,
+          hsla(0, 0%, 0%, 0.0) 15%,
+          hsla(0, 0%, 0%, 0.0) 20%,
+          hsla(0, 0%, 0%, 0.0) 25%,
+          hsla(0, 0%, 0%, 0.0) 30%,
+          hsla(0, 0%, 0%, 0.0) 35%,
+          hsla(0, 0%, 0%, 0.0) 40%,
+          hsla(0, 0%, 0%, 0) 45%,
+          hsla(0, 0%, 0%, 0) 50%,
+          hsla(0, 0%, 0%, 0.01) 55%,
+          hsla(0, 0%, 0%, 0.03) 60%,
+          hsla(0, 0%, 0%, 0.05) 65%,
+          hsla(0, 0%, 0%, 0.1) 70%,
+          hsla(0, 0%, 0%, 0.25) 75%,
+          hsla(0, 0%, 0%, 0.4) 80%,
+          hsla(0, 0%, 0%, 0.55) 85%,
+          hsla(0, 0%, 0%, 0.7) 90%,
+          hsla(0, 0%, 0%, 0.85) 95%,
+          hsla(0, 0%, 0%, 1) 100%
+        ), 
+        url('https://www.alastairhumphreys.com/wp-content/uploads/2016/02/grand-adventures-landscape-selfie-475x280.jpg');
+      }
+
+      #btnHealthFitness {
+        background-image: linear-gradient(
+          hsla(0, 0%, 0%,0.0) 0%,
+          hsla(0, 0%, 0%, 0.0) 5%,
+          hsla(0, 0%, 0%, 0.0) 10%,
+          hsla(0, 0%, 0%, 0.0) 15%,
+          hsla(0, 0%, 0%, 0.0) 20%,
+          hsla(0, 0%, 0%, 0.0) 25%,
+          hsla(0, 0%, 0%, 0.0) 30%,
+          hsla(0, 0%, 0%, 0.0) 35%,
+          hsla(0, 0%, 0%, 0.0) 40%,
+          hsla(0, 0%, 0%, 0) 45%,
+          hsla(0, 0%, 0%, 0) 50%,
+          hsla(0, 0%, 0%, 0.01) 55%,
+          hsla(0, 0%, 0%, 0.03) 60%,
+          hsla(0, 0%, 0%, 0.05) 65%,
+          hsla(0, 0%, 0%, 0.1) 70%,
+          hsla(0, 0%, 0%, 0.25) 75%,
+          hsla(0, 0%, 0%, 0.4) 80%,
+          hsla(0, 0%, 0%, 0.55) 85%,
+          hsla(0, 0%, 0%, 0.7) 90%,
+          hsla(0, 0%, 0%, 0.85) 95%,
+          hsla(0, 0%, 0%, 1) 100%
+        ), 
+        url('https://cdn.shopify.com/s/files/1/0010/2832/5442/articles/Screen_Shot_2019-02-09_at_2.36.17_PM.png?v=1549741523');
+      }
+
+      #btnLifestyle {
+        background-image: linear-gradient(
+          hsla(0, 0%, 0%,0.0) 0%,
+          hsla(0, 0%, 0%, 0.0) 5%,
+          hsla(0, 0%, 0%, 0.0) 10%,
+          hsla(0, 0%, 0%, 0.0) 15%,
+          hsla(0, 0%, 0%, 0.0) 20%,
+          hsla(0, 0%, 0%, 0.0) 25%,
+          hsla(0, 0%, 0%, 0.0) 30%,
+          hsla(0, 0%, 0%, 0.0) 35%,
+          hsla(0, 0%, 0%, 0.0) 40%,
+          hsla(0, 0%, 0%, 0) 45%,
+          hsla(0, 0%, 0%, 0) 50%,
+          hsla(0, 0%, 0%, 0.01) 55%,
+          hsla(0, 0%, 0%, 0.03) 60%,
+          hsla(0, 0%, 0%, 0.05) 65%,
+          hsla(0, 0%, 0%, 0.1) 70%,
+          hsla(0, 0%, 0%, 0.25) 75%,
+          hsla(0, 0%, 0%, 0.4) 80%,
+          hsla(0, 0%, 0%, 0.55) 85%,
+          hsla(0, 0%, 0%, 0.7) 90%,
+          hsla(0, 0%, 0%, 0.85) 95%,
+          hsla(0, 0%, 0%, 1) 100%
+        ), 
+        url('https://static1.squarespace.com/static/551954dfe4b0cc9152288892/t/59d2806712abd9b66be9b70a/1506967669670/Sophie+Radcliffe%2C+dealing+with+stress%2C+MAUI%2C+HAWAII');
+      }
+
+      #btnTravel {
+        background-image: linear-gradient(
+          hsla(0, 0%, 0%,0.0) 0%,
+          hsla(0, 0%, 0%, 0.0) 5%,
+          hsla(0, 0%, 0%, 0.0) 10%,
+          hsla(0, 0%, 0%, 0.0) 15%,
+          hsla(0, 0%, 0%, 0.0) 20%,
+          hsla(0, 0%, 0%, 0.0) 25%,
+          hsla(0, 0%, 0%, 0.0) 30%,
+          hsla(0, 0%, 0%, 0.0) 35%,
+          hsla(0, 0%, 0%, 0.0) 40%,
+          hsla(0, 0%, 0%, 0) 45%,
+          hsla(0, 0%, 0%, 0) 50%,
+          hsla(0, 0%, 0%, 0.01) 55%,
+          hsla(0, 0%, 0%, 0.03) 60%,
+          hsla(0, 0%, 0%, 0.05) 65%,
+          hsla(0, 0%, 0%, 0.1) 70%,
+          hsla(0, 0%, 0%, 0.25) 75%,
+          hsla(0, 0%, 0%, 0.4) 80%,
+          hsla(0, 0%, 0%, 0.55) 85%,
+          hsla(0, 0%, 0%, 0.7) 90%,
+          hsla(0, 0%, 0%, 0.85) 95%,
+          hsla(0, 0%, 0%, 1) 100%
+        ), 
+        url('https://static1.squarespace.com/static/57782a77b8a79b6f019a32cf/578109aad2b857a8dd8e5d78/579f90651b631ba2317466f4/1504098674693/Trade+03+Web+Res.jpg?format=500w');
+      }
+
+      
 
   /* Stack Menu End*/
   
