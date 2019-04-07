@@ -244,6 +244,15 @@ window.onload = function() {
     lazyLoadBlog();
     };
 
+
+
+    setTimeout(function() {
+      var stackMenuRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
+      if((URLgroup == "" || URLgroup == 0 || URLgroup == 'null') && (!(scrollCheck > 565)) && (new Date().getTime() - localStorage.getItem("stackMenuTime")) > stackMenuRefresh) {
+      document.getElementById('category').click();
+      localStorage.setItem('stackMenuTime', new Date().getTime());
+      }
+    },100)
   
   // Change logo to pre-rescaled 33px height version when using windows
   var mainlogo = document.getElementById("logo");
@@ -459,6 +468,8 @@ window.onload = function() {
             $(whiteOut).css('z-index', '1900');
             mainMenuWindow.classList.add('open');
             mainMenuWindow.classList.remove('closed');
+            document.getElementById('blogger').className = 'noscroll';
+            document.getElementById('blog').className = 'noscroll';
           }
           else {
             $(mainMenuWindow).fadeOut(100);
@@ -466,6 +477,8 @@ window.onload = function() {
             $(whiteOut).css('z-index', '900');
             mainMenuWindow.classList.add('closed');
             mainMenuWindow.classList.remove('open');
+            document.getElementById('blogger').className = 'scroll';
+            document.getElementById('blog').className = 'scroll';
             }
         }
         
@@ -832,8 +845,11 @@ blogShuffle();
       $(searchHead).css('border-bottom-right-radius','0px');
       $(search).css('border-bottom-left-radius','0px');
       $(search).css('border-bottom-right-radius','0px');
-      
-      if (w <= 660) {
+      document.getElementById('blogger').className = 'noscroll';
+      document.getElementById('blog').className = 'noscroll';
+
+
+      if (w <= 6600) {
         $(whiteOut).fadeIn(200);
         //$(searchHead).animate({opacity: 1}, 30);
         searchHead.classList.add('searchheadShow');
@@ -855,8 +871,10 @@ blogShuffle();
       $(search).css('border-bottom-right-radius','4px');
       
       },200);
+      document.getElementById('blogger').className = 'scroll';
+      document.getElementById('blog').className = 'scroll';
       $(whiteOut).fadeOut(200);
-      if (w <= 660) {
+      if (w <= 6600) {
         searchHead.classList.remove('searchheadShow');
         searchHead.classList.add('searchheadFade');
       }
@@ -932,6 +950,8 @@ function bloggerCatFilter(innerHTML) {
           $(shareWindow).fadeIn(100);
           $(whiteOut).fadeIn(150);
           $(whiteOut).css('z-index', '1900');
+          document.getElementById('blogger').className = 'noscroll';
+          document.getElementById('blog').className = 'noscroll';
           shareWindow.classList.add('open');
           shareWindow.classList.remove('closed');
           $('#shareLinkAdd').html(window.location.href);
@@ -946,6 +966,8 @@ function bloggerCatFilter(innerHTML) {
           $(shareWindow).fadeOut(100);
           $(whiteOut).fadeOut(100);
           $(whiteOut).css('z-index', '900');
+          document.getElementById('blogger').className = 'scroll';
+          document.getElementById('blog').className = 'scroll';
           shareWindow.classList.add('closed');
           shareWindow.classList.remove('open');
           //reset link copied notification
