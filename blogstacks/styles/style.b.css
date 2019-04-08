@@ -822,12 +822,14 @@ body {
       }
       @media screen and (min-width: 661px) and (max-width: 700px) {
         #stackMenu button {
-          font-size: 9px;
+          width: calc(50% - 13px);
+          padding-top: calc(50% - 13px - 13px - 5px);
         }
       }
       @media screen and (max-width: 330px) {
         #stackMenu button {
-          font-size: 9px;
+          width: calc(50% - 13px);
+          padding-top: calc(50% - 13px - 13px - 5px);
         }
       }
 
@@ -856,7 +858,7 @@ body {
           hsla(0, 0%, 0%, 0.85) 95%,
           hsla(0, 0%, 0%, 1) 100%
         ), 
-        url('../images/allstacksbtn.png');
+        url('../images/allstacksbtn1.png');
       }
 
       #btnAdventure {
@@ -1262,13 +1264,13 @@ body {
       }
   /* end section */
 
-  /* Adjust stack header spacer as screen size reduces - Phone Devices */
+  /* Adjust stack header spacer as screen size reduces - Phone Devices 
   @media screen and (max-width: 724px) {
     #blogger {
       top: 56px;
       height: calc(100% - 56px + 9px);
       }
-    }
+    }*/
 
   #blogger thead {
     direction: ltr;
@@ -1368,13 +1370,13 @@ body {
     -webkit-transition: translateZ(0);*/
   }
 
-  /* Adjust stack header spacer as screen size reduces - Phone Devices */
+  /* Adjust stack header spacer as screen size reduces - Phone Devices 
       @media screen and (max-width: 724px) {
       #blog {
         top: 56px;
         height: calc(100% - 56px + 9px);
         }
-      }
+      }*/
   /* end section */
 
   /*handles full blogstack location through screen size chnges*/

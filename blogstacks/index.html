@@ -2,39 +2,48 @@
 <html>
   <head>
       <meta charset="utf-8">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137882888-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-137882888-1');
+        </script>
       <!--Redirects when in IE to redirect page-->
-      <script type="text/javascript">
-        var isIE = /*@cc_on!@*/false || !!document.documentMode;
-        if (isIE === true) {
-          window.location = './pages/IE_Redirect';
-        }
-      </script>
-      <!-- prevents links from apps from oppening in mobile safari-->
-      <script type="text/javascript">
-        (function(document,navigator,standalone) {
-          // this javascript must be the first script in your <head>
-          if ((standalone in navigator) && navigator[standalone]) {
-            var curnode, location=document.location, stop=/^(a|html)$/i;
-            document.addEventListener('click', function(e) {
-              curnode=e.target;
-              while (!(stop).test(curnode.nodeName)) {
-                curnode=curnode.parentNode;
-              }
-              // Condidions to do this only on links to your own app
-              // if you want all links, use if('href' in curnode) instead.
-              if(
-                'href' in curnode && // is a link
-					      (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
-				      	(	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
-				    		chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
-	          	) {
-                e.preventDefault();
-                location.href = curnode.href;
-              }
-            },false);
+        <script type="text/javascript">
+          var isIE = /*@cc_on!@*/false || !!document.documentMode;
+          if (isIE === true) {
+            window.location = './pages/IE_Redirect';
           }
-        })(document,window.navigator,'standalone');
-      </script>
+        </script>
+      <!-- prevents links from apps from oppening in mobile safari-->
+        <script type="text/javascript">
+          (function(document,navigator,standalone) {
+            // this javascript must be the first script in your <head>
+            if ((standalone in navigator) && navigator[standalone]) {
+              var curnode, location=document.location, stop=/^(a|html)$/i;
+              document.addEventListener('click', function(e) {
+                curnode=e.target;
+                while (!(stop).test(curnode.nodeName)) {
+                  curnode=curnode.parentNode;
+                }
+                // Condidions to do this only on links to your own app
+                // if you want all links, use if('href' in curnode) instead.
+                if(
+                  'href' in curnode && // is a link
+                  (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+                  (	!(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+                  chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+                ) {
+                  e.preventDefault();
+                  location.href = curnode.href;
+                }
+              },false);
+            }
+          })(document,window.navigator,'standalone');
+        </script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>BlogStacks</title>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
@@ -88,7 +97,7 @@
 
               <div id="stackMenu" class="closedStackMenu">
                 <div id="stackMenuSpacer">
-                  <button type="submit" class="btn Active" id="btnAllStacks" value="">AllStacks</button>
+                  <button type="submit" class="btn Active" id="btnAllStacks" value="">All Stacks</button>
                   <button type="submit" class="btn" id="btnAdventure" value="ADVENTURE">Adventure</button>
                   <button type="submit" class="btn" id="btnHealthFitness" value="HEALTH / FITNESS">Health / Fitness</button>
                   <button type="submit" class="btn" id="btnLifestyle" value="LIFESTYLE">Lifestyle</button>

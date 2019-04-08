@@ -252,7 +252,7 @@ window.onload = function() {
       document.getElementById('category').click();
       localStorage.setItem('stackMenuTime', new Date().getTime());
       }
-    },100)
+    },150)
   
   // Change logo to pre-rescaled 33px height version when using windows
   var mainlogo = document.getElementById("logo");
@@ -1044,15 +1044,18 @@ function bloggerCatFilter(innerHTML) {
       else {
       var element = document.getElementById("blogger");
       var searchWeb = document.getElementById('searchWeb');
-      /*if (searchWeb.classList.contains('closedSearch')) {
-        adjust = 118;
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      if (w <= 660) {
+        var adjust = 152;
       }
-      else if (searchWeb.classList.contains('openSearch')) {
-        adjust = 144;
-        //adjust = 164;
-      }*/
-      adjust = 144;
-      element.scroll(0,findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust ) ;
+      else {
+        var adjust = 98;
+      }
+      var location = findPos(document.getElementsByClassName("bloggerShow")[0]) - adjust;
+      //element.scroll(0, location) ;
+      $('#blogger').animate({
+        scrollTop: location
+      },500)
       }
     }
 
