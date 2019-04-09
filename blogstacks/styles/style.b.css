@@ -1264,13 +1264,13 @@ body {
       }
   /* end section */
 
-  /* Adjust stack header spacer as screen size reduces - Phone Devices 
-  @media screen and (max-width: 724px) {
+  /* Adjust stack header spacer as screen size reduces - Phone Devices*/
+  @media screen and (max-width: 660px) {
     #blogger {
       top: 56px;
       height: calc(100% - 56px + 9px);
       }
-    }*/
+    }
 
   #blogger thead {
     direction: ltr;
@@ -1370,13 +1370,13 @@ body {
     -webkit-transition: translateZ(0);*/
   }
 
-  /* Adjust stack header spacer as screen size reduces - Phone Devices 
-      @media screen and (max-width: 724px) {
+  /* Adjust stack header spacer as screen size reduces - Phone Devices*/
+      @media screen and (max-width: 660px) {
       #blog {
         top: 56px;
         height: calc(100% - 56px + 9px);
         }
-      }*/
+      }
   /* end section */
 
   /*handles full blogstack location through screen size chnges*/

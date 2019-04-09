@@ -52,7 +52,8 @@ window.onload = function() {
           var scrollCheck = parseInt(bloggerScroll) + parseInt(blogScroll);
           console.log("scrollcheck:" + scrollCheck);
           var bloggerRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
-          if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){
+          //if ((URLgroup != "" && URLgroup != 0 && URLgroup != "null") || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){
+          if (scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("bloggerStackTime")) > bloggerRefresh ){      
                 console.log("time: " + (new Date().getTime() - localStorage.getItem("bloggerStackTime")));
                 $( bloggerHead ).load("stacks/bloggerc.html", function(){
                   configBlogger(true);
@@ -153,7 +154,8 @@ window.onload = function() {
             var blogHead = document.getElementById("blog");
             //load new stack as time limit expired
             var blogRefresh = 60*60*1000; //time in ms before a refresh reloads new stack
-            if ((URLgroup != "" && URLgroup != 0) || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
+            //if ((URLgroup != "" && URLgroup != 0 && URLgroup != "null") || scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
+            if (scrollCheck < 565 || (new Date().getTime() - localStorage.getItem("blogStackTime")) > blogRefresh ){
               $( blogHead ).load("stacks/blogc.html", function(){
                 configBlog(true);
               });
