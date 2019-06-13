@@ -327,7 +327,8 @@ window.onload = function() {
         function searchTableC(table, input) {
           //alert("Cat");
           if (input.value === "" || input.value === "null"){
-            setQueryStringParameter("cat", "");
+            deleteQueryStringParameter("cat");
+            //setQueryStringParameter("cat", "");
             setCookie("cat", "", 1);
           }
           else {
@@ -367,7 +368,8 @@ window.onload = function() {
             });
           }
           bloggerArray = "";
-          setQueryStringParameter("blogger", "");
+          deleteQueryStringParameter("blogger");
+          //setQueryStringParameter("blogger", "");
           setCookie("blogger", "", 1);
           //$("#shuffleMob").click();
           $('#blog').scrollTop(0);
@@ -390,7 +392,12 @@ window.onload = function() {
 
         // un-fade any matching bloggers/blogs in this loop
         function searchTableB(table, input) {
-          setQueryStringParameter("blogger", input);
+          if (input === "" || input === "null" || input === "undefined"){
+            deleteQueryStringParameter("blogger");
+          }
+          else {
+            setQueryStringParameter("blogger", input);
+          }
           setCookie("blogger", input, 1);
             var filter = input.toUpperCase(),
               rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
@@ -410,7 +417,12 @@ window.onload = function() {
 
 // 2.3.a. Search - search box input - bind tables and input for blog stack
       function searchTableI(table, input) {
+        if (input.value === "" || input.value === "null"){
+          deleteQueryStringParameter("search");
+        }
+        else {
           setQueryStringParameter("search", input.value);
+        }
           setCookie("search", input.value, 1);
           var filter = input.value.toUpperCase(),
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr.catShow'));
@@ -614,6 +626,12 @@ window.addEventListener('resize', function(){
 // 6a. search input mag icon / cross icon behaviour
 
 function Search() {
+
+  if (stackMenu.classList.contains('openStackMenu')) {
+    document.getElementById('category').click();
+    
+    //document.getElementById('menuInputMob').click();
+  }
     if (document.getElementById("searchIcon").getAttribute('class') === 'searchClose') {
         var mag = document.getElementById("mag");
         var searchClose = document.getElementById("searchClose");
@@ -1131,6 +1149,12 @@ function bloggerCatFilter(innerHTML) {
       const params = new URLSearchParams(location.search);
       var adjValue = value.replace(/ /g,"_");
       params.set(name, adjValue);
+      window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${params}`));
+    }
+
+    function deleteQueryStringParameter(name) {
+      const params = new URLSearchParams(location.search);
+      params.delete(name);
       window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${params}`));
     }
     
