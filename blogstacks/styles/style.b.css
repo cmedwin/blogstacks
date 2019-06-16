@@ -64,7 +64,7 @@ body {
           #headerSpacer {
             width: 100%;
             position: fixed;
-            background-color: var(--bs-mblue);
+            background-color: white;
             z-index: 1100;
             /* Status bar height on iOS 10 */
             padding-top: 20px;
@@ -101,6 +101,7 @@ body {
           @media screen and (max-width: 660px) {
             .header {
               width: calc(100% - 8px);
+              height: 88px;
               padding-left: 4px;
               padding-right: 4px;
               padding-bottom: 4px;
@@ -334,7 +335,7 @@ body {
               right: 0px;
               height: calc(100% + 16px);
               margin-top: -16px;
-              z-index: 2200;
+              z-index: 200;
               vertical-align: middle;
               overflow-y: hidden;
             }
@@ -378,9 +379,8 @@ body {
               }
             }*/
 
-            #shareWeb {
-              
-            }
+            @media screen and (min-width: 660px) {
+
             #shareWeb:before {
               position: absolute;
               top: 42px;
@@ -392,18 +392,8 @@ body {
               transform: skewY(-75deg);
               transform-origin: 0 0;
             }
-            @media screen and (max-width: 660px) {
-              #shareWeb {
-                
-              }
-              #shareWeb:before {
-                top: 40px;
-              }
-            }
 
-            #shuffleMob {
-              
-            }
+            
             #shuffleMob:before {
               position: absolute;
               top: 42px;
@@ -414,14 +404,6 @@ body {
               background: linear-gradient(to left, rgba(180, 180, 180, 1.0), transparent);
               transform: skewY(-75deg);
               transform-origin: 0 0;
-            }
-
-            @media screen and (max-width: 660px) {
-            #shuffleMob {
-              
-            }
-            #shuffleMob:before {
-              top: 40px;
             }
             
           }
@@ -509,14 +491,14 @@ body {
 
             @media screen and (max-width: 660px) {
               #searchhead {
-                top: 61px;
+                top: 48px;
                 padding-left: 0%;
                 padding-right: 0%;
                 margin: 0 auto;
-                width: 97%;
+                width: 98%;
                 max-width: 635px;
                 display: block;
-                box-shadow: 0 1px 6px rgba(32,33,36,0.8);
+                /*box-shadow: 0 1px 6px rgba(32,33,36,0.8);*/
                 /*opacity: 0.6;*/
               }
 
@@ -537,7 +519,7 @@ body {
               }
 
               .searchheadFade {
-                opacity: 0.6;
+                opacity: 1;
                 transition: opacity 2s;
               }
 
@@ -569,7 +551,7 @@ body {
               top: 0px;
               margin: auto;
               width: 100%; /* Full-width */
-              height: 44px;
+              height: 36px;
               float: none; 
             }
             }
@@ -602,6 +584,12 @@ body {
             #category::after {
               margin-left: 1px;
               content: "\25BE"
+            }
+
+            @media screen and (max-width: 660px) {
+              #category{
+                height: 26px;
+              }
             }
 
             
@@ -688,7 +676,7 @@ body {
 
             @media screen and (max-width: 660px) {
               .mag {
-                padding-top: 6.5px;
+                padding-top: 2.5px;
                 padding-left: 0px;
                 margin-left: -5px;
               }
@@ -702,7 +690,7 @@ body {
             @media screen and (max-width: 660px) {
               #searchClose {
                 margin-left: 3px;
-                margin-top: 18.5px;
+                margin-top: 14.5px;
               }
             }
 
@@ -1276,7 +1264,7 @@ body {
   /* Adjust stack header spacer as screen size reduces - Phone Devices*/
   @media screen and (max-width: 660px) {
     #blogger {
-      top: 56px;
+      top: 46px;
       height: calc(100% - 56px + 9px);
       }
     }
@@ -1382,7 +1370,7 @@ body {
   /* Adjust stack header spacer as screen size reduces - Phone Devices*/
       @media screen and (max-width: 660px) {
       #blog {
-        top: 56px;
+        top: 46px;
         height: calc(100% - 56px + 9px);
         }
       }
