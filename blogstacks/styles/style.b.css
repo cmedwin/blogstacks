@@ -563,7 +563,7 @@ body {
               width:auto;
               vertical-align: middle;
               font-family: 'Abel', arial, helvetica, sans-serif;
-              font-size: 13px;
+              font-size: 14px;
               font-weight: 100;
               color: var(--bs-turq);
               text-transform: capitalize;
@@ -1880,7 +1880,7 @@ body {
     padding-top: 0px;
     padding-bottom: 0px;
     font-size: 9px;
-    font-weight: 500;
+    font-weight: bold;
     overflow: hidden;
     color: var(--bs-turq);
     white-space: nowrap;
