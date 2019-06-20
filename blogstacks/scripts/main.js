@@ -1186,7 +1186,7 @@ function bloggerCatFilter(innerHTML) {
 
 //17. Show/hide description in blogger tile when clicked
     function bloggerDescriptionShow(innerHTML) {
-      var openBlogger = innerHTML;
+      /*var openBlogger = innerHTML;
       //var headings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='imageR']/div/div/ul/li[@class='description'] ", document, null, XPathResult.ANY_TYPE, null );
       var headings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='imageR lazy-image']/div/p[@class='desc_r']='" + openBlogger + "']/td/div[@class='description']", document, null, XPathResult.ANY_TYPE, null );
       var thisHeading = headings.iterateNext();
@@ -1220,11 +1220,11 @@ function bloggerCatFilter(innerHTML) {
         oldHeading.classList.remove('openBlogger');
         $(oldImageHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
         $(oldTitleHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
-      }
+      }*/
     }
 
     function bloggerDescriptionHide() {
-      var oldHeadings = document.evaluate("//table[@id='blogger']/tbody/tr/td/div[@class='description openBlogger']", document, null, XPathResult.ANY_TYPE, null );
+      /*var oldHeadings = document.evaluate("//table[@id='blogger']/tbody/tr/td/div[@class='description openBlogger']", document, null, XPathResult.ANY_TYPE, null );
       var oldHeading = oldHeadings.iterateNext();
       var oldImageHeadings = document.evaluate("//table[@id='blogger']/tbody/tr[td/div[@class='description openBlogger']]/td/div[@class='imageR lazy-image']", document, null, XPathResult.ANY_TYPE, null );
       var oldImageHeading = oldImageHeadings.iterateNext();
@@ -1237,7 +1237,7 @@ function bloggerCatFilter(innerHTML) {
       oldHeading.classList.remove('openBlogger');
       $(oldImageHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
       $(oldTitleHeading).animate({"border-bottom-left-radius":"4px","border-bottom-right-radius":"4px"},300);
-      }
+      }*/
     }
     
 //18. Set/get coookies
