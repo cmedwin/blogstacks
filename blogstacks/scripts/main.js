@@ -582,14 +582,14 @@ window.onload = function() {
 
 window.addEventListener('resize', function(){
   var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    if (w <= 580) {
+    /*if (w <= 580) {
       document.getElementById('blogger').style.marginLeft ='1%';
       document.getElementById('blog').style.marginLeft ='1%';
     }
     else {
       document.getElementById('blogger').style.marginLeft ='11px';
       document.getElementById('blog').style.marginLeft ='11px';
-    }
+    }*/
 
     if (stackMenu.classList.contains('openStackMenu')) {
         document.getElementById('category').click();
