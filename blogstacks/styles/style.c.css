@@ -41,7 +41,8 @@ body {
     padding: 0;
     overflow-x: hidden;
     overflow-y: visible;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: auto;
     overscroll-behavior-y: contain;
     
   }
@@ -813,7 +814,7 @@ body {
         box-shadow: 0 1px 6px rgba(32,33,36,0.28);
         background-size: cover;
         background-position: center;
-        font-size: 11px;
+        font-size: 14px;
         font-family: 'Abel', arial, helvetica, sans-serif;
         cursor: pointer;
       }
@@ -1151,10 +1152,10 @@ body {
   p.stackType {
     /*width: 100%;*/
     /*position: relative;*/
-    display: none;
+    display: block;
     height: 25px;
     margin: 0px;
-    margin-top: 4px;
+    margin-top: 0px;
     margin-bottom: 5px;
     font-size: 1.65em;
     font-family: 'Abel';
@@ -1190,14 +1191,16 @@ body {
     /*direction: rtl;*/
     top: 64px;
     white-space: nowrap;
-    height: calc(125px + 10px);
+    height: auto;
     /*left: 50%;*/
     position: relative;
     will-change: transform;
     /*width: 180px;
     max-width: 180px;*/
     width: 100%;
-    max-width: calc(894px - 32px);
+    max-width: calc(100vw);
+    margin-top: 15px;
+    margin-bottom: 15px;
     /*margin-right: 16px;
     margin-left: 16px;*/
     /*margin-top: 9px;*/
@@ -1208,7 +1211,7 @@ body {
     font-family: 'Abel', arial, helvetica, sans-serif;
     font-size: 12px;
     font-weight: 100;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
     border-collapse: collapse;
     /*text-transform: capitalize;*/
     /*overflow-x: scroll;*/
@@ -1274,19 +1277,22 @@ body {
 
   #blogger thead {
     direction: ltr;
-    height: 15px;
-    width: 100%;
-    font-size: 5px;
+    
+    display: inline-block;
+    line-height:15px;
+    height: 115px;
     max-width: 894px;
     /*max-width: calc(180px - 10px);*/
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: -33px;
+    margin-right: -57px;
     overflow: hidden;
+    vertical-align: top;
   }
 
   #blogger tbody {
     direction:ltr;
-    height: 125px;
+    height: auto;
+    display: inline-block;
     width: 100%;
     max-width: 894px;
     /*max-width: calc(180px - 10px);*/
@@ -1294,6 +1300,12 @@ body {
     margin-left: 5px;
     margin-right: 5px;
     
+  }
+
+  #blogger thead tr {
+    display: block;
+    transform: rotate(270deg);
+
   }
 
   #blogger tfoot {
@@ -1342,8 +1354,9 @@ body {
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 64px;
-    height: calc(100% - 64px + 9px);
+    top: 57px;
+    /*height: calc(100% - 64px + 9px);*/
+    height: auto;
     /*left: 50%;*/
     position: relative;
     will-change: transform;
@@ -1361,8 +1374,8 @@ body {
     /*letter-spacing: 1px;*/
     border-collapse: collapse;
     /*text-transform: capitalize;*/
-    /*overflow-y: scroll;*/
-    overflow-x: hidden;
+    /*overflow-y: scroll;
+    overflow-x: hidden;*/
     display: block;
     opacity: 0;
     -webkit-overflow-scrolling: touch;
@@ -1374,19 +1387,19 @@ body {
     /* Status bar height on iOS 11+ */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
+    margin: 0 auto;
     /*transition: margin-left 0.5s;*/
     /*transition: margin 0.5s;
     -webkit-transition: margin .5s;
     -webkit-transition: translate3d(0, 0, 0) !important;
     -webkit-timing-function: cubic-bezier(0.42, 0, 0.58, 1.0);
     -webkit-transition: translateZ(0);*/
-    box-shadow:0 -4px 5px 0 rgba(0,0,0,0.14), 0 -1px 10px 0 rgba(0,0,0,0.12), 0 -2px 4px -1px rgba(0,0,0,0.2);
   }
 
   /* Adjust stack header spacer as screen size reduces - Phone Devices*/
       @media screen and (max-width: 660px) {
       #blog {
-        top: 105px;
+        top: 90px;
         height: calc(100% - 231px - 9px);
         }
       }
@@ -1440,7 +1453,6 @@ body {
   }
 
   .tile {
-    
     border-radius: 4px;
     box-shadow: 0 1px 6px rgba(32,33,36,0.28);
   }
@@ -1448,34 +1460,34 @@ body {
 
   #blog tbody {
     display: block;
-    width: calc(100% - 4px);
-    max-width: calc(calc(894px) - 4px + 18px);
+    width: calc(100%);
+    max-width: calc(calc(894px) + 18px);
     /*margin:0 auto;*/
-    margin-left: -4px;
+    margin-left: 0px;
     margin-right: 0px;
   }
   
   #blog tr {
     /*display:block;*/
-    width: calc(33.3333% - 16px);
+    width: calc(33.3333% - 22px);
     float:left;
     margin-left: 16px;
     margin-right: 0px;
   }
 
   #blog tr:first-child{
-    /*display:block;*/
+    /*display:block;
     width: calc(66.6666% - 16px);
     margin-left: 16px;
-    margin-right: 0px;
+    margin-right: 0px;*/
   }
 
   #blog tr:first-child .spacer {
-    height: 0px;
+    /*height: 0px;*/
   }
 
   #blog tr:first-child .imageG {
-    padding-bottom: calc(100% - 80px + 0px);
+    /*padding-bottom: calc(100% - 80px + 0px);*/
   }
 
   #blog tr:nth-last-child(1) .spacer {
@@ -1487,12 +1499,12 @@ body {
   }
 
   #blog tr:first-child .favicon {
-    height: 43.375px;
-    width: 43.375px;
+    /*height: 43.375px;
+    width: 43.375px;*/
   }
 
   #blog tr:first-child .titleg {
-    width: calc(100% - 43.375px - 10px);
+    /*width: calc(100% - 43.375px - 10px);*/
   }
 
 /* Config for number of columns in blog stack */ 
@@ -1505,8 +1517,8 @@ body {
           #blog tbody {
             width: calc(100% - 10px);
             /*margin:0 auto;*/
-            margin-left: 3px;
-            margin-right: 7px;
+            margin-left: 5px;
+            margin-right: 5px;
           }
           
           #blog tr {
@@ -1517,22 +1529,22 @@ body {
           }
 
           #blog tr:first-child {
-            width: calc(100% - 20px);
+            /*width: calc(100% - 20px);
             margin-left: 10px;
-            margin-right: 10px;
+            margin-right: 10px;*/
           }
 
           #blog tr:first-child .spacer {
-            height: 16px;
+            /*height: 16px;*/
           }
 
           #blog tr:first-child .favicon {
-            height: 25px;
-            width: 25px;
+            /*height: 25px;
+            width: 25px;*/
           }
         
           #blog tr:first-child .titleg {
-            width: calc(100% - 25px - 10px);
+            /*width: calc(100% - 25px - 10px);*/
           }
 
           
@@ -1547,30 +1559,30 @@ body {
             }
             
             #blog tr {
-              width: calc(50% - 16px);
+              width: calc(50% - 23px);
             }
 
             #blog tr:first-child {
-              width: calc(100% - 16px);
+              /*width: calc(100% - 16px);*/
             }
 
             #blog tr:first-child .spacer {
-              height: 16px;
+              /*height: 16px;*/
             }
 
             /* 2 columns for first tile when screen height is small i.e. landscape phone */
             @media screen and (max-height: 560px) {
               #blog tr:first-child {
-                width: calc(50% - 16px);
+                /*width: calc(50% - 16px);*/
               }
 
               #blog tr:first-child .imageG {
-                padding-bottom: calc(100% - 80px);
+                /*padding-bottom: calc(100% - 80px);*/
               }
 
               #blog tr:first-child .favicon {
-                height: 25px;
-                width: 25px;
+                /*height: 25px;
+                width: 25px;*/
               }
             }
         }
@@ -1613,7 +1625,7 @@ body {
     }
     #startSpacerG {
       display: block;
-      height: 15px;
+      height: 0px;
       background: transparent;
     }
 }
@@ -1832,7 +1844,8 @@ body {
     display: block;
     position: relative;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: bold;
+    letter-spacing: 0.5px;
     overflow: hidden;
     color: var(--bs-turq);
     
@@ -1895,6 +1908,7 @@ body {
     padding-right: 6px; 
     padding-top: 0px;
     padding-bottom: 0px;
+    letter-spacing: 0.5px;
     font-size: 9px;
     font-weight: bold;
     overflow: hidden;

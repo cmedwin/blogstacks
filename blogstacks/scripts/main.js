@@ -1283,7 +1283,7 @@ var blogger = document.getElementById('blogger');
 function lazyLoadBlog() {
   
   //console.log(blogDivs);
-  var blog = document.getElementById('blog');
+  var blog = document.getElementById('body');
   blogDivs.forEach(div => {
     if (div.offsetTop < window.innerHeight + blog.scrollTop + inAdvance) {
       //console.log(div.offsetTop + '<' + window.innerHeight + '+' + blogger.scrollTop + '+' + inAdvance);
