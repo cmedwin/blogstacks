@@ -1293,7 +1293,7 @@ body {
     direction:ltr;
     height: auto;
     display: inline-block;
-    width: 100%;
+    width: calc(100% - 45px);
     max-width: 894px;
     /*max-width: calc(180px - 10px);*/
     /*margin:0 auto;*/
@@ -1324,8 +1324,7 @@ body {
   }
 
   #blogger tr.bloggerFade {
-    display: inline-block;
-    opacity: 0.3;
+    display: none;
   }
 
   #blog tr.bloggerFade {

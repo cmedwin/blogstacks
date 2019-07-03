@@ -305,13 +305,23 @@ window.onload = function() {
             //document.querySelector('#nav1'),
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
-            searchTableC(table2, input);
-            searchTableC(table, input);
-        console.log('al1');
+            
+            $(table2).animate({'left' : '-100vw'},200);
+            $(table2).animate({'left' : '100vw'},1);
+            $(table).animate({'left' : '-100vw'},200);
+            $(table).animate({'left' : '100vw'},1);
+            
+            setTimeout(function(){searchTableC(table2, input);},200);
+            setTimeout(function(){searchTableC(table, input);},200);
+            
+            $(table2).animate({'left' : '0vw'},200);
+            $(table).animate({'left' : '0vw'},200);
         
         $('#blogger').scrollTop(0);
         $('#blog').scrollTop(0);
-        console.log('al2');
+
+        
+        
         //lazy-loading
         blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
           lazyLoadBlog();
@@ -339,6 +349,8 @@ window.onload = function() {
             rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
           rows.forEach(function(row) {
             var hide = (row.innerHTML.toUpperCase().indexOf(filter) === -1);
+            
+            
             if (hide) {
               row.classList.add('gone'); 
               row.classList.remove('catShow');
@@ -356,10 +368,22 @@ window.onload = function() {
         
         //show all tiles on catgory change
         function bloggerShowHead() {
+          
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
-          bloggerShow(table);
-          bloggerShow(table2);
+
+            $(table2).animate({'left' : '-100vw'},200);
+            $(table2).animate({'left' : '100vw'},1);
+            $(table).animate({'left' : '-100vw'},200);
+            $(table).animate({'left' : '100vw'},1);
+            
+            setTimeout(function(){bloggerShow(table2);},200);
+            setTimeout(function(){bloggerShow(table);},200);
+            
+            $(table2).animate({'left' : '0vw'},200);
+            $(table).animate({'left' : '0vw'},200);
+
+
           function bloggerShow(table) {
             var rows = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
             rows.forEach(function(row) {
@@ -921,7 +945,7 @@ function bloggerCatFilter(innerHTML) {
       if (bloggerArray === innerHTML) {
         
         bloggerShowHead();
-        bloggerDescriptionHide();
+        //bloggerDescriptionHide();
       }
       else {
         bloggerArray = innerHTML;
@@ -931,13 +955,26 @@ function bloggerCatFilter(innerHTML) {
         bloggerClear(table);
         bloggerClear(table2);
         
+        
         //filter by variable for any matching bloggers/blogs
           var input = bloggerArray,
                   table = document.querySelector('#blogger');
                   table2 = document.querySelector('#blog');
-                  searchTableB(table2, input);
-                  searchTableB(table, input);
-        bloggerDescriptionShow(innerHTML);
+                  
+                  $(table2).animate({'left' : '-100vw'},200);
+                  $(table2).animate({'left' : '100vw'},1);
+                  $(table).animate({'left' : '-100vw'},200);
+                  $(table).animate({'left' : '100vw'},1);
+
+                  setTimeout(function(){searchTableB(table2, input);},200);
+                  setTimeout(function(){searchTableB(table, input);},200);
+            
+                  $(table2).animate({'left' : '0vw'},200);
+                  $(table).animate({'left' : '0vw'},200);
+
+
+
+        //bloggerDescriptionShow(innerHTML);
         //lazy-loading
         blogDivs = [...document.getElementById("blog").querySelectorAll('.lazy-image')];
           lazyLoadBlog();
