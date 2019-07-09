@@ -306,16 +306,16 @@ window.onload = function() {
             table = document.querySelector('#blogger');
             table2 = document.querySelector('#blog');
             
-            $(table2).animate({'left' : '-100vw'},200);
-            $(table2).animate({'left' : '100vw'},1);
-            $(table).animate({'left' : '-100vw'},200);
-            $(table).animate({'left' : '100vw'},1);
+            //$(table2).animate({'left' : '-100vw'},200);
+            //$(table2).animate({'left' : '100vw'},1);
+            //$(table).animate({'left' : '-100vw'},200);
+            //$(table).animate({'left' : '100vw'},1);
             
             setTimeout(function(){searchTableC(table2, input);},200);
             setTimeout(function(){searchTableC(table, input);},200);
             
-            $(table2).animate({'left' : '0vw'},200);
-            $(table).animate({'left' : '0vw'},200);
+            //$(table2).animate({'left' : '0vw'},200);
+            //$(table).animate({'left' : '0vw'},200);
         
         $('#blogger').scrollTop(0);
         $('#blog').scrollTop(0);
@@ -372,16 +372,16 @@ window.onload = function() {
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
 
-            $(table2).animate({'left' : '-100vw'},200);
-            $(table2).animate({'left' : '100vw'},1);
-            $(table).animate({'left' : '-100vw'},200);
-            $(table).animate({'left' : '100vw'},1);
+            $(table2).animate({'left' : '100vw'},100);
+            $(table2).animate({'left' : '-100vw'},1);
+            $(table).animate({'left' : '100vw'},100);
+            $(table).animate({'left' : '-100vw'},1);
             
-            setTimeout(function(){bloggerShow(table2);},200);
-            setTimeout(function(){bloggerShow(table);},200);
+            setTimeout(function(){bloggerShow(table2);},100);
+            setTimeout(function(){bloggerShow(table);},100);
             
-            $(table2).animate({'left' : '0vw'},200);
-            $(table).animate({'left' : '0vw'},200);
+            $(table2).animate({'left' : '0vw'},100);
+            $(table).animate({'left' : '0vw'},100);
 
 
           function bloggerShow(table) {
@@ -952,8 +952,10 @@ function bloggerCatFilter(innerHTML) {
         //fade all tiles when array changed
         table = document.querySelector('#blogger');
         table2 = document.querySelector('#blog');
-        bloggerClear(table);
-        bloggerClear(table2);
+
+        setTimeout(function(){bloggerClear(table);},100);
+        setTimeout(function(){bloggerClear(table2);},100);
+        
         
         
         //filter by variable for any matching bloggers/blogs
@@ -961,16 +963,16 @@ function bloggerCatFilter(innerHTML) {
                   table = document.querySelector('#blogger');
                   table2 = document.querySelector('#blog');
                   
-                  $(table2).animate({'left' : '-100vw'},200);
+                  $(table2).animate({'left' : '-100vw'},100);
                   $(table2).animate({'left' : '100vw'},1);
-                  $(table).animate({'left' : '-100vw'},200);
+                  $(table).animate({'left' : '-100vw'},100);
                   $(table).animate({'left' : '100vw'},1);
 
-                  setTimeout(function(){searchTableB(table2, input);},200);
-                  setTimeout(function(){searchTableB(table, input);},200);
+                  setTimeout(function(){searchTableB(table2, input);},100);
+                  setTimeout(function(){searchTableB(table, input);},100);
             
-                  $(table2).animate({'left' : '0vw'},200);
-                  $(table).animate({'left' : '0vw'},200);
+                  $(table2).animate({'left' : '0vw'},100);
+                  $(table).animate({'left' : '0vw'},100);
 
 
 
