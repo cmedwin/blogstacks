@@ -371,17 +371,18 @@ window.onload = function() {
           
           table = document.querySelector('#blogger');
           table2 = document.querySelector('#blog');
+          bloggerBody = document.querySelector('#bloggerBody');
 
             $(table2).animate({'left' : '100vw'},100);
             $(table2).animate({'left' : '-100vw'},1);
-            $(table).animate({'left' : '100vw'},100);
-            $(table).animate({'left' : '-100vw'},1);
+            $(bloggerBody).animate({'left' : '100vw'},100);
+            $(bloggerBody).animate({'left' : '-100vw'},1);
             
             setTimeout(function(){bloggerShow(table2);},100);
             setTimeout(function(){bloggerShow(table);},100);
             
             $(table2).animate({'left' : '0vw'},100);
-            $(table).animate({'left' : '0vw'},100);
+            $(bloggerBody).animate({'left' : '0vw'},100);
 
 
           function bloggerShow(table) {
@@ -962,17 +963,18 @@ function bloggerCatFilter(innerHTML) {
           var input = bloggerArray,
                   table = document.querySelector('#blogger');
                   table2 = document.querySelector('#blog');
+                  bloggerBody = document.querySelector('#bloggerBody');
                   
                   $(table2).animate({'left' : '-100vw'},100);
                   $(table2).animate({'left' : '100vw'},1);
-                  $(table).animate({'left' : '-100vw'},100);
-                  $(table).animate({'left' : '100vw'},1);
+                  $(bloggerBody).animate({'left' : '-100vw'},100);
+                  $(bloggerBody).animate({'left' : '100vw'},1);
 
                   setTimeout(function(){searchTableB(table2, input);},100);
                   setTimeout(function(){searchTableB(table, input);},100);
             
                   $(table2).animate({'left' : '0vw'},100);
-                  $(table).animate({'left' : '0vw'},100);
+                  $(bloggerBody).animate({'left' : '0vw'},100);
 
 
 

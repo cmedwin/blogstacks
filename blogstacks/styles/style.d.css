@@ -87,7 +87,7 @@ body {
           }
 
           .header {
-              z-index: 1000;
+              z-index: 1100;
               position: fixed;
               width: calc(100% - 12px);
               height: 48px;
@@ -96,8 +96,7 @@ body {
               padding-right: 4px;
               padding-bottom: 8px;
               padding-top: 8px;
-              /*box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);*/
-              border-bottom: solid 5px #cfcfcf;
+              box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
           }
 
           @media screen and (max-width: 660px) {
@@ -1192,7 +1191,9 @@ body {
   #blogger {
     /*direction: rtl;*/
     top: 69px;
-    border-top: solid white 10px;
+    left: calc(10% + 14px);
+    /*border: solid 2px #cfcfcf;*/
+    border-radius: 4px;
     background: white;
     z-index: 1000;
     white-space: nowrap;
@@ -1200,10 +1201,9 @@ body {
     /*left: 50%;*/
     position: fixed;
     will-change: transform;
-    /*width: 180px;
-    max-width: 180px;*/
-    width: 100%;
-    margin-top: 0px;
+    /*max-width: 180px;*/
+    width: calc(80% - 28px);
+    margin-top: 10px;
     margin-bottom: 10px;
     /*margin-right: 16px;
     margin-left: 16px;*/
@@ -1236,6 +1236,13 @@ body {
     -webkit-transition: translate3d(0, 0, 0) !important;
     -webkit-timing-function: cubic-bezier(0.42, 0, 0.58, 1.0);
     -webkit-transition: translateZ(0);*/
+    box-shadow: inset 0 4px 5px 0 rgba(0,0,0,0.14), inset 0 1px 10px 0 rgba(0,0,0,0.12), inset 0 2px 4px -1px rgba(0,0,0,0.2);
+  }
+  @media screen and (max-width: 425px) {
+    #blogger { 
+      width: calc(90% - 28px);
+      left: calc(5% + 14px);
+    }
   }
 
   /*handles full blogger stack location through screen size chnges*/
@@ -1282,7 +1289,7 @@ body {
   #blogger thead {
     direction: ltr;
     
-    display: inline-block;
+    display: none;
     line-height:15px;
     height: 100px;
     max-width: 894px;
@@ -1291,6 +1298,8 @@ body {
     margin-right: -57px;
     overflow: hidden;
     vertical-align: top;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   #blogger tbody {
@@ -1303,7 +1312,8 @@ body {
     /*margin:0 auto;*/
     margin-left: 5px;
     margin-right: 5px;
-    
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   #blogger thead tr {
@@ -1314,9 +1324,8 @@ body {
 
   #blogger tfoot {
     display: block;
-    margin-top: 10px;
-    height: 5px;
-    background: #cfcfcf;
+    height: 0px;
+    
   }
 
   #blogger tr {
@@ -1360,7 +1369,7 @@ body {
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 200px;
+    top: 212px;
     /*height: calc(100% - 64px + 9px);*/
     height: auto;
     /*left: 50%;*/
@@ -1405,7 +1414,7 @@ body {
   /* Adjust stack header spacer as screen size reduces - Phone Devices*/
       @media screen and (max-width: 660px) {
       #blog {
-        top: 234px;
+        top: 246px;
         height: calc(100% - 231px - 9px);
         }
       }
@@ -1563,12 +1572,12 @@ body {
       /* 2 columns for medium devices */ 
         @media screen and (min-width: 481px) and (max-width: 700px) {
             #blog tbody {
-              width: calc(100% - 4px);
+              width: calc(100% - 0px);
               
             }
             
             #blog tr {
-              width: calc(50% - 23px);
+              width: calc(50% - 24px);
             }
 
             #blog tr:first-child {
@@ -1599,12 +1608,12 @@ body {
         /* 3 columns for medium devices */ 
         @media screen and (min-width: 701px) and (max-width: 937.5px) {
           #blog tbody {
-            width: calc(100% - 4px);
+            width: calc(100% - 0px);
             
           }
           
           #blog tr {
-            width: calc(33.33333% - 23px);
+            width: calc(33.33333% - 21.5px);
           }
         }
 
@@ -1758,7 +1767,7 @@ body {
     );
   }
 
-  @media screen and (max-width: 450px) {
+  /*@media screen and (max-width: 450px) {
     .titler {
       background: linear-gradient(
       hsla(0, 0%, 0%,0.0) 0%,
@@ -1785,7 +1794,7 @@ body {
     );
     }
 
-  }
+  }*/
   
 
   .authorG {
