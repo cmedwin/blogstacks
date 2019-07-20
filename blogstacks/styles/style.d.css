@@ -104,8 +104,8 @@ body {
           /*to accomodate mobile view*/
           @media screen and (max-width: 480px) {
             .header { 
-              width: calc(100% - 28px - 12px);
-              left: calc(14px);
+              width: 100%;
+              left: 0px;
             }
           }
           /* to adjust left border once header width becomes fixed*/
@@ -485,7 +485,7 @@ body {
               left: calc(10% + 14px);
               border-radius: 4px;
               z-index: 1100;
-              height: 120px;
+              height: 132px;
               position: fixed;
               max-width: 772px;
               width: calc(80% - 28px);
@@ -494,8 +494,9 @@ body {
             /*to adjust for mobile view*/
             @media screen and (max-width: 480px) {
               #searchhead { 
-                width: calc(100% - 28px);
-                left: calc(14px);
+                width: 100%;
+                left: 0px;
+                border-radius: 0px;
               }
             }
             /* to adjust left border once header width becomes fixed*/
@@ -519,10 +520,9 @@ body {
               }
             }
             .search {
-              
+              display: none;
               position: relative;
               z-index:800;
-              top: 30px;
               width: calc(100% - 5px); /* Full-width */
               height: 46px;
               max-height: 46px;
@@ -591,6 +591,7 @@ body {
               box-shadow: none;
               vertical-align: middle;
               overflow: auto;
+              background: transparent;
             }
 
             #myInput::placeholder{
@@ -604,7 +605,7 @@ body {
 
             #searchIcon {
               border: none;
-              background: white;
+              background: transparent;
               width: 49px;
               height: 100%;
               cursor: pointer;
@@ -706,6 +707,7 @@ body {
         height: 100%;
         width: calc(100% - 59px);
         overflow-x: scroll;
+        float: right;
       }
 
 
@@ -719,7 +721,7 @@ body {
   
       #stackMenu {
         display:block;
-        display:none;
+        
         position: relative;
         height: 100%;
         white-space: nowrap;
@@ -733,21 +735,28 @@ body {
 
 
       #stackMenu button {
-        padding-top: calc(100px - 18px - 5px);
+        /*padding-top: calc(100px - 18px - 5px);*/
         padding-left: 0px;
         padding-right:0px;
         padding-bottom: 5px;
-        width: 100px;
-        margin: 10px;
+        width: 60px;
+        height: 100px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-left: 5px;
+        margin-right: 5px;
         vertical-align: top;
         border-radius: 4px;
         /*float:left;*/
         color: white;
+        word-break: break-word;
+        white-space: normal;
+        line-height: 1.0;
         border: 0px;
         box-shadow: 0 1px 6px rgba(32,33,36,0.28);
         background-size: cover;
         background-position: center;
-        font-size: 14px;
+        font-size: 12px;
         font-family: 'Abel', arial, helvetica, sans-serif;
         cursor: pointer;
       }
@@ -1217,8 +1226,8 @@ body {
     /*margin:0 auto;*/
     margin-left: 5px;
     margin-right: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
   #blogger thead tr {
@@ -1234,7 +1243,7 @@ body {
   }
 
   #blogger tr {
-    width: 100px;
+    width: 60px;
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
@@ -1274,7 +1283,7 @@ body {
 
   #blog::-webkit-scrollbar { width: 0 !important }
   #blog {
-    top: 190px;
+    top: 202px;
     /*height: calc(100% - 64px + 9px);*/
     height: auto;
     /*left: 50%;*/
@@ -1578,7 +1587,7 @@ body {
 }*/
 
   .imageR {
-    padding-bottom: 100%;
+    padding-bottom: 166.66%;
     border-radius: 4px;
     /*border-top: 1px solid #373737;*/
     width: 100%;
@@ -1810,19 +1819,20 @@ body {
   
 
   .desc_r {
-    position: absolute;
     bottom: 5px;
-    width: calc(100% - 16px);
+    width: calc(100% - 8px);
+    height: 95px;
     margin: 0px;  
-    padding-left: 6px; 
-    padding-right: 6px; 
-    padding-top: calc(100% - 38px);
-    padding-bottom: 0px;
+    padding-left: 4px; 
+    padding-right: 4px; 
+    padding-top: 0px;
+    padding-bottom: 5px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 11px;
     text-shadow: 0px -2px 4px #000000;
     line-height: 1.1;
     overflow: hidden;
+    white-space: normal;
     word-wrap: break-word;
     /*display: -webkit-box;*/
     display: table-cell;
